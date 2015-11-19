@@ -1,0 +1,86 @@
+package orph2obo;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+/**
+ * Class representing the information in a RareDisease XML stanza. See the code for the class
+ * OrphaXRefXMLParser to get an idea of how objects of this class are constructed. */
+public class RareDisease {
+    
+    /** The name of the disease */
+    private String name=null;
+    /** The orphanet ID for this rare disease*/
+    private String orphanum=null;
+    /** The reference for this rare disease*/
+    private String reference=null;
+    /** Prevalence class of this disease, a String such as "1-5/10,000"; */
+    private String prevalence = null;
+    /** each disorder has one expert link for this disease */
+    private String expert_link_list=null;
+    /** List of genes for this disease */
+    private ArrayList<Gene> genelist;
+    /** List of externalm references. */
+    private ArrayList<ExternalReference> xref_list=null;
+    /** Parents (ids) */
+    private ArrayList<String> isa_list=null;
+
+    public String get_orphanum() { return this.orphanum; }
+    public void setOrphanum(String num) { this.orphanum = num; }
+
+    public void addExpertLink(String link) { this.expert_link_list = link; 
+    //System.out.println(expert_link_list); 
+    }
+    
+
+    public void setName(String s) { this.name = s;}
+    public String getName() { return this.name; }
+
+   
+    
+    public void  setReference(String ref) { this.reference = ref; }
+    public String getReference() { return this.reference ; }
+  
+    public void  setPrevalenceClass(String p) { this.prevalence = p; }
+    public String getPrevalenceClass() { return this.prevalence ; }
+
+    public void add_genes(ArrayList<Gene> genes) {
+	for(Gene g : genes)
+	    this.genelist.add(g);
+    }
+
+    public void addExternalReference(ExternalReference xr) {
+	this. xref_list.add(xr);
+    }
+
+    public void add_is_a_link(String parnt) { this.isa_list.add(parnt); }
+
+
+    public RareDisease() {
+	//this.expert_link_list = new ArrayList<String> ();
+	this.genelist = new ArrayList<Gene> ();
+	this.xref_list = new  ArrayList<ExternalReference> ();
+	this.isa_list = new ArrayList<String> ();
+    }
+
+    
+    public String getDXRString(HashMap<String,RareDisease> xrefs) {
+	StringBuilder sb = new StringBuilder();
+	sb.append("\n[Term]\n");
+	sb.append("id: OrphaNum:" +  this.orphanum +  "\n");
+	sb.append("name:" + this.name + "\n");
+	sb.append("comment: prevalence- " + this.prevalence + "\n");
+	/**the problem with the expert is link due to the fault in the XML file. Need to use amp not the symbol*/
+	sb.append("comment: Expert Link -http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&" + this.expert_link_list + "\n");
+	Gene gen = new Gene();
+	String gene = gen.toString();
+	sb.append(gene);
+	ExternalReference exref = new ExternalReference();
+	String string = exref.toString();
+	sb.append(string);
+	return sb.toString();
+
+    }
+
+
+}

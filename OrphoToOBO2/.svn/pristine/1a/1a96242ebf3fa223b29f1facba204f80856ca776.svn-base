@@ -1,0 +1,194 @@
+package orph2obo;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+/**
+ * Class representing the information in a RareDisease XML stanza. See the code for the class
+ * OrphaXRefXMLParser to get an idea of how objects of this class are constructed. */
+public class RareDisease {
+    
+    /** The name of the disease */
+    private String name=null;
+    /**Disorder id- the internal id for orphanet*/
+    private String orphID = null;
+    /** The orphanet ID for this rare disease*/
+    private String orphanum=null;
+    /** The reference for this rare disease*/
+    private String reference=null;
+    /** Prevalence class of this disease, a String such as "1-5/10,000"; */
+    private String prevalence = null;
+    /**AgeofOnset for a disease*/
+    private String ageOfOnset = null;
+    /**AgeOfDeath for a disease*/
+    private String ageOfDeath = null;
+    /**Count of exrefs for genes*/
+    private ArrayList<String> count;
+    /**list of gene symbol*/
+    private ArrayList<String> symbol = null;
+    /**Mode of Inheritance*/
+    private ArrayList<String> inheritance = null;
+   /**Synonym for disease*/
+    private ArrayList<String> synonym = null;
+    /** each disorder has one expert link for this disease */
+    private String expert_link_list=null;
+    /** List of Sources and refernces for external ref for the disease*/
+    private ArrayList<String> sourceList;
+    private ArrayList<String> refList;
+    /** List of names of genes for this disease */
+    private ArrayList<String> genelist;
+    /**list of gene orphanumbers**/
+    private ArrayList<String> geneNum;
+    /**list of gene xref sources */
+    private ArrayList<String> gsources;
+    /**list of gene xref references*/
+    private ArrayList<String> grefs;
+    /** List of external references count for genes. */
+    private ArrayList<ExternalReference> xref_list;
+    /** Parents (ids) */
+    private ArrayList<String> isa_list=null;
+
+    public String get_orphanum() { return this.orphanum; }
+    public void setOrphanum(String num) { this.orphanum = num; }
+    public void setID (String id) { this.orphID = id; }
+
+    public void addExpertLink(String link) { this.expert_link_list = link; 
+    //System.out.println(expert_link_list); 
+    }
+    
+
+    public void setName(String s) { this.name = s;}
+    public String getName() { return this.name; }
+
+   
+    
+    public void  setReference(String ref) { this.reference = ref; }
+    public String getReference() { return this.reference ; }
+  
+    public void  setPrevalenceClass(String p) { this.prevalence = p; }
+    public String getPrevalenceClass() { return this.prevalence ; }
+    
+    public void setAgeOfOnset (String onset){ this.ageOfOnset = onset;}
+    public void setAgeOfDeath (String death) { this.ageOfDeath = death;}
+    
+    public void setSymbol (String symb){ this.symbol.add(symb);}
+    
+    
+    public void setInheritance ( String inherit){
+    	this.inheritance.add(inherit);
+    	}
+    
+	
+    public void setSynonym (String syn){
+		this.synonym.add(syn);
+	}
+
+    public void add_genes(String genes) {
+	
+	    this.genelist.add(genes);
+    }
+
+    public void add_geneNum (String gnum){
+    	this.geneNum.add(gnum);
+    }
+    
+    public void addExternalReference(ExternalReference xr) {
+	this. xref_list.add(xr);
+    }
+
+    public void addSource (String sr){
+    	this.sourceList.add(sr);
+    }
+    
+    public void addRef(String re){
+    	this.refList.add(re);
+    }
+    
+    public void setExRefCount(String erc){
+    	//System.out.println("erc" + erc);
+    	this.count.add(erc);
+    }
+    
+    public void setGeneSource( String gs){
+    	this.gsources.add(gs);
+    	//System.out.println(gsources.isEmpty());
+    }
+    
+    public void setGeneRefs(String gr){
+    	this.grefs.add(gr);
+    }
+    
+    public void add_is_a_link(String parnt) { this.isa_list.add(parnt); }
+
+
+    public RareDisease() {
+	//this.expert_link_list = new ArrayList<String> ();
+	this.genelist = new ArrayList<String> ();
+	this.xref_list = new  ArrayList<ExternalReference> ();
+	this.isa_list = new ArrayList<String> ();
+	this.inheritance = new ArrayList<String>();
+	this.synonym = new ArrayList<String> ();
+	this.sourceList = new ArrayList<String> ();
+	this.refList = new ArrayList<String>();
+	this.symbol = new ArrayList<String>();
+	this.geneNum = new ArrayList<String>();
+	this.gsources = new ArrayList<String>();
+	this.grefs = new ArrayList<String> ();
+	this.count= new ArrayList<String>();
+    }
+
+    
+    public String getDXRString(HashMap<String,RareDisease> xrefs) {
+	StringBuilder sb = new StringBuilder();
+	sb.append("\n[Term]\n");
+	sb.append("id: OrphaNum:" +  this.orphanum +  "\n");
+	sb.append("name:" + this.name + "\n");
+	sb.append("comment: Orphanet ID- " + this.orphID + "\n");
+	sb.append("comment: prevalence- " + this.prevalence + ";" + " AgeOfOnset- "+ this.ageOfOnset + ";"+ " AgeOfDeath-" + this.ageOfDeath + ";");
+	if (! this.inheritance.isEmpty()){
+		for (int i= 0; i< this.inheritance.size(); i++){
+		sb.append(" Inheritance- "+ this.inheritance.get(i) + ";");}
+	}
+	/**the problem with the expert is link due to the fault in the XML file. Need to use amp not the symbol*/
+	sb.append(" \ncomment: Expert Link -http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&" + this.expert_link_list);
+	
+	/** printing out the genes comment*/
+	int start = 0;
+	if(! this.genelist.isEmpty()){
+		for( int i =0; i<this.genelist.size(); i++){
+			sb.append("\ncomment: Gene [OrphaNum:"+ this.geneNum.get(i)+ " ;  Name:" + this.genelist.get(i) + " ;  Symbol:" + this.symbol.get(i));
+			int cnt = Integer.parseInt(this.count.get(i));
+		if(!this.gsources.isEmpty()){
+			for (int j= start; j< (cnt+start); j++){
+				sb.append(" ; xref: " + this.gsources.get(j) +":" + this.grefs.get(j));
+				 }
+			}
+			start = (cnt + start);
+			sb.append("]");
+		}
+	}
+	
+	
+	/**Printing out the synonyms of the disease*/
+	if (! this.synonym.isEmpty()){
+	for( int i=0; i< this.synonym.size(); i++){
+	sb.append("\nsynonym: "+ this.synonym.get(i) );}}
+	
+	/**printing out the disease xrefs*/
+	if (!this.sourceList.isEmpty()){
+		for (int i=0; i<this.sourceList.size(); i++){
+			sb.append("\n xref: " + this.sourceList.get(i) + ":" + this.refList.get(i) );
+		}
+		
+	}
+	if (!this.isa_list.isEmpty()){
+		for ( int i= 0; i<1; i++){
+			sb.append("\nis_a : Orphanum:" + this.isa_list.get(i) + "\n");
+		}
+	}
+	return sb.toString();
+
+    }
+
+
+}

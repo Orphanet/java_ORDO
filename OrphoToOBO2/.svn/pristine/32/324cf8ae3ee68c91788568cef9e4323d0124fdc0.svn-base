@@ -1,0 +1,159 @@
+package orph2obo;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+/**
+ * Parse the file "http://www.orphadata.org/data/xml/en_product2.xml"
+ * from the Orphadata website
+ * @author peter
+ *
+ */
+public class OrphaEpidemiologyXMLParser extends DefaultHandler {
+	private String tempVal;
+	private RareDisease currentDisease;
+	private HashMap<String,RareDisease> diseases;
+	private boolean within_ClassOfPrevalence = false;
+	private boolean within_AgeOfOnset = false;
+	private boolean within_AgeOfDeath = false;
+	private boolean within_Inheritance = false;
+	
+
+	public void parseDocument(String XMLFilePath,HashMap<String,RareDisease> dis ) {
+		System.out.println("Parsing: " + XMLFilePath);
+		this.diseases = dis;
+		//System.out.println("Set up disease = size = " + diseases.size());
+		SAXParserFactory spf = SAXParserFactory.newInstance();
+		try {
+			SAXParser sp = spf.newSAXParser();
+			//XMLReader xmlReader = sp.getXMLReader();
+			//xmlReader.parse(XMLFilePath);
+			//System.out.println("you are here");
+			sp.parse(XMLFilePath, this);
+
+		}catch(SAXException se) {
+			se.printStackTrace();
+		}catch(ParserConfigurationException pce) {
+			pce.printStackTrace();
+		}catch (IOException ie) {
+			ie.printStackTrace();
+		}
+	}
+	
+    //Event Handlers
+    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+	//reset
+	tempVal = "";
+	if(qName.equalsIgnoreCase("Disoder")) {
+	    currentDisease = null; // reset.
+	} else if (qName.equalsIgnoreCase("ClassOfPrevalence")){
+	   /** for (int i=0; i<attributes.getLength(); i++) {
+		String name = attributes.getQName(i);
+		if (name.equals("id")) {
+		    String value = attributes.getValue(i);
+		    // System.out.println("\t"+value);
+		    String prev = null;
+		    if (value.equals("12360")) {
+			prev = "<1/1,000,000";
+		    } else if (value.equals("12366")) {
+			prev = "unknown";
+		    } else if (value.equals("12354")) {
+			prev = "1-9/1,000,000";
+		    } else if (value.equals("12348")) {
+			prev = "1-9/100,000";
+		    } else if (value.equals("12342")) {
+			prev = "1-5/10,000";
+		    } else if (value.equals("12372")) {
+			prev = "No data available";
+		    }  else if (value.equals("12330")) {
+			prev = ">1/1000";**/
+		within_ClassOfPrevalence = true;
+		} else if (qName.equalsIgnoreCase("AverageAgeOfOnset")){
+		within_AgeOfOnset = true;
+		} else if (qName.equalsIgnoreCase("AverageAgeOfDeath")){
+		within_AgeOfDeath = true;	
+		} else if (qName.equalsIgnoreCase("TypeOfInheritance")){
+		within_Inheritance = true;
+		}
+		    
+		    
+		   /** else {
+			System.out.println("Unknown prevalence class " + value);
+			System.exit(1);
+		    }**/
+	
+		    ;
+		}
+	    
+    
+    
+
+		public void characters(char[] ch, int start, int length) throws SAXException {
+			tempVal = new String(ch,start,length);
+			//System.out.println("Tempval = " + tempVal);
+		}
+
+		public void endElement(String uri, String localName,
+			String qName) throws SAXException {
+			//System.out.println("you are here -"+ qName);
+
+			if (qName.equalsIgnoreCase("OrphaNumber")) {
+				setOrphanum(tempVal);
+			}
+			else if(qName.equalsIgnoreCase("ClassOfPrevalence")){
+				within_ClassOfPrevalence = false;
+				
+			}
+				else if (qName.equalsIgnoreCase("Name") && within_ClassOfPrevalence){
+					currentDisease.setPrevalenceClass(tempVal);
+					
+			} 
+				else if (qName.equalsIgnoreCase("AverageAgeOfOnset")){
+					within_AgeOfOnset = false;
+				}
+				else if (qName.equalsIgnoreCase("Name") && within_AgeOfOnset){
+					currentDisease.setAgeOfOnset(tempVal);
+				}
+				else if (qName.equalsIgnoreCase("AverageAgeOfDeath")){
+					within_AgeOfDeath = false;
+				}
+				else if (qName.equalsIgnoreCase("Name") && within_AgeOfDeath){
+					currentDisease.setAgeOfDeath(tempVal);
+				}
+				else if ( qName.equalsIgnoreCase("TypeOfInheritance")){
+					within_Inheritance = false;
+				}
+				else if (qName.equalsIgnoreCase("Name") &&  within_Inheritance){
+					currentDisease.setInheritance (tempVal);
+				}
+		}
+
+    private void setOrphanum(String orphID) {
+	currentDisease = this.diseases.get(orphID);
+	//System.out.println("CurrentDisease=" + currentDisease);
+	if (currentDisease == null) {
+		//System.out.println("You are here");
+	    Iterator<String> it = this.diseases.keySet().iterator();
+	    while (it.hasNext()) {
+		String s = it.next();
+		RareDisease dxr = this.diseases.get(s);
+		System.out.println(s + ":" + dxr.getName());
+		
+	    }
+	    System.err.println("Parsing Epidemiology File: Could not fetch OrphaID: " + orphID);
+	    System.exit(1);
+	}
+	
+    }
+
+
+}

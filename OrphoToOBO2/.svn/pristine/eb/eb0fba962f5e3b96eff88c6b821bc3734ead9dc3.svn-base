@@ -1,0 +1,118 @@
+package orph2obo;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+/**
+ * This class is for parsing the Orphanet cross ref file, i.e., 
+ * "http://www.orphadata.org/data/xml/en_product1.xml";
+ * It is meant to return a HashMap with orphanumber and  Disease2XRef objects,
+ * each of which represents one of the <Disease> stanzas of the
+ * XML file.
+ * @author peter
+ *
+ */
+public class OrphaXRefXMLParser extends DefaultHandler {
+	
+    private String tempVal;
+    /** A temporary stanza object used for parsing. It accumulates the values needed to construct a rare disease object. */
+    private RareDisease tmpDisXref;
+    private ExternalReference tmpExtRef;
+    /** This variable is true if the SAX parser is currently in an external reference element. */
+    private boolean within_externalReferenceElement = false;
+    /** List of Rare disease objects. */
+    @SuppressWarnings("unused")
+	private ArrayList<RareDisease> classes;
+    private HashMap<String,RareDisease> diseaseXRefs;
+	
+	
+	public OrphaXRefXMLParser() {
+		this.diseaseXRefs = new HashMap<String,RareDisease> ();
+	}
+	
+	public HashMap<String,RareDisease> getXrefHashMap() {
+		return this.diseaseXRefs;
+	}
+	
+
+	public void parseDocument(String XMLFilePath) {
+	    System.out.println("Parsing: " + XMLFilePath);
+	    
+	    SAXParserFactory spf = SAXParserFactory.newInstance();
+	     try {
+		SAXParser sp = spf.newSAXParser();
+		//XMLReader xmlReader = sp.getXMLReader();
+		//xmlReader.parse(XMLFilePath);
+		sp.parse(XMLFilePath, this);
+		//System.out.println("you have reached here");
+	    }catch(SAXException se) {
+		se.printStackTrace();
+	    }catch(ParserConfigurationException pce) {
+		pce.printStackTrace();
+	    }catch (IOException ie) {
+		ie.printStackTrace();
+	    }
+	}
+
+    //Event Handlers
+    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+	//reset
+	tempVal = "";
+	if(qName.equalsIgnoreCase("Disorder")) {
+	    tmpDisXref = new RareDisease();
+	    tmpDisXref.setID(attributes.getValue("id"));
+	} else if (qName.equalsIgnoreCase("ExternalReference")){
+	    this.tmpExtRef = new ExternalReference();
+	    within_externalReferenceElement = true;
+	}
+    }
+    
+    
+    public void characters(char[] ch, int start, int length) throws SAXException {
+	tempVal = new String(ch,start,length);
+	//System.out.println(ch);
+    }
+    
+    public void endElement(String uri, String localName,
+			   String qName) throws SAXException {
+	
+	if(qName.equalsIgnoreCase("Disorder")) {
+	    String orphnum = tmpDisXref.get_orphanum();
+	   // System.out.println("orphanum="+ orphnum + "Value="+ tmpDisXref);
+	    this.diseaseXRefs.put(orphnum, tmpDisXref);
+	}else if (qName.equalsIgnoreCase("Orphanumber")) {
+	    tmpDisXref.setOrphanum(tempVal);
+	   
+	}else if (qName.equalsIgnoreCase("ExpertLink")) {
+		//System.out.println(tempVal);
+	    tmpDisXref.addExpertLink(tempVal);
+	}else if (qName.equalsIgnoreCase("Name")) {
+	    tmpDisXref.setName(tempVal);
+	}else if (qName.equalsIgnoreCase("Synonym")){
+		tmpDisXref.setSynonym(tempVal);
+	}else if (qName.equalsIgnoreCase("ExternalReference")){
+	    within_externalReferenceElement = false;
+	    tmpDisXref.addExternalReference(tmpExtRef);
+	} else if (within_externalReferenceElement && 
+		   qName.equalsIgnoreCase("Source")){
+	    this.tmpExtRef.setSource(tempVal);
+	} else if (within_externalReferenceElement && 
+		   qName.equalsIgnoreCase("Reference")){
+	    this.tmpExtRef.setReference(tempVal);
+	}
+	
+    }
+
+	
+
+
+}

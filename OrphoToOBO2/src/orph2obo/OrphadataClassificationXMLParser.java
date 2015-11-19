@@ -1,0 +1,163 @@
+package orph2obo;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.Stack;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import orph2obo.RareDisease;
+
+/**
+ * This class parses all the classification data files
+ * that are present at the orphanet
+ */
+public class OrphadataClassificationXMLParser extends DefaultHandler {
+	private String currentDiseaseID;
+	private String currentExpLink;
+	private String tempVal;
+	private String currentName;
+	private String currentOrphanum;
+	private HashMap<String,RareDisease> diseaseXRefs;
+	private Stack<String> orphanum_stack;
+	private String last_orphanum;
+	private boolean rareGenetic = false;
+	private static Set<String> rareOrpha = new HashSet<String>();
+	
+	
+	public OrphadataClassificationXMLParser() {
+		orphanum_stack = new Stack<String>();
+		this.last_orphanum = null;
+	}
+	
+	
+/**
+ * This method parses the Classifiaction files.
+ * Its main aim is to extract the parent-child relationship for a particular disease
+ * and passes this information to the rare disease class
+ * @param XMLFilePath
+ * @param disXRefs
+ */
+    public void parseDocument(String XMLFilePath,HashMap<String,RareDisease> disXRefs) {
+	System.out.println("Parsing: " + XMLFilePath);
+	if (XMLFilePath.contains("en_product3_156.xml")){
+		rareGenetic = true;
+	}
+	diseaseXRefs = disXRefs;
+	SAXParserFactory spf = SAXParserFactory.newInstance();
+	try {
+	    SAXParser sp = spf.newSAXParser();
+	    sp.parse(XMLFilePath, this);
+	}catch(SAXException se) {
+	    se.printStackTrace();
+	}catch(ParserConfigurationException pce) {
+	    pce.printStackTrace();
+	}catch (IOException ie) {
+	    ie.printStackTrace();
+	}
+    }
+    
+    /**
+     *  If we start the element <ClassificationNodeChildList> then we need to
+     *  push the current Orphanum of the surrounding element onto the stack.
+     */
+    public void startElement(String uri, String localName, String qName, Attributes attributes) 
+	throws SAXException {
+	tempVal = ""; /* reset */
+	if(qName.equalsIgnoreCase("ClassificationNodeChildList")) {
+	    this.orphanum_stack.push(currentOrphanum);
+	  //String count = attributes.getValue("count");
+	} if (qName.equalsIgnoreCase("Disorder")){
+		this.currentDiseaseID = attributes.getValue("id");
+		
+	}
+    }
+    
+    
+    public void characters(char[] ch, int start, int length) throws SAXException {
+	tempVal = new String(ch,start,length);
+    }
+    
+    /** Uses a stack to keep track of the disease orphanum of the enclosing element. */
+    public void endElement(String uri, String localName, String qName) throws SAXException {
+	
+	
+	if(qName.equalsIgnoreCase("ClassificationNodeChildList")) {
+	    /* When we finish a classification node child list, 
+	     * we go to the next upper level of the disease hierarchy.*/
+	    //debugstack();
+	    this.orphanum_stack.pop();	
+	} else if (qName.equalsIgnoreCase("Name")) {
+	    this.currentName = tempVal;
+	    RareDisease dxr =  diseaseXRefs.get(currentOrphanum);
+	    if (dxr == null) { /* make sure everthing is in hashmap */
+		dxr = new RareDisease();
+		dxr.setName(currentName);
+		dxr.setOrphanum(currentOrphanum);
+		dxr.setID(currentDiseaseID);
+		dxr.setExpertLink(currentExpLink);
+		diseaseXRefs.put(currentOrphanum, dxr);
+	    }
+	} else if (qName.equalsIgnoreCase("Orphanumber")) {
+	    this.currentOrphanum = tempVal;	
+	    	if(rareGenetic){
+	    		rareOrpha.add(tempVal);//collecting rare genetic classification orphanums to extract the module 
+	    	}
+	    
+	} else if (qName.equalsIgnoreCase("Disorder")) {
+	    //debugstack();
+		/**
+	    if (orphanum_stack.isEmpty()) { /**this will always be true for the end of a file */
+		/**
+		System.out.println("Error: orphanum_stack is empty");
+		int line = Orph2OBO.getLineNumber();
+		System.out.println("OrphadataClassificationXMLParser: line=" + line);
+		System.out.println("For name = " + currentName + " and orphanum = " + currentOrphanum);
+		//System.exit(1);
+		orphanum_stack.push("");
+	    }*/
+		if (!orphanum_stack.isEmpty()){
+	    last_orphanum = this.orphanum_stack.peek();
+	    RareDisease dxr =  diseaseXRefs.get(currentOrphanum);
+	    if (dxr != null) {
+		dxr.add_is_a_link(last_orphanum);
+	    } else { /* We have never seen this orphanum before. */
+		dxr = new RareDisease();
+		dxr.setOrphanum(currentOrphanum);
+		dxr.setName(currentName);
+		dxr.add_is_a_link(last_orphanum);
+		diseaseXRefs.put(currentOrphanum, dxr);}
+	    }/* end Disease */
+	} else if (qName.equalsIgnoreCase("ExpertLink")) {
+		this.currentExpLink = tempVal;	
+	}
+    } 
+    
+		
+    @SuppressWarnings("unused")
+	private void debugstack() {
+	Iterator<String> it = orphanum_stack.iterator();
+	int i=1;
+	System.out.println("STACK");
+	while (it.hasNext()) {
+	    String s = it.next();
+	    System.out.println(i + ":" + s);
+	    ++i;
+	}
+    }
+    
+    
+    public Set<String> getRareGeneOrpha(){
+		return rareOrpha;
+    	
+    }
+}

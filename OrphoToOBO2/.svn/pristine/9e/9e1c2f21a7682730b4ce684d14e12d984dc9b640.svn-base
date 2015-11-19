@@ -1,0 +1,122 @@
+package orph2obo;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+/**
+ * Parse 	http://www.orphadata.org/data/xml/en_product6.xml 	
+ * i.e., diseases and their associated genes.
+ * @author peter
+ *
+ */
+public class OrphaGenesXMLParser extends DefaultHandler {
+	private String tempVal;
+	private RareDisease currentDisease;
+	private HashMap<String,RareDisease> diseases;
+	private Gene tmpGene;
+	private ExternalReference tmpExtRef;
+	private boolean in_gene_node = false;
+	private boolean within_externalReferenceElement = false;
+	private ArrayList<Gene> genes;
+	/** list of sources and references for the genes */
+	
+	
+	
+	public OrphaGenesXMLParser () {
+		
+	}
+	
+	public void parseDocument(String XMLFilePath,HashMap<String,RareDisease> dis ) {
+		System.out.println("Parsing: " + XMLFilePath);
+		this.diseases = dis;
+		//System.out.println("Set up disease = size = " + diseases.size());
+		SAXParserFactory spf = SAXParserFactory.newInstance();
+		try {
+			SAXParser sp = spf.newSAXParser();
+			sp.parse(XMLFilePath, this);
+		}catch(SAXException se) {
+			se.printStackTrace();
+		}catch(ParserConfigurationException pce) {
+			pce.printStackTrace();
+		}catch (IOException ie) {
+			ie.printStackTrace();
+		}
+	}
+	
+	//Event Handlers
+	public void startElement(String uri, String localName, String qName,
+			Attributes attributes) throws SAXException {
+			//reset
+			tempVal = "";
+			if(qName.equalsIgnoreCase("Disorder")) {
+				currentDisease = null; // reset
+			} else if (qName.equalsIgnoreCase("GeneList")){
+				genes = new ArrayList<Gene>(); // reset
+			} else if (qName.equalsIgnoreCase("Gene")){
+				in_gene_node=true;
+				tmpGene = new Gene();
+			} else if (qName.equalsIgnoreCase("ExternalReference")){
+				this.tmpExtRef = new ExternalReference();
+				within_externalReferenceElement = true;
+			}else if (qName.equalsIgnoreCase("ExternalReferenceList")){
+				currentDisease.setExRefCount(attributes.getValue("count"));
+			}
+		}
+
+
+		public void characters(char[] ch, int start, int length) throws SAXException {
+			tempVal = new String(ch,start,length);
+		}
+
+    public void endElement(String uri, String localName, String qName) 
+	throws SAXException {
+	if (qName.equalsIgnoreCase("Orphanumber")) {
+	    if (in_gene_node )
+		currentDisease.add_geneNum(tempVal);
+	    else
+		currentDisease = this.diseases.get(tempVal);
+	} else if (qName.equalsIgnoreCase("Symbol")) {
+		currentDisease.setSymbol(tempVal);
+	} else if (in_gene_node && qName.equalsIgnoreCase("Name")) {
+	    currentDisease.add_genes(tempVal);
+	} else if (qName.equalsIgnoreCase("ExternalReference")){
+	    within_externalReferenceElement = false;
+	    tmpGene.addExternalReference(tmpExtRef);
+	} else if (within_externalReferenceElement && 
+		   qName.equalsIgnoreCase("Source")){
+	  // src.add(tempVal);
+		currentDisease.setGeneSource(tempVal);
+	} else if (within_externalReferenceElement && 
+		   qName.equalsIgnoreCase("Reference")){
+	   //refs.add(tempVal);
+		currentDisease.setGeneRefs(tempVal);
+	} else if(qName.equalsIgnoreCase("Gene")) {
+	    in_gene_node = false;
+	    //this.currentDisease.setGeneSource(src);
+	    //this.currentDisease.setGeneRefs(refs);
+	    /**Collects a batch of xrefs for every gene*/
+	   // src.clear();
+	    //refs.clear();
+	    this.genes.add(tmpGene);
+	} /**else if (qName.equalsIgnoreCase("Disorder")) {
+	    RareDisease dxr = this.diseases.get(disease_orphanum);
+	    if (dxr == null) {
+		System.err.println("Could not retrieve disease object for \"" + currentDisease
+				   + "\" while parsing Genes XML file");
+		System.exit(1);
+	    }
+	  //  dxr.add_genes(this.genes);
+	}*/	
+    }
+}
+
+
