@@ -52,12 +52,12 @@ public class OWLLiteralImplInteger extends OWLObjectImplWithoutEntityAndAnonCach
         hashcode = getHashCode();
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(datatype);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 
     private final int hashcode;
@@ -74,73 +74,70 @@ public class OWLLiteralImplInteger extends OWLObjectImplWithoutEntityAndAnonCach
         return code;
     }
 
-    @Override
+
     public String getLiteral() {
         return Integer.toString(literal);
     }
 
-    @Override
+
     public boolean isRDFPlainLiteral() {
         return false;
     }
 
-    @Override
+
     public boolean hasLang() {
         return false;
     }
 
-    @Override
+
     public boolean isInteger() {
         return true;
     }
 
-    @Override
+
     public int parseInteger() {
         return literal;
     }
 
-    @Override
+
     public boolean isBoolean() {
         return false;
     }
 
-    @Override
+
     public boolean parseBoolean() {
         throw new NumberFormatException("this literal is not a boolean but a int");
     }
 
-    @Override
     public boolean isDouble() {
         return false;
     }
 
-    @Override
     public double parseDouble() {
         throw new NumberFormatException("this literal is not a double but a int");
     }
 
-    @Override
+
     public boolean isFloat() {
         return false;
     }
 
-    @Override
+
     public float parseFloat() {
         throw new NumberFormatException("this literal is not a float but a int");
     }
 
     @Nonnull
-    @Override
     public String getLang() {
         return "";
     }
 
-    @Override
+
     public boolean hasLang(String lang) {
         return false;
     }
 
-    @Override
+
     public OWLDatatype getDatatype() {
         return datatype;
     }
