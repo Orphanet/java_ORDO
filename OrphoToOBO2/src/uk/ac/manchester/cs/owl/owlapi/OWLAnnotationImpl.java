@@ -62,23 +62,23 @@ public class OWLAnnotationImpl extends OWLObjectImplWithoutEntityAndAnonCaching
         anns = CollectionFactory.sortOptionally((Set<OWLAnnotation>) annotations);
     }
 
-    @Override
+
     public Set<OWLAnnotation> getAnnotations() {
         return CollectionFactory
             .getCopyOnRequestSetFromImmutableCollection(anns);
     }
 
-    @Override
+
     public OWLAnnotationProperty getProperty() {
         return property;
     }
 
-    @Override
+
     public OWLAnnotationValue getValue() {
         return value;
     }
 
-    @Override
+
     public OWLAnnotation getAnnotatedAnnotation(
         @Nonnull Set<OWLAnnotation> annotations) {
         if (annotations.isEmpty()) {
@@ -98,7 +98,7 @@ public class OWLAnnotationImpl extends OWLObjectImplWithoutEntityAndAnonCaching
      * @return {@code true} if this annotation is an annotation that can be used
      *         to deprecate an IRI, otherwise {@code false}.
      */
-    @Override
+
     public boolean isDeprecatedIRIAnnotation() {
         return property.isDeprecated() && value instanceof OWLLiteral
             && ((OWLLiteral) value).isBoolean()
@@ -136,7 +136,7 @@ public class OWLAnnotationImpl extends OWLObjectImplWithoutEntityAndAnonCaching
         }
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
@@ -146,7 +146,7 @@ public class OWLAnnotationImpl extends OWLObjectImplWithoutEntityAndAnonCaching
         return visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLAnnotationObjectVisitor visitor) {
         visitor.visit(this);
     }
@@ -156,13 +156,13 @@ public class OWLAnnotationImpl extends OWLObjectImplWithoutEntityAndAnonCaching
         return visitor.visit(this);
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(property);
         addEntitiesFromAnnotationsToSet(anns, entities);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {
         addAnonymousIndividualsFromAnnotationsToSet(anns, anons);
         if (value instanceof OWLAnonymousIndividual) {
