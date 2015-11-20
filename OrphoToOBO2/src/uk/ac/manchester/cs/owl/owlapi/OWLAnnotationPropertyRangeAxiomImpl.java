@@ -63,15 +63,15 @@ public class OWLAnnotationPropertyRangeAxiomImpl extends
         this.range = checkNotNull(range, "range cannot be null");
     }
 
-    @Override
+    
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(property);
     }
 
-    @Override
+    
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 
-    @Override
+    
     public OWLAnnotationPropertyRangeAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -80,39 +80,39 @@ public class OWLAnnotationPropertyRangeAxiomImpl extends
                 getRange(), NO_ANNOTATIONS);
     }
 
-    @Override
+   @Override
     public OWLAnnotationPropertyRangeAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLAnnotationPropertyRangeAxiomImpl(getProperty(),
                 getRange(), mergeAnnos(annotations));
     }
 
-    @Override
+    
     public OWLAnnotationProperty getProperty() {
         return property;
     }
 
-    @Override
+    
     public IRI getRange() {
         return range;
     }
 
-    @Override
+    
     public AxiomType<?> getAxiomType() {
         return AxiomType.ANNOTATION_PROPERTY_RANGE;
     }
 
-    @Override
+    
     public boolean isLogicalAxiom() {
         return false;
     }
 
-    @Override
+    
     public boolean isAnnotationAxiom() {
         return true;
     }
 
-    @Override
+   
     protected int compareObjectOfSameType(OWLObject object) {
         OWLAnnotationPropertyRangeAxiom other = (OWLAnnotationPropertyRangeAxiom) object;
         int diff = property.compareTo(other.getProperty());
@@ -122,17 +122,17 @@ public class OWLAnnotationPropertyRangeAxiomImpl extends
         return range.compareTo(other.getRange());
     }
 
-    @Override
+    
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+    
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+    
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }

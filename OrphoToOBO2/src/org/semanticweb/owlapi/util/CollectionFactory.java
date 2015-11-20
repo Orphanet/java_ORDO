@@ -233,7 +233,6 @@ public class CollectionFactory {
      *        type
      */
     @Nonnull
-    @SafeVarargs
     public static <T> List<T> list(T... i) {
         return Lists.newArrayList(i);
     }
@@ -315,7 +314,6 @@ public class CollectionFactory {
      *        axiom type
      */
     @Nonnull
-    @SafeVarargs
     public static <T> Set<T> createSet(@Nonnull T... elements) {
         return Sets.newHashSet(elements);
     }

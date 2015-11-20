@@ -164,7 +164,7 @@ public class OWLLiteralImplInteger extends OWLObjectImplWithoutEntityAndAnonCach
         return false;
     }
 
-    @Override
+
     public void accept(OWLDataVisitor visitor) {
         visitor.visit(this);
     }
@@ -174,7 +174,6 @@ public class OWLLiteralImplInteger extends OWLObjectImplWithoutEntityAndAnonCach
         return visitor.visit(this);
     }
 
-    @Override
     public void accept(OWLAnnotationValueVisitor visitor) {
         visitor.visit(this);
     }
@@ -198,7 +197,7 @@ public class OWLLiteralImplInteger extends OWLObjectImplWithoutEntityAndAnonCach
         return Integer.compare(literal, other.parseInteger());
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
@@ -208,17 +207,17 @@ public class OWLLiteralImplInteger extends OWLObjectImplWithoutEntityAndAnonCach
         return visitor.visit(this);
     }
 
-    @Override
+
     public Optional<IRI> asIRI() {
         return Optional.absent();
     }
 
-    @Override
+
     public Optional<OWLAnonymousIndividual> asAnonymousIndividual() {
         return Optional.absent();
     }
 
-    @Override
+
     public Optional<OWLLiteral> asLiteral() {
         return Optional.<OWLLiteral> of(this);
     }

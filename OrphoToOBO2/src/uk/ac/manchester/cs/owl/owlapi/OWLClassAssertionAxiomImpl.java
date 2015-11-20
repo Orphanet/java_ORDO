@@ -64,7 +64,7 @@ public class OWLClassAssertionAxiomImpl extends
                 "classExpression cannot be null");
     }
 
-    @Override
+
     public OWLClassAssertionAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -73,19 +73,19 @@ public class OWLClassAssertionAxiomImpl extends
                 getClassExpression(), NO_ANNOTATIONS);
     }
 
-    @Override
+
     public OWLClassAssertionAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLClassAssertionAxiomImpl(getIndividual(),
                 getClassExpression(), mergeAnnos(annotations));
     }
 
-    @Override
+
     public OWLClassExpression getClassExpression() {
         return classExpression;
     }
 
-    @Override
+
     public OWLIndividual getIndividual() {
         return individual;
     }
@@ -106,19 +106,19 @@ public class OWLClassAssertionAxiomImpl extends
                 && other.getClassExpression().equals(classExpression);
     }
 
-    @Override
+
     public OWLSubClassOfAxiom asOWLSubClassOfAxiom() {
         return new OWLSubClassOfAxiomImpl(new OWLObjectOneOfImpl(
                 CollectionFactory.createSet(getIndividual())),
                 getClassExpression(), NO_ANNOTATIONS);
     }
 
-    @Override
+
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
@@ -133,7 +133,7 @@ public class OWLClassAssertionAxiomImpl extends
         return visitor.visit(this);
     }
 
-    @Override
+
     public AxiomType<?> getAxiomType() {
         return AxiomType.CLASS_ASSERTION;
     }

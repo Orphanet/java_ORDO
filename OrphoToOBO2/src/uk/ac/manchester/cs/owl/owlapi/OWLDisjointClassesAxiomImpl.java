@@ -43,7 +43,6 @@ public class OWLDisjointClassesAxiomImpl extends OWLNaryClassAxiomImpl implement
     }
 
     @Nonnull
-    @Override
     public OWLDisjointClassesAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -51,7 +50,7 @@ public class OWLDisjointClassesAxiomImpl extends OWLNaryClassAxiomImpl implement
         return new OWLDisjointClassesAxiomImpl(getClassExpressions(), NO_ANNOTATIONS);
     }
 
-    @Override
+
     public OWLDisjointClassesAxiom getAnnotatedAxiom(Set<OWLAnnotation> annotations) {
         return new OWLDisjointClassesAxiomImpl(getClassExpressions(), mergeAnnos(annotations));
     }
@@ -67,12 +66,12 @@ public class OWLDisjointClassesAxiomImpl extends OWLNaryClassAxiomImpl implement
         return obj instanceof OWLDisjointClassesAxiom;
     }
 
-    @Override
+
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
@@ -87,12 +86,12 @@ public class OWLDisjointClassesAxiomImpl extends OWLNaryClassAxiomImpl implement
         return visitor.visit(this);
     }
 
-    @Override
+
     public AxiomType<?> getAxiomType() {
         return AxiomType.DISJOINT_CLASSES;
     }
 
-    @Override
+
     public Set<OWLDisjointClassesAxiom> asPairwiseAxioms() {
         Set<OWLDisjointClassesAxiom> result = new HashSet<OWLDisjointClassesAxiom>();
         List<OWLClassExpression> list = getClassExpressionsAsList();
@@ -105,7 +104,7 @@ public class OWLDisjointClassesAxiomImpl extends OWLNaryClassAxiomImpl implement
         return result;
     }
 
-    @Override
+
     public Set<OWLDisjointClassesAxiom> splitToAnnotatedPairs() {
         List<OWLClassExpression> ops = getClassExpressionsAsList();
         if (ops.size() == 2) {
@@ -120,7 +119,7 @@ public class OWLDisjointClassesAxiomImpl extends OWLNaryClassAxiomImpl implement
         return result;
     }
 
-    @Override
+
     public Set<OWLSubClassOfAxiom> asOWLSubClassOfAxioms() {
         Set<OWLSubClassOfAxiom> result = new HashSet<OWLSubClassOfAxiom>();
         List<OWLClassExpression> list = getClassExpressionsAsList();

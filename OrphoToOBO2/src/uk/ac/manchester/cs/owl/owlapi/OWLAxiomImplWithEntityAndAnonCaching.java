@@ -66,14 +66,14 @@ public abstract class OWLAxiomImplWithEntityAndAnonCaching extends OWLObjectImpl
         }
     }
 
-    @Override
+
     public boolean isAnnotated() {
         return !annotations.isEmpty();
     }
 
     // TODO when processing annotations on OWLOntology:: add axiom, needs
     // optimizing
-    @Override
+
     public Set<OWLAnnotation> getAnnotations() {
         if (annotations.isEmpty()) {
             return emptySet();
@@ -81,7 +81,7 @@ public abstract class OWLAxiomImplWithEntityAndAnonCaching extends OWLObjectImpl
         return getCopyOnRequestSetFromImmutableCollection(annotations);
     }
 
-    @Override
+
     public void accept(CollectionContainerVisitor<OWLAnnotation> t) {
         int size = annotations.size();
         for (int i = 0; i < size; i++) {
@@ -89,7 +89,7 @@ public abstract class OWLAxiomImplWithEntityAndAnonCaching extends OWLObjectImpl
         }
     }
 
-    @Override
+
     public Set<OWLAnnotation> getAnnotations(OWLAnnotationProperty annotationProperty) {
         if (annotations.isEmpty()) {
             return emptySet();
@@ -104,12 +104,12 @@ public abstract class OWLAxiomImplWithEntityAndAnonCaching extends OWLObjectImpl
         }
     }
 
-    @Override
+
     public boolean equalsIgnoreAnnotations(OWLAxiom axiom) {
         return getAxiomWithoutAnnotations().equals(axiom.getAxiomWithoutAnnotations());
     }
 
-    @Override
+
     public boolean isOfType(AxiomType<?>... axiomTypes) {
         for (AxiomType<?> type : axiomTypes) {
             if (getAxiomType().equals(type)) {
@@ -119,7 +119,7 @@ public abstract class OWLAxiomImplWithEntityAndAnonCaching extends OWLObjectImpl
         return false;
     }
 
-    @Override
+
     public boolean isOfType(Set<AxiomType<?>> types) {
         return types.contains(getAxiomType());
     }
@@ -158,7 +158,7 @@ public abstract class OWLAxiomImplWithEntityAndAnonCaching extends OWLObjectImpl
         return getAnnotations().equals(other.getAnnotations());
     }
 
-    @Override
+
     public OWLAxiom getNNF() {
         NNF con = new NNF(new OWLDataFactoryImpl());
         OWLAxiom nnf = accept(con);

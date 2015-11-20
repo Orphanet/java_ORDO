@@ -79,7 +79,6 @@ public class OWLDataPropertyAssertionAxiomImpl
     }
 
     @Nonnull
-    @Override
     public OWLSubClassOfAxiom asOWLSubClassOfAxiom() {
         return new OWLSubClassOfAxiomImpl(new OWLObjectOneOfImpl(
                 CollectionFactory.createSet(getSubject())),
@@ -87,7 +86,7 @@ public class OWLDataPropertyAssertionAxiomImpl
                 NO_ANNOTATIONS);
     }
 
-    @Override
+
     public OWLDataPropertyAssertionAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -96,7 +95,7 @@ public class OWLDataPropertyAssertionAxiomImpl
                 getProperty(), getObject(), NO_ANNOTATIONS);
     }
 
-    @Override
+
     public OWLDataPropertyAssertionAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLDataPropertyAssertionAxiomImpl(getSubject(),
@@ -114,12 +113,12 @@ public class OWLDataPropertyAssertionAxiomImpl
         return obj instanceof OWLDataPropertyAssertionAxiom;
     }
 
-    @Override
+
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
@@ -134,7 +133,7 @@ public class OWLDataPropertyAssertionAxiomImpl
         return visitor.visit(this);
     }
 
-    @Override
+
     public AxiomType<?> getAxiomType() {
         return AxiomType.DATA_PROPERTY_ASSERTION;
     }

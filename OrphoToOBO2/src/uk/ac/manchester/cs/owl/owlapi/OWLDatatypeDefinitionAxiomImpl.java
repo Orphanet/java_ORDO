@@ -64,18 +64,18 @@ public class OWLDatatypeDefinitionAxiomImpl extends
         this.dataRange = checkNotNull(dataRange, "dataRange cannot be null");
     }
 
-    @Override
+    
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(datatype);
         addSignatureEntitiesToSetForValue(entities, dataRange);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {
         addAnonymousIndividualsToSetForValue(anons, dataRange);
     }
 
-    @Override
+
     public OWLAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -91,47 +91,45 @@ public class OWLDatatypeDefinitionAxiomImpl extends
                 getDataRange(), mergeAnnos(annotations));
     }
 
-    @Override
+
     public OWLDatatype getDatatype() {
         return datatype;
     }
 
-    @Override
+
     public OWLDataRange getDataRange() {
         return dataRange;
     }
 
-    @Override
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
-
+    
     @Override
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
     public boolean isLogicalAxiom() {
         return true;
     }
 
-    @Override
+
     public boolean isAnnotationAxiom() {
         return false;
     }
 
-    @Override
+
     public AxiomType<?> getAxiomType() {
         return AxiomType.DATATYPE_DEFINITION;
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }

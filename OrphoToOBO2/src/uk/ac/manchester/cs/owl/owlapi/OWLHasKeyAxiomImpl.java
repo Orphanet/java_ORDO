@@ -136,7 +136,7 @@ public class OWLHasKeyAxiomImpl extends
         return compareSets(propertyExpressions, other.getPropertyExpressions());
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
@@ -146,7 +146,7 @@ public class OWLHasKeyAxiomImpl extends
         return visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
