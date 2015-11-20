@@ -37,7 +37,7 @@ public class Orph2OBO {
     public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException {
 	
     /**This is the name of the directory where the Orphanet XML files will be written to*/
-    String directory = "OrphadataMay";
+    String directory = "OrphadataMayBACKUP";
 	
 	Orph2OBO o2o = new Orph2OBO();
 	o2o.createDownloadDirectoryIfDoesntExist(directory);
