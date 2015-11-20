@@ -44,7 +44,7 @@ public class RDFXMLNamespaceManager extends OWLOntologyXMLNamespaceManager {
     @Nonnull
     @Override
     protected Set<OWLEntity> getEntitiesThatRequireNamespaces() {
-        Set<OWLEntity> entities = new HashSet<>();
+        Set<OWLEntity> entities = new HashSet<OWLEntity>();
         for (OWLObjectPropertyAssertionAxiom ax : getOntology().getAxioms(
                 AxiomType.OBJECT_PROPERTY_ASSERTION)) {
             entities.addAll(ax.getProperty().getSignature());
@@ -61,7 +61,7 @@ public class RDFXMLNamespaceManager extends OWLOntologyXMLNamespaceManager {
     /** @return entities with invalid qnames */
     @Nonnull
     public Set<OWLEntity> getEntitiesWithInvalidQNames() {
-        Set<OWLEntity> result = new HashSet<>();
+        Set<OWLEntity> result = new HashSet<OWLEntity>();
         for (OWLEntity entity : getEntitiesThatRequireNamespaces()) {
             if (!entity.getIRI().getRemainder().isPresent()) {
                 result.add(entity);

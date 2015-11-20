@@ -106,7 +106,7 @@ public class OWLHasKeyAxiomImpl extends
 
     @Override
     public Set<OWLDataPropertyExpression> getDataPropertyExpressions() {
-        Set<OWLDataPropertyExpression> props = new TreeSet<>();
+        Set<OWLDataPropertyExpression> props = new TreeSet<OWLDataPropertyExpression>();
         for (OWLPropertyExpression prop : propertyExpressions) {
             if (prop.isDataPropertyExpression()) {
                 props.add((OWLDataPropertyExpression) prop);
@@ -117,7 +117,7 @@ public class OWLHasKeyAxiomImpl extends
 
     @Override
     public Set<OWLObjectPropertyExpression> getObjectPropertyExpressions() {
-        Set<OWLObjectPropertyExpression> props = new TreeSet<>();
+        Set<OWLObjectPropertyExpression> props = new TreeSet<OWLObjectPropertyExpression>();
         for (OWLPropertyExpression prop : propertyExpressions) {
             if (prop.isObjectPropertyExpression()) {
                 props.add((OWLObjectPropertyExpression) prop);

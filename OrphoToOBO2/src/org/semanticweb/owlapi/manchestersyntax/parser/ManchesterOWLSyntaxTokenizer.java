@@ -40,9 +40,9 @@ public class ManchesterOWLSyntaxTokenizer {
     }
 
     @Nonnull
-    protected final Set<Character> skip = new HashSet<>();
-    protected final Set<Character> commentDelimiters = new HashSet<>();
-    protected final Set<Character> delims = new HashSet<>();
+    protected final Set<Character> skip = new HashSet<Character>();
+    protected final Set<Character> commentDelimiters = new HashSet<Character>();
+    protected final Set<Character> delims = new HashSet<Character>();
     private final String buffer;
     private int pos;
     private int col;
@@ -50,7 +50,7 @@ public class ManchesterOWLSyntaxTokenizer {
     int startPos = 0;
     int startCol = 1;
     int startRow = 1;
-    List<Token> tokens = new ArrayList<>();
+    List<Token> tokens = new ArrayList<Token>();
     private StringBuilder sb;
     private static final char ESCAPE_CHAR = '\\';
 
@@ -128,7 +128,7 @@ public class ManchesterOWLSyntaxTokenizer {
         }
         consumeToken();
         tokens.add(new Token(EOF, pos, col, row));
-        return new ArrayList<>(tokens);
+        return new ArrayList<Token>(tokens);
     }
 
     private void consumeToken() {

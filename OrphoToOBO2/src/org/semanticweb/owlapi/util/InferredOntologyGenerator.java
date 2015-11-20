@@ -59,7 +59,7 @@ public class InferredOntologyGenerator {
             @Nonnull List<InferredAxiomGenerator<? extends OWLAxiom>> axiomGenerators) {
         this.reasoner = checkNotNull(reasoner, "reasoner cannot be null");
         checkNotNull(axiomGenerators, "axiomGenerators cannot be null");
-        this.axiomGenerators = new ArrayList<>(axiomGenerators);
+        this.axiomGenerators = new ArrayList<InferredAxiomGenerator<? extends OWLAxiom>>(axiomGenerators);
     }
 
     /**
@@ -91,7 +91,7 @@ public class InferredOntologyGenerator {
     /** @return the axiom generators */
     @Nonnull
     public List<InferredAxiomGenerator<?>> getAxiomGenerators() {
-        return new ArrayList<>(axiomGenerators);
+        return new ArrayList<InferredAxiomGenerator<? extends OWLAxiom>>(axiomGenerators);
     }
 
     /**
@@ -134,7 +134,7 @@ public class InferredOntologyGenerator {
             @Nonnull OWLOntology ontology) {
         checkNotNull(df, "df cannot be null");
         checkNotNull(ontology, "ontology cannot be null");
-        List<AddAxiom> changes = new ArrayList<>();
+        List<AddAxiom> changes = new ArrayList<AddAxiom>();
         for (InferredAxiomGenerator<? extends OWLAxiom> axiomGenerator : axiomGenerators) {
             try {
                 for (OWLAxiom ax : axiomGenerator.createAxioms(df, reasoner)) {

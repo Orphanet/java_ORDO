@@ -60,7 +60,7 @@ public class TurtleRenderer extends RDFRendererBase {
         super(ontology, format);
         this.format = checkNotNull(format, "format cannot be null");
         this.writer = new PrintWriter(writer);
-        pending = new HashSet<>();
+        pending = new HashSet<RDFResource>();
         pm = new DefaultPrefixManager();
         if (!ontology.isAnonymous()) {
             String ontologyIRIString = ontology.getOntologyID().getOntologyIRI().get().toString();
@@ -92,7 +92,7 @@ public class TurtleRenderer extends RDFRendererBase {
     int bufferLength = 0;
     int lastNewLineIndex = 0;
     @Nonnull
-    final Stack<Integer> tabs = new Stack<>();
+    final Stack<Integer> tabs = new Stack<Integer>();
 
     protected void pushTab() {
         tabs.push(getIndent());
@@ -157,7 +157,7 @@ public class TurtleRenderer extends RDFRendererBase {
     }
 
     private String forceSplitIfPrefixExists(IRI iri) {
-        List<Map.Entry<String, String>> prefixName2PrefixMap = new ArrayList<>(pm.getPrefixName2PrefixMap().entrySet());
+        List<Map.Entry<String, String>> prefixName2PrefixMap = new ArrayList<Entry<String, String>>(pm.getPrefixName2PrefixMap().entrySet());
         // sort the entries in reverse lexicographic order by value (longest
         // prefix first)
         Collections.sort(prefixName2PrefixMap, new Comparator<Map.Entry<String, String>>() {
@@ -237,7 +237,7 @@ public class TurtleRenderer extends RDFRendererBase {
                 render(node);
             } else {
                 // List - special syntax
-                List<RDFNode> list = new ArrayList<>();
+                List<RDFNode> list = new ArrayList<RDFNode>();
                 toJavaList(node, list);
                 pushTab();
                 write("(");

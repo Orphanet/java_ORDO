@@ -47,13 +47,13 @@ public abstract class OWLDocumentFormatFactoryImpl implements OWLDocumentFormatF
     }
 
     protected OWLDocumentFormatFactoryImpl(List<String> mimeTypes, boolean isTextualFormat) {
-        this.mimeTypes = new ArrayList<>(mimeTypes);
+        this.mimeTypes = new ArrayList<String>(mimeTypes);
         this.isTextualFormat = isTextualFormat;
         key = this.getClass().getName();
     }
 
     protected OWLDocumentFormatFactoryImpl(List<String> mimeTypes, boolean isTextualFormat, String key) {
-        this.mimeTypes = new ArrayList<>(mimeTypes);
+        this.mimeTypes = new ArrayList<String>(mimeTypes);
         this.isTextualFormat = isTextualFormat;
         this.key = key;
     }

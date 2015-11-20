@@ -77,14 +77,14 @@ public class ImportsStructureObjectSorter<O> {
      */
     @Nonnull
     public Map<OWLOntology, Set<O>> getObjects() {
-        List<OWLOntology> imports = new ArrayList<>(
+        List<OWLOntology> imports = new ArrayList<OWLOntology>(
                 ontology.getImportsClosure());
-        Map<OWLOntology, Set<O>> ontology2EntityMap = new HashMap<>();
-        Set<O> processed = new HashSet<>();
+        Map<OWLOntology, Set<O>> ontology2EntityMap = new HashMap<OWLOntology, Set<O>>();
+        Set<O> processed = new HashSet<O>();
         for (int i = imports.size() - 1; i > -1; i--) {
             OWLOntology currentOnt = imports.get(i);
             assert currentOnt != null;
-            Set<O> objects = new HashSet<>();
+            Set<O> objects = new HashSet<O>();
             for (O obj : objectSelector.getObjects(currentOnt)) {
                 if (!processed.contains(obj)) {
                     processed.add(obj);

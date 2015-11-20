@@ -72,12 +72,12 @@ public class OWLDisjointDataPropertiesAxiomImpl extends
 
     @Override
     public Set<OWLDisjointDataPropertiesAxiom> asPairwiseAxioms() {
-        Set<OWLDisjointDataPropertiesAxiom> result = new HashSet<>();
-        List<OWLDataPropertyExpression> list = new ArrayList<>(getProperties());
+        Set<OWLDisjointDataPropertiesAxiom> result = new HashSet<OWLDisjointDataPropertiesAxiom>();
+        List<OWLDataPropertyExpression> list = new ArrayList<OWLDataPropertyExpression>(getProperties());
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = i + 1; j < list.size(); j++) {
                 result.add(new OWLDisjointDataPropertiesAxiomImpl(
-                        new HashSet<>(Arrays.asList(list.get(i), list.get(j))),
+                        new HashSet<OWLDataPropertyExpression>(Arrays.asList(list.get(i), list.get(j))),
                         NO_ANNOTATIONS));
             }
         }
@@ -86,15 +86,15 @@ public class OWLDisjointDataPropertiesAxiomImpl extends
 
     @Override
     public Set<OWLDisjointDataPropertiesAxiom> splitToAnnotatedPairs() {
-        List<OWLDataPropertyExpression> ops = new ArrayList<>(getProperties());
+        List<OWLDataPropertyExpression> ops = new ArrayList<OWLDataPropertyExpression>(getProperties());
         if (ops.size() == 2) {
             return Collections.<OWLDisjointDataPropertiesAxiom> singleton(this);
         }
-        Set<OWLDisjointDataPropertiesAxiom> result = new HashSet<>();
+        Set<OWLDisjointDataPropertiesAxiom> result = new HashSet<OWLDisjointDataPropertiesAxiom>();
         for (int i = 0; i < ops.size() - 1; i++) {
             OWLDataPropertyExpression indI = ops.get(i);
             OWLDataPropertyExpression indJ = ops.get(i + 1);
-            result.add(new OWLDisjointDataPropertiesAxiomImpl(new HashSet<>(
+            result.add(new OWLDisjointDataPropertiesAxiomImpl(new HashSet<OWLDataPropertyExpression>(
                     Arrays.asList(indI, indJ)), getAnnotations()));
         }
         return result;

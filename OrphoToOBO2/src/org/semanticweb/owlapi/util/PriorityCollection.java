@@ -165,7 +165,7 @@ public class PriorityCollection<T extends Serializable> implements Iterable<T>, 
      */
     public PriorityCollection<T> getByMIMEType(@Nonnull String mimeType) {
         checkNotNull(mimeType, "MIME-Type cannot be null");
-        PriorityCollection<T> pc = new PriorityCollection<>(sorting);
+        PriorityCollection<T> pc = new PriorityCollection<T>(sorting);
         // adding directly to the delegate. No need to order because insertion
         // will be ordered as in this PriorityCollection
         for (T t : delegate) {

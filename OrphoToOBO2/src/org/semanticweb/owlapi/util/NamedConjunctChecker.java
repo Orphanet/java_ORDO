@@ -39,7 +39,7 @@ public class NamedConjunctChecker {
     boolean found;
     boolean collect;
     @Nonnull
-    final Set<OWLClass> conjuncts = new HashSet<>();
+    final Set<OWLClass> conjuncts = new HashSet<OWLClass>();
     @Nonnull
     private final NamedConjunctCheckerVisitor visitor = new NamedConjunctCheckerVisitor();
 

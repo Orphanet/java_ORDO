@@ -41,7 +41,7 @@ import com.google.common.collect.Multimap;
 public abstract class OWLDocumentFormatImpl implements OWLDocumentFormat {
 
     private static final long serialVersionUID = 40000L;
-    private final Map<Serializable, Serializable> parameterMap = new HashMap<>();
+    private final Map<Serializable, Serializable> parameterMap = new HashMap<Serializable, Serializable>();
     @Nonnull
     private OWLOntologyLoaderMetaData loaderMetaData = new NullLoaderMetaData();
     private boolean addMissingTypes = true;
@@ -119,7 +119,7 @@ public abstract class OWLDocumentFormatImpl implements OWLDocumentFormat {
                 punnings.put(e.getIRI(), e.getEntityType());
             }
         }
-        Collection<IRI> illegals = new HashSet<>();
+        Collection<IRI> illegals = new HashSet<IRI>();
         for (IRI i : punnings.keySet()) {
             Collection<EntityType<?>> puns = punnings.get(i);
             if (puns.contains(EntityType.OBJECT_PROPERTY)

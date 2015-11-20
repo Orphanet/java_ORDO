@@ -63,7 +63,7 @@ public abstract class OWLNaryClassAxiomImpl extends OWLClassAxiomImpl implements
 
     @Override
     public List<OWLClassExpression> getClassExpressionsAsList() {
-        return new ArrayList<>(classExpressions);
+        return new ArrayList<OWLClassExpression>(classExpressions);
     }
 
     @Override
@@ -74,7 +74,7 @@ public abstract class OWLNaryClassAxiomImpl extends OWLClassAxiomImpl implements
     @Override
     public Set<OWLClassExpression> getClassExpressionsMinus(
             OWLClassExpression... desc) {
-        Set<OWLClassExpression> result = new HashSet<>(classExpressions);
+        Set<OWLClassExpression> result = new HashSet<OWLClassExpression>(classExpressions);
         for (OWLClassExpression d : desc) {
             result.remove(d);
         }
@@ -108,7 +108,7 @@ public abstract class OWLNaryClassAxiomImpl extends OWLClassAxiomImpl implements
     @Override
     public <T> Collection<T> walkPairwise(
             OWLPairwiseVisitor<T, OWLClassExpression> visitor) {
-        List<T> l = new ArrayList<>();
+        List<T> l = new ArrayList<T>();
         for (int i = 0; i < classExpressions.size() - 1; i++) {
             for (int j = i + 1; j < classExpressions.size(); j++) {
                 T t = visitor.visit(classExpressions.get(i),

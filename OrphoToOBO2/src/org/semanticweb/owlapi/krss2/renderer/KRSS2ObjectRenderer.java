@@ -268,7 +268,7 @@ public class KRSS2ObjectRenderer extends KRSSObjectRenderer {
      */
     public KRSS2ObjectRenderer(@Nonnull OWLOntology ontology, @Nonnull Writer writer) {
         super(ontology, writer);
-        leftRightIdentityUsed = new HashSet<>();
+        leftRightIdentityUsed = new HashSet<OWLSubPropertyChainOfAxiom>();
     }
 
     /**
@@ -682,7 +682,7 @@ public class KRSS2ObjectRenderer extends KRSSObjectRenderer {
     }
 
     protected Set<OWLSubPropertyChainOfAxiom> getPropertyChainSubPropertyAxiomsFor(OWLPropertyExpression property) {
-        Set<OWLSubPropertyChainOfAxiom> axioms = new HashSet<>();
+        Set<OWLSubPropertyChainOfAxiom> axioms = new HashSet<OWLSubPropertyChainOfAxiom>();
         for (OWLSubPropertyChainOfAxiom axiom : ont.getAxioms(AxiomType.SUB_PROPERTY_CHAIN_OF)) {
             if (axiom.getSuperProperty().equals(property)) {
                 axioms.add(axiom);

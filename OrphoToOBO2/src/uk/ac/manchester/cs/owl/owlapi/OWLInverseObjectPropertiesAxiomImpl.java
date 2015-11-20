@@ -134,7 +134,7 @@ public class OWLInverseObjectPropertiesAxiomImpl extends
 
     @Override
     public Set<OWLSubObjectPropertyOfAxiom> asSubObjectPropertyOfAxioms() {
-        Set<OWLSubObjectPropertyOfAxiom> axs = new HashSet<>();
+        Set<OWLSubObjectPropertyOfAxiom> axs = new HashSet<OWLSubObjectPropertyOfAxiom>();
         axs.add(new OWLSubObjectPropertyOfAxiomImpl(getFirstProperty(),
                 getSecondProperty().getInverseProperty().getSimplified(),
                 NO_ANNOTATIONS));

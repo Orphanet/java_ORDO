@@ -47,8 +47,8 @@ public class RDFParser extends DefaultHandler implements IRIProvider {
     private static final String WRONGRESOLVE = "IRI '%s' cannot be resolved against current base IRI %s reason is: %s";
     @Nonnull
     protected static final Locator nullDocumentLocator = new LocatorImpl();
-    private final Map<String, String> resolvedIRIs = new HashMap<>();
-    protected final Map<String, IRI> uriCache = new HashMap<>();
+    private final Map<String, String> resolvedIRIs = new HashMap<String, String>();
+    protected final Map<String, IRI> uriCache = new HashMap<String, IRI>();
     /** Registered error handler. */
     protected ErrorHandler errorHandler = new ErrorHandler() {
 
@@ -64,13 +64,13 @@ public class RDFParser extends DefaultHandler implements IRIProvider {
         public void error(SAXParseException exception) {}
     };
     /** Stack of base IRIs. */
-    protected final LinkedList<IRI> baseIRIs = new LinkedList<>();
-    private final Map<IRI, URI> baseURICache = new HashMap<>();
+    protected final LinkedList<IRI> baseIRIs = new LinkedList<IRI>();
+    private final Map<IRI, URI> baseURICache = new HashMap<IRI, URI>();
     /** IRI of the document being parsed. */
     protected IRI baseIRI;
     /** The stack of languages. */
     @Nonnull
-    protected final LinkedList<String> languages = new LinkedList<>();
+    protected final LinkedList<String> languages = new LinkedList<String>();
     /** The current language. */
     protected String language;
     /** Consumer receiving notifications about parsing events. */
@@ -78,7 +78,7 @@ public class RDFParser extends DefaultHandler implements IRIProvider {
     /** Current parser's state. */
     protected State state;
     /** Stack of parser states. */
-    protected final List<State> states = new ArrayList<>();
+    protected final List<State> states = new ArrayList<State>();
     /** Document locator. */
     protected Locator documentLocator;
 
@@ -407,7 +407,7 @@ public class RDFParser extends DefaultHandler implements IRIProvider {
     private Map<String, String> parseStringArguments(String string) {
         try {
             StreamTokenizer tokenizer = new StreamTokenizer(new StringReader(string));
-            Map<String, String> result = new HashMap<>();
+            Map<String, String> result = new HashMap<String, String>();
             tokenizer.nextToken();
             while (tokenizer.ttype != StreamTokenizer.TT_EOF) {
                 verify(tokenizer.ttype != StreamTokenizer.TT_WORD, "Invalid processing instruction argument.");

@@ -142,7 +142,7 @@ public class NNF extends OWLDataVisitorExAdapter<OWLDataRange> implements
 
     @Override
     public OWLClassExpression visit(OWLObjectIntersectionOf ce) {
-        Set<OWLClassExpression> ops = new HashSet<>();
+        Set<OWLClassExpression> ops = new HashSet<OWLClassExpression>();
         for (OWLClassExpression op : ce.getOperands()) {
             ops.add(op.accept(this));
         }
@@ -155,7 +155,7 @@ public class NNF extends OWLDataVisitorExAdapter<OWLDataRange> implements
 
     @Override
     public OWLClassExpression visit(OWLObjectUnionOf ce) {
-        Set<OWLClassExpression> ops = new HashSet<>();
+        Set<OWLClassExpression> ops = new HashSet<OWLClassExpression>();
         for (OWLClassExpression op : ce.getOperands()) {
             ops.add(op.accept(this));
         }
@@ -396,7 +396,7 @@ public class NNF extends OWLDataVisitorExAdapter<OWLDataRange> implements
             }
         } else {
             // Encode as a data union of and return result
-            Set<OWLDataOneOf> oneOfs = new HashSet<>();
+            Set<OWLDataOneOf> oneOfs = new HashSet<OWLDataOneOf>();
             for (OWLLiteral lit : node.getValues()) {
                 oneOfs.add(dataFactory.getOWLDataOneOf(lit));
             }
@@ -406,7 +406,7 @@ public class NNF extends OWLDataVisitorExAdapter<OWLDataRange> implements
 
     @Override
     public OWLDataRange visit(OWLDataIntersectionOf node) {
-        Set<OWLDataRange> ops = new HashSet<>();
+        Set<OWLDataRange> ops = new HashSet<OWLDataRange>();
         for (OWLDataRange op : node.getOperands()) {
             ops.add(op.accept(this));
         }
@@ -419,7 +419,7 @@ public class NNF extends OWLDataVisitorExAdapter<OWLDataRange> implements
 
     @Override
     public OWLDataRange visit(OWLDataUnionOf node) {
-        Set<OWLDataRange> ops = new HashSet<>();
+        Set<OWLDataRange> ops = new HashSet<OWLDataRange>();
         for (OWLDataRange op : node.getOperands()) {
             ops.add(op.accept(this));
         }
@@ -470,7 +470,7 @@ public class NNF extends OWLDataVisitorExAdapter<OWLDataRange> implements
 
     @Override
     public OWLAxiom visit(OWLDisjointClassesAxiom axiom) {
-        Set<OWLClassExpression> ops = new HashSet<>();
+        Set<OWLClassExpression> ops = new HashSet<OWLClassExpression>();
         for (OWLClassExpression op : axiom.getClassExpressions()) {
             ops.add(op.accept(this));
         }
@@ -537,7 +537,7 @@ public class NNF extends OWLDataVisitorExAdapter<OWLDataRange> implements
 
     @Override
     public OWLAxiom visit(OWLDisjointUnionAxiom axiom) {
-        Set<OWLClassExpression> descs = new HashSet<>();
+        Set<OWLClassExpression> descs = new HashSet<OWLClassExpression>();
         for (OWLClassExpression op : axiom.getClassExpressions()) {
             descs.add(op.accept(this));
         }
@@ -587,7 +587,7 @@ public class NNF extends OWLDataVisitorExAdapter<OWLDataRange> implements
 
     @Override
     public OWLAxiom visit(OWLEquivalentClassesAxiom axiom) {
-        Set<OWLClassExpression> ops = new HashSet<>();
+        Set<OWLClassExpression> ops = new HashSet<OWLClassExpression>();
         for (OWLClassExpression op : axiom.getClassExpressions()) {
             ops.add(op.accept(this));
         }

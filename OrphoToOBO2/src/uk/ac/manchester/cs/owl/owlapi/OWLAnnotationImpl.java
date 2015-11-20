@@ -84,7 +84,7 @@ public class OWLAnnotationImpl extends OWLObjectImplWithoutEntityAndAnonCaching
         if (annotations.isEmpty()) {
             return this;
         }
-        Set<OWLAnnotation> merged = new HashSet<>(anns);
+        Set<OWLAnnotation> merged = new HashSet<OWLAnnotation>(anns);
         merged.addAll(annotations);
         return new OWLAnnotationImpl(property, value, merged);
     }

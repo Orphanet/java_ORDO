@@ -44,8 +44,8 @@ public class OWLObjectWalker<O extends OWLObject> {
     protected final boolean visitDuplicates;
     protected OWLAxiom ax;
     protected OWLAnnotation annotation;
-    private final List<OWLClassExpression> classExpressionPath = new ArrayList<>();
-    private final List<OWLDataRange> dataRangePath = new ArrayList<>();
+    private final List<OWLClassExpression> classExpressionPath = new ArrayList<OWLClassExpression>();
+    private final List<OWLDataRange> dataRangePath = new ArrayList<OWLDataRange>();
     @Nonnull
     private StructureWalker<O> walker;
 
@@ -115,7 +115,7 @@ public class OWLObjectWalker<O extends OWLObject> {
      *        walking flag
      */
     public OWLObjectWalker(@Nonnull Set<O> objects, boolean visitDuplicates, AnnotationWalkingControl walkFlag) {
-        this(new ArrayList<>(checkNotNull(objects, "objects cannot be null")), visitDuplicates, walkFlag);
+        this(new ArrayList<O>(checkNotNull(objects, "objects cannot be null")), visitDuplicates, walkFlag);
     }
 
     /**
@@ -129,7 +129,7 @@ public class OWLObjectWalker<O extends OWLObject> {
     public OWLObjectWalker(@Nonnull List<O> objects, boolean visitDuplicates, AnnotationWalkingControl walkFlag) {
         this.objects = checkNotNull(objects, "objects cannot be null");
         this.visitDuplicates = visitDuplicates;
-        this.walker = new StructureWalker<>(this, walkFlag);
+        this.walker = new StructureWalker<O>(this, walkFlag);
     }
 
     protected Object passToVisitor(OWLObject o) {
@@ -226,7 +226,7 @@ public class OWLObjectWalker<O extends OWLObject> {
      */
     @Nonnull
     public List<OWLClassExpression> getClassExpressionPath() {
-        return new ArrayList<>(classExpressionPath);
+        return new ArrayList<OWLClassExpression>(classExpressionPath);
     }
 
     /**
@@ -279,7 +279,7 @@ public class OWLObjectWalker<O extends OWLObject> {
      */
     @Nonnull
     public List<OWLDataRange> getDataRangePath() {
-        return new ArrayList<>(dataRangePath);
+        return new ArrayList<OWLDataRange>(dataRangePath);
     }
 
     /**

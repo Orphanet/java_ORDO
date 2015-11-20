@@ -61,7 +61,7 @@ public class MapPointer<K, V extends OWLAxiom> {
     protected final Internals i;
     private SoftReference<Set<IRI>> iris;
     private int size = 0;
-    private final THashMap<K, Collection<V>> map = new THashMap<>(17, 0.75F);
+    private final THashMap<K, Collection<V>> map = new THashMap<K, Collection<V>>(17, 0.75F);
     private boolean neverTrimmed = true;
 
     /**
@@ -118,7 +118,7 @@ public class MapPointer<K, V extends OWLAxiom> {
                 set.add((IRI) k);
             }
         }
-        iris = new SoftReference<>(set);
+        iris = new SoftReference<Set<IRI>>(set);
         return set;
     }
 
@@ -203,7 +203,7 @@ public class MapPointer<K, V extends OWLAxiom> {
     @Nonnull
     public synchronized <T> Collection<OWLAxiom> filterAxioms(@Nonnull OWLAxiomSearchFilter filter, @Nonnull T key) {
         init();
-        List<OWLAxiom> toReturn = new ArrayList<>();
+        List<OWLAxiom> toReturn = new ArrayList<OWLAxiom>();
         for (AxiomType<?> at : filter.getAxiomTypes()) {
             Collection<V> collection = map.get(at);
             if (collection != null) {
@@ -322,7 +322,7 @@ public class MapPointer<K, V extends OWLAxiom> {
             if (set.contains(v)) {
                 return false;
             } else {
-                set = new SmallSet<>(set);
+                set = new SmallSet<V>(set);
                 map.put(k, set);
             }
         } else if (set.size() == 3) {
@@ -404,11 +404,11 @@ public class MapPointer<K, V extends OWLAxiom> {
 
     private Collection<V> makeSet(Collection<V> collection, V extra) {
         if (neverTrimmed) {
-            List<V> list = new ArrayList<>(collection);
+            List<V> list = new ArrayList<V>(collection);
             list.add(extra);
             return list;
         }
-        return new THashSetForSet<>(collection, extra, DEFAULT_INITIAL_CAPACITY, DEFAULT_LOAD_FACTOR);
+        return new THashSetForSet<V>(collection, extra, DEFAULT_INITIAL_CAPACITY, DEFAULT_LOAD_FACTOR);
     }
 
     @Nonnull
@@ -422,7 +422,7 @@ public class MapPointer<K, V extends OWLAxiom> {
         if (t == null) {
             return CollectionFactory.emptyList();
         }
-        return new ArrayList<>(t);
+        return new ArrayList<V>(t);
     }
 
     /**
@@ -442,7 +442,7 @@ public class MapPointer<K, V extends OWLAxiom> {
             for (Map.Entry<K, Collection<V>> entry : map.entrySet()) {
                 Collection<V> set = entry.getValue();
                 if (set instanceof ArrayList) {
-                    THashSet<V> value = new THashSet<>(DEFAULT_INITIAL_CAPACITY, DEFAULT_LOAD_FACTOR);
+                    THashSet<V> value = new THashSet<V>(DEFAULT_INITIAL_CAPACITY, DEFAULT_LOAD_FACTOR);
                     value.addAll(set);
                     entry.setValue(value);
                     size = size - set.size() + value.size();

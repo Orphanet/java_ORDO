@@ -87,7 +87,7 @@ public class Translators {
 
     static OptimisedListTranslator<OWLPropertyExpression> getListTranslator(
             OWLRDFConsumer consumer) {
-        return new OptimisedListTranslator<>(consumer,
+        return new OptimisedListTranslator<OWLPropertyExpression>(consumer,
                 new HasKeyListItemTranslator(consumer));
     }
 
@@ -99,7 +99,7 @@ public class Translators {
          */
         private final OptimisedListTranslator<OWLClassExpression> classExpressionListTranslator;
         /** The class expression translators. */
-        private final List<ClassExpressionTranslator> classExpressionTranslators = new ArrayList<>();
+        private final List<ClassExpressionTranslator> classExpressionTranslators = new ArrayList<ClassExpressionTranslator>();
         /**
          * A translator for individual lists (such lists are used in object
          * oneOf constructs)
@@ -119,19 +119,19 @@ public class Translators {
 
         TranslatorAccessor(OWLRDFConsumer r) {
             consumer = r;
-            classExpressionListTranslator = new OptimisedListTranslator<>(r,
+            classExpressionListTranslator = new OptimisedListTranslator<OWLClassExpression>(r,
                     new ClassExpressionListItemTranslator(r, this));
-            individualListTranslator = new OptimisedListTranslator<>(r,
+            individualListTranslator = new OptimisedListTranslator<OWLIndividual>(r,
                     new IndividualListItemTranslator(r));
-            constantListTranslator = new OptimisedListTranslator<>(r,
+            constantListTranslator = new OptimisedListTranslator<OWLLiteral>(r,
                     new TypedConstantListItemTranslator());
-            objectPropertyListTranslator = new OptimisedListTranslator<>(r,
+            objectPropertyListTranslator = new OptimisedListTranslator<OWLObjectPropertyExpression>(r,
                     new ObjectPropertyListItemTranslator(r));
-            dataPropertyListTranslator = new OptimisedListTranslator<>(r,
+            dataPropertyListTranslator = new OptimisedListTranslator<OWLDataPropertyExpression>(r,
                     new DataPropertyListItemTranslator(r));
-            dataRangeListTranslator = new OptimisedListTranslator<>(r,
+            dataRangeListTranslator = new OptimisedListTranslator<OWLDataRange>(r,
                     new DataRangeListItemTranslator(r));
-            faceRestrictionListTranslator = new OptimisedListTranslator<>(r,
+            faceRestrictionListTranslator = new OptimisedListTranslator<OWLFacetRestriction>(r,
                     new OWLFacetRestrictionListItemTranslator(r));
             classExpressionTranslators.add(new NamedClassTranslator(r, this));
             classExpressionTranslators.add(new ObjectIntersectionOfTranslator(
@@ -259,7 +259,7 @@ public class Translators {
         }
 
         @Nonnull
-        private final Map<IRI, OWLClassExpression> translatedClassExpression = new HashMap<>();
+        private final Map<IRI, OWLClassExpression> translatedClassExpression = new HashMap<IRI, OWLClassExpression>();
 
         @Nonnull
         protected OWLClassExpression translateClassExpression(
@@ -469,7 +469,7 @@ public class Translators {
                 return false;
             }
             IRI currentListNode = mainNode;
-            Set<IRI> visitedListNodes = new HashSet<>();
+            Set<IRI> visitedListNodes = new HashSet<IRI>();
             int size = 0;
             while (true) {
                 IRI firstObject = consumer.getResourceObject(currentListNode,
@@ -1905,7 +1905,7 @@ public class Translators {
                 IRI mainIRI = consumer.getResourceObject(firstObject,
                         ARGUMENTS.getIRI(), true);
                 assert mainIRI != null;
-                OptimisedListTranslator<SWRLDArgument> listTranslator = new OptimisedListTranslator<>(
+                OptimisedListTranslator<SWRLDArgument> listTranslator = new OptimisedListTranslator<SWRLDArgument>(
                         consumer, new SWRLAtomDObjectListItemTranslator());
                 List<SWRLDArgument> args = listTranslator
                         .translateList(mainIRI);
@@ -2059,7 +2059,7 @@ public class Translators {
 
         SWRLRuleTranslator(OWLRDFConsumer consumer, TranslatorAccessor accessor) {
             this.consumer = consumer;
-            listTranslator = new OptimisedListTranslator<>(consumer,
+            listTranslator = new OptimisedListTranslator<SWRLAtom>(consumer,
                     new SWRLAtomListItemTranslator(consumer, accessor));
         }
 
@@ -2069,7 +2069,7 @@ public class Translators {
          */
         public void translateRule(@Nonnull IRI mainNode) {
             IRI remappedNode = consumer.remapIRI(mainNode);
-            Set<OWLAnnotation> annotations = new HashSet<>();
+            Set<OWLAnnotation> annotations = new HashSet<OWLAnnotation>();
             Set<IRI> predicates = consumer.getPredicatesBySubject(remappedNode);
             for (IRI i : predicates) {
                 assert i != null;

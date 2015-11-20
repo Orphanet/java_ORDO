@@ -84,9 +84,9 @@ public class SWRLRuleImpl extends OWLLogicalAxiomImplWithEntityAndAnonCaching
             @Nonnull Set<? extends SWRLAtom> head,
             @Nonnull Collection<? extends OWLAnnotation> annotations) {
         super(annotations);
-        this.head = new LinkedHashSet<>(checkNotNull(head,
+        this.head = new LinkedHashSet<SWRLAtom>(checkNotNull(head,
                 "head cannot be null"));
-        this.body = new LinkedHashSet<>(checkNotNull(body,
+        this.body = new LinkedHashSet<SWRLAtom>(checkNotNull(body,
                 "body cannot be null"));
         containsAnonymousClassExpressions = hasAnon();
     }
@@ -128,7 +128,7 @@ public class SWRLRuleImpl extends OWLLogicalAxiomImplWithEntityAndAnonCaching
         SWRLVariableExtractor extractor = new SWRLVariableExtractor();
         accept(extractor);
         toReturn = extractor.getVariables();
-        variables = new WeakReference<>(toReturn);
+        variables = new WeakReference<Set<SWRLVariable>>(toReturn);
         return toReturn;
     }
 
@@ -162,7 +162,7 @@ public class SWRLRuleImpl extends OWLLogicalAxiomImplWithEntityAndAnonCaching
         if (toReturn != null) {
             return toReturn;
         }
-        toReturn = new LinkedHashSet<>();
+        toReturn = new LinkedHashSet<OWLClassExpression>();
         for (SWRLAtom atom : head) {
             if (atom instanceof SWRLClassAtom) {
                 toReturn.add(((SWRLClassAtom) atom).getPredicate());
@@ -173,7 +173,7 @@ public class SWRLRuleImpl extends OWLLogicalAxiomImplWithEntityAndAnonCaching
                 toReturn.add(((SWRLClassAtom) atom).getPredicate());
             }
         }
-        classAtomsPredicates = new WeakReference<>(toReturn);
+        classAtomsPredicates = new WeakReference<Set<OWLClassExpression>>(toReturn);
         return toReturn;
     }
 
@@ -262,11 +262,11 @@ public class SWRLRuleImpl extends OWLLogicalAxiomImplWithEntityAndAnonCaching
 
         @Override
         public SWRLRule visit(SWRLRule node) {
-            Set<SWRLAtom> nodebody = new HashSet<>();
+            Set<SWRLAtom> nodebody = new HashSet<SWRLAtom>();
             for (SWRLAtom atom : node.getBody()) {
                 nodebody.add((SWRLAtom) atom.accept(this));
             }
-            Set<SWRLAtom> nodehead = new HashSet<>();
+            Set<SWRLAtom> nodehead = new HashSet<SWRLAtom>();
             for (SWRLAtom atom : node.getHead()) {
                 nodehead.add((SWRLAtom) atom.accept(this));
             }

@@ -75,13 +75,13 @@ public class OWLDisjointObjectPropertiesAxiomImpl extends
     @Nonnull
     @Override
     public Set<OWLDisjointObjectPropertiesAxiom> asPairwiseAxioms() {
-        Set<OWLDisjointObjectPropertiesAxiom> result = new HashSet<>();
-        List<OWLObjectPropertyExpression> list = new ArrayList<>(
+        Set<OWLDisjointObjectPropertiesAxiom> result = new HashSet<OWLDisjointObjectPropertiesAxiom>();
+        List<OWLObjectPropertyExpression> list = new ArrayList<OWLObjectPropertyExpression>(
                 getProperties());
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = i + 1; j < list.size(); j++) {
                 result.add(new OWLDisjointObjectPropertiesAxiomImpl(
-                        new HashSet<>(Arrays.asList(list.get(i), list.get(j))),
+                        new HashSet<OWLObjectPropertyExpression>(Arrays.asList(list.get(i), list.get(j))),
                         NO_ANNOTATIONS));
             }
         }
@@ -90,16 +90,16 @@ public class OWLDisjointObjectPropertiesAxiomImpl extends
 
     @Override
     public Set<OWLDisjointObjectPropertiesAxiom> splitToAnnotatedPairs() {
-        List<OWLObjectPropertyExpression> ops = new ArrayList<>(getProperties());
+        List<OWLObjectPropertyExpression> ops = new ArrayList<OWLObjectPropertyExpression>(getProperties());
         if (ops.size() == 2) {
             return Collections
                     .<OWLDisjointObjectPropertiesAxiom> singleton(this);
         }
-        Set<OWLDisjointObjectPropertiesAxiom> result = new HashSet<>();
+        Set<OWLDisjointObjectPropertiesAxiom> result = new HashSet<OWLDisjointObjectPropertiesAxiom>();
         for (int i = 0; i < ops.size() - 1; i++) {
             OWLObjectPropertyExpression indI = ops.get(i);
             OWLObjectPropertyExpression indJ = ops.get(i + 1);
-            result.add(new OWLDisjointObjectPropertiesAxiomImpl(new HashSet<>(
+            result.add(new OWLDisjointObjectPropertiesAxiomImpl(new HashSet<OWLObjectPropertyExpression>(
                     Arrays.asList(indI, indJ)), getAnnotations()));
         }
         return result;

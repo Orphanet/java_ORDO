@@ -66,27 +66,27 @@ public class OWLEquivalentClassesAxiomImpl extends OWLNaryClassAxiomImpl impleme
 
     @Override
     public Set<OWLEquivalentClassesAxiom> asPairwiseAxioms() {
-        List<OWLClassExpression> classExpressions = new ArrayList<>(getClassExpressions());
-        Set<OWLEquivalentClassesAxiom> result = new HashSet<>();
+        List<OWLClassExpression> classExpressions = new ArrayList<OWLClassExpression>(getClassExpressions());
+        Set<OWLEquivalentClassesAxiom> result = new HashSet<OWLEquivalentClassesAxiom>();
         for (int i = 0; i < classExpressions.size() - 1; i++) {
             OWLClassExpression ceI = classExpressions.get(i);
             OWLClassExpression ceJ = classExpressions.get(i + 1);
-            result.add(new OWLEquivalentClassesAxiomImpl(new HashSet<>(Arrays.asList(ceI, ceJ)), NO_ANNOTATIONS));
+            result.add(new OWLEquivalentClassesAxiomImpl(new HashSet<OWLClassExpression>(Arrays.asList(ceI, ceJ)), NO_ANNOTATIONS));
         }
         return result;
     }
 
     @Override
     public Set<OWLEquivalentClassesAxiom> splitToAnnotatedPairs() {
-        List<OWLClassExpression> individuals = new ArrayList<>(getClassExpressions());
+        List<OWLClassExpression> individuals = new ArrayList<OWLClassExpression>(getClassExpressions());
         if (individuals.size() == 2) {
             return Collections.<OWLEquivalentClassesAxiom> singleton(this);
         }
-        Set<OWLEquivalentClassesAxiom> result = new HashSet<>();
+        Set<OWLEquivalentClassesAxiom> result = new HashSet<OWLEquivalentClassesAxiom>();
         for (int i = 0; i < individuals.size() - 1; i++) {
             OWLClassExpression indI = individuals.get(i);
             OWLClassExpression indJ = individuals.get(i + 1);
-            result.add(new OWLEquivalentClassesAxiomImpl(new HashSet<>(Arrays.asList(indI, indJ)), getAnnotations()));
+            result.add(new OWLEquivalentClassesAxiomImpl(new HashSet<OWLClassExpression>(Arrays.asList(indI, indJ)), getAnnotations()));
         }
         return result;
     }
@@ -123,22 +123,22 @@ public class OWLEquivalentClassesAxiomImpl extends OWLNaryClassAxiomImpl impleme
             toReturn = verifyNotNull(namedClasses).get();
         }
         if (toReturn == null) {
-            Set<OWLClass> clses = new HashSet<>(1);
+            Set<OWLClass> clses = new HashSet<OWLClass>(1);
             for (OWLClassExpression desc : getClassExpressions()) {
                 if (!desc.isAnonymous() && !desc.isOWLNothing() && !desc.isOWLThing()) {
                     clses.add(desc.asOWLClass());
                 }
             }
             toReturn = CollectionFactory.getCopyOnRequestSetFromImmutableCollection(clses);
-            namedClasses = new WeakReference<>(toReturn);
+            namedClasses = new WeakReference<Set<OWLClass>>(toReturn);
         }
         return toReturn;
     }
 
     @Override
     public Set<OWLSubClassOfAxiom> asOWLSubClassOfAxioms() {
-        Set<OWLSubClassOfAxiom> result = new HashSet<>();
-        List<OWLClassExpression> classExpressions = new ArrayList<>(getClassExpressions());
+        Set<OWLSubClassOfAxiom> result = new HashSet<OWLSubClassOfAxiom>();
+        List<OWLClassExpression> classExpressions = new ArrayList<OWLClassExpression>(getClassExpressions());
         for (int i = 0; i < classExpressions.size(); i++) {
             for (int j = 0; j < classExpressions.size(); j++) {
                 if (i != j) {

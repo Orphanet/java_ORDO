@@ -118,7 +118,7 @@ import org.semanticweb.owlapi.model.SWRLVariable;
  */
 public class OWLObjectComponentCollector implements OWLObjectVisitor {
 
-    private final Set<OWLObject> result = new HashSet<>();
+    private final Set<OWLObject> result = new HashSet<OWLObject>();
 
     /**
      * A convenience method that obtains the components of an OWL object. Note

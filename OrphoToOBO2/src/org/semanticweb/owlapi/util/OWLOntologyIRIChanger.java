@@ -57,7 +57,7 @@ public class OWLOntologyIRIChanger {
      */
     @Nonnull
     public List<OWLOntologyChange> getChanges(@Nonnull OWLOntology ontology, @Nonnull IRI newIRI) {
-        List<OWLOntologyChange> changes = new ArrayList<>();
+        List<OWLOntologyChange> changes = new ArrayList<OWLOntologyChange>();
         changes.add(new SetOntologyID(ontology, new OWLOntologyID(Optional.of(newIRI), ontology.getOntologyID()
             .getVersionIRI())));
         for (OWLOntology ont : owlOntologyManager.getOntologies()) {

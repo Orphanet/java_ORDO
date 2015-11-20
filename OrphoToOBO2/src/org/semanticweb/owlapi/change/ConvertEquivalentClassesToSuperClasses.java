@@ -114,7 +114,7 @@ public class ConvertEquivalentClassesToSuperClasses extends
     }
 
     private void generateChanges() {
-        Set<OWLClassExpression> supers = new HashSet<>();
+        Set<OWLClassExpression> supers = new HashSet<OWLClassExpression>();
         for (OWLOntology o : ontologies) {
             assert o != null;
             for (OWLEquivalentClassesAxiom ax : o

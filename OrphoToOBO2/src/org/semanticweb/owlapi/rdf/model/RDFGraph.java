@@ -43,13 +43,13 @@ public class RDFGraph implements Serializable {
         .newHashSet(OWLRDFVocabulary.OWL_ANNOTATED_TARGET.getIRI());
     private static final long serialVersionUID = 40000L;
     @Nonnull
-    private final Map<RDFResource, Set<RDFTriple>> triplesBySubject = new HashMap<>();
+    private final Map<RDFResource, Set<RDFTriple>> triplesBySubject = new HashMap<RDFResource, Set<RDFTriple>>();
     @Nonnull
-    private final Set<RDFResourceBlankNode> rootAnonymousNodes = new HashSet<>();
+    private final Set<RDFResourceBlankNode> rootAnonymousNodes = new HashSet<RDFResourceBlankNode>();
     @Nonnull
-    private final Set<RDFTriple> triples = new HashSet<>();
+    private final Set<RDFTriple> triples = new HashSet<RDFTriple>();
     @Nonnull
-    private final Map<RDFNode, RDFNode> remappedNodes = new HashMap<>();
+    private final Map<RDFNode, RDFNode> remappedNodes = new HashMap<RDFNode, RDFNode>();
 
     /**
      * Determines if this graph is empty (i.e. whether or not it contains any
@@ -74,7 +74,7 @@ public class RDFGraph implements Serializable {
         triples.add(triple);
         Set<RDFTriple> tripleSet = triplesBySubject.get(triple.getSubject());
         if (tripleSet == null) {
-            tripleSet = new LinkedHashSet<>();
+            tripleSet = new LinkedHashSet<RDFTriple>();
             triplesBySubject.put(triple.getSubject(), tripleSet);
         }
         tripleSet.add(triple);
@@ -104,14 +104,14 @@ public class RDFGraph implements Serializable {
      *         other triples, compute a remapping of the node.
      */
     public Map<RDFTriple, RDFResourceBlankNode> computeRemappingForSharedNodes() {
-        Map<RDFTriple, RDFResourceBlankNode> toReturn = new HashMap<>();
-        Map<RDFNode, List<RDFTriple>> sharers = new HashMap<>();
+        Map<RDFTriple, RDFResourceBlankNode> toReturn = new HashMap<RDFTriple, RDFResourceBlankNode>();
+        Map<RDFNode, List<RDFTriple>> sharers = new HashMap<RDFNode, List<RDFTriple>>();
         for (RDFTriple t : triples) {
             if (t.getObject().isAnonymous()
                 && notInSkippedPredicates(t.getPredicate())) {
                 List<RDFTriple> list = sharers.get(t.getObject());
                 if (list == null) {
-                    list = new ArrayList<>(2);
+                    list = new ArrayList<RDFTriple>(2);
                     sharers.put(t.getObject(), list);
                 }
                 list.add(t);

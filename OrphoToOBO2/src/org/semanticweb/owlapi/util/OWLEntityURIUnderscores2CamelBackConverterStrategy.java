@@ -36,7 +36,7 @@ import com.google.common.base.Optional;
  */
 public class OWLEntityURIUnderscores2CamelBackConverterStrategy implements OWLEntityURIConverterStrategy {
 
-    private final Map<IRI, IRI> iriMap = new HashMap<>();
+    private final Map<IRI, IRI> iriMap = new HashMap<IRI, IRI>();
 
     @Override
     public IRI getConvertedIRI(@Nonnull OWLEntity entity) {

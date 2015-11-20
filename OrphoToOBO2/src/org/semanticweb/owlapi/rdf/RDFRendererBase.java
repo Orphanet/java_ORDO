@@ -72,7 +72,7 @@ public abstract class RDFRendererBase {
 
     @Nonnull
     protected static Set<IRI> initPrettyTypes() {
-        return new HashSet<>(Arrays.asList(OWL_CLASS.getIRI(), OWL_OBJECT_PROPERTY.getIRI(), OWL_DATA_PROPERTY.getIRI(),
+        return new HashSet<IRI>(Arrays.asList(OWL_CLASS.getIRI(), OWL_OBJECT_PROPERTY.getIRI(), OWL_DATA_PROPERTY.getIRI(),
             OWL_ANNOTATION_PROPERTY.getIRI(), OWL_RESTRICTION.getIRI(), OWL_THING.getIRI(), OWL_NOTHING.getIRI(),
             OWL_ONTOLOGY.getIRI(), OWL_ANNOTATION_PROPERTY.getIRI(), OWL_NAMED_INDIVIDUAL.getIRI(), RDFS_DATATYPE
                 .getIRI(), OWL_AXIOM.getIRI(), OWL_ANNOTATION.getIRI()));
@@ -301,7 +301,7 @@ public abstract class RDFRendererBase {
     }
 
     private void renderUntypedIRIAnnotationAssertions() throws IOException {
-        Set<IRI> annotatedIRIs = new TreeSet<>();
+        Set<IRI> annotatedIRIs = new TreeSet<IRI>();
         for (OWLAnnotationAssertionAxiom ax : ontology.getAxioms(AxiomType.ANNOTATION_ASSERTION)) {
             OWLAnnotationSubject subject = ax.getSubject();
             if (subject instanceof IRI) {
@@ -328,7 +328,7 @@ public abstract class RDFRendererBase {
         for (OWLAnonymousIndividual anonInd : sortOptionally(ontology.getReferencedAnonymousIndividuals(EXCLUDED))) {
             assert anonInd != null;
             boolean anonRoot = true;
-            Set<OWLAxiom> axioms = new TreeSet<>();
+            Set<OWLAxiom> axioms = new TreeSet<OWLAxiom>();
             for (OWLAxiom ax : sortOptionally(ontology.getReferencingAxioms(anonInd, EXCLUDED))) {
                 if (!(ax instanceof OWLDifferentIndividualsAxiom)) {
                     assert ax != null;
@@ -350,7 +350,7 @@ public abstract class RDFRendererBase {
     }
 
     private void renderSWRLRules() throws IOException {
-        Set<SWRLRule> ruleAxioms = new TreeSet<>(ontology.getAxioms(AxiomType.SWRL_RULE));
+        Set<SWRLRule> ruleAxioms = new TreeSet<SWRLRule>(ontology.getAxioms(AxiomType.SWRL_RULE));
         createGraph(ruleAxioms);
         if (!ruleAxioms.isEmpty()) {
             writeBanner(RULES_BANNER_TEXT);
@@ -396,7 +396,7 @@ public abstract class RDFRendererBase {
      */
     @Nonnull
     private Set<OWLAxiom> getGeneralAxioms() {
-        Set<OWLAxiom> generalAxioms = new TreeSet<>();
+        Set<OWLAxiom> generalAxioms = new TreeSet<OWLAxiom>();
         generalAxioms.addAll(ontology.getGeneralClassAxioms());
         generalAxioms.addAll(ontology.getAxioms(AxiomType.DIFFERENT_INDIVIDUALS));
         for (OWLDisjointClassesAxiom ax : ontology.getAxioms(AxiomType.DISJOINT_CLASSES)) {
@@ -470,7 +470,7 @@ public abstract class RDFRendererBase {
     }
 
     private boolean createGraph(@Nonnull OWLEntity entity, Collection<IRI> illegalPuns) {
-        final Set<OWLAxiom> axioms = new TreeSet<>();
+        final Set<OWLAxiom> axioms = new TreeSet<OWLAxiom>();
         // Don't write out duplicates for punned annotations!
         if (!punned.contains(entity.getIRI())) {
             axioms.addAll(ontology.getAnnotationAssertionAxioms(entity.getIRI()));
@@ -573,8 +573,8 @@ public abstract class RDFRendererBase {
     }
 
     private AtomicInteger nextBlankNodeId = new AtomicInteger(1);
-    private TObjectIntCustomHashMap<Object> blankNodeMap = new TObjectIntCustomHashMap<>(
-        new IdentityHashingStrategy<>());
+    private TObjectIntCustomHashMap<Object> blankNodeMap = new TObjectIntCustomHashMap<Object>(
+        new IdentityHashingStrategy<Object>());
 
     @Nonnull
     protected RDFResourceBlankNode getBlankNodeFor(Object key, boolean isIndividual, boolean needId) {
@@ -618,7 +618,7 @@ public abstract class RDFRendererBase {
 
     @Nonnull
     private static List<OWLEntity> toSortedSet(@Nonnull Set<? extends OWLEntity> entities) {
-        List<OWLEntity> results = new ArrayList<>(entities);
+        List<OWLEntity> results = new ArrayList<OWLEntity>(entities);
         Collections.sort(results, OWL_ENTITY_IRI_COMPARATOR);
         return results;
     }
@@ -628,7 +628,7 @@ public abstract class RDFRendererBase {
      *         io error
      */
     public void renderAnonRoots() throws IOException {
-        Set<RDFResourceBlankNode> rootAnonymousNodes = new TreeSet<>(graph.getRootAnonymousNodes());
+        Set<RDFResourceBlankNode> rootAnonymousNodes = new TreeSet<RDFResourceBlankNode>(graph.getRootAnonymousNodes());
         for (RDFResourceBlankNode node : rootAnonymousNodes) {
             assert node != null;
             render(node);
@@ -650,7 +650,7 @@ public abstract class RDFRendererBase {
         for (RDFTriple triple : graph.getTriplesForSubject(node)) {
             if (triple.getPredicate().getIRI().equals(RDF_TYPE.getIRI()) && !triple.getObject().isAnonymous() && triple
                 .getObject().getIRI().equals(RDF_LIST.getIRI())) {
-                List<RDFNode> items = new ArrayList<>();
+                List<RDFNode> items = new ArrayList<RDFNode>();
                 toJavaList(node, items);
                 for (RDFNode n : items) {
                     if (n.isLiteral()) {

@@ -160,7 +160,7 @@ public class RDFTriple implements Serializable, Comparable<RDFTriple> {
         OWL_DATA_RANGE.getIRI(), OWL_ON_CLASS.getIRI(),
         OWL_ANNOTATED_SOURCE.getIRI(), OWL_ANNOTATED_PROPERTY.getIRI(),
         OWL_ANNOTATED_TARGET.getIRI());
-    static final THashMap<IRI, Integer> specialPredicateRanks = new THashMap<>();
+    static final THashMap<IRI, Integer> specialPredicateRanks = new THashMap<IRI, Integer>();
 
     static {
         int nextId = 1;

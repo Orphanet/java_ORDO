@@ -51,7 +51,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
     @Nonnull
     @Override
     public Set<OWLAnonymousIndividual> getAnonymousIndividuals() {
-        Set<OWLAnonymousIndividual> result = new HashSet<>();
+        Set<OWLAnonymousIndividual> result = new HashSet<OWLAnonymousIndividual>();
         addAnonymousIndividualsToSet(result);
         return result;
     }
@@ -59,7 +59,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
     @Nonnull
     @Override
     public Set<OWLEntity> getSignature() {
-        Set<OWLEntity> result = new HashSet<>();
+        Set<OWLEntity> result = new HashSet<OWLEntity>();
         addSignatureEntitiesToSet(result);
         return result;
     }
@@ -95,7 +95,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
 
     @Override
     public Set<OWLClass> getClassesInSignature() {
-        Set<OWLClass> result = new HashSet<>();
+        Set<OWLClass> result = new HashSet<OWLClass>();
         for (OWLEntity ent : getSignature()) {
             if (ent.isOWLClass()) {
                 result.add(ent.asOWLClass());
@@ -106,7 +106,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
 
     @Override
     public Set<OWLDataProperty> getDataPropertiesInSignature() {
-        Set<OWLDataProperty> result = new HashSet<>();
+        Set<OWLDataProperty> result = new HashSet<OWLDataProperty>();
         for (OWLEntity ent : getSignature()) {
             if (ent.isOWLDataProperty()) {
                 result.add(ent.asOWLDataProperty());
@@ -117,7 +117,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
 
     @Override
     public Set<OWLObjectProperty> getObjectPropertiesInSignature() {
-        Set<OWLObjectProperty> result = new HashSet<>();
+        Set<OWLObjectProperty> result = new HashSet<OWLObjectProperty>();
         for (OWLEntity ent : getSignature()) {
             if (ent.isOWLObjectProperty()) {
                 result.add(ent.asOWLObjectProperty());
@@ -128,7 +128,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
 
     @Override
     public Set<OWLNamedIndividual> getIndividualsInSignature() {
-        Set<OWLNamedIndividual> result = new HashSet<>();
+        Set<OWLNamedIndividual> result = new HashSet<OWLNamedIndividual>();
         for (OWLEntity ent : getSignature()) {
             if (ent.isOWLNamedIndividual()) {
                 result.add(ent.asOWLNamedIndividual());
@@ -139,7 +139,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
 
     @Override
     public Set<OWLDatatype> getDatatypesInSignature() {
-        Set<OWLDatatype> result = new HashSet<>();
+        Set<OWLDatatype> result = new HashSet<OWLDatatype>();
         for (OWLEntity ent : getSignature()) {
             if (ent.isOWLDatatype()) {
                 result.add(ent.asOWLDatatype());
@@ -150,7 +150,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
 
     @Override
     public Set<OWLAnnotationProperty> getAnnotationPropertiesInSignature() {
-        Set<OWLAnnotationProperty> result = new HashSet<>();
+        Set<OWLAnnotationProperty> result = new HashSet<OWLAnnotationProperty>();
         for (OWLEntity ent : getSignature()) {
             if (ent.isOWLAnnotationProperty()) {
                 result.add(ent.asOWLAnnotationProperty());
@@ -218,7 +218,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
             return diff;
         }
         if (this instanceof OWLAxiom) {
-            diff = compareLists(new ArrayList<>(((OWLAxiom) this).getAnnotations()), new ArrayList<>(((OWLAxiom) o)
+            diff = compareLists(new ArrayList<OWLAnnotation>(((OWLAxiom) this).getAnnotations()), new ArrayList<OWLAnnotation>(((OWLAxiom) o)
                 .getAnnotations()));
         }
         return diff;
@@ -267,13 +267,13 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
         if (set1 instanceof SortedSet) {
             ss1 = (SortedSet<? extends OWLObject>) set1;
         } else {
-            ss1 = new TreeSet<>(set1);
+            ss1 = new TreeSet<OWLObject>(set1);
         }
         SortedSet<? extends OWLObject> ss2;
         if (set2 instanceof SortedSet) {
             ss2 = (SortedSet<? extends OWLObject>) set2;
         } else {
-            ss2 = new TreeSet<>(set2);
+            ss2 = new TreeSet<OWLObject>(set2);
         }
         int i = 0;
         Iterator<? extends OWLObject> thisIt = ss1.iterator();

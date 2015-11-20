@@ -82,7 +82,7 @@ public class OWLAPIServiceLoaderModule extends AbstractModule {
      */
     protected <T> Iterable<T> load(Class<T> type) {
         // J2EE compatible search
-        Collection<T> result = new HashSet<>();
+        Collection<T> result = new HashSet<T>();
         try {
             Iterables.addAll(result, ServiceLoader.load(type));
         } catch (ServiceConfigurationError e) {

@@ -31,8 +31,8 @@ import org.semanticweb.owlapi.model.OWLObjectComplementOf;
 public class OWLClassLiteralCollector extends OWLObjectWalker<OWLObject> {
 
     // XXX stateful visitor...
-    protected final Set<OWLClass> pos = new HashSet<>();
-    protected final Set<OWLClass> neg = new HashSet<>();
+    protected final Set<OWLClass> pos = new HashSet<OWLClass>();
+    protected final Set<OWLClass> neg = new HashSet<OWLClass>();
     private boolean processed = false;
 
     /**
@@ -64,13 +64,13 @@ public class OWLClassLiteralCollector extends OWLObjectWalker<OWLObject> {
     /** @return positive literals */
     public Set<OWLClass> getPositiveLiterals() {
         process();
-        return new HashSet<>(pos);
+        return new HashSet<OWLClass>(pos);
     }
 
     /** @return negative literals */
     public Set<OWLClass> getNegativeLiterals() {
         process();
-        return new HashSet<>(neg);
+        return new HashSet<OWLClass>(neg);
     }
 
     private class OWLClassLiteralCollectorVisitor extends

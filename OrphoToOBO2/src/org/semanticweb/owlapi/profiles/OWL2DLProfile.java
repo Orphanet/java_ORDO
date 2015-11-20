@@ -134,7 +134,7 @@ public class OWL2DLProfile implements OWLProfile {
     public OWLProfileReport checkOntology(OWLOntology ontology) {
         OWL2Profile owl2Profile = new OWL2Profile();
         OWLProfileReport report = owl2Profile.checkOntology(ontology);
-        Set<OWLProfileViolation> violations = new LinkedHashSet<>();
+        Set<OWLProfileViolation> violations = new LinkedHashSet<OWLProfileViolation>();
         if (!report.isInProfile()) {
             // We won't be in the OWL 2 DL Profile then!
             violations.addAll(report.getViolations());
@@ -155,7 +155,7 @@ public class OWL2DLProfile implements OWLProfile {
         @Nonnull
         private final OWLOntologyManager manager;
         @Nonnull
-        private final Set<OWLProfileViolation> profileViolations = new HashSet<>();
+        private final Set<OWLProfileViolation> profileViolations = new HashSet<OWLProfileViolation>();
 
         OWL2DLProfileObjectVisitor(@Nonnull OWLOntologyWalker walker,
                 @Nonnull OWLOntologyManager manager) {
@@ -164,7 +164,7 @@ public class OWL2DLProfile implements OWLProfile {
         }
 
         public Set<OWLProfileViolation> getProfileViolations() {
-            return new HashSet<>(profileViolations);
+            return new HashSet<OWLProfileViolation>(profileViolations);
         }
 
         private OWLObjectPropertyManager getPropertyManager() {
@@ -384,8 +384,8 @@ public class OWL2DLProfile implements OWLProfile {
                                 getCurrentOntology(), axiom));
             }
             // Check for cycles
-            Set<OWLDatatype> datatypes = new HashSet<>();
-            Set<OWLAxiom> axioms = new LinkedHashSet<>();
+            Set<OWLDatatype> datatypes = new HashSet<OWLDatatype>();
+            Set<OWLAxiom> axioms = new LinkedHashSet<OWLAxiom>();
             axioms.add(axiom);
             getDatatypesInSignature(datatypes, axiom.getDataRange(), axioms);
             if (datatypes.contains(axiom.getDatatype())) {

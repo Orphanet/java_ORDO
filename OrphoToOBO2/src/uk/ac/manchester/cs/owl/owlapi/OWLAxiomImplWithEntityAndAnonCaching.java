@@ -94,7 +94,7 @@ public abstract class OWLAxiomImplWithEntityAndAnonCaching extends OWLObjectImpl
         if (annotations.isEmpty()) {
             return emptySet();
         } else {
-            Set<OWLAnnotation> result = new HashSet<>();
+            Set<OWLAnnotation> result = new HashSet<OWLAnnotation>();
             for (OWLAnnotation anno : annotations) {
                 if (anno.getProperty().equals(annotationProperty)) {
                     result.add(anno);
@@ -134,7 +134,7 @@ public abstract class OWLAxiomImplWithEntityAndAnonCaching extends OWLObjectImpl
      */
     @Nonnull
     protected Set<OWLAnnotation> mergeAnnos(Set<OWLAnnotation> annos) {
-        Set<OWLAnnotation> merged = new HashSet<>(annos);
+        Set<OWLAnnotation> merged = new HashSet<OWLAnnotation>(annos);
         merged.addAll(annotations);
         return merged;
     }

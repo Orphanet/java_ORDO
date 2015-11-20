@@ -75,7 +75,7 @@ public enum OWL2Datatype implements HasIRI,HasShortForm,HasPrefixedName {
 
     @Nonnull
     static Set<IRI> init() {
-        List<IRI> iris = new ArrayList<>();
+        List<IRI> iris = new ArrayList<IRI>();
         for (OWL2Datatype v : OWL2Datatype.values()) {
             iris.add(v.iri);
         }
@@ -281,7 +281,7 @@ public enum OWL2Datatype implements HasIRI,HasShortForm,HasPrefixedName {
 
         Category(String name, OWLFacet... facets) {
             this.name = name;
-            Set<OWLFacet> f = new HashSet<>(Arrays.asList(facets));
+            Set<OWLFacet> f = new HashSet<OWLFacet>(Arrays.asList(facets));
             this.facets = Collections.unmodifiableSet(f);
         }
 

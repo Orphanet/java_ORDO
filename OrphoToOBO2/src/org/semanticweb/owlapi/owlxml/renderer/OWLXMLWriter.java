@@ -62,7 +62,7 @@ public class OWLXMLWriter {
     private static final IRI ONTOLOGY_IRI = IRI.create(Namespaces.OWL.getPrefixIRI(), "ontologyIRI");
     private final XMLWriter writer;
     @Nonnull
-    private final Map<String, String> iriPrefixMap = new TreeMap<>(new StringLengthComparator());
+    private final Map<String, String> iriPrefixMap = new TreeMap<String, String>(new StringLengthComparator());
 
     /**
      * @param writer

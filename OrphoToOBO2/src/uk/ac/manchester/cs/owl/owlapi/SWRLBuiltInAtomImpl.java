@@ -49,7 +49,7 @@ public class SWRLBuiltInAtomImpl extends SWRLAtomImpl implements SWRLBuiltInAtom
      */
     public SWRLBuiltInAtomImpl(@Nonnull IRI predicate, @Nonnull List<SWRLDArgument> args) {
         super(predicate);
-        this.args = new ArrayList<>(checkNotNull(args, "args cannot be null"));
+        this.args = new ArrayList<SWRLDArgument>(checkNotNull(args, "args cannot be null"));
     }
 
     @Override
@@ -78,7 +78,7 @@ public class SWRLBuiltInAtomImpl extends SWRLAtomImpl implements SWRLBuiltInAtom
 
     @Override
     public List<SWRLDArgument> getArguments() {
-        return new ArrayList<>(args);
+        return new ArrayList<SWRLDArgument>(args);
     }
 
     @Override

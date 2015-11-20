@@ -41,7 +41,7 @@ public class OWL2RLProfile implements OWLProfile {
         return b;
     }
 
-    protected static final Set<IRI> ALLOWED_DATATYPES = new HashSet<>(Arrays.asList(RDF_PLAIN_LITERAL.getIRI(),
+    protected static final Set<IRI> ALLOWED_DATATYPES = new HashSet<IRI>(Arrays.asList(RDF_PLAIN_LITERAL.getIRI(),
         RDF_XML_LITERAL.getIRI(), RDFS_LITERAL.getIRI(), XSD_DECIMAL.getIRI(), XSD_INTEGER.getIRI(),
         XSD_NON_NEGATIVE_INTEGER.getIRI(), XSD_NON_POSITIVE_INTEGER.getIRI(), XSD_POSITIVE_INTEGER.getIRI(),
         XSD_NEGATIVE_INTEGER.getIRI(), XSD_LONG.getIRI(), XSD_INT.getIRI(), XSD_SHORT.getIRI(), XSD_BYTE.getIRI(),
@@ -79,7 +79,7 @@ public class OWL2RLProfile implements OWLProfile {
     public OWLProfileReport checkOntology(OWLOntology ontology) {
         OWL2DLProfile profile = new OWL2DLProfile();
         OWLProfileReport report = profile.checkOntology(ontology);
-        Set<OWLProfileViolation> violations = new HashSet<>();
+        Set<OWLProfileViolation> violations = new HashSet<OWLProfileViolation>();
         violations.addAll(report.getViolations());
         OWLOntologyProfileWalker walker = new OWLOntologyProfileWalker(ontology.getImportsClosure());
         OWL2RLObjectVisitor visitor = new OWL2RLObjectVisitor(walker);
@@ -90,14 +90,14 @@ public class OWL2RLProfile implements OWLProfile {
 
     private class OWL2RLObjectVisitor extends OWLOntologyWalkerVisitor {
 
-        private final Set<OWLProfileViolation> violations = new HashSet<>();
+        private final Set<OWLProfileViolation> violations = new HashSet<OWLProfileViolation>();
 
         OWL2RLObjectVisitor(@Nonnull OWLOntologyWalker walker) {
             super(walker);
         }
 
         public Set<OWLProfileViolation> getProfileViolations() {
-            return new HashSet<>(violations);
+            return new HashSet<OWLProfileViolation>(violations);
         }
 
         @Override

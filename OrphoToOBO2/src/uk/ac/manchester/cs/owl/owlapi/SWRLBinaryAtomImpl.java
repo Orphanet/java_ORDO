@@ -68,7 +68,7 @@ public abstract class SWRLBinaryAtomImpl<A extends SWRLArgument, B extends SWRLA
     @Nonnull
     @Override
     public Collection<SWRLArgument> getAllArguments() {
-        List<SWRLArgument> objs = new ArrayList<>();
+        List<SWRLArgument> objs = new ArrayList<SWRLArgument>();
         objs.add(arg0);
         objs.add(arg1);
         return objs;

@@ -29,7 +29,7 @@ public enum PriorityCollectionSorting {
 
         @Override
         public <O> List<O> sort(List<O> list) {
-            Collections.sort(list, new HasPriorityComparator<>());
+            Collections.sort(list, new HasPriorityComparator<Object>());
             return list;
         }
 
@@ -55,7 +55,7 @@ public enum PriorityCollectionSorting {
 
         @Override
         public <O> List<O> sortInputSet(List<O> list) {
-            Collections.sort(list, new HasPriorityComparator<>());
+            Collections.sort(list, new HasPriorityComparator<Object>());
             return list;
         }
     },

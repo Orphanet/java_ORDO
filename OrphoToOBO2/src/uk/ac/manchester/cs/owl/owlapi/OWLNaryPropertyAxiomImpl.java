@@ -96,7 +96,7 @@ public abstract class OWLNaryPropertyAxiomImpl<P extends OWLPropertyExpression>
 
     @Override
     public Set<P> getPropertiesMinus(P property) {
-        Set<P> props = new TreeSet<>(properties);
+        Set<P> props = new TreeSet<P>(properties);
         props.remove(property);
         return props;
     }
@@ -127,7 +127,7 @@ public abstract class OWLNaryPropertyAxiomImpl<P extends OWLPropertyExpression>
 
     @Override
     public <T> Collection<T> walkPairwise(OWLPairwiseVisitor<T, P> visitor) {
-        List<T> l = new ArrayList<>();
+        List<T> l = new ArrayList<T>();
         for (int i = 0; i < properties.size() - 1; i++) {
             for (int j = i + 1; j < properties.size(); j++) {
                 T t = visitor.visit(properties.get(i), properties.get(j));

@@ -360,7 +360,7 @@ public class LatexObjectVisitor implements OWLObjectVisitor {
     @Override
     public void visit(OWLEquivalentClassesAxiom axiom) {
         if (axiom.getClassExpressions().size() > 2) {
-            Set<Set<OWLClassExpression>> rendered = new HashSet<>();
+            Set<Set<OWLClassExpression>> rendered = new HashSet<Set<OWLClassExpression>>();
             for (OWLClassExpression left : axiom.getClassExpressions()) {
                 for (OWLClassExpression right : axiom.getClassExpressions()) {
                     if (left != right) {

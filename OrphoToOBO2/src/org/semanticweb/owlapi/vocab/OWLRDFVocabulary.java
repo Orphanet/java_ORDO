@@ -225,7 +225,7 @@ public enum OWLRDFVocabulary implements HasShortForm,HasIRI,HasPrefixedName {
      */
     @Nonnull
     public static Set<IRI> asIRISet(HasIRI... i) {
-        return Collections.unmodifiableSet(new HashSet<>(Collections2.transform(Sets.newHashSet(i), AS_IRI)));
+        return Collections.unmodifiableSet(new HashSet<IRI>(Collections2.transform(Sets.newHashSet(i), AS_IRI)));
     }
 
     /** Set of all IRIs for this enum values */

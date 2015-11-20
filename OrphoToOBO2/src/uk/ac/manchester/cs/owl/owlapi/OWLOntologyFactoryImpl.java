@@ -48,7 +48,7 @@ public class OWLOntologyFactoryImpl implements OWLOntologyFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OWLOntologyFactoryImpl.class);
 
-    private final Set<String> parsableSchemes = new HashSet<>(Arrays.asList("http", "https", "file", "ftp"));
+    private final Set<String> parsableSchemes = new HashSet<String>(Arrays.asList("http", "https", "file", "ftp"));
 
     private final OWLOntologyBuilder ontologyBuilder;
 
@@ -119,7 +119,7 @@ public class OWLOntologyFactoryImpl implements OWLOntologyFactory {
      */
     private static PriorityCollection<OWLParserFactory> getParsersByFormat(@Nonnull OWLDocumentFormat format,
                                                                            PriorityCollection<OWLParserFactory> parsers) {
-        PriorityCollection<OWLParserFactory> candidateParsers = new PriorityCollection<>(
+        PriorityCollection<OWLParserFactory> candidateParsers = new PriorityCollection<OWLParserFactory>(
             PriorityCollectionSorting.NEVER);
         for (OWLParserFactory parser : parsers) {
             if (parser.getSupportedFormat().getKey().equals(format.getKey())) {
@@ -185,7 +185,7 @@ public class OWLOntologyFactoryImpl implements OWLOntologyFactory {
         // for example (perhaps the parser list could be ordered based on most
         // likely parser, which
         // could be determined by file extension).
-        Map<OWLParser, OWLParserException> exceptions = new LinkedHashMap<>();
+        Map<OWLParser, OWLParserException> exceptions = new LinkedHashMap<OWLParser, OWLParserException>();
         // Call the super method to create the ontology - this is needed,
         // because
         // we throw an exception if someone tries to create an ontology directly

@@ -59,7 +59,7 @@ public class OWLObjectDuplicator implements OWLObjectVisitor, SWRLObjectVisitor 
     public OWLObjectDuplicator(@Nonnull OWLDataFactory dataFactory, @Nonnull Map<IRI, IRI> iriReplacementMap) {
         this.dataFactory = checkNotNull(dataFactory, "dataFactory cannot be null");
         checkNotNull(iriReplacementMap, "iriReplacementMap cannot be null");
-        replacementMap = new HashMap<>();
+        replacementMap = new HashMap<OWLEntity, IRI>();
         for (Map.Entry<IRI, IRI> e : iriReplacementMap.entrySet()) {
             @Nonnull
             IRI iri = e.getKey();
@@ -88,7 +88,7 @@ public class OWLObjectDuplicator implements OWLObjectVisitor, SWRLObjectVisitor 
         @Nonnull OWLDataFactory dataFactory) {
         this.dataFactory = checkNotNull(dataFactory, "dataFactory cannot be null");
         anonProvider = new RemappingIndividualProvider(this.dataFactory);
-        replacementMap = new HashMap<>(checkNotNull(entityIRIReplacementMap, "entityIRIReplacementMap cannot be null"));
+        replacementMap = new HashMap<OWLEntity, IRI>(checkNotNull(entityIRIReplacementMap, "entityIRIReplacementMap cannot be null"));
     }
 
     /**
@@ -138,7 +138,7 @@ public class OWLObjectDuplicator implements OWLObjectVisitor, SWRLObjectVisitor 
     @Nonnull
     private Set<OWLAnnotation> duplicateAxiomAnnotations(@Nonnull OWLAxiom axiom) {
         checkNotNull(axiom, "axiom cannot be null");
-        Set<OWLAnnotation> duplicatedAnnos = new HashSet<>();
+        Set<OWLAnnotation> duplicatedAnnos = new HashSet<OWLAnnotation>();
         for (OWLAnnotation anno : axiom.getAnnotations()) {
             anno.accept(this);
             duplicatedAnnos.add((OWLAnnotation) getLastObject());
@@ -342,7 +342,7 @@ public class OWLObjectDuplicator implements OWLObjectVisitor, SWRLObjectVisitor 
     public void visit(@Nonnull OWLSubPropertyChainOfAxiom axiom) {
         axiom.getSuperProperty().accept(this);
         OWLObjectPropertyExpression prop = getLastObject();
-        List<OWLObjectPropertyExpression> chain = new ArrayList<>();
+        List<OWLObjectPropertyExpression> chain = new ArrayList<OWLObjectPropertyExpression>();
         for (OWLObjectPropertyExpression p : axiom.getPropertyChain()) {
             p.accept(this);
             chain.add((OWLObjectPropertyExpression) getLastObject());
@@ -582,7 +582,7 @@ public class OWLObjectDuplicator implements OWLObjectVisitor, SWRLObjectVisitor 
     public void visit(@Nonnull OWLDatatypeRestriction node) {
         node.getDatatype().accept(this);
         OWLDatatype dr = getLastObject();
-        Set<OWLFacetRestriction> restrictions = new HashSet<>();
+        Set<OWLFacetRestriction> restrictions = new HashSet<OWLFacetRestriction>();
         for (OWLFacetRestriction restriction : node.getFacetRestrictions()) {
             restriction.accept(this);
             restrictions.add((OWLFacetRestriction) getLastObject());
@@ -641,8 +641,8 @@ public class OWLObjectDuplicator implements OWLObjectVisitor, SWRLObjectVisitor 
 
     @Override
     public void visit(@Nonnull SWRLRule rule) {
-        Set<SWRLAtom> antecedents = new HashSet<>();
-        Set<SWRLAtom> consequents = new HashSet<>();
+        Set<SWRLAtom> antecedents = new HashSet<SWRLAtom>();
+        Set<SWRLAtom> consequents = new HashSet<SWRLAtom>();
         for (SWRLAtom atom : rule.getBody()) {
             atom.accept(this);
             antecedents.add((SWRLAtom) getLastObject());
@@ -696,7 +696,7 @@ public class OWLObjectDuplicator implements OWLObjectVisitor, SWRLObjectVisitor 
 
     @Override
     public void visit(@Nonnull SWRLBuiltInAtom node) {
-        List<SWRLDArgument> atomObjects = new ArrayList<>();
+        List<SWRLDArgument> atomObjects = new ArrayList<SWRLDArgument>();
         for (SWRLDArgument atomObject : node.getArguments()) {
             atomObject.accept(this);
             atomObjects.add((SWRLDArgument) getLastObject());
@@ -842,7 +842,7 @@ public class OWLObjectDuplicator implements OWLObjectVisitor, SWRLObjectVisitor 
     @Nonnull
     @SuppressWarnings("unchecked")
     private <O extends OWLObject> Set<O> duplicateSet(@Nonnull Set<O> objects) {
-        Set<O> dup = new HashSet<>();
+        Set<O> dup = new HashSet<O>();
         for (O o : objects) {
             o.accept(this);
             dup.add((O) getLastObject());

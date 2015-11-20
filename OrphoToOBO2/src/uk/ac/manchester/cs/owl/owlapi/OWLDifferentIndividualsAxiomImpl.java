@@ -74,12 +74,12 @@ public class OWLDifferentIndividualsAxiomImpl extends
     @Override
     public Set<OWLDifferentIndividualsAxiom> asPairwiseAxioms() {
         List<OWLIndividual> individuals = getIndividualsAsList();
-        Set<OWLDifferentIndividualsAxiom> result = new HashSet<>();
+        Set<OWLDifferentIndividualsAxiom> result = new HashSet<OWLDifferentIndividualsAxiom>();
         for (int i = 0; i < individuals.size() - 1; i++) {
             for (int j = i + 1; j < individuals.size(); j++) {
                 OWLIndividual indI = individuals.get(i);
                 OWLIndividual indJ = individuals.get(j);
-                result.add(new OWLDifferentIndividualsAxiomImpl(new HashSet<>(
+                result.add(new OWLDifferentIndividualsAxiomImpl(new HashSet<OWLIndividual>(
                         Arrays.asList(indI, indJ)), NO_ANNOTATIONS));
             }
         }
@@ -92,11 +92,11 @@ public class OWLDifferentIndividualsAxiomImpl extends
         if (individuals.size() == 2) {
             return Collections.<OWLDifferentIndividualsAxiom> singleton(this);
         }
-        Set<OWLDifferentIndividualsAxiom> result = new HashSet<>();
+        Set<OWLDifferentIndividualsAxiom> result = new HashSet<OWLDifferentIndividualsAxiom>();
         for (int i = 0; i < individuals.size() - 1; i++) {
             OWLIndividual indI = individuals.get(i);
             OWLIndividual indJ = individuals.get(i + 1);
-            result.add(new OWLDifferentIndividualsAxiomImpl(new HashSet<>(
+            result.add(new OWLDifferentIndividualsAxiomImpl(new HashSet<OWLIndividual>(
                     Arrays.asList(indI, indJ)), getAnnotations()));
         }
         return result;
@@ -125,13 +125,13 @@ public class OWLDifferentIndividualsAxiomImpl extends
 
     @Override
     public Set<OWLSubClassOfAxiom> asOWLSubClassOfAxioms() {
-        List<OWLClassExpression> nominalsList = new ArrayList<>();
+        List<OWLClassExpression> nominalsList = new ArrayList<OWLClassExpression>();
         for (OWLIndividual individual : getIndividuals()) {
             assert individual != null;
             nominalsList.add(new OWLObjectOneOfImpl(CollectionFactory
                     .createSet(individual)));
         }
-        Set<OWLSubClassOfAxiom> result = new HashSet<>();
+        Set<OWLSubClassOfAxiom> result = new HashSet<OWLSubClassOfAxiom>();
         for (int i = 0; i < nominalsList.size() - 1; i++) {
             for (int j = i + 1; j < nominalsList.size(); j++) {
                 OWLClassExpression ceI = nominalsList.get(i);

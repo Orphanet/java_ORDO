@@ -75,7 +75,7 @@ public class MakeClassesMutuallyDisjoint extends
             boolean usePairwiseDisjointAxioms,
             @Nonnull OWLOntology targetOntology) {
         if (usePairwiseDisjointAxioms) {
-            List<OWLClassExpression> descList = new ArrayList<>(
+            List<OWLClassExpression> descList = new ArrayList<OWLClassExpression>(
                     classExpressions);
             for (int i = 0; i < descList.size(); i++) {
                 for (int j = i + 1; j < descList.size(); j++) {

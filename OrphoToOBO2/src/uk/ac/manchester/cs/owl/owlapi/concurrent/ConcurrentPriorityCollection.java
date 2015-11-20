@@ -150,7 +150,7 @@ public class ConcurrentPriorityCollection<T extends Serializable> extends Priori
     private Iterable<T> copyIterable() {
         readLock.lock();
         try {
-            List<T> copy = new ArrayList<>();
+            List<T> copy = new ArrayList<T>();
             for (Iterator<T> it = super.iterator(); it.hasNext();) {
                 T element = it.next();
                 copy.add(element);

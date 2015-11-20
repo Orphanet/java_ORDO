@@ -83,7 +83,7 @@ public class FunctionalSyntaxObjectRenderer implements OWLObjectVisitor {
                 prefixManager.setDefaultPrefix(defaultPrefix);
             }
         }
-        Map<OWLAnnotationProperty, List<String>> prefLangMap = new HashMap<>();
+        Map<OWLAnnotationProperty, List<String>> prefLangMap = new HashMap<OWLAnnotationProperty, List<String>>();
         OWLOntologyManager manager = ontology.getOWLOntologyManager();
         OWLDataFactory df = manager.getOWLDataFactory();
         OWLAnnotationProperty labelProp = df.getOWLAnnotationProperty(RDFS_LABEL.getIRI());
@@ -205,7 +205,7 @@ public class FunctionalSyntaxObjectRenderer implements OWLObjectVisitor {
             writeReturn();
         }
         writeReturn();
-        Set<OWLAxiom> writtenAxioms = new HashSet<>();
+        Set<OWLAxiom> writtenAxioms = new HashSet<OWLAxiom>();
         Collection<IRI> illegals = OWLDocumentFormatImpl.determineIllegalPunnings(addMissingDeclarations, ontology
             .getSignature(), ont.getPunnedIRIs(INCLUDED));
         for (OWLEntity ent : sortOptionally(ontology.getSignature())) {
@@ -296,7 +296,7 @@ public class FunctionalSyntaxObjectRenderer implements OWLObjectVisitor {
      */
     @Nonnull
     protected Set<OWLAxiom> writeEntity(@Nonnull OWLEntity entity) {
-        Set<OWLAxiom> writtenAxioms = new HashSet<>();
+        Set<OWLAxiom> writtenAxioms = new HashSet<OWLAxiom>();
         writeEntity(entity, writtenAxioms);
         return writtenAxioms;
     }
@@ -395,7 +395,7 @@ public class FunctionalSyntaxObjectRenderer implements OWLObjectVisitor {
      */
     @Nonnull
     protected Set<OWLAxiom> writeDeclarations(@Nonnull OWLEntity entity) {
-        Set<OWLAxiom> axioms = new HashSet<>();
+        Set<OWLAxiom> axioms = new HashSet<OWLAxiom>();
         Set<OWLDeclarationAxiom> declarationAxioms = ont.getDeclarationAxioms(entity);
         for (OWLAxiom ax : sortOptionally(declarationAxioms)) {
             ax.accept(this);

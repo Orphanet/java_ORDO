@@ -72,7 +72,7 @@ public class Debugger {
                 writer);
         /* Write a header */
         renderer.header();
-        Set<OWLClass> unsatisfiables = new HashSet<>();
+        Set<OWLClass> unsatisfiables = new HashSet<OWLClass>();
         for (OWLClass clazz : ontology.getClassesInSignature()) {
             assert clazz != null;
             /* Collect the unsatisfiable classes that aren't bottom. */

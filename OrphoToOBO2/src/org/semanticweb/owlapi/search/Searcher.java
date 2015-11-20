@@ -44,7 +44,7 @@ public final class Searcher {
     @Nonnull
     public static Collection<OWLLiteral> values(@Nonnull Collection<OWLDataPropertyAssertionAxiom> axioms,
         @Nullable OWLDataPropertyExpression p) {
-        Set<OWLLiteral> literals = new HashSet<>();
+        Set<OWLLiteral> literals = new HashSet<OWLLiteral>();
         for (OWLDataPropertyAssertionAxiom ax : axioms) {
             if (p == null || ax.getProperty().equals(p)) {
                 literals.add(ax.getObject());
@@ -65,7 +65,7 @@ public final class Searcher {
     @Nonnull
     public static Collection<OWLIndividual> values(@Nonnull Collection<OWLObjectPropertyAssertionAxiom> axioms,
         @Nullable OWLObjectPropertyExpression p) {
-        Set<OWLIndividual> objects = new HashSet<>();
+        Set<OWLIndividual> objects = new HashSet<OWLIndividual>();
         for (OWLObjectPropertyAssertionAxiom ax : axioms) {
             if (p == null || ax.getProperty().equals(p)) {
                 objects.add(ax.getObject());
@@ -86,7 +86,7 @@ public final class Searcher {
     @Nonnull
     public static Collection<OWLLiteral> negValues(@Nonnull Collection<OWLNegativeDataPropertyAssertionAxiom> axioms,
         @Nullable OWLDataPropertyExpression p) {
-        Set<OWLLiteral> literals = new HashSet<>();
+        Set<OWLLiteral> literals = new HashSet<OWLLiteral>();
         for (OWLNegativeDataPropertyAssertionAxiom ax : axioms) {
             if (p == null || ax.getProperty().equals(p)) {
                 literals.add(ax.getObject());
@@ -107,7 +107,7 @@ public final class Searcher {
     @Nonnull
     public static Collection<OWLIndividual> negValues(
         @Nonnull Collection<OWLNegativeObjectPropertyAssertionAxiom> axioms, @Nullable OWLObjectPropertyExpression p) {
-        Set<OWLIndividual> objects = new HashSet<>();
+        Set<OWLIndividual> objects = new HashSet<OWLIndividual>();
         for (OWLNegativeObjectPropertyAssertionAxiom ax : axioms) {
             if (p == null || ax.getProperty().equals(p)) {
                 objects.add(ax.getObject());
@@ -125,7 +125,7 @@ public final class Searcher {
      */
     @Nonnull
     public static Collection<OWLClassExpression> types(@Nonnull Collection<OWLClassAssertionAxiom> axioms) {
-        Set<OWLClassExpression> objects = new HashSet<>();
+        Set<OWLClassExpression> objects = new HashSet<OWLClassExpression>();
         for (OWLClassAssertionAxiom ax : axioms) {
             objects.add(ax.getClassExpression());
         }
@@ -141,7 +141,7 @@ public final class Searcher {
      */
     @Nonnull
     public static Collection<OWLIndividual> instances(@Nonnull Collection<OWLClassAssertionAxiom> axioms) {
-        Set<OWLIndividual> objects = new HashSet<>();
+        Set<OWLIndividual> objects = new HashSet<OWLIndividual>();
         for (OWLClassAssertionAxiom ax : axioms) {
             objects.add(ax.getIndividual());
         }
@@ -160,7 +160,7 @@ public final class Searcher {
     @Nonnull
     public static Collection<OWLObjectPropertyExpression> inverse(
         @Nonnull Collection<OWLInverseObjectPropertiesAxiom> axioms, @Nonnull OWLObjectPropertyExpression p) {
-        List<OWLObjectPropertyExpression> toReturn = new ArrayList<>();
+        List<OWLObjectPropertyExpression> toReturn = new ArrayList<OWLObjectPropertyExpression>();
         for (OWLInverseObjectPropertiesAxiom ax : axioms) {
             if (ax.getFirstProperty().equals(p)) {
                 toReturn.add(ax.getSecondProperty());
@@ -195,7 +195,7 @@ public final class Searcher {
     @Nonnull
     public static Collection<OWLAnnotationValue> values(@Nonnull Collection<OWLAnnotation> annotations,
         @Nullable OWLAnnotationProperty p) {
-        Set<OWLAnnotationValue> toReturn = new HashSet<>();
+        Set<OWLAnnotationValue> toReturn = new HashSet<OWLAnnotationValue>();
         for (OWLAnnotation ax : annotations) {
             if (p == null || ax.getProperty().equals(p)) {
                 toReturn.add(ax.getValue());
@@ -230,7 +230,7 @@ public final class Searcher {
     @Nonnull
     public static Collection<OWLAnnotation> annotationObjects(@Nonnull Collection<OWLAnnotationAssertionAxiom> axioms,
         @Nullable OWLAnnotationProperty p) {
-        Set<OWLAnnotation> toReturn = new HashSet<>();
+        Set<OWLAnnotation> toReturn = new HashSet<OWLAnnotation>();
         for (OWLAnnotationAssertionAxiom ax : axioms) {
             assert ax != null;
             OWLAnnotation c = ax.getAnnotation();
@@ -250,7 +250,7 @@ public final class Searcher {
      */
     @Nonnull
     public static Collection<OWLAnnotation> annotationObjects(@Nonnull Collection<OWLAnnotationAssertionAxiom> axioms) {
-        Set<OWLAnnotation> toReturn = new HashSet<>();
+        Set<OWLAnnotation> toReturn = new HashSet<OWLAnnotation>();
         for (OWLAnnotationAssertionAxiom ax : axioms) {
             assert ax != null;
             toReturn.add(ax.getAnnotation());
@@ -289,7 +289,7 @@ public final class Searcher {
     @Nonnull
     public static Collection<OWLAnnotation> annotations(@Nonnull Collection<? extends OWLAxiom> axioms,
         @Nullable OWLAnnotationProperty p) {
-        Set<OWLAnnotation> toReturn = new HashSet<>();
+        Set<OWLAnnotation> toReturn = new HashSet<OWLAnnotation>();
         for (OWLAxiom ax : axioms) {
             assert ax != null;
             Set<OWLAnnotation> c = annotations(ax, p);
@@ -311,7 +311,7 @@ public final class Searcher {
      */
     @Nonnull
     public static Set<OWLAnnotation> annotations(@Nonnull OWLAxiom axiom, @Nullable OWLAnnotationProperty p) {
-        Set<OWLAnnotation> set = new HashSet<>();
+        Set<OWLAnnotation> set = new HashSet<OWLAnnotation>();
         if (axiom instanceof OWLAnnotationAssertionAxiom) {
             if (p == null || ((OWLAnnotationAssertionAxiom) axiom).getProperty().equals(p)) {
                 set.add(((OWLAnnotationAssertionAxiom) axiom).getAnnotation());
@@ -360,7 +360,7 @@ public final class Searcher {
     @Nonnull
     public static <C extends OWLObject> Collection<C> equivalent(@Nonnull Collection<? extends OWLAxiom> axioms,
         @SuppressWarnings("unused") @Nonnull Class<C> type) {
-        Set<C> toReturn = new HashSet<>();
+        Set<C> toReturn = new HashSet<C>();
         for (OWLAxiom ax : axioms) {
             assert ax != null;
             Set<C> c = equivalent(ax);
@@ -419,7 +419,7 @@ public final class Searcher {
     @Nonnull
     public static <C extends OWLObject> Collection<C> different(@Nonnull Collection<? extends OWLAxiom> axioms,
         @SuppressWarnings("unused") @Nonnull Class<C> type) {
-        Set<C> toReturn = new HashSet<>();
+        Set<C> toReturn = new HashSet<C>();
         for (OWLAxiom ax : axioms) {
             assert ax != null;
             Set<C> c = different(ax);
@@ -476,7 +476,7 @@ public final class Searcher {
     @Nonnull
     public static <C extends OWLObject> Collection<C> sub(@Nonnull Collection<? extends OWLAxiom> axioms,
         @SuppressWarnings("unused") @Nonnull Class<C> type) {
-        List<C> toReturn = new ArrayList<>();
+        List<C> toReturn = new ArrayList<C>();
         for (OWLAxiom ax : axioms) {
             assert ax != null;
             C c = sub(ax);
@@ -517,7 +517,7 @@ public final class Searcher {
     @Nonnull
     public static <C extends OWLObject> Collection<C> sup(@Nonnull Collection<? extends OWLAxiom> axioms,
         @SuppressWarnings("unused") @Nonnull Class<C> type) {
-        List<C> toReturn = new ArrayList<>();
+        List<C> toReturn = new ArrayList<C>();
         for (OWLAxiom ax : axioms) {
             assert ax != null;
             C c = sup(ax);
@@ -590,7 +590,7 @@ public final class Searcher {
     @Nonnull
     public static <C extends OWLObject> Collection<C> domain(@Nonnull Collection<? extends OWLAxiom> axioms,
         @SuppressWarnings("unused") @Nonnull Class<C> type) {
-        List<C> toReturn = new ArrayList<>();
+        List<C> toReturn = new ArrayList<C>();
         for (OWLAxiom ax : axioms) {
             assert ax != null;
             C c = domain(ax);
@@ -645,7 +645,7 @@ public final class Searcher {
     @Nonnull
     public static <C extends OWLObject> Collection<C> range(@Nonnull Collection<? extends OWLAxiom> axioms,
         @SuppressWarnings("unused") @Nonnull Class<C> type) {
-        List<C> toReturn = new ArrayList<>();
+        List<C> toReturn = new ArrayList<C>();
         for (OWLAxiom ax : axioms) {
             assert ax != null;
             C c = range(ax);
@@ -679,7 +679,7 @@ public final class Searcher {
      */
     @Nonnull
     public static Collection<IRI> ontologyIRIs(Iterable<OWLOntology> ontologies) {
-        Collection<OWLOntologyID> list = new ArrayList<>();
+        Collection<OWLOntologyID> list = new ArrayList<OWLOntologyID>();
         for (OWLOntology o : ontologies) {
             list.add(o.getOntologyID());
         }
@@ -696,7 +696,7 @@ public final class Searcher {
      */
     @Nonnull
     public static Collection<IRI> ontologyIRIs(Collection<OWLOntologyID> ids) {
-        Collection<IRI> list = new ArrayList<>();
+        Collection<IRI> list = new ArrayList<IRI>();
         for (OWLOntologyID id : ids) {
             if (id.getOntologyIRI().isPresent()) {
                 list.add(id.getOntologyIRI().get());

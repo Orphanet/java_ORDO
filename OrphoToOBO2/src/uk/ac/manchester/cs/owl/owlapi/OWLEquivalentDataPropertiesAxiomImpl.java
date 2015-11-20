@@ -54,11 +54,11 @@ public class OWLEquivalentDataPropertiesAxiomImpl extends OWLNaryPropertyAxiomIm
 
     @Override
     public Set<OWLEquivalentDataPropertiesAxiom> asPairwiseAxioms() {
-        Set<OWLEquivalentDataPropertiesAxiom> result = new HashSet<>();
-        List<OWLDataPropertyExpression> list = new ArrayList<>(getProperties());
+        Set<OWLEquivalentDataPropertiesAxiom> result = new HashSet<OWLEquivalentDataPropertiesAxiom>();
+        List<OWLDataPropertyExpression> list = new ArrayList<OWLDataPropertyExpression>(getProperties());
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = i + 1; j < list.size(); j++) {
-                result.add(new OWLEquivalentDataPropertiesAxiomImpl(new HashSet<>(Arrays.asList(list.get(i), list.get(
+                result.add(new OWLEquivalentDataPropertiesAxiomImpl(new HashSet<OWLDataPropertyExpression>(Arrays.asList(list.get(i), list.get(
                     j))), NO_ANNOTATIONS));
             }
         }
@@ -67,15 +67,15 @@ public class OWLEquivalentDataPropertiesAxiomImpl extends OWLNaryPropertyAxiomIm
 
     @Override
     public Set<OWLEquivalentDataPropertiesAxiom> splitToAnnotatedPairs() {
-        List<OWLDataPropertyExpression> ops = new ArrayList<>(getProperties());
+        List<OWLDataPropertyExpression> ops = new ArrayList<OWLDataPropertyExpression>(getProperties());
         if (ops.size() == 2) {
             return Collections.<OWLEquivalentDataPropertiesAxiom> singleton(this);
         }
-        Set<OWLEquivalentDataPropertiesAxiom> result = new HashSet<>();
+        Set<OWLEquivalentDataPropertiesAxiom> result = new HashSet<OWLEquivalentDataPropertiesAxiom>();
         for (int i = 0; i < ops.size() - 1; i++) {
             OWLDataPropertyExpression indI = ops.get(i);
             OWLDataPropertyExpression indJ = ops.get(i + 1);
-            result.add(new OWLEquivalentDataPropertiesAxiomImpl(new HashSet<>(Arrays.asList(indI, indJ)),
+            result.add(new OWLEquivalentDataPropertiesAxiomImpl(new HashSet<OWLDataPropertyExpression>(Arrays.asList(indI, indJ)),
                 getAnnotations()));
         }
         return result;
@@ -119,8 +119,8 @@ public class OWLEquivalentDataPropertiesAxiomImpl extends OWLNaryPropertyAxiomIm
 
     @Override
     public Set<OWLSubDataPropertyOfAxiom> asSubDataPropertyOfAxioms() {
-        Set<OWLSubDataPropertyOfAxiom> result = new HashSet<>();
-        List<OWLDataPropertyExpression> props = new ArrayList<>(getProperties());
+        Set<OWLSubDataPropertyOfAxiom> result = new HashSet<OWLSubDataPropertyOfAxiom>();
+        List<OWLDataPropertyExpression> props = new ArrayList<OWLDataPropertyExpression>(getProperties());
         for (int i = 0; i < props.size(); i++) {
             for (int j = 0; j < props.size(); j++) {
                 if (i != j) {

@@ -109,13 +109,13 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
     /** The list first literal triple map. */
     private final Map<IRI, OWLLiteral> listFirstLiteralTripleMap;
     /** The axioms. */
-    private final Set<IRI> axioms = new HashSet<>();
+    private final Set<IRI> axioms = new HashSet<IRI>();
     /** The shared anonymous nodes. */
-    private final Map<IRI, Object> sharedAnonymousNodes = new HashMap<>();
+    private final Map<IRI, Object> sharedAnonymousNodes = new HashMap<IRI, Object>();
     /** The pending annotations. */
-    private final Set<OWLAnnotation> pendingAnnotations = new HashSet<>();
+    private final Set<OWLAnnotation> pendingAnnotations = new HashSet<OWLAnnotation>();
     /** The annotated anon source2 annotation map. */
-    private final Map<IRI, Set<IRI>> annotatedAnonSource2AnnotationMap = new HashMap<>();
+    private final Map<IRI, Set<IRI>> annotatedAnonSource2AnnotationMap = new HashMap<IRI, Set<IRI>>();
     /** The ontology that the RDF will be parsed into. */
     @Nonnull
     private final OWLOntology ontology;
@@ -156,9 +156,9 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
      * A cache of annotation axioms to be added at the end - saves some peek
      * memory doing this.
      */
-    private final Collection<OWLAnnotationAxiom> parsedAnnotationAxioms = new ArrayList<>();
+    private final Collection<OWLAnnotationAxiom> parsedAnnotationAxioms = new ArrayList<OWLAnnotationAxiom>();
     /** The axioms to be removed. */
-    private final Collection<OWLAxiom> axiomsToBeRemoved = new ArrayList<>();
+    private final Collection<OWLAxiom> axiomsToBeRemoved = new ArrayList<OWLAxiom>();
     /** The parsed all triples. */
     private boolean parsedAllTriples = false;
     final HandlerAccessor handlerAccessor;
@@ -208,7 +208,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         for (IRI iri : BUILT_IN_ANNOTATION_PROPERTY_IRIS) {
             annotationPropertyIRIs.add(iri);
         }
-        annotationIRIs = new HashSet<>();
+        annotationIRIs = new HashSet<IRI>();
         dataRangeIRIs = CollectionFactory.createSet();
         propertyIRIs = CollectionFactory.createSet();
         restrictionIRIs = CollectionFactory.createSet();
@@ -225,15 +225,15 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
                 dataRangeIRIs.add(vocabulary.getIRI());
             }
         }
-        swrlRules = new HashSet<>();
-        swrlIndividualPropertyAtoms = new HashSet<>();
-        swrlDataValuedPropertyAtoms = new HashSet<>();
-        swrlClassAtoms = new HashSet<>();
-        swrlDataRangeAtoms = new HashSet<>();
-        swrlBuiltInAtoms = new HashSet<>();
-        swrlVariables = new HashSet<>();
-        swrlSameAsAtoms = new HashSet<>();
-        swrlDifferentFromAtoms = new HashSet<>();
+        swrlRules = new HashSet<IRI>();
+        swrlIndividualPropertyAtoms = new HashSet<IRI>();
+        swrlDataValuedPropertyAtoms = new HashSet<IRI>();
+        swrlClassAtoms = new HashSet<IRI>();
+        swrlDataRangeAtoms = new HashSet<IRI>();
+        swrlBuiltInAtoms = new HashSet<IRI>();
+        swrlVariables = new HashSet<IRI>();
+        swrlSameAsAtoms = new HashSet<IRI>();
+        swrlDifferentFromAtoms = new HashSet<IRI>();
         classExpressionIRIs.add(OWLRDFVocabulary.OWL_THING.getIRI());
         classExpressionIRIs.add(OWLRDFVocabulary.OWL_NOTHING.getIRI());
         objectPropertyExpressionIRIs.add(OWLRDFVocabulary.OWL_TOP_OBJECT_PROPERTY.getIRI());
@@ -446,7 +446,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
      */
     @Nonnull
     public Set<OWLAnnotation> getPendingAnnotations() {
-        Set<OWLAnnotation> annos = new LinkedHashSet<>(pendingAnnotations);
+        Set<OWLAnnotation> annos = new LinkedHashSet<OWLAnnotation>(pendingAnnotations);
         pendingAnnotations.clear();
         return annos;
     }
@@ -993,7 +993,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
     public void addAnnotatedSource(IRI annotatedAnonSource, IRI annotationMainNode) {
         Set<IRI> annotationMainNodes = annotatedAnonSource2AnnotationMap.get(annotatedAnonSource);
         if (annotationMainNodes == null) {
-            annotationMainNodes = new HashSet<>();
+            annotationMainNodes = new HashSet<IRI>();
             annotatedAnonSource2AnnotationMap.put(annotatedAnonSource, annotationMainNodes);
         }
         annotationMainNodes.add(annotationMainNode);
@@ -1319,18 +1319,18 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
                     printTriple(subject, predicate, object);
                 }
             }
-            for (IRI subject : new ArrayList<>(resTriplesBySubject.keySet())) {
+            for (IRI subject : new ArrayList<IRI>(resTriplesBySubject.keySet())) {
                 Map<IRI, Collection<IRI>> map = resTriplesBySubject.get(subject);
-                for (IRI predicate : new ArrayList<>(map.keySet())) {
+                for (IRI predicate : new ArrayList<IRI>(map.keySet())) {
                     Collection<IRI> objects = map.get(predicate);
                     for (IRI object : objects) {
                         printTriple(subject, predicate, object);
                     }
                 }
             }
-            for (IRI subject : new ArrayList<>(litTriplesBySubject.keySet())) {
+            for (IRI subject : new ArrayList<IRI>(litTriplesBySubject.keySet())) {
                 Map<IRI, Collection<OWLLiteral>> map = litTriplesBySubject.get(subject);
-                for (IRI predicate : new ArrayList<>(map.keySet())) {
+                for (IRI predicate : new ArrayList<IRI>(map.keySet())) {
                     Collection<OWLLiteral> objects = map.get(predicate);
                     for (OWLLiteral object : objects) {
                         printTriple(subject, predicate, object);
@@ -1410,7 +1410,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         } else {
             // We have multiple to choose from
             // Choose one that isn't the object of an annotation assertion
-            Set<IRI> candidateIRIs = new HashSet<>(ontologyIRIs);
+            Set<IRI> candidateIRIs = new HashSet<IRI>(ontologyIRIs);
             for (OWLAnnotation anno : ontology.getAnnotations()) {
                 if (anno.getValue() instanceof IRI) {
                     IRI iri = (IRI) anno.getValue();
@@ -1601,7 +1601,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
             // the object a literal that is restricted
             // by the facet. Originally, there just used to be multiple
             // facet-"facet value" triples
-            Set<OWLFacetRestriction> restrictions = new HashSet<>();
+            Set<OWLFacetRestriction> restrictions = new HashSet<OWLFacetRestriction>();
             IRI facetRestrictionList = getResourceObject(mainNode, OWL_WITH_RESTRICTIONS, true);
             if (facetRestrictionList != null) {
                 restrictions = translatorAccessor.translateToFacetRestrictionSet(facetRestrictionList);
@@ -1635,7 +1635,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
 
     // Basic node translation - translation of entities
     /** The translated properties. */
-    private final Map<IRI, OWLObjectPropertyExpression> translatedProperties = new HashMap<>();
+    private final Map<IRI, OWLObjectPropertyExpression> translatedProperties = new HashMap<IRI, OWLObjectPropertyExpression>();
 
     /**
      * Translate object property expression.
@@ -1696,14 +1696,14 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         // Are we the subject of an annotation? If so, we need to ensure that
         // the annotations annotate us. This
         // will only happen if we are an annotation!
-        Set<OWLAnnotation> annosOnMainNodeAnnotations = new HashSet<>();
+        Set<OWLAnnotation> annosOnMainNodeAnnotations = new HashSet<OWLAnnotation>();
         Set<IRI> annotationMainNodes = getAnnotatedSourceAnnotationMainNodes(mainNode);
         if (!annotationMainNodes.isEmpty()) {
             for (IRI annotationMainNode : annotationMainNodes) {
                 annosOnMainNodeAnnotations.addAll(translateAnnotations(annotationMainNode));
             }
         }
-        Set<OWLAnnotation> mainNodeAnnotations = new HashSet<>();
+        Set<OWLAnnotation> mainNodeAnnotations = new HashSet<OWLAnnotation>();
         Set<IRI> predicates = getPredicatesBySubject(mainNode);
         for (IRI predicate : predicates) {
             assert predicate != null;
@@ -1761,7 +1761,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
 
     @Nonnull
     private Set<RDFTriple> getTriplesForMainNode(@Nonnull IRI mainNode, IRI... augmentingTypes) {
-        Set<RDFTriple> triples = new HashSet<>();
+        Set<RDFTriple> triples = new HashSet<RDFTriple>();
         for (IRI predicate : getPredicatesBySubject(mainNode)) {
             assert predicate != null;
             for (IRI object : getResourceObjects(mainNode, predicate)) {
@@ -1811,7 +1811,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
      * @return the predicates by subject
      */
     protected Set<IRI> getPredicatesBySubject(IRI subject) {
-        Set<IRI> iris = new HashSet<>();
+        Set<IRI> iris = new HashSet<IRI>();
         Map<IRI, Collection<IRI>> predObjMap = resTriplesBySubject.get(subject);
         if (predObjMap != null) {
             iris.addAll(predObjMap.keySet());
@@ -1888,7 +1888,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
      * @return the resource objects
      */
     protected Set<IRI> getResourceObjects(IRI subject, IRI predicate) {
-        Set<IRI> result = new HashSet<>();
+        Set<IRI> result = new HashSet<IRI>();
         Map<IRI, IRI> subjPredMap = singleValuedResTriplesByPredicate.get(predicate);
         if (subjPredMap != null) {
             IRI obj = subjPredMap.get(subject);
@@ -1968,7 +1968,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
      * @return the literal objects
      */
     protected Set<OWLLiteral> getLiteralObjects(IRI subject, IRI predicate) {
-        Set<OWLLiteral> result = new HashSet<>();
+        Set<OWLLiteral> result = new HashSet<OWLLiteral>();
         Map<IRI, OWLLiteral> subjPredMap = singleValuedLitTriplesByPredicate.get(predicate);
         if (subjPredMap != null) {
             OWLLiteral obj = subjPredMap.get(subject);
@@ -2299,14 +2299,14 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
      *        the iterator
      */
     protected void iterateLiteralTriples(LiteralTripleIterator iterator) {
-        for (IRI subject : new ArrayList<>(litTriplesBySubject.keySet())) {
+        for (IRI subject : new ArrayList<IRI>(litTriplesBySubject.keySet())) {
             Map<IRI, Collection<OWLLiteral>> map = litTriplesBySubject.get(subject);
             if (map == null) {
                 continue;
             }
-            for (IRI predicate : new ArrayList<>(map.keySet())) {
+            for (IRI predicate : new ArrayList<IRI>(map.keySet())) {
                 Collection<OWLLiteral> objects = map.get(predicate);
-                for (OWLLiteral object : new ArrayList<>(objects)) {
+                for (OWLLiteral object : new ArrayList<OWLLiteral>(objects)) {
                     assert subject != null;
                     assert predicate != null;
                     assert object != null;
@@ -2374,7 +2374,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
             }
             Collection<IRI> objects = map.get(predicate);
             if (objects == null) {
-                objects = new HashSet<>();
+                objects = new HashSet<IRI>();
                 map.put(predicate, objects);
             }
             objects.add(object);
@@ -2393,7 +2393,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
             }
             Collection<OWLLiteral> objects = map.get(predicate);
             if (objects == null) {
-                objects = new HashSet<>();
+                objects = new HashSet<OWLLiteral>();
                 map.put(predicate, objects);
             }
             objects.add(con);

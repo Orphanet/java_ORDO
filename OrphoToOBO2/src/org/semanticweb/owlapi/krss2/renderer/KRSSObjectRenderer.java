@@ -229,7 +229,7 @@ public class KRSSObjectRenderer extends OWLObjectVisitorAdapter {
 
     @Nonnull
     protected static <T extends OWLObject> List<T> sort(@Nonnull Iterable<T> objects) {
-        Collection<T> sortedDescriptions = new ArrayList<>();
+        Collection<T> sortedDescriptions = new ArrayList<T>();
         for (T t : objects) {
             sortedDescriptions.add(t);
         }

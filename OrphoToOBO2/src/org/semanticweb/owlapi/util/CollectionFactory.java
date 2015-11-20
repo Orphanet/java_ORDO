@@ -99,7 +99,7 @@ public class CollectionFactory {
      */
     @Nonnull
     public static <T extends Comparable<T>> List<T> sortOptionallyComparables(@Nonnull Collection<T> toReturn) {
-        List<T> list = new ArrayList<>(toReturn);
+        List<T> list = new ArrayList<T>(toReturn);
         try {
             Collections.sort(list);
         } catch (IllegalArgumentException e) {
@@ -128,7 +128,7 @@ public class CollectionFactory {
      */
     @Nonnull
     public static <T extends OWLObject> List<T> sortOptionally(@Nonnull Collection<T> toReturn) {
-        List<T> list = new ArrayList<>(toReturn);
+        List<T> list = new ArrayList<T>(toReturn);
         try {
             Collections.sort(list);
         } catch (IllegalArgumentException e) {
@@ -179,7 +179,7 @@ public class CollectionFactory {
     @Nonnull
     public static <T> Set<T> createSet() {
         // TODO large number of sets stay very small, wasting space
-        return new HashSet<>();
+        return new HashSet<T>();
     }
 
     /**
@@ -190,7 +190,7 @@ public class CollectionFactory {
     @Nonnull
     public static <T> Set<T> createLinkedSet() {
         // TODO large number of sets stay very small, wasting space
-        return new LinkedHashSet<>();
+        return new LinkedHashSet<T>();
     }
 
     /**
@@ -200,7 +200,7 @@ public class CollectionFactory {
      */
     @Nonnull
     public static <T> List<T> createList() {
-        return new ArrayList<>();
+        return new ArrayList<T>();
     }
 
     /**
@@ -210,7 +210,7 @@ public class CollectionFactory {
      */
     @Nonnull
     public static <T> List<T> createSyncList() {
-        return new CopyOnWriteArrayList<>();
+        return new CopyOnWriteArrayList<T>();
     }
 
     /**
@@ -269,7 +269,7 @@ public class CollectionFactory {
      */
     @Nonnull
     public static <T> Set<T> createSet(@Nonnull Collection<T> c) {
-        return new HashSet<>(c);
+        return new HashSet<T>(c);
     }
 
     /**
@@ -281,7 +281,7 @@ public class CollectionFactory {
      */
     @Nonnull
     public static <T> Set<T> createSet(int initialCapacity) {
-        return new HashSet<>(initialCapacity);
+        return new HashSet<T>(initialCapacity);
     }
 
     /**
@@ -293,7 +293,7 @@ public class CollectionFactory {
      */
     @Nonnull
     public static <K, V> Map<K, V> createMap() {
-        return new HashMap<>();
+        return new HashMap<K, V>();
     }
 
     /**
@@ -354,7 +354,7 @@ public class CollectionFactory {
      */
     @Nonnull
     public static <K, V> ConcurrentHashMap<K, V> createSyncMap() {
-        return new ConcurrentHashMap<>(16, 0.75F, EXPECTEDTHREADS.get());
+        return new ConcurrentHashMap<K, V>(16, 0.75F, EXPECTEDTHREADS.get());
     }
 
     /**
@@ -383,7 +383,7 @@ public class CollectionFactory {
         if (source == null || source.isEmpty()) {
             return emptySet();
         }
-        return new ConditionalCopySet<>(source, true);
+        return new ConditionalCopySet<T>(source, true);
     }
 
     /**
@@ -398,7 +398,7 @@ public class CollectionFactory {
         if (source == null || source.isEmpty()) {
             return emptySet();
         }
-        return new ConditionalCopySet<>(source, false);
+        return new ConditionalCopySet<T>(source, false);
     }
 
     /**
@@ -439,7 +439,7 @@ public class CollectionFactory {
          */
         public ConditionalCopySet(@Nonnull Collection<T> source, boolean listCopy) {
             if (listCopy) {
-                delegate = new ArrayList<>(source);
+                delegate = new ArrayList<T>(source);
             } else {
                 delegate = source;
             }
@@ -477,7 +477,7 @@ public class CollectionFactory {
         public boolean add(T e) {
             if (!copyDone) {
                 copyDone = true;
-                delegate = new LinkedHashSet<>(delegate);
+                delegate = new LinkedHashSet<T>(delegate);
             }
             return delegate.add(e);
         }
@@ -486,7 +486,7 @@ public class CollectionFactory {
         public boolean addAll(Collection<? extends T> c) {
             if (!copyDone) {
                 copyDone = true;
-                delegate = new LinkedHashSet<>(delegate);
+                delegate = new LinkedHashSet<T>(delegate);
             }
             return delegate.addAll(c);
         }
@@ -495,7 +495,7 @@ public class CollectionFactory {
         public void clear() {
             if (!copyDone) {
                 copyDone = true;
-                delegate = new LinkedHashSet<>();
+                delegate = new LinkedHashSet<T>();
             }
             delegate.clear();
         }
@@ -514,7 +514,7 @@ public class CollectionFactory {
             // set
             if (!(delegate instanceof Set)) {
                 copyDone = true;
-                delegate = new LinkedHashSet<>(delegate);
+                delegate = new LinkedHashSet<T>(delegate);
             }
         }
 
@@ -542,7 +542,7 @@ public class CollectionFactory {
         public boolean remove(Object o) {
             if (!copyDone) {
                 copyDone = true;
-                delegate = new LinkedHashSet<>(delegate);
+                delegate = new LinkedHashSet<T>(delegate);
             }
             return delegate.remove(o);
         }
@@ -551,7 +551,7 @@ public class CollectionFactory {
         public boolean removeAll(Collection<?> c) {
             if (!copyDone) {
                 copyDone = true;
-                delegate = new LinkedHashSet<>(delegate);
+                delegate = new LinkedHashSet<T>(delegate);
             }
             return delegate.removeAll(c);
         }
@@ -560,7 +560,7 @@ public class CollectionFactory {
         public boolean retainAll(Collection<?> c) {
             if (!copyDone) {
                 copyDone = true;
-                delegate = new LinkedHashSet<>(delegate);
+                delegate = new LinkedHashSet<T>(delegate);
             }
             return delegate.retainAll(c);
         }

@@ -107,7 +107,7 @@ public class AddClassExpressionClosureAxiom extends
     private class FillerCollector extends OWLClassExpressionVisitorAdapter {
 
         @Nonnull
-        private final Set<OWLClassExpression> fillers = new HashSet<>();
+        private final Set<OWLClassExpression> fillers = new HashSet<OWLClassExpression>();
         @Nonnull
         private final OWLObjectPropertyExpression property;
 

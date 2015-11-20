@@ -159,10 +159,10 @@ public class Internals implements Serializable {
     @Nonnull protected transient MapPointer<OWLIndividual, OWLDifferentIndividualsAxiom>                         differentIndividualsAxiomsByIndividual              = buildLazy(DIFFERENT_INDIVIDUALS, ICOLLECTIONS);
     @Nonnull protected transient MapPointer<OWLIndividual, OWLSameIndividualAxiom>                               sameIndividualsAxiomsByIndividual                   = buildLazy(SAME_INDIVIDUAL, ICOLLECTIONS);
 
-    @Nonnull protected  SetPointer<OWLImportsDeclaration>                        importsDeclarations                 = new SetPointer<>();
-    @Nonnull protected  SetPointer<OWLAnnotation>                                ontologyAnnotations                 = new SetPointer<>();
-    @Nonnull protected  SetPointer<OWLClassAxiom>                                generalClassAxioms                  = new SetPointer<>();
-    @Nonnull protected  SetPointer<OWLSubPropertyChainOfAxiom>                   propertyChainSubPropertyAxioms      = new SetPointer<>();
+    @Nonnull protected  SetPointer<OWLImportsDeclaration>                        importsDeclarations                 = new SetPointer<OWLImportsDeclaration>();
+    @Nonnull protected  SetPointer<OWLAnnotation>                                ontologyAnnotations                 = new SetPointer<OWLAnnotation>();
+    @Nonnull protected  SetPointer<OWLClassAxiom>                                generalClassAxioms                  = new SetPointer<OWLClassAxiom>();
+    @Nonnull protected  SetPointer<OWLSubPropertyChainOfAxiom>                   propertyChainSubPropertyAxioms      = new SetPointer<OWLSubPropertyChainOfAxiom>();
 
     @Nonnull protected transient MapPointer<AxiomType<?>, OWLAxiom>              axiomsByType                        = build();
 
@@ -289,7 +289,7 @@ public class Internals implements Serializable {
     }
 
     private void writeObject(ObjectOutputStream stream) throws IOException {
-        axiomsForSerialization = new ArrayList<>();
+        axiomsForSerialization = new ArrayList<OWLAxiom>();
         Iterables.addAll(axiomsForSerialization, axiomsByType.getAllValues());
         stream.defaultWriteObject();
     }
@@ -604,7 +604,7 @@ public class Internals implements Serializable {
 
     @Nonnull
     protected <K, V extends OWLAxiom> MapPointer<K, V> buildLazy(AxiomType<?> t, OWLAxiomVisitorEx<?> v) {
-        return new MapPointer<>(t, v, false, this);
+        return new MapPointer<K, V>(t, v, false, this);
     }
 
     @Nonnull
@@ -614,7 +614,7 @@ public class Internals implements Serializable {
 
     @Nonnull
     protected <K, V extends OWLAxiom> MapPointer<K, V> build(AxiomType<?> t, OWLAxiomVisitorEx<?> v) {
-        return new MapPointer<>(t, v, true, this);
+        return new MapPointer<K, V>(t, v, true, this);
     }
 
     /**

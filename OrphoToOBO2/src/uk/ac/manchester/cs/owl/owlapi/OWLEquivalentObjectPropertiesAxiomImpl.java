@@ -54,11 +54,11 @@ public class OWLEquivalentObjectPropertiesAxiomImpl extends OWLNaryPropertyAxiom
 
     @Override
     public Set<OWLEquivalentObjectPropertiesAxiom> asPairwiseAxioms() {
-        Set<OWLEquivalentObjectPropertiesAxiom> result = new HashSet<>();
-        List<OWLObjectPropertyExpression> list = new ArrayList<>(getProperties());
+        Set<OWLEquivalentObjectPropertiesAxiom> result = new HashSet<OWLEquivalentObjectPropertiesAxiom>();
+        List<OWLObjectPropertyExpression> list = new ArrayList<OWLObjectPropertyExpression>(getProperties());
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = i + 1; j < list.size(); j++) {
-                result.add(new OWLEquivalentObjectPropertiesAxiomImpl(new HashSet<>(Arrays.asList(list.get(i), list.get(
+                result.add(new OWLEquivalentObjectPropertiesAxiomImpl(new HashSet<OWLObjectPropertyExpression>(Arrays.asList(list.get(i), list.get(
                     j))), NO_ANNOTATIONS));
             }
         }
@@ -67,15 +67,15 @@ public class OWLEquivalentObjectPropertiesAxiomImpl extends OWLNaryPropertyAxiom
 
     @Override
     public Set<OWLEquivalentObjectPropertiesAxiom> splitToAnnotatedPairs() {
-        List<OWLObjectPropertyExpression> ops = new ArrayList<>(getProperties());
+        List<OWLObjectPropertyExpression> ops = new ArrayList<OWLObjectPropertyExpression>(getProperties());
         if (ops.size() == 2) {
             return Collections.<OWLEquivalentObjectPropertiesAxiom> singleton(this);
         }
-        Set<OWLEquivalentObjectPropertiesAxiom> result = new HashSet<>();
+        Set<OWLEquivalentObjectPropertiesAxiom> result = new HashSet<OWLEquivalentObjectPropertiesAxiom>();
         for (int i = 0; i < ops.size() - 1; i++) {
             OWLObjectPropertyExpression indI = ops.get(i);
             OWLObjectPropertyExpression indJ = ops.get(i + 1);
-            result.add(new OWLEquivalentObjectPropertiesAxiomImpl(new HashSet<>(Arrays.asList(indI, indJ)),
+            result.add(new OWLEquivalentObjectPropertiesAxiomImpl(new HashSet<OWLObjectPropertyExpression>(Arrays.asList(indI, indJ)),
                 getAnnotations()));
         }
         return result;
@@ -119,8 +119,8 @@ public class OWLEquivalentObjectPropertiesAxiomImpl extends OWLNaryPropertyAxiom
 
     @Override
     public Set<OWLSubObjectPropertyOfAxiom> asSubObjectPropertyOfAxioms() {
-        Set<OWLSubObjectPropertyOfAxiom> result = new HashSet<>();
-        List<OWLObjectPropertyExpression> props = new ArrayList<>(getProperties());
+        Set<OWLSubObjectPropertyOfAxiom> result = new HashSet<OWLSubObjectPropertyOfAxiom>();
+        List<OWLObjectPropertyExpression> props = new ArrayList<OWLObjectPropertyExpression>(getProperties());
         for (int i = 0; i < props.size(); i++) {
             for (int j = 0; j < props.size(); j++) {
                 if (i != j) {

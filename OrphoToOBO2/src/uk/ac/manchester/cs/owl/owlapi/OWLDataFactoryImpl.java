@@ -886,7 +886,7 @@ public class OWLDataFactoryImpl implements OWLDataFactory, Serializable,
         // member
         // which will usually be the result of :x owl:disjointWith :x .
         if (classExpressions.size() == 1) {
-            Set<OWLClassExpression> modifiedClassExpressions = new HashSet<>(2);
+            Set<OWLClassExpression> modifiedClassExpressions = new HashSet<OWLClassExpression>(2);
             OWLClassExpression classExpression = classExpressions.iterator()
                 .next();
             OWLClass addedClass = classExpression.isOWLThing() ? OWL_NOTHING
@@ -905,7 +905,7 @@ public class OWLDataFactoryImpl implements OWLDataFactory, Serializable,
         Set<? extends OWLAnnotation> annotations,
         OWLClassExpression classExpression,
         OWLClassExpression addedClass) {
-        Set<OWLAnnotation> modifiedAnnotations = new HashSet<>(
+        Set<OWLAnnotation> modifiedAnnotations = new HashSet<OWLAnnotation>(
             annotations.size() + 1);
         modifiedAnnotations.addAll(annotations);
         String provenanceComment = String.format("%s on %s", VersionInfo
@@ -937,7 +937,7 @@ public class OWLDataFactoryImpl implements OWLDataFactory, Serializable,
     public OWLDisjointClassesAxiom getOWLDisjointClassesAxiom(
         OWLClassExpression... classExpressions) {
         checkNull(classExpressions, "classExpressions", true);
-        Set<OWLClassExpression> clses = new HashSet<>();
+        Set<OWLClassExpression> clses = new HashSet<OWLClassExpression>();
         clses.addAll(Arrays.asList(classExpressions));
         return getOWLDisjointClassesAxiom(clses);
     }
@@ -1027,7 +1027,7 @@ public class OWLDataFactoryImpl implements OWLDataFactory, Serializable,
     public OWLEquivalentClassesAxiom getOWLEquivalentClassesAxiom(
         OWLClassExpression... classExpressions) {
         checkNull(classExpressions, "classExpressions", true);
-        Set<OWLClassExpression> clses = new HashSet<>();
+        Set<OWLClassExpression> clses = new HashSet<OWLClassExpression>();
         clses.addAll(Arrays.asList(classExpressions));
         return getOWLEquivalentClassesAxiom(clses);
     }
@@ -1442,7 +1442,7 @@ public class OWLDataFactoryImpl implements OWLDataFactory, Serializable,
     public OWLSameIndividualAxiom getOWLSameIndividualAxiom(
         OWLIndividual... individual) {
         checkNull(individual, "individuals", true);
-        Set<OWLIndividual> inds = new HashSet<>();
+        Set<OWLIndividual> inds = new HashSet<OWLIndividual>();
         inds.addAll(Arrays.asList(individual));
         return getOWLSameIndividualAxiom(inds);
     }

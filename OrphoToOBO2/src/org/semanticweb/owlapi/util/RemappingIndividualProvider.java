@@ -29,7 +29,7 @@ public class RemappingIndividualProvider implements OWLAnonymousIndividualByIdPr
         this.df = df;
         remapEnabled = AnonymousIndividualProperties.shouldRemapAllAnonymousIndividualsIds();
         if (remapEnabled) {
-            map = new HashMap<>();
+            map = new HashMap<String, OWLAnonymousIndividual>();
         }
     }
 

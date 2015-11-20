@@ -29,8 +29,8 @@ import org.semanticweb.owlapi.model.*;
 public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObjectVisitor, SWRLObjectVisitor,
     IndividualAppearance {
 
-    private Set<OWLObject> singleAppearance = new HashSet<>();
-    private Set<OWLObject> multipleAppearances = new HashSet<>();
+    private Set<OWLObject> singleAppearance = new HashSet<OWLObject>();
+    private Set<OWLObject> multipleAppearances = new HashSet<OWLObject>();
 
     // ////////////////////////////////////////////////////////////////////////////////////////////
     //

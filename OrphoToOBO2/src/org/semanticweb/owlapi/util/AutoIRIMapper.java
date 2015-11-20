@@ -51,12 +51,12 @@ import com.google.common.io.Closeables;
 public class AutoIRIMapper extends DefaultHandler implements OWLOntologyIRIMapper, Serializable {
 
     private static final long serialVersionUID = 40000L;
-    private final Set<String> fileExtensions = new HashSet<>();
+    private final Set<String> fileExtensions = new HashSet<String>();
     private boolean mapped;
     private final boolean recursive;
-    private final Map<String, OntologyRootElementHandler> handlerMap = new HashMap<>();
-    private final Map<IRI, IRI> ontologyIRI2PhysicalURIMap = new HashMap<>();
-    private final Map<String, IRI> oboFileMap = new HashMap<>();
+    private final Map<String, OntologyRootElementHandler> handlerMap = new HashMap<String, OntologyRootElementHandler>();
+    private final Map<IRI, IRI> ontologyIRI2PhysicalURIMap = new HashMap<IRI, IRI>();
+    private final Map<String, IRI> oboFileMap = new HashMap<String, IRI>();
     private final String directoryPath;
     private transient File currentFile;
 
@@ -119,7 +119,7 @@ public class AutoIRIMapper extends DefaultHandler implements OWLOntologyIRIMappe
         if (!mapped) {
             mapFiles();
         }
-        return new HashSet<>(ontologyIRI2PhysicalURIMap.keySet());
+        return new HashSet<IRI>(ontologyIRI2PhysicalURIMap.keySet());
     }
 
     /** update the map. */

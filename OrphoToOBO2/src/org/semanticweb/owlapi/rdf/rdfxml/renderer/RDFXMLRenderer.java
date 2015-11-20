@@ -37,7 +37,7 @@ public class RDFXMLRenderer extends RDFRendererBase {
 
     private final RDFXMLWriter writer;
     @Nonnull
-    private final Set<RDFResource> pending = new HashSet<>();
+    private final Set<RDFResource> pending = new HashSet<RDFResource>();
     @Nonnull
     private final RDFXMLNamespaceManager qnameManager;
     @Nonnull
@@ -71,7 +71,7 @@ public class RDFXMLRenderer extends RDFRendererBase {
         String base = base(defaultNamespace);
         writer = new RDFXMLWriter(XMLWriterFactory.createXMLWriter(checkNotNull(w, "w cannot be null"), qnameManager,
             base));
-        Map<OWLAnnotationProperty, List<String>> prefLangMap = new HashMap<>();
+        Map<OWLAnnotationProperty, List<String>> prefLangMap = new HashMap<OWLAnnotationProperty, List<String>>();
         OWLOntologyManager manager = ontology.getOWLOntologyManager();
         OWLDataFactory df = manager.getOWLDataFactory();
         OWLAnnotationProperty labelProp = df.getOWLAnnotationProperty(RDFS_LABEL.getIRI());
@@ -206,7 +206,7 @@ public class RDFXMLRenderer extends RDFRendererBase {
                     // Special rendering for lists
                     if (isObjectList(objectRes)) {
                         writer.writeParseTypeAttribute();
-                        List<RDFNode> list = new ArrayList<>();
+                        List<RDFNode> list = new ArrayList<RDFNode>();
                         toJavaList(objectRes, list);
                         for (RDFNode n : list) {
                             if (n.isAnonymous()) {

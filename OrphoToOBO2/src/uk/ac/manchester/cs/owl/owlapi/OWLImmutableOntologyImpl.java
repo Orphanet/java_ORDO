@@ -179,7 +179,7 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
         if (includeImportsClosure == EXCLUDED) {
             return asSet(ints.getAxioms());
         }
-        Set<OWLAxiom> axioms = new HashSet<>();
+        Set<OWLAxiom> axioms = new HashSet<OWLAxiom>();
         for (OWLOntology o : getImportsClosure()) {
             axioms.addAll(o.getAxioms());
         }
@@ -213,7 +213,7 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
     @Nonnull
     @Override
     public Set<OWLAxiom> getTBoxAxioms(Imports includeImportsClosure) {
-        Set<OWLAxiom> toReturn = new HashSet<>();
+        Set<OWLAxiom> toReturn = new HashSet<OWLAxiom>();
         for (AxiomType<?> type : AxiomType.TBoxAxiomTypes) {
             assert type != null;
             toReturn.addAll(getAxioms(type, includeImportsClosure));
@@ -224,7 +224,7 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
     @Nonnull
     @Override
     public Set<OWLAxiom> getABoxAxioms(Imports includeImportsClosure) {
-        Set<OWLAxiom> toReturn = new HashSet<>();
+        Set<OWLAxiom> toReturn = new HashSet<OWLAxiom>();
         for (AxiomType<?> type : AxiomType.ABoxAxiomTypes) {
             assert type != null;
             toReturn.addAll(getAxioms(type, includeImportsClosure));
@@ -235,7 +235,7 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
     @Nonnull
     @Override
     public Set<OWLAxiom> getRBoxAxioms(Imports includeImportsClosure) {
-        Set<OWLAxiom> toReturn = new HashSet<>();
+        Set<OWLAxiom> toReturn = new HashSet<OWLAxiom>();
         for (AxiomType<?> type : AxiomType.RBoxAxiomTypes) {
             assert type != null;
             toReturn.addAll(getAxioms(type, includeImportsClosure));
@@ -496,8 +496,8 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
 
     @Override
     public Set<IRI> getPunnedIRIs(Imports includeImportsClosure) {
-        Set<IRI> punned = new HashSet<>();
-        Set<IRI> test = new HashSet<>();
+        Set<IRI> punned = new HashSet<IRI>();
+        Set<IRI> test = new HashSet<IRI>();
         if (includeImportsClosure == INCLUDED) {
             for (OWLOntology o : getImportsClosure()) {
                 for (OWLEntity e : o.getClassesInSignature(EXCLUDED)) {
@@ -684,13 +684,13 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
     private static <T> Set<T> asSet(Iterable<T> i) {
         if (i instanceof Set) {
             // in this case we can use a list for the defensive copy
-            List<T> list = new ArrayList<>();
+            List<T> list = new ArrayList<T>();
             Iterables.addAll(list, i);
             return CollectionFactory.getCopyOnRequestSetFromImmutableCollection(list);
         }
         // if the input is not a set, we need to make sure there are no
         // duplicates
-        Set<T> set = new HashSet<>();
+        Set<T> set = new HashSet<T>();
         Iterables.addAll(set, i);
         return set;
     }
@@ -1067,7 +1067,7 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
             return asSet(ints.get(OWLAnonymousIndividual.class, OWLAxiom.class).get().getValues(
                 (OWLAnonymousIndividual) owlEntity));
         } else if (owlEntity instanceof IRI) {
-            Set<OWLAxiom> axioms = new HashSet<>();
+            Set<OWLAxiom> axioms = new HashSet<OWLAxiom>();
             // axioms referring entities with this IRI, data property assertions
             // with IRI as subject, annotations with IRI as subject or object.
             Set<OWLEntity> entities = getEntitiesInSignature((IRI) owlEntity, includeImportsClosure);
@@ -1096,7 +1096,7 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
             }
             return axioms;
         } else if (owlEntity instanceof OWLLiteral) {
-            Set<OWLAxiom> axioms = new HashSet<>();
+            Set<OWLAxiom> axioms = new HashSet<OWLAxiom>();
             for (OWLDataPropertyAssertionAxiom ax : getAxioms(AxiomType.DATA_PROPERTY_ASSERTION)) {
                 if (ax.getObject().getDatatype().getIRI().equals(OWL2Datatype.XSD_ANY_URI.getIRI())) {
                     if (ax.getObject().equals(owlEntity)) {
@@ -1139,7 +1139,7 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
             if (optional.isPresent()) {
                 return asSet(optional.get().getValues(entity));
             }
-            Set<A> toReturn = new HashSet<>();
+            Set<A> toReturn = new HashSet<A>();
             for (A ax : getAxioms(AxiomType.getTypeForClass(type))) {
                 if (ax.getSignature().contains(entity)) {
                     toReturn.add(ax);
@@ -1164,7 +1164,7 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
         }
         // iterating over the import closure; using a set because there might be
         // duplicate axioms
-        Set<T> toReturn = new HashSet<>();
+        Set<T> toReturn = new HashSet<T>();
         for (OWLOntology o : getImportsClosure()) {
             toReturn.addAll((Collection<T>) o.filterAxioms(filter, key, EXCLUDED));
         }

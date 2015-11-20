@@ -234,7 +234,7 @@ public class DeprecatedOWLEntityCollector implements OWLObjectVisitor,
      */
     @Deprecated
     public Set<OWLEntity> getObjects() {
-        return new HashSet<>(objects);
+        return new HashSet<OWLEntity>(objects);
     }
 
     /**
@@ -248,7 +248,7 @@ public class DeprecatedOWLEntityCollector implements OWLObjectVisitor,
      */
     @Deprecated
     public Set<OWLAnonymousIndividual> getAnonymousIndividuals() {
-        return new HashSet<>(anonymousIndividuals);
+        return new HashSet<OWLAnonymousIndividual>(anonymousIndividuals);
     }
 
     protected void processAxiomAnnotations(OWLAxiom ax) {

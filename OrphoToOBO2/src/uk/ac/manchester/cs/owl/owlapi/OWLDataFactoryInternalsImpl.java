@@ -58,7 +58,7 @@ public class OWLDataFactoryInternalsImpl extends OWLDataFactoryInternalsImplNoCa
             // need to add the new key and return it
             @SuppressWarnings("unchecked")
             V value = (V) v.build(s);
-            prefixCache.put(s, new WeakReference<>(value));
+            prefixCache.put(s, new WeakReference<V>(value));
             return value;
         }
     }
@@ -80,7 +80,7 @@ public class OWLDataFactoryInternalsImpl extends OWLDataFactoryInternalsImplNoCa
 
     @Nonnull
     protected final <V extends OWLEntity> BuildableWeakIndexCache<V> buildCache() {
-        return new BuildableWeakIndexCache<>();
+        return new BuildableWeakIndexCache<V>();
     }
 
     /**

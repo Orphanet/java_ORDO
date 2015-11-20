@@ -83,7 +83,7 @@ public abstract class OWLNaryIndividualAxiomImpl extends
 
     @Override
     public List<OWLIndividual> getIndividualsAsList() {
-        return new ArrayList<>(individuals);
+        return new ArrayList<OWLIndividual>(individuals);
     }
 
     @Override
@@ -113,7 +113,7 @@ public abstract class OWLNaryIndividualAxiomImpl extends
     @Override
     public <T> Collection<T> walkPairwise(
             OWLPairwiseVisitor<T, OWLIndividual> visitor) {
-        List<T> l = new ArrayList<>();
+        List<T> l = new ArrayList<T>();
         for (int i = 0; i < individuals.size() - 1; i++) {
             for (int j = i + 1; j < individuals.size(); j++) {
                 T t = visitor.visit(individuals.get(i), individuals.get(j));

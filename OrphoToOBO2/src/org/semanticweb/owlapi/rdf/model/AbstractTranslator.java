@@ -330,7 +330,7 @@ public abstract class AbstractTranslator<N extends Serializable, R extends N, P 
     @Override
     public void visit(@Nonnull OWLDisjointUnionAxiom axiom) {
         Set<OWLClassExpression> classExpressions = axiom.getClassExpressions();
-        List<OWLClassExpression> list = new ArrayList<>(classExpressions);
+        List<OWLClassExpression> list = new ArrayList<OWLClassExpression>(classExpressions);
         Collections.sort(list);
         addSingleTripleAxiom(axiom, axiom.getOWLClass(), OWL_DISJOINT_UNION_OF.getIRI(), list);
     }
@@ -470,7 +470,7 @@ public abstract class AbstractTranslator<N extends Serializable, R extends N, P 
     @Override
     public void visit(@Nonnull OWLHasKeyAxiom axiom) {
         Set<OWLPropertyExpression> propertyExpressions = axiom.getPropertyExpressions();
-        List<OWLPropertyExpression> list = new ArrayList<>(propertyExpressions);
+        List<OWLPropertyExpression> list = new ArrayList<OWLPropertyExpression>(propertyExpressions);
         Collections.sort(list);
         addSingleTripleAxiom(axiom, axiom.getClassExpression(), OWL_HAS_KEY.getIRI(), list);
     }
@@ -701,7 +701,7 @@ public abstract class AbstractTranslator<N extends Serializable, R extends N, P 
         addTriple(node, BUILT_IN.getIRI(), node.getPredicate());
         addTriple(getResourceNode(node.getPredicate()), getPredicateNode(RDF_TYPE.getIRI()), getResourceNode(
             BUILT_IN_CLASS.getIRI()));
-        addTriple(getResourceNode(node), getPredicateNode(ARGUMENTS.getIRI()), translateList(new ArrayList<>(node
+        addTriple(getResourceNode(node), getPredicateNode(ARGUMENTS.getIRI()), translateList(new ArrayList<SWRLDArgument>(node
             .getArguments())));
     }
 
@@ -750,7 +750,7 @@ public abstract class AbstractTranslator<N extends Serializable, R extends N, P 
     // Methods to add triples
     /** Maps Objects to nodes. */
     @Nonnull
-    private final Map<OWLObject, N> nodeMap = new HashMap<>();
+    private final Map<OWLObject, N> nodeMap = new HashMap<OWLObject, N>();
 
     private void addSingleTripleAxiom(@Nonnull OWLAxiom ax, @Nonnull OWLObject subject, @Nonnull IRI pred,
         @Nonnull OWLObject obj) {
@@ -988,14 +988,14 @@ public abstract class AbstractTranslator<N extends Serializable, R extends N, P 
 
     private void addListTriples(@Nonnull OWLObject subject, @Nonnull IRI pred,
         @Nonnull Set<? extends OWLObject> objects) {
-        ArrayList<OWLObject> list = new ArrayList<>(objects);
+        ArrayList<OWLObject> list = new ArrayList<OWLObject>(objects);
         Collections.sort(list);
         addTriple(getResourceNode(subject), getPredicateNode(pred), translateList(list));
     }
 
     private void addTriple(@Nonnull OWLObject subject, @Nonnull IRI pred, @Nonnull Set<? extends OWLObject> objects,
         @Nonnull IRI listType) {
-        addTriple(getResourceNode(subject), getPredicateNode(pred), translateList(new ArrayList<>(objects), listType));
+        addTriple(getResourceNode(subject), getPredicateNode(pred), translateList(new ArrayList<OWLObject>(objects), listType));
     }
 
     @Nonnull
@@ -1012,7 +1012,7 @@ public abstract class AbstractTranslator<N extends Serializable, R extends N, P 
     }
 
     @Nonnull
-    private final Set<OWLIndividual> currentIndividuals = new HashSet<>();
+    private final Set<OWLIndividual> currentIndividuals = new HashSet<OWLIndividual>();
 
     private void processIfAnonymous(@Nonnull OWLIndividual ind, @Nullable OWLAxiom root) {
         if (!currentIndividuals.contains(ind)) {
@@ -1064,7 +1064,7 @@ public abstract class AbstractTranslator<N extends Serializable, R extends N, P 
 
     private void addPairwise(@Nonnull OWLAxiom axiom, @Nonnull Collection<? extends OWLObject> objects,
         @Nonnull IRI iri) {
-        List<? extends OWLObject> objectList = new ArrayList<>(objects);
+        List<? extends OWLObject> objectList = new ArrayList<OWLObject>(objects);
         Collections.sort(objectList);
         for (int i = 0; i < objectList.size(); i++) {
             for (int j = i; j < objectList.size(); j++) {

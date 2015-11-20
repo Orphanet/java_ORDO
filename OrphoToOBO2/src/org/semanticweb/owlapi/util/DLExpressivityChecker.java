@@ -111,7 +111,7 @@ public class DLExpressivityChecker extends OWLObjectVisitorAdapter {
      */
     public DLExpressivityChecker(Set<OWLOntology> ontologies) {
         this.ontologies = ontologies;
-        constructs = new HashSet<>();
+        constructs = new HashSet<Construct>();
     }
 
     /** @return DL name */
@@ -168,7 +168,7 @@ public class DLExpressivityChecker extends OWLObjectVisitorAdapter {
             }
         }
         pruneConstructs();
-        List<Construct> cons = new ArrayList<>(constructs);
+        List<Construct> cons = new ArrayList<Construct>(constructs);
         Collections.sort(cons, new ConstructComparator());
         return cons;
     }
@@ -178,7 +178,7 @@ public class DLExpressivityChecker extends OWLObjectVisitorAdapter {
             Serializable {
 
         private static final long serialVersionUID = 40000L;
-        private final List<Construct> order = new ArrayList<>();
+        private final List<Construct> order = new ArrayList<Construct>();
 
         ConstructComparator() {
             order.add(S);

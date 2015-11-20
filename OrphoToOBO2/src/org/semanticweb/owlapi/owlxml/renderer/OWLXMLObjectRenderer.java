@@ -158,7 +158,7 @@ public class OWLXMLObjectRenderer implements OWLObjectVisitor {
         // treat declarations separately from other axioms
         Collection<OWLDeclarationAxiom> declarations = ontology
                 .getAxioms(AxiomType.DECLARATION);
-        Set<OWLEntity> declared = new HashSet<>(ontology.getSignature());
+        Set<OWLEntity> declared = new HashSet<OWLEntity>(ontology.getSignature());
         for (OWLDeclarationAxiom ax : declarations) {
             ax.accept(this);
             declared.remove(ax.getEntity());
@@ -185,7 +185,7 @@ public class OWLXMLObjectRenderer implements OWLObjectVisitor {
                 }
             }
         }
-        Collection<OWLAxiom> axioms = new ArrayList<>();
+        Collection<OWLAxiom> axioms = new ArrayList<OWLAxiom>();
         for (AxiomType<?> t : AxiomType.AXIOM_TYPES) {
             if (!t.equals(AxiomType.DECLARATION)) {
                 axioms.addAll(ontology.getAxioms(t));

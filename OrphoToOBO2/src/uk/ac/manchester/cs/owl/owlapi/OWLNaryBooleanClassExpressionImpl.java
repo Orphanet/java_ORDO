@@ -67,7 +67,7 @@ public abstract class OWLNaryBooleanClassExpressionImpl extends
 
     @Override
     public List<OWLClassExpression> getOperandsAsList() {
-        return new ArrayList<>(operands);
+        return new ArrayList<OWLClassExpression>(operands);
     }
 
     @Override

@@ -62,7 +62,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     @Nonnull
     protected final Map<OWLOntologyID, IRI> documentIRIsByID = createSyncMap();
     @Nonnull
-    protected final Map<OWLOntologyID, OWLOntologyLoaderConfiguration> ontologyConfigurationsByOntologyID = new HashMap<>();
+    protected final Map<OWLOntologyID, OWLOntologyLoaderConfiguration> ontologyConfigurationsByOntologyID = new HashMap<OWLOntologyID, OWLOntologyLoaderConfiguration>();
     @Nonnull
     protected final Map<OWLOntologyID, OWLDocumentFormat> ontologyFormatsByOntology = createSyncMap();
     @Nonnull
@@ -90,7 +90,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     protected ImpendingOWLOntologyChangeBroadcastStrategy defaultImpendingChangeBroadcastStrategy = new DefaultImpendingChangeBroadcastStrategy();
     private transient Map<OWLOntologyChangeListener, OWLOntologyChangeBroadcastStrategy> listenerMap = createSyncMap();
     private transient Map<ImpendingOWLOntologyChangeListener, ImpendingOWLOntologyChangeBroadcastStrategy> impendingChangeListenerMap = createSyncMap();
-    private transient List<OWLOntologyChangesVetoedListener> vetoListeners = new ArrayList<>();
+    private transient List<OWLOntologyChangesVetoedListener> vetoListeners = new ArrayList<OWLOntologyChangesVetoedListener>();
     @Nonnull
     private Provider<OWLOntologyLoaderConfiguration> configProvider = new OWLAPIConfigProvider();
     @Nonnull
@@ -122,10 +122,10 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         this.readWriteLock = readWriteLock;
         readLock = readWriteLock.readLock();
         writeLock = readWriteLock.writeLock();
-        documentMappers = new ConcurrentPriorityCollection<>(readWriteLock, sorting);
-        ontologyFactories = new ConcurrentPriorityCollection<>(readWriteLock, sorting);
-        parserFactories = new ConcurrentPriorityCollection<>(readWriteLock, sorting);
-        ontologyStorers = new ConcurrentPriorityCollection<>(readWriteLock, sorting);
+        documentMappers = new ConcurrentPriorityCollection<OWLOntologyIRIMapper>(readWriteLock, sorting);
+        ontologyFactories = new ConcurrentPriorityCollection<OWLOntologyFactory>(readWriteLock, sorting);
+        parserFactories = new ConcurrentPriorityCollection<OWLParserFactory>(readWriteLock, sorting);
+        ontologyStorers = new ConcurrentPriorityCollection<OWLStorerFactory>(readWriteLock, sorting);
         installDefaultURIMappers();
         installDefaultOntologyFactories();
     }
@@ -194,7 +194,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     public Set<OWLOntology> getOntologies() {
         readLock.lock();
         try {
-            return new HashSet<>(ontologiesByID.values());
+            return new HashSet<OWLOntology>(ontologiesByID.values());
         } finally {
             readLock.unlock();
         }
@@ -204,7 +204,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     public Set<OWLOntology> getOntologies(OWLAxiom axiom) {
         readLock.lock();
         try {
-            Set<OWLOntology> result = new HashSet<>(ontologiesByID.size());
+            Set<OWLOntology> result = new HashSet<OWLOntology>(ontologiesByID.size());
             for (OWLOntology ont : getOntologies()) {
                 if (ont.containsAxiom(axiom)) {
                     result.add(ont);
@@ -291,7 +291,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     public Set<OWLOntologyID> getOntologyIDsByVersion(IRI ontologyVersionIRI) {
         readLock.lock();
         try {
-            Set<OWLOntologyID> result = new TreeSet<>();
+            Set<OWLOntologyID> result = new TreeSet<OWLOntologyID>();
             for (OWLOntologyID ont : ontologiesByID.keySet()) {
                 if (ontologyVersionIRI.equals(ont.getVersionIRI().orNull())) {
                     result.add(ont);
@@ -369,7 +369,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     public Set<OWLOntology> getVersions(IRI ontologyIRI) {
         readLock.lock();
         try {
-            Set<OWLOntology> result = new HashSet<>();
+            Set<OWLOntology> result = new HashSet<OWLOntology>();
             for (OWLOntology ont : getOntologies()) {
                 OWLOntologyID ontId = ont.getOntologyID();
                 Optional<IRI> ontIRI = ontId.getOntologyIRI();
@@ -411,7 +411,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
             if (!contains(ontology)) {
                 throw new UnknownOWLOntologyException(ontology.getOntologyID());
             }
-            Set<OWLOntology> imports = new HashSet<>();
+            Set<OWLOntology> imports = new HashSet<OWLOntology>();
             for (OWLImportsDeclaration axiom : ontology.getImportsDeclarations()) {
                 assert axiom != null;
                 OWLOntology importedOntology = getImportedOntology(axiom);
@@ -432,7 +432,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
             if (!contains(ontology)) {
                 throw new UnknownOWLOntologyException(ontology.getOntologyID());
             }
-            Set<OWLOntology> result = new HashSet<>();
+            Set<OWLOntology> result = new HashSet<OWLOntology>();
             getImports(ontology, result);
             return result;
         } finally {
@@ -469,7 +469,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         try {
             Set<OWLOntology> ontologies = importsClosureCache.get(ontology.getOntologyID());
             if (ontologies == null) {
-                ontologies = new LinkedHashSet<>();
+                ontologies = new LinkedHashSet<OWLOntology>();
                 getImportsClosure(ontology, ontologies);
                 // store the wrapped set
                 importsClosureCache.put(ontology.getOntologyID(), ontologies);
@@ -511,7 +511,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     public List<OWLOntology> getSortedImportsClosure(OWLOntology ontology) {
         readLock.lock();
         try {
-            return new ArrayList<>(ontology.getImportsClosure());
+            return new ArrayList<OWLOntology>(ontology.getImportsClosure());
         } finally {
             readLock.unlock();
         }
@@ -573,7 +573,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
             boolean allNoOps = true;
             // list of changes applied successfully. These are the changes that
             // will be reverted in case of a rollback
-            List<OWLOntologyChange> appliedChanges = new ArrayList<>();
+            List<OWLOntologyChange> appliedChanges = new ArrayList<OWLOntologyChange>();
             fireBeginChanges(changes.size());
             for (OWLOntologyChange change : changes) {
                 // once rollback is requested by a failed change, do not carry
@@ -630,7 +630,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         writeLock.lock();
         try {
             // Write lock not needed at this point
-            List<AddAxiom> changes = new ArrayList<>(axioms.size() + 2);
+            List<AddAxiom> changes = new ArrayList<AddAxiom>(axioms.size() + 2);
             for (OWLAxiom ax : axioms) {
                 assert ax != null;
                 changes.add(new AddAxiom(ont, ax));
@@ -655,7 +655,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     @Override
     public ChangeApplied removeAxioms(@Nonnull OWLOntology ont, @Nonnull Set<? extends OWLAxiom> axioms) {
         // Write lock not needed at this point
-        List<RemoveAxiom> changes = new ArrayList<>(axioms.size() + 2);
+        List<RemoveAxiom> changes = new ArrayList<RemoveAxiom>(axioms.size() + 2);
         for (OWLAxiom ax : axioms) {
             assert ax != null;
             changes.add(new RemoveAxiom(ont, ax));
@@ -820,7 +820,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
                 throw new OWLOntologyAlreadyExistsException(new OWLOntologyID(of(ontologyIRI), absent()));
             }
             OWLOntology ont = createOntology(ontologyIRI);
-            Set<OWLAxiom> axioms = new HashSet<>();
+            Set<OWLAxiom> axioms = new HashSet<OWLAxiom>();
             for (OWLOntology ontology : ontologies) {
                 if (copyLogicalAxiomsOnly) {
                     axioms.addAll(ontology.getLogicalAxioms());
@@ -1397,9 +1397,9 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     // Listener stuff - methods to add/remove listeners
     private void readObject(java.io.ObjectInputStream stream) throws IOException, ClassNotFoundException {
         stream.defaultReadObject();
-        listenerMap = new ConcurrentHashMap<>();
-        impendingChangeListenerMap = new ConcurrentHashMap<>();
-        vetoListeners = new ArrayList<>();
+        listenerMap = new ConcurrentHashMap<OWLOntologyChangeListener, OWLOntologyChangeBroadcastStrategy>();
+        impendingChangeListenerMap = new ConcurrentHashMap<ImpendingOWLOntologyChangeListener, ImpendingOWLOntologyChangeBroadcastStrategy>();
+        vetoListeners = new ArrayList<OWLOntologyChangesVetoedListener>();
     }
 
     @Override
@@ -1425,7 +1425,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
             if (!broadcastChanges.get()) {
                 return;
             }
-            for (OWLOntologyChangeListener listener : new ArrayList<>(listenerMap.keySet())) {
+            for (OWLOntologyChangeListener listener : new ArrayList<OWLOntologyChangeListener>(listenerMap.keySet())) {
                 assert listener != null;
                 OWLOntologyChangeBroadcastStrategy strategy = listenerMap.get(listener);
                 if (strategy == null) {
@@ -1457,7 +1457,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
             if (!broadcastChanges.get()) {
                 return;
             }
-            for (ImpendingOWLOntologyChangeListener listener : new ArrayList<>(impendingChangeListenerMap.keySet())) {
+            for (ImpendingOWLOntologyChangeListener listener : new ArrayList<ImpendingOWLOntologyChangeListener>(impendingChangeListenerMap.keySet())) {
                 assert listener != null;
                 ImpendingOWLOntologyChangeBroadcastStrategy strategy = impendingChangeListenerMap.get(listener);
                 if (strategy != null) {
@@ -1544,7 +1544,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         @Nonnull OWLOntologyChangeVetoException veto) {
         writeLock.lock();
         try {
-            for (OWLOntologyChangesVetoedListener listener : new ArrayList<>(vetoListeners)) {
+            for (OWLOntologyChangesVetoedListener listener : new ArrayList<OWLOntologyChangesVetoedListener>(vetoListeners)) {
                 listener.ontologyChangesVetoed(changes, veto);
             }
         } finally {
@@ -1633,7 +1633,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     protected void fireMissingImportEvent(@Nonnull MissingImportEvent evt) {
         writeLock.lock();
         try {
-            for (MissingImportListener listener : new ArrayList<>(missingImportsListeners)) {
+            for (MissingImportListener listener : new ArrayList<MissingImportListener>(missingImportsListeners)) {
                 listener.importMissing(evt);
             }
         } finally {
@@ -1665,7 +1665,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     protected void fireStartedLoadingEvent(OWLOntologyID ontologyID, IRI documentIRI, boolean imported) {
         writeLock.lock();
         try {
-            for (OWLOntologyLoaderListener listener : new ArrayList<>(loaderListeners)) {
+            for (OWLOntologyLoaderListener listener : new ArrayList<OWLOntologyLoaderListener>(loaderListeners)) {
                 listener.startedLoadingOntology(new OWLOntologyLoaderListener.LoadingStartedEvent(ontologyID,
                     documentIRI, imported));
             }
@@ -1677,7 +1677,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     protected void fireFinishedLoadingEvent(OWLOntologyID ontologyID, IRI documentIRI, boolean imported, Exception ex) {
         writeLock.lock();
         try {
-            for (OWLOntologyLoaderListener listener : new ArrayList<>(loaderListeners)) {
+            for (OWLOntologyLoaderListener listener : new ArrayList<OWLOntologyLoaderListener>(loaderListeners)) {
                 listener.finishedLoadingOntology(new OWLOntologyLoaderListener.LoadingFinishedEvent(ontologyID,
                     documentIRI, imported, ex));
             }
