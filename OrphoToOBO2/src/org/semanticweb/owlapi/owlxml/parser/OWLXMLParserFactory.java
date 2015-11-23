@@ -57,7 +57,6 @@ public class OWLXMLParserFactory extends OWLParserFactoryImpl {
     }
 
     @Nonnull
-    @Override
     public OWLParser createParser() {
         return new OWLXMLParser();
     }

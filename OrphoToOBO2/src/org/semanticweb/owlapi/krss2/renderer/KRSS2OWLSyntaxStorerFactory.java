@@ -52,7 +52,7 @@ public class KRSS2OWLSyntaxStorerFactory extends OWLStorerFactoryImpl {
         super(new KRSS2DocumentFormatFactory());
     }
 
-    @Override
+
     public OWLStorer createStorer() {
         return new KRSS2OWLSyntaxStorer();
     }

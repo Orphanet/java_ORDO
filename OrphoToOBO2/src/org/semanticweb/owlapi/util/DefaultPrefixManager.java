@@ -180,7 +180,7 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         return prefix2NamespaceMap.get(prefixName);
     }
 
-    @Override
+
     public void setPrefix(String inputPrefixName, String prefix) {
         checkNotNull(inputPrefixName, "prefixName cannot be null");
         checkNotNull(prefix, "prefix cannot be null");

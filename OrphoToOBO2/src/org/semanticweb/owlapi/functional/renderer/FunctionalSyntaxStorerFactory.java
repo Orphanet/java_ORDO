@@ -54,7 +54,7 @@ public class FunctionalSyntaxStorerFactory extends OWLStorerFactoryImpl {
         super(new FunctionalSyntaxDocumentFormatFactory());
     }
 
-    @Override
+
     public OWLStorer createStorer() {
         return new FunctionalSyntaxStorer();
     }

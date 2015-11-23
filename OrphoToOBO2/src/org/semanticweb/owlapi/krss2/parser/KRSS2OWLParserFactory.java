@@ -57,7 +57,7 @@ public class KRSS2OWLParserFactory extends OWLParserFactoryImpl {
     }
 
     @Nonnull
-    @Override
+
     public OWLParser createParser() {
         return new KRSS2OWLParser();
     }

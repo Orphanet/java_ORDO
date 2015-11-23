@@ -54,7 +54,7 @@ public class LatexStorerFactory extends OWLStorerFactoryImpl {
         super(new LatexDocumentFormatFactory());
     }
 
-    @Override
+
     public OWLStorer createStorer() {
         return new LatexStorer();
     }

@@ -57,7 +57,7 @@ public class RDFXMLParserFactory extends OWLParserFactoryImpl {
     }
 
     @Nonnull
-    @Override
+
     public OWLParser createParser() {
         return new RDFXMLParser();
     }

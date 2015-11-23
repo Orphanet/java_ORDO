@@ -57,7 +57,7 @@ public class OWLFunctionalSyntaxOWLParserFactory extends OWLParserFactoryImpl {
     }
 
     @Nonnull
-    @Override
+
     public OWLParser createParser() {
         return new OWLFunctionalSyntaxOWLParser();
     }

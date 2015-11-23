@@ -54,7 +54,7 @@ public class RDFXMLStorerFactory extends OWLStorerFactoryImpl {
         super(new RDFXMLDocumentFormatFactory());
     }
 
-    @Override
+
     public OWLStorer createStorer() {
         return new RDFXMLStorer();
     }

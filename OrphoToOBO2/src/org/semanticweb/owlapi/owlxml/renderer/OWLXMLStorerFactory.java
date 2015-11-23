@@ -54,7 +54,7 @@ public class OWLXMLStorerFactory extends OWLStorerFactoryImpl {
         super(new OWLXMLDocumentFormatFactory());
     }
 
-    @Override
+
     public OWLStorer createStorer() {
         return new OWLXMLStorer();
     }

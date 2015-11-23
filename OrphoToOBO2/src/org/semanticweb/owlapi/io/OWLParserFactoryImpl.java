@@ -25,7 +25,7 @@ public abstract class OWLParserFactoryImpl implements OWLParserFactory {
         return format;
     }
 
-    @Override
+
     public final OWLParser get() {
         return createParser();
     }

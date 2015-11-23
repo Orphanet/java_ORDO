@@ -33,12 +33,12 @@ public abstract class OWLStorerFactoryImpl implements OWLStorerFactory {
         this.format = format;
     }
 
-    @Override
+
     public final OWLDocumentFormatFactory getFormatFactory() {
         return format;
     }
 
-    @Override
+
     public final OWLStorer get() {
         return createStorer();
     }

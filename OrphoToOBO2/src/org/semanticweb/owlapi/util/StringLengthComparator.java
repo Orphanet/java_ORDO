@@ -17,7 +17,6 @@ public class StringLengthComparator implements StringComparator {
 
     private static final long serialVersionUID = 40000L;
 
-    @Override
     public int compare(String o1, String o2) {
         int diff = o1.length() - o2.length();
         if (diff != 0) {

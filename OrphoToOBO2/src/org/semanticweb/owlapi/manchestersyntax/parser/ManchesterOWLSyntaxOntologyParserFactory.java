@@ -58,7 +58,7 @@ public class ManchesterOWLSyntaxOntologyParserFactory extends
     }
 
     @Nonnull
-    @Override
+
     public OWLParser createParser() {
         return new ManchesterOWLSyntaxOntologyParser();
     }

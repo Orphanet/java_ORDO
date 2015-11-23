@@ -54,7 +54,6 @@ public class ManchesterSyntaxStorerFactory extends OWLStorerFactoryImpl {
         super(new ManchesterSyntaxDocumentFormatFactory());
     }
 
-    @Override
     public OWLStorer createStorer() {
         return new ManchesterSyntaxStorer();
     }
