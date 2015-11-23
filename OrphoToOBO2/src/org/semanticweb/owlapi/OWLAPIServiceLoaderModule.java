@@ -32,8 +32,8 @@ import org.semanticweb.owlapi.model.OWLOntologyManagerFactory;
 import org.semanticweb.owlapi.model.OWLRuntimeException;
 import org.semanticweb.owlapi.model.OWLStorer;
 import org.semanticweb.owlapi.model.OWLStorerFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Iterables;
 import com.google.inject.AbstractModule;
@@ -46,8 +46,8 @@ import com.google.inject.multibindings.Multibinder;
 @OwlapiModule
 public class OWLAPIServiceLoaderModule extends AbstractModule {
 
-    private static Logger logger = LoggerFactory
-            .getLogger(OWLAPIServiceLoaderModule.class);
+ /*   private static Logger logger = LoggerFactory
+            .getLogger(OWLAPIServiceLoaderModule.class);*/
 
     @Override
     protected void configure() {
@@ -86,7 +86,7 @@ public class OWLAPIServiceLoaderModule extends AbstractModule {
         try {
             Iterables.addAll(result, ServiceLoader.load(type));
         } catch (ServiceConfigurationError e) {
-            logger.debug("ServiceLoading: ", e); 
+           // logger.debug("ServiceLoading: ", e); 
         }
         // in OSGi, the context class loader is likely null.
         // This would trigger the use of the system class loader, which would

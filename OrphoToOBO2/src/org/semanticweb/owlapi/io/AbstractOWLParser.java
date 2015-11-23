@@ -36,8 +36,8 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLDocumentFormat;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyLoaderConfiguration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.tukaani.xz.XZInputStream;
 import org.xml.sax.InputSource;
 
@@ -54,7 +54,7 @@ import org.xml.sax.InputSource;
 public abstract class AbstractOWLParser implements OWLParser, Serializable {
 
     private static final long serialVersionUID = 40000L;
-    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractOWLParser.class);
+  //  private static final Logger LOGGER = LoggerFactory.getLogger(AbstractOWLParser.class);
     private static final String ZIP_FILE_EXTENSION = ".zip";
     private static final String CONTENT_DISPOSITION_HEADER = "Content-Disposition";
     private static final Pattern CONTENT_DISPOSITION_FILE_NAME_PATTERN = Pattern.compile(".*filename=\"([^\\s;]*)\".*");
@@ -167,13 +167,13 @@ public abstract class AbstractOWLParser implements OWLParser, Serializable {
         InputStream connInputStream = conn.getInputStream();
         if (contentEncoding != null) {
             if ("xz".equals(contentEncoding)) {
-                LOGGER.info("URL connection input stream is compressed using xz");
+               // LOGGER.info("URL connection input stream is compressed using xz");
                 is = new BufferedInputStream(new XZInputStream(connInputStream));
             } else if ("gzip".equals(contentEncoding)) {
-                LOGGER.info("URL connection input stream is compressed using gzip");
+               // LOGGER.info("URL connection input stream is compressed using gzip");
                 is = new BufferedInputStream(new GZIPInputStream(connInputStream));
             } else if ("deflate".equals(contentEncoding)) {
-                LOGGER.info("URL connection input stream is compressed using deflate");
+              //  LOGGER.info("URL connection input stream is compressed using deflate");
                 is = OWLOntologyDocumentSourceBase.wrap(new InflaterInputStream(connInputStream, new Inflater(true)));
             }
         } else {
@@ -183,10 +183,10 @@ public abstract class AbstractOWLParser implements OWLParser, Serializable {
             }
             if (fileName != null) {
                 if (fileName.endsWith(".gz")) {
-                    LOGGER.info("URL connection has no content encoding but name ends with .gz");
+                   // LOGGER.info("URL connection has no content encoding but name ends with .gz");
                     is = new BufferedInputStream(new GZIPInputStream(connInputStream));
                 } else if (fileName.endsWith(".xz")) {
-                    LOGGER.info("URL connection has no content encoding but name ends with .xz");
+                  //  LOGGER.info("URL connection has no content encoding but name ends with .xz");
                     is = new BufferedInputStream(new XZInputStream(connInputStream));
                 }
             }

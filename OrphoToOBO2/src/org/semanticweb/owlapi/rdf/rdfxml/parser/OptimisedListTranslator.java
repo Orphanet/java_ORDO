@@ -11,8 +11,8 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLObject;
 import org.semanticweb.owlapi.rdf.rdfxml.parser.Translators.ListItemTranslator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  * Translates an rdf:List into a Java {@code List}, or Java {@code Set}. The
@@ -28,8 +28,8 @@ import org.slf4j.LoggerFactory;
  */
 class OptimisedListTranslator<O extends OWLObject> {
 
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(OptimisedListTranslator.class);
+   /* private static final Logger LOGGER = LoggerFactory
+            .getLogger(OptimisedListTranslator.class);*/
     private final OWLRDFConsumer consumer;
     private final ListItemTranslator<O> translator;
 
@@ -56,12 +56,12 @@ class OptimisedListTranslator<O extends OWLObject> {
             if (firstResource != null) {
                 O translate = translator.translate(firstResource);
                 if (translate != null) {
-                    LOGGER.debug("list: {}", translate);
+                   // LOGGER.debug("list: {}", translate);
                     list.add(translate);
                 } else {
-                    LOGGER.warn(
+                   /* LOGGER.warn(
                             "Possible malformed list: cannot translate it {}",
-                            firstResource);
+                            firstResource);*/
                 }
             } else {
                 OWLLiteral literal = consumer.getFirstLiteral(current);
@@ -72,7 +72,7 @@ class OptimisedListTranslator<O extends OWLObject> {
                     }
                 } else {
                     // Empty list?
-                    LOGGER.warn("Possible malformed list: rdf:first triple missing");
+                   // LOGGER.warn("Possible malformed list: rdf:first triple missing");
                 }
             }
             current = consumer.getRest(current, true);

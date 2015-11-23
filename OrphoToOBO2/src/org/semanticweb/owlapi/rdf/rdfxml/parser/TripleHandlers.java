@@ -33,8 +33,8 @@ import org.semanticweb.owlapi.vocab.OWL2Datatype;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import org.semanticweb.owlapi.vocab.SKOSVocabulary;
 import org.semanticweb.owlapi.vocab.SWRLVocabulary;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Optional;
 
@@ -45,7 +45,7 @@ import com.google.common.base.Optional;
  */
 public class TripleHandlers {
 
-    static final Logger LOGGER = LoggerFactory.getLogger(TripleHandlers.class);
+ //   static final Logger LOGGER = LoggerFactory.getLogger(TripleHandlers.class);
 
     private TripleHandlers() {}
 
@@ -2129,7 +2129,7 @@ public class TripleHandlers {
             if (BUILT_IN_VOCABULARY_IRIS.contains(object) && !object.equals(OWL_THING.getIRI())) {
                 // Can't have instance of built in vocabulary!
                 // Shall we throw an exception here?
-                LOGGER.info("Individual of builtin type {}", object);
+               // LOGGER.info("Individual of builtin type {}", object);
             }
             addAxiom(df.getOWLClassAssertionAxiom(translateClassExpression(object), translateIndividual(subject),
                 getPendingAnnotations()));
@@ -2893,7 +2893,7 @@ public class TripleHandlers {
         public void handleTriple(IRI subject, IRI predicate, IRI object) {
             // We need to consume this triple
             consumeTriple(subject, predicate, object);
-            LOGGER.info("Usage of rdf vocabulary: {} -> {} -> {}", subject, predicate, object);
+           // LOGGER.info("Usage of rdf vocabulary: {} -> {} -> {}", subject, predicate, object);
         }
     }
 

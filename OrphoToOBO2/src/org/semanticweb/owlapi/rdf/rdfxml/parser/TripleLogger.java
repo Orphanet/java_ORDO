@@ -7,8 +7,8 @@ import javax.annotation.Nullable;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntologyID;
 import org.semanticweb.owlapi.model.PrefixManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  * Wrapper for triple logging functions.
@@ -18,8 +18,8 @@ import org.slf4j.LoggerFactory;
  */
 public class TripleLogger {
 
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(TripleLogger.class);
+   /* private static final Logger LOGGER = LoggerFactory
+            .getLogger(TripleLogger.class);*/
     private PrefixManager prefixManager;
     // Debug stuff
     private final AtomicInteger count = new AtomicInteger();
@@ -87,10 +87,10 @@ public class TripleLogger {
      */
     public void justLog(Object s, Object p, Object o, Object lang,
             Object datatype) {
-        if (LOGGER.isTraceEnabled()) {
+        /*if (LOGGER.isTraceEnabled()) {
             LOGGER.trace("s={} p={} o={} l={} dt={}", shorten(s), shorten(p),
                     shorten(o), lang, shorten(datatype));
-        }
+        }*/
     }
 
     /**
@@ -102,9 +102,9 @@ public class TripleLogger {
      *        object
      */
     public void justLog(Object s, Object p, Object o) {
-        if (LOGGER.isTraceEnabled()) {
+        /*if (LOGGER.isTraceEnabled()) {
             LOGGER.trace("s={} p={} o={}", shorten(s), shorten(p), shorten(o));
-        }
+        }*/
     }
 
     private Object shorten(@Nullable Object o) {
@@ -132,13 +132,13 @@ public class TripleLogger {
     /** increment count and log. */
     private void incrementTripleCount() {
         if (count.incrementAndGet() % 10000 == 0) {
-            LOGGER.debug("Parsed: {} triples", count);
+           // LOGGER.debug("Parsed: {} triples", count);
         }
     }
 
     /** log finl count. */
     public void logNumberOfTriples() {
-        LOGGER.debug("Total number of triples: {}", count);
+       //LOGGER.debug("Total number of triples: {}", count);
     }
 
     /**
@@ -146,6 +146,6 @@ public class TripleLogger {
      *        log ontology id
      */
     public static void logOntologyID(OWLOntologyID id) {
-        LOGGER.debug("Loaded {}", id);
+       // LOGGER.debug("Loaded {}", id);
     }
 }

@@ -36,8 +36,8 @@ import org.semanticweb.owlapi.vocab.OWL2Datatype;
 import org.semanticweb.owlapi.vocab.OWLFacet;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import org.semanticweb.owlapi.vocab.XSDVocabulary;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.ArrayListMultimap;
@@ -65,7 +65,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
 
     /** The Constant DAML_OIL. */
     private static final String DAML_OIL = "http://www.daml.org/2001/03/daml+oil#";
-    private static final Logger LOGGER = LoggerFactory.getLogger(OWLRDFConsumer.class);
+    //private static final Logger LOGGER = LoggerFactory.getLogger(OWLRDFConsumer.class);
     @Nonnull
     final TripleLogger tripleLogger;
     /** The configuration. */
@@ -839,7 +839,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
 
     private void addType(IRI iri, Set<IRI> types, boolean explicitlyTyped) {
         if (configuration.isStrict() && !explicitlyTyped) {
-            LOGGER.warn("STRICT: Not adding implicit type iri={} types={}", iri, types);
+            //LOGGER.warn("STRICT: Not adding implicit type iri={} types={}", iri, types);
             return;
         }
         types.add(iri);
@@ -1082,7 +1082,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
      *        the object
      */
     protected void consumeTriple(IRI subject, IRI predicate, IRI object) {
-        LOGGER.trace("consuming triple");
+        //LOGGER.trace("consuming triple");
         tripleLogger.justLog(subject, predicate, object);
         isTriplePresent(subject, predicate, object, true);
     }
@@ -1098,7 +1098,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
      *        the con
      */
     protected void consumeTriple(IRI subject, IRI predicate, OWLLiteral con) {
-        LOGGER.trace("consuming triple");
+        //LOGGER.trace("consuming triple");
         tripleLogger.justLog(subject, predicate, con);
         isTriplePresent(subject, predicate, con, true);
     }
@@ -1295,16 +1295,18 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
 
     // RDFConsumer implementation
     private static void printTriple(Object subject, Object predicate, Object object) {
-        LOGGER.info("{} -> {} -> {}", subject, predicate, object);
+        //LOGGER.info("{} -> {} -> {}", subject, predicate, object);
     }
 
     /** Dump remaining triples. */
     protected void dumpRemainingTriples() {
         // if info logging is disabled or all collections are empty, do not
         // output anything
-        if (LOGGER.isInfoEnabled() && singleValuedResTriplesByPredicate.size() + singleValuedLitTriplesByPredicate
-            .size() + resTriplesBySubject.size() + litTriplesBySubject.size() > 0) {
-            LOGGER.info("dumping remaining triples");
+        /*if (LOGGER.isInfoEnabled() && singleValuedResTriplesByPredicate.size() + singleValuedLitTriplesByPredicate
+            .size() + resTriplesBySubject.size() + litTriplesBySubject.size() > 0) {*/
+    	if (singleValuedResTriplesByPredicate.size() + singleValuedLitTriplesByPredicate
+                    .size() + resTriplesBySubject.size() + litTriplesBySubject.size() > 0) {
+           // LOGGER.info("dumping remaining triples");
             for (IRI predicate : singleValuedResTriplesByPredicate.keySet()) {
                 Map<IRI, IRI> map = singleValuedResTriplesByPredicate.get(predicate);
                 for (IRI subject : map.keySet()) {
@@ -1338,7 +1340,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
                 }
             }
         }
-        LOGGER.info("done dumping remaining triples");
+        //LOGGER.info("done dumping remaining triples");
     }
 
     @Override

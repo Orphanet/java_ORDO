@@ -34,8 +34,8 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.PriorityCollectionSorting;
 import org.semanticweb.owlapi.model.UnloadableImportException;
 import org.semanticweb.owlapi.util.PriorityCollection;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  * Matthew Horridge
@@ -46,7 +46,7 @@ public class OWLOntologyFactoryImpl implements OWLOntologyFactory {
 
     private static final long serialVersionUID = 40000L;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OWLOntologyFactoryImpl.class);
+   // private static final Logger LOGGER = LoggerFactory.getLogger(OWLOntologyFactoryImpl.class);
 
     private final Set<String> parsableSchemes = new HashSet<String>(Arrays.asList("http", "https", "file", "ftp"));
 
@@ -160,13 +160,13 @@ public class OWLOntologyFactoryImpl implements OWLOntologyFactory {
             documentSource.getDocumentIRI().toURI().toURL().openConnection();
             return true;
         } catch (UnknownHostException e) {
-            LOGGER.info("Unknown host: {}", e.getMessage(), e);
+            //LOGGER.info("Unknown host: {}", e.getMessage(), e);
         } catch (MalformedURLException e) {
-            LOGGER.info("Malformed URL: {}", e.getMessage(), e);
+            //LOGGER.info("Malformed URL: {}", e.getMessage(), e);
         } catch (FileNotFoundException e) {
-            LOGGER.info("File not found: {}", e.getMessage(), e);
+           // LOGGER.info("File not found: {}", e.getMessage(), e);
         } catch (IOException e) {
-            LOGGER.info("IO Exception: {}", e.getMessage(), e);
+           // LOGGER.info("IO Exception: {}", e.getMessage(), e);
         }
         return false;
     }

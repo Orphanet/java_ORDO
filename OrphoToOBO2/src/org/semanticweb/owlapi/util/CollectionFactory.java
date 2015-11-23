@@ -22,8 +22,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.semanticweb.owlapi.model.OWLObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
@@ -35,7 +35,7 @@ import com.google.common.collect.Sets;
  */
 public class CollectionFactory {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CollectionFactory.class.getName());
+    //private static final Logger LOGGER = LoggerFactory.getLogger(CollectionFactory.class.getName());
     private static final AtomicInteger EXPECTEDTHREADS = new AtomicInteger(8);
 
     /**
@@ -58,7 +58,7 @@ public class CollectionFactory {
                 throw e;
             }
             // otherwise print a warning and leave the list unsorted
-            LOGGER.warn("Misbehaving triple comparator, leaving triples unsorted", e);
+            //LOGGER.warn("Misbehaving triple comparator, leaving triples unsorted", e);
         }
     }
 
@@ -80,7 +80,7 @@ public class CollectionFactory {
                 throw e;
             }
             // otherwise print a warning and leave the list unsorted
-            LOGGER.warn("Misbehaving triple comparator, leaving triples unsorted", e);
+            //LOGGER.warn("Misbehaving triple comparator, leaving triples unsorted", e);
         }
     }
 
@@ -108,7 +108,7 @@ public class CollectionFactory {
                 throw e;
             }
             // otherwise print a warning and leave the list unsorted
-            LOGGER.warn("Misbehaving triple comparator, leaving triples unsorted", e);
+            //LOGGER.warn("Misbehaving triple comparator, leaving triples unsorted", e);
         }
         return list;
     }
@@ -137,7 +137,7 @@ public class CollectionFactory {
                 throw e;
             }
             // otherwise print a warning and leave the list unsorted
-            LOGGER.warn("Misbehaving triple comparator, leaving triples unsorted", e);
+           // LOGGER.warn("Misbehaving triple comparator, leaving triples unsorted", e);
         }
         return list;
     }

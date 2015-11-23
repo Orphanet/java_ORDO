@@ -24,8 +24,8 @@ import javax.inject.Inject;
 
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.util.WeakIndexCache;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -38,7 +38,7 @@ import com.google.common.collect.Interners;
  */
 public class OWLDataFactoryInternalsImpl extends OWLDataFactoryInternalsImplNoCache {
 
-    private static Logger logger = LoggerFactory.getLogger(OWLDataFactoryInternalsImpl.class);
+    //private static Logger logger = LoggerFactory.getLogger(OWLDataFactoryInternalsImpl.class);
     private static final long serialVersionUID = 40000L;
 
     protected class BuildableWeakIndexCache<V extends OWLEntity> extends
@@ -109,9 +109,9 @@ public class OWLDataFactoryInternalsImpl extends OWLDataFactoryInternalsImplNoCa
         languageTagInterner = Interners.newWeakInterner();
         CacheBuilder<Object, Object> annotationsCacheBuilder = CacheBuilder.newBuilder().maximumSize(512)
             .expireAfterAccess(2, TimeUnit.MINUTES);
-        if (logger.isDebugEnabled()) {
+       // if (logger.isDebugEnabled()) {
             annotationsCacheBuilder.recordStats();
-        }
+        //}
         annotationsCache = annotationsCacheBuilder.build(new CacheLoader<OWLAnnotation, OWLAnnotation>() {
 
             @Override
@@ -244,12 +244,12 @@ public class OWLDataFactoryInternalsImpl extends OWLDataFactoryInternalsImplNoCa
         OWLAnnotation key = new OWLAnnotationImpl(property, value, annotations);
         try {
             OWLAnnotation annotation = annotationsCache.get(key);
-            if (logger.isDebugEnabled()) {
+           // if (logger.isDebugEnabled()) {
                 int n = annotationsCount.incrementAndGet();
                 if (n % 1000 == 0) {
-                    logger.debug("{}: Annotations Cache stats: {}", n, annotationsCache.stats());
+                   // logger.debug("{}: Annotations Cache stats: {}", n, annotationsCache.stats());
                 }
-            }
+            //}
             return annotation;
         } catch (ExecutionException e) {
             return key;

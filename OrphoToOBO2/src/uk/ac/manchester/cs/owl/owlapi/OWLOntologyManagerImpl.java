@@ -40,8 +40,8 @@ import org.semanticweb.owlapi.model.parameters.ChangeApplied;
 import org.semanticweb.owlapi.model.parameters.OntologyCopy;
 import org.semanticweb.owlapi.util.CollectionFactory;
 import org.semanticweb.owlapi.util.PriorityCollection;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Optional;
 
@@ -56,7 +56,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     Serializable {
 
     private static final long serialVersionUID = 40000L;
-    private static final Logger LOGGER = LoggerFactory.getLogger(OWLOntologyManagerImpl.class);
+    //private static final Logger LOGGER = LoggerFactory.getLogger(OWLOntologyManagerImpl.class);
     @Nonnull
     protected final Map<OWLOntologyID, OWLOntology> ontologiesByID = createSyncMap();
     @Nonnull
@@ -715,8 +715,8 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
             OWLOntology existingOntology = ontologiesByID.get(((SetOntologyID) change).getNewOntologyID());
             if (existingOntology != null && !change.getOntology().equals(existingOntology)) {
                 if (!change.getOntology().getAxioms().equals(existingOntology.getAxioms())) {
-                    LOGGER.error("OWLOntologyManagerImpl.checkForOntologyIDChange() existing:{}", existingOntology);
-                    LOGGER.error("OWLOntologyManagerImpl.checkForOntologyIDChange() new:{}", change.getOntology());
+                    //LOGGER.error("OWLOntologyManagerImpl.checkForOntologyIDChange() existing:{}", existingOntology);
+                   // LOGGER.error("OWLOntologyManagerImpl.checkForOntologyIDChange() new:{}", change.getOntology());
                     throw new OWLOntologyRenameException(change.getChangeData(), ((SetOntologyID) change)
                         .getNewOntologyID());
                 }
@@ -1016,8 +1016,8 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         writeLock.lock();
         try {
             if (loadCount.get() != importsLoadCount.get()) {
-                LOGGER.error(
-                    "Runtime Warning: Parsers should load imported ontologies using the makeImportLoadRequest method.");
+                /*LOGGER.error(
+                    "Runtime Warning: Parsers should load imported ontologies using the makeImportLoadRequest method.");*/
             }
             fireStartedLoadingEvent(new OWLOntologyID(of(ontologyIRI), absent()), documentSource.getDocumentIRI(),
                 loadCount.get() > 0);
@@ -1442,7 +1442,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
                     // to prevent the other listeners from receiving events.
                     strategy.broadcastChanges(listener, changes);
                 } catch (Exception e) {
-                    LOGGER.warn("BADLY BEHAVING LISTENER: {} has been removed", e.getMessage(), e);
+                    //LOGGER.warn("BADLY BEHAVING LISTENER: {} has been removed", e.getMessage(), e);
                     listenerMap.remove(listener);
                 }
             }
@@ -1716,7 +1716,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
                 try {
                     listener.begin(size);
                 } catch (Exception e) {
-                    LOGGER.warn("BADLY BEHAVING LISTENER: {} has been removed", e.getMessage(), e);
+                   // LOGGER.warn("BADLY BEHAVING LISTENER: {} has been removed", e.getMessage(), e);
                     progressListeners.remove(listener);
                 }
             }
@@ -1735,7 +1735,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
                 try {
                     listener.end();
                 } catch (Exception e) {
-                    LOGGER.warn("BADLY BEHAVING LISTENER: {} has been removed", e.getMessage(), e);
+                   // LOGGER.warn("BADLY BEHAVING LISTENER: {} has been removed", e.getMessage(), e);
                     progressListeners.remove(listener);
                 }
             }
@@ -1757,7 +1757,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
                 try {
                     listener.appliedChange(change);
                 } catch (Exception e) {
-                    LOGGER.warn("BADLY BEHAVING LISTENER: {} has been removed", e.getMessage(), e);
+                  // LOGGER.warn("BADLY BEHAVING LISTENER: {} has been removed", e.getMessage(), e);
                     progressListeners.remove(listener);
                 }
             }

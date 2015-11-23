@@ -64,7 +64,7 @@ public abstract class OWLNaryPropertyAxiomImpl<P extends OWLPropertyExpression>
                 .sortOptionally(properties);
     }
 
-    @SafeVarargs
+
     OWLNaryPropertyAxiomImpl(
             @Nonnull Collection<? extends OWLAnnotation> annotations,
             P... properties) {
@@ -74,27 +74,27 @@ public abstract class OWLNaryPropertyAxiomImpl<P extends OWLPropertyExpression>
         this.properties = Arrays.asList(properties);
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         for (HasSignature hasSignature : getProperties()) {
             addSignatureEntitiesToSetForValue(entities, hasSignature);
         }
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {
         for (HasAnonymousIndividuals hasAnons : getProperties()) {
             addAnonymousIndividualsToSetForValue(anons, hasAnons);
         }
     }
 
-    @Override
+
     public Set<P> getProperties() {
         return CollectionFactory
                 .getCopyOnRequestSetFromImmutableCollection(properties);
     }
 
-    @Override
+
     public Set<P> getPropertiesMinus(P property) {
         Set<P> props = new TreeSet<P>(properties);
         props.remove(property);
@@ -125,7 +125,7 @@ public abstract class OWLNaryPropertyAxiomImpl<P extends OWLPropertyExpression>
                 ((OWLNaryPropertyAxiom<?>) object).getProperties());
     }
 
-    @Override
+
     public <T> Collection<T> walkPairwise(OWLPairwiseVisitor<T, P> visitor) {
         List<T> l = new ArrayList<T>();
         for (int i = 0; i < properties.size() - 1; i++) {

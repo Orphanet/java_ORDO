@@ -70,7 +70,7 @@ public class OWLAPIParsersModule extends AbstractModule {
                 OWLXMLParserFactory.class, RDFXMLParserFactory.class);
     }
 
-    @SafeVarargs
+
     private final <T> Multibinder<T> multibind(Class<T> type,
             @Nonnull Class<? extends T>... implementations) {
         Multibinder<T> binder = Multibinder.newSetBinder(binder(), type);

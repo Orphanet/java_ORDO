@@ -70,8 +70,8 @@ import org.semanticweb.owlapi.vocab.OWL2Datatype;
 import org.semanticweb.owlapi.vocab.OWLFacet;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 import org.semanticweb.owlapi.vocab.SWRLVocabulary;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  * @author Matthew Horridge, The University Of Manchester, Bio-Health
@@ -80,8 +80,8 @@ import org.slf4j.LoggerFactory;
  */
 public class Translators {
 
-    protected static final Logger LOGGER = LoggerFactory
-            .getLogger(Translators.class);
+  /*  protected static final Logger LOGGER = LoggerFactory
+            .getLogger(Translators.class);*/
 
     private Translators() {}
 
@@ -1068,25 +1068,25 @@ public class Translators {
             // know which is correct
             OWLPropertyExpression property = null;
             if (consumer.isObjectProperty(firstObject)) {
-                LOGGER.warn(
+               /* LOGGER.warn(
                         "Property {} has been punned illegally: found declaration as OWLObjectProperty",
-                        firstObject);
+                        firstObject);*/
                 property = consumer.getDataFactory().getOWLObjectProperty(
                         firstObject);
             }
             if (consumer.isDataProperty(firstObject)) {
-                LOGGER.warn(
+                /*LOGGER.warn(
                         "Property {} has been punned illegally: found declaration as OWLDataProperty",
-                        firstObject);
+                        firstObject);*/
                 if (property == null) {
                     property = consumer.getDataFactory().getOWLDataProperty(
                             firstObject);
                 }
             }
             if (consumer.isAnnotationProperty(firstObject)) {
-                LOGGER.warn(
+                /*LOGGER.warn(
                         "Property {} has been punned illegally: found declaration as OWLAnnotationProperty",
-                        firstObject);
+                        firstObject);*/
                 if (property == null) {
                     property = consumer.getDataFactory()
                             .getOWLAnnotationProperty(firstObject);
@@ -1096,9 +1096,9 @@ public class Translators {
             // and consider it a datatype property.
             // This matches existing behaviour.
             if (property == null) {
-                LOGGER.warn(
+               /* LOGGER.warn(
                         "Property {} is undeclared at this point in parsing: typing as OWLDataProperty",
-                        firstObject);
+                        firstObject);*/
                 property = consumer.getDataFactory().getOWLDataProperty(
                         firstObject);
             }
@@ -1122,7 +1122,7 @@ public class Translators {
 
         @Override
         public OWLIndividual translate(OWLLiteral firstObject) {
-            LOGGER.info("Cannot translate list item to individual, because rdf:first triple is a literal triple");
+            //LOGGER.info("Cannot translate list item to individual, because rdf:first triple is a literal triple");
             return null;
         }
     }
@@ -1232,7 +1232,7 @@ public class Translators {
 
         @Override
         public OWLObjectPropertyExpression translate(OWLLiteral firstObject) {
-            LOGGER.info("Cannot translate list item as an object property, because rdf:first triple is a literal triple");
+            //LOGGER.info("Cannot translate list item as an object property, because rdf:first triple is a literal triple");
             return null;
         }
     }
@@ -1744,7 +1744,7 @@ public class Translators {
 
         @Override
         public OWLObjectPropertyExpression translate(OWLLiteral firstObject) {
-            LOGGER.info("Cannot translate list item as an object property, because rdf:first triple is a literal triple");
+            //LOGGER.info("Cannot translate list item as an object property, because rdf:first triple is a literal triple");
             return null;
         }
     }
@@ -2018,9 +2018,9 @@ public class Translators {
             if (argIRI != null) {
                 // Must be a variable -- double check
                 if (!consumer.isSWRLVariable(argIRI)) {
-                    LOGGER.info(
+                    /*LOGGER.info(
                             "Expected SWRL variable for SWRL Data Object: {} (possibly untyped)",
-                            argIRI);
+                            argIRI);*/
                 }
                 return dataFactory.getSWRLVariable(argIRI);
             } else {
@@ -2117,7 +2117,7 @@ public class Translators {
 
         @Override
         public OWLLiteral translate(IRI firstObject) {
-            LOGGER.info("Cannot translate list item to a constant because rdf:first triple is a resource triple");
+           // LOGGER.info("Cannot translate list item to a constant because rdf:first triple is a resource triple");
             return null;
         }
 

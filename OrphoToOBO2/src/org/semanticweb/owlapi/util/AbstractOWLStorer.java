@@ -30,8 +30,8 @@ import org.semanticweb.owlapi.model.OWLDocumentFormat;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.OWLStorer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  * Base class for ontology storers. Note that all current implementations are
@@ -45,8 +45,8 @@ public abstract class AbstractOWLStorer implements OWLStorer {
 
     private static final long serialVersionUID = 40000L;
     protected static final String UTF_8 = "UTF-8";
-    protected static final Logger LOGGER = LoggerFactory
-            .getLogger(AbstractOWLStorer.class);
+    /*protected static final Logger LOGGER = LoggerFactory
+            .getLogger(AbstractOWLStorer.class);*/
 
     @Override
     public void storeOntology(OWLOntology ontology, @Nonnull IRI documentIRI,

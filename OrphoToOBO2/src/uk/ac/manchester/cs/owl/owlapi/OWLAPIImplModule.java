@@ -83,7 +83,7 @@ public class OWLAPIImplModule extends AbstractModule {
 
     }
 
-    @SafeVarargs
+    
     private final <T> Multibinder<T> multibind(Class<T> type,
             @Nonnull Class<? extends T>... implementations) {
         Multibinder<T> binder = Multibinder.newSetBinder(binder(), type);
