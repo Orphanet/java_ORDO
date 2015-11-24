@@ -115,7 +115,7 @@ public class SmallSet<T> extends AbstractSet<T> {
                 throw new UnsupportedOperationException("remove");
             }
 
-            @Override
+
             public boolean hasNext() {
                 switch (cp) {
                     case 1:
@@ -141,7 +141,7 @@ public class SmallSet<T> extends AbstractSet<T> {
                 }
             }
 
-            @Override
+
             public T next() {
                 if (!hasNext()) {
                     throw new NoSuchElementException("No Next Element");

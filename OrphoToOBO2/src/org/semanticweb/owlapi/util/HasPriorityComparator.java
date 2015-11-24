@@ -41,7 +41,7 @@ public class HasPriorityComparator<T> implements Comparator<T>, Serializable {
         return Double.MAX_VALUE;
     }
 
-    @Override
+
     public int compare(T o1, T o2) {
         assert o1 != null;
         assert o2 != null;

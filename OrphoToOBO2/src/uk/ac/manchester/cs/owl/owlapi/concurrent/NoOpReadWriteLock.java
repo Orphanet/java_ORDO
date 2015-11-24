@@ -14,13 +14,13 @@ public class NoOpReadWriteLock implements ReadWriteLock, Serializable {
 
     private static final NoOpLock NO_OP_LOCK = new NoOpLock();
 
-    @Override
+
     @Nonnull
     public Lock readLock() {
         return NO_OP_LOCK;
     }
 
-    @Override
+
     @Nonnull
     public Lock writeLock() {
         return NO_OP_LOCK;

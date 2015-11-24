@@ -219,7 +219,7 @@ public class OWL2DatatypeImpl implements OWLDatatype {
         return visitor.visit(this);
     }
 
-    @Override
+
     public IRI getIRI() {
         return owl2Datatype.getIRI();
     }

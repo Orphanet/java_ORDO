@@ -121,7 +121,7 @@ public class OWLClassImpl extends OWLClassExpressionImpl implements OWLClass,
         return isOWLThing() || isOWLNothing();
     }
 
-    @Override
+
     public boolean isAnonymous() {
         return false;
     }
@@ -248,7 +248,7 @@ public class OWLClassImpl extends OWLClassExpressionImpl implements OWLClass,
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }

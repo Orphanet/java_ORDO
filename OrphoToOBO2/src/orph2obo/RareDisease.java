@@ -361,7 +361,7 @@ public void setInheritNum(String inheritNum) {
         owlvar.setOntologyIRI(ontologyIRI);
         OWLOntology ontology = manager.createOntology(ontologyIRI);
         owlvar.setOntology(ontology);
-    	System.out.println("Created ontology: " + ontology);
+    	System.out.println("Created ontology1: " + ontology);
     	IRI versionIRI = IRI.create("/version1.2");
     	OWLOntologyID newOntologyID = new OWLOntologyID(ontologyIRI,versionIRI);
     	SetOntologyID setOntologyID = new SetOntologyID(ontology, newOntologyID);
@@ -516,7 +516,7 @@ public void setInheritNum(String inheritNum) {
         owlvar.setOntologyIRImod(ontologyIRImod);
         OWLOntology ontologymod = manager.createOntology(ontologyIRImod);
         owlvar.setOntologymod(ontologymod);
-    	System.out.println("Created ontology: " + ontologymod);
+    	System.out.println("Created ontology2: " + ontologymod);
     	IRI versionIRImod = IRI.create("/version1.2");
     	OWLOntologyID newOntologyIDmod = new OWLOntologyID(ontologyIRImod,versionIRImod);
     	SetOntologyID setOntologyIDmod = new SetOntologyID(ontologymod, newOntologyIDmod);
@@ -617,7 +617,7 @@ public void setInheritNum(String inheritNum) {
 		//System.out.println("exited the disease loop starting inheritance Inheritance size is  " + this.inheritNum.size());
 		//type of inheritance for that disease
 		 if (!(this.inheritNum.isEmpty())){
-			//System.out.println("writing the inheritance");
+			System.out.println("writing the inheritance");
 			for (int i= 0; i< this.inheritNum.size(); i++){
 				if (!inheritNum.get(i).contentEquals("108939") &&! inheritNum.get(i).contentEquals("108940")){//that is if inheritance is not Unknown
 				OWLObjectProperty has_inheritance = owlvar.getFactory().getOWLObjectProperty("C016", owlvar.getPrefixmanager());
@@ -633,7 +633,7 @@ public void setInheritNum(String inheritNum) {
 		
 		//age of onset
 		 if (this.onsetNum != null){
-			//System.out.println("writing the age of onset");
+			System.out.println("writing the age of onset");
 			OWLObjectProperty has_ageOfOnset = owlvar.getFactory().getOWLObjectProperty("C017", owlvar.getPrefixmanager());
 			OWLAnnotation hasageOfOnLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_AgeOfOnset"));
 			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_ageOfOnset.getIRI(), hasageOfOnLab)));

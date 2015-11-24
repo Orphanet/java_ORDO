@@ -425,7 +425,7 @@ public class IRI implements OWLAnnotationSubject, OWLAnnotationValue, SWRLPredic
         return toQuotedString();
     }
 
-    @Override
+
     public void accept(@Nonnull OWLObjectVisitor visitor) {
         visitor.visit(this);
     }

@@ -29,7 +29,6 @@ public class ConcurrentOWLOntologyBuilder implements OWLOntologyBuilder {
     }
 
     @Nonnull
-    @Override
     public OWLOntology createOWLOntology(@Nonnull OWLOntologyManager manager, @Nonnull OWLOntologyID ontologyID) {
         OWLOntology owlOntology = builder.createOWLOntology(manager, ontologyID);
         return new ConcurrentOWLOntologyImpl(owlOntology, readWriteLock);

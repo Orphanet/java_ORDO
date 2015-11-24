@@ -115,7 +115,7 @@ public class OWLLiteralImplString implements OWLLiteral {
         return false;
     }
 
-    @Override
+
     public OWLDatatype getDatatype() {
         return XSD_STRING;
     }
@@ -174,7 +174,7 @@ public class OWLLiteralImplString implements OWLLiteral {
         return getLang().compareTo(other.getLang());
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }

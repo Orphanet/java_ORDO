@@ -113,7 +113,7 @@ public abstract class AbstractEntityRegistrationManager extends
         @Override
         public void visit(CollectionContainer<OWLAnnotation> c) {}
 
-        @Override
+
         public void visitItem(@Nonnull OWLAnnotation c) {
             c.accept(AbstractEntityRegistrationManager.this);
         }

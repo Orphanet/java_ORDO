@@ -70,7 +70,7 @@ public abstract class OWLAxiomImplWithoutEntityAndAnonCaching extends OWLObjectI
 
     // TODO when processing annotations on OWLOntology:: add axiom, needs
     // optimizing
-    @Override
+
     public Set<OWLAnnotation> getAnnotations() {
         if (annotations.isEmpty()) {
             return emptySet();
@@ -78,7 +78,7 @@ public abstract class OWLAxiomImplWithoutEntityAndAnonCaching extends OWLObjectI
         return getCopyOnRequestSetFromImmutableCollection(annotations);
     }
 
-    @Override
+
     public void accept(CollectionContainerVisitor<OWLAnnotation> t) {
         int size = annotations.size();
         for (int i = 0; i < size; i++) {

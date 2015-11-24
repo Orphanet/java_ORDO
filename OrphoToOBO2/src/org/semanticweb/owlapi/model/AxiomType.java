@@ -267,7 +267,6 @@ public final class AxiomType<C extends OWLAxiom> implements Serializable {
         new Function<AxiomType<?>, String>() {
 
             @SuppressWarnings("null")
-            @Override
             public String apply(AxiomType<?> input) {
                 return input.getName();
             }
@@ -276,7 +275,6 @@ public final class AxiomType<C extends OWLAxiom> implements Serializable {
         new Function<AxiomType<?>, Class<?>>() {
 
             @SuppressWarnings("null")
-            @Override
             public Class<?> apply(AxiomType<?> input) {
                 return input.getActualClass();
             }

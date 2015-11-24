@@ -74,12 +74,10 @@ public class OWLSubClassOfAxiomImpl extends OWLClassAxiomImpl implements
         return new OWLSubClassOfAxiomImpl(subClass, superClass, NO_ANNOTATIONS);
     }
 
-    @Override
     public OWLClassExpression getSubClass() {
         return subClass;
     }
 
-    @Override
     public OWLClassExpression getSuperClass() {
         return superClass;
     }
@@ -107,12 +105,11 @@ public class OWLSubClassOfAxiomImpl extends OWLClassAxiomImpl implements
                 && other.getSuperClass().equals(superClass);
     }
 
-    @Override
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
@@ -127,7 +124,6 @@ public class OWLSubClassOfAxiomImpl extends OWLClassAxiomImpl implements
         return visitor.visit(this);
     }
 
-    @Override
     public AxiomType<?> getAxiomType() {
         return AxiomType.SUBCLASS_OF;
     }

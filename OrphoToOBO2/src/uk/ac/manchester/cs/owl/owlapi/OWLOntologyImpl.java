@@ -48,7 +48,7 @@ public class OWLOntologyImpl extends OWLImmutableOntologyImpl implements
         super(manager, ontologyID);
     }
 
-    @Override
+
     public ChangeApplied applyChange(@Nonnull OWLOntologyChange change) {
         OWLOntologyChangeFilter changeFilter = new OWLOntologyChangeFilter();
         return change.accept(changeFilter);
@@ -95,7 +95,7 @@ public class OWLOntologyImpl extends OWLImmutableOntologyImpl implements
             return NO_OPERATION;
         }
 
-        @Override
+
         public ChangeApplied visit(@Nonnull SetOntologyID change) {
             OWLOntologyID id = change.getNewOntologyID();
             if (!id.equals(ontologyID)) {
@@ -105,7 +105,7 @@ public class OWLOntologyImpl extends OWLImmutableOntologyImpl implements
             return NO_OPERATION;
         }
 
-        @Override
+
         public ChangeApplied visit(@Nonnull AddAxiom change) {
             if (ints.addAxiom(change.getAxiom())) {
                 return SUCCESSFULLY;

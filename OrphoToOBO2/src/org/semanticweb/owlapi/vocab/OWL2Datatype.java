@@ -191,7 +191,7 @@ public enum OWL2Datatype implements HasIRI,HasShortForm,HasPrefixedName {
     }
 
     @Nonnull
-    @Override
+
     public IRI getIRI() {
         return iri;
     }

@@ -147,7 +147,7 @@ public class PriorityCollection<T extends Serializable> implements Iterable<T>, 
         delegate.clear();
     }
 
-    @Override
+
     public Iterator<T> iterator() {
         return Iterators.unmodifiableIterator(delegate.iterator());
     }

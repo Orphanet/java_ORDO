@@ -117,7 +117,7 @@ public class ConcurrentOWLOntologyImpl implements OWLMutableOntology,HasTrimToSi
         }
     }
 
-    @Override
+
     @Nonnull
     public OWLOntologyID getOntologyID() {
         readLock.lock();
@@ -2023,7 +2023,7 @@ public class ConcurrentOWLOntologyImpl implements OWLMutableOntology,HasTrimToSi
         }
     }
 
-    @Override
+
     @Nonnull
     public ChangeApplied applyChange(@Nonnull OWLOntologyChange owlOntologyChange) {
         writeLock.lock();

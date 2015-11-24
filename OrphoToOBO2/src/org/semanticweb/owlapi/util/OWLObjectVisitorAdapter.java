@@ -257,7 +257,7 @@ public class OWLObjectVisitorAdapter extends OWLAxiomVisitorAdapter implements
         handleDefault(individual);
     }
 
-    @Override
+
     public void visit(IRI iri) {
         handleDefault(iri);
     }

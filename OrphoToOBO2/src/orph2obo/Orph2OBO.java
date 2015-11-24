@@ -38,6 +38,7 @@ public class Orph2OBO {
 	
     /**This is the name of the directory where the Orphanet XML files will be written to*/
     String directory = "OrphadataMayBACKUP";
+    	//String directory = "OrphadataMay";
 	
 	Orph2OBO o2o = new Orph2OBO();
 	o2o.createDownloadDirectoryIfDoesntExist(directory);

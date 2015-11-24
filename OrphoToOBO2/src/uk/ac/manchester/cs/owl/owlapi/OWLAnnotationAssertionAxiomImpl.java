@@ -118,17 +118,17 @@ public class OWLAnnotationAssertionAxiomImpl extends
                 getValue(), mergeAnnos(annotations));
     }
 
-    @Override
+
     public OWLAnnotationValue getValue() {
         return value;
     }
 
-    @Override
+
     public OWLAnnotationSubject getSubject() {
         return subject;
     }
 
-    @Override
+
     public OWLAnnotationProperty getProperty() {
         return property;
     }
@@ -162,12 +162,12 @@ public class OWLAnnotationAssertionAxiomImpl extends
         return value.compareTo(other.getValue());
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
@@ -182,7 +182,7 @@ public class OWLAnnotationAssertionAxiomImpl extends
         return visitor.visit(this);
     }
 
-    @Override
+
     public AxiomType<?> getAxiomType() {
         return AxiomType.ANNOTATION_ASSERTION;
     }

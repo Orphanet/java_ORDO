@@ -86,7 +86,6 @@ public class OWLDeclarationAxiomImpl extends
         return new OWLDeclarationAxiomImpl(getEntity(), mergeAnnos(annotations));
     }
 
-    @Override
     public OWLEntity getEntity() {
         return entity;
     }
@@ -107,12 +106,12 @@ public class OWLDeclarationAxiomImpl extends
         return ((OWLDeclarationAxiom) obj).getEntity().equals(entity);
     }
 
-    @Override
+
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
@@ -127,7 +126,7 @@ public class OWLDeclarationAxiomImpl extends
         return visitor.visit(this);
     }
 
-    @Override
+
     public AxiomType<?> getAxiomType() {
         return AxiomType.DECLARATION;
     }

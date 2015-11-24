@@ -48,7 +48,7 @@ public abstract class OWLQuantifiedObjectRestrictionImpl extends
         this.property = checkNotNull(property, "property cannot be null");
     }
 
-    @Override
+
     public OWLObjectPropertyExpression getProperty() {
         return property;
     }

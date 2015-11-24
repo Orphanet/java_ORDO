@@ -15,7 +15,7 @@ class NoOpLock implements Lock, Serializable {
 
     public static final NoOpCondition NO_OP_CONDITION = new NoOpCondition();
 
-    @Override
+
     public void lock() {}
 
     @Override
@@ -31,7 +31,7 @@ class NoOpLock implements Lock, Serializable {
         return true;
     }
 
-    @Override
+
     public void unlock() {}
 
     @Override

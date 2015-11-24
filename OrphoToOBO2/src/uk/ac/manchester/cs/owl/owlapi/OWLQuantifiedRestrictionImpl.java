@@ -41,7 +41,7 @@ public abstract class OWLQuantifiedRestrictionImpl<F extends OWLPropertyRange>
         this.filler = checkNotNull(filler, "filler cannot be null");
     }
 
-    @Override
+
     public F getFiller() {
         return filler;
     }

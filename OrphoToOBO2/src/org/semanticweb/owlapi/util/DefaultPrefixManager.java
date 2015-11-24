@@ -110,7 +110,7 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         setPrefix("xml:", Namespaces.XML.toString());
     }
 
-    @Override
+
     public void setDefaultPrefix(String defaultPrefix) {
         checkNotNull(defaultPrefix, "defaultPrefix cannot be null");
         setPrefix(":", defaultPrefix);
@@ -125,7 +125,7 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         return iri.prefixedBy(prefix);
     }
 
-    @Override
+
     public String getDefaultPrefix() {
         return prefix2NamespaceMap.get(":");
     }
@@ -147,7 +147,7 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         }
     }
 
-    @Override
+
     public IRI getIRI(String prefixIRI) {
         if (prefixIRI.startsWith("<")) {
             return IRI.create(prefixIRI.substring(1, prefixIRI.length() - 1));

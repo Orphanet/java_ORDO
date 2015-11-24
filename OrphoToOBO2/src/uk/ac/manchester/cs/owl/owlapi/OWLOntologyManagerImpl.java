@@ -185,7 +185,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         }
     }
 
-    @Override
+
     public OWLDataFactory getOWLDataFactory() {
         return dataFactory;
     }
@@ -558,7 +558,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         return appliedChange;
     }
 
-    @Override
+
     public ChangeApplied applyChanges(List<? extends OWLOntologyChange> changes) {
         writeLock.lock();
         try {
@@ -663,7 +663,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         return applyChanges(changes);
     }
 
-    @Override
+
     public ChangeApplied applyChange(@Nonnull OWLOntologyChange change) {
         writeLock.lock();
         try {
@@ -727,7 +727,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     }
 
     // Methods to create, load and reload ontologies
-    @Override
+
     public void ontologyCreated(OWLOntology ontology) {
         // This method is called when a factory that we have asked to create or
         // load an ontology has created the ontology. We add the ontology to the
@@ -735,7 +735,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         addOntology(ontology);
     }
 
-    @Override
+
     public void setOntologyFormat(OWLOntology ontology, OWLDocumentFormat ontologyFormat) {
         writeLock.lock();
         try {
@@ -764,12 +764,12 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         return createOntology(new OWLOntologyID());
     }
 
-    @Override
+
     public OWLOntology createOntology(@Nonnull IRI ontologyIRI) throws OWLOntologyCreationException {
         return createOntology(new OWLOntologyID(of(ontologyIRI), absent()));
     }
 
-    @Override
+
     public OWLOntology createOntology(@Nonnull OWLOntologyID ontologyID) throws OWLOntologyCreationException {
         writeLock.lock();
         try {
@@ -1279,7 +1279,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         return ontologyStorers;
     }
 
-    @Override
+
     @Inject
     public void setOntologyStorers(Set<OWLStorerFactory> storers) {
         // Locking done by collection
@@ -1292,7 +1292,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         return documentMappers;
     }
 
-    @Override
+
     @Inject
     public void setIRIMappers(Set<OWLOntologyIRIMapper> mappers) {
         // Locking done by collection
@@ -1341,7 +1341,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         return parserFactories;
     }
 
-    @Override
+
     @Inject
     public void setOntologyParsers(Set<OWLParserFactory> parsers) {
         // Locking done by collection
@@ -1354,7 +1354,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         return ontologyFactories;
     }
 
-    @Override
+
     @Inject
     public void setOntologyFactories(Set<OWLOntologyFactory> factories) {
         // Locking done by collection

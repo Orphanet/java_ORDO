@@ -75,7 +75,7 @@ public class OWLObjectSomeValuesFromImpl extends
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }

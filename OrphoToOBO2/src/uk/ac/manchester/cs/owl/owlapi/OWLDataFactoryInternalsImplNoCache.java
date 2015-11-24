@@ -101,7 +101,7 @@ public class OWLDataFactoryInternalsImplNoCache implements OWLDataFactoryInterna
         return new OWLLiteralImplFloat(value, getFloatOWLDatatype());
     }
 
-    @Override
+
     public OWLLiteral getOWLLiteral(@Nonnull String value) {
         if (useCompression) {
             return new OWLLiteralImpl(value, "",

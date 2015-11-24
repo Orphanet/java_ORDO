@@ -96,7 +96,7 @@ public class OWLImmutableOntologyImpl extends OWLAxiomIndexImpl implements OWLOn
         this.manager = manager;
     }
 
-    @Override
+
     public OWLOntologyID getOntologyID() {
         return ontologyID;
     }

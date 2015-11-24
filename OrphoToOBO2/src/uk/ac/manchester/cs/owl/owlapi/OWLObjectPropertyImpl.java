@@ -96,7 +96,7 @@ public class OWLObjectPropertyImpl extends OWLObjectPropertyExpressionImpl
         return iri.toString();
     }
 
-    @Override
+
     public IRI getIRI() {
         return iri;
     }
@@ -130,7 +130,7 @@ public class OWLObjectPropertyImpl extends OWLObjectPropertyExpressionImpl
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }

@@ -48,7 +48,7 @@ public class OWLAnnotationPropertyImpl extends
         iri = checkNotNull(i, "i cannot be null");
     }
 
-    @Override
+
     public IRI getIRI() {
         return iri;
     }
@@ -78,7 +78,7 @@ public class OWLAnnotationPropertyImpl extends
         return iri.compareTo(((OWLAnnotationProperty) object).getIRI());
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
