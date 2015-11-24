@@ -111,7 +111,7 @@ public class OWLClassImpl extends OWLClassExpressionImpl implements OWLClass,
         return iri.toString();
     }
 
-    @Override
+
     public IRI getIRI() {
         return iri;
     }

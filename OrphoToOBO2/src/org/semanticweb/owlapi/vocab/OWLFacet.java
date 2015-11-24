@@ -79,7 +79,7 @@ public enum OWLFacet implements HasShortForm, HasIRI, HasPrefixedName {
         return shortForm;
     }
 
-    @Override
+
     public IRI getIRI() {
         return iri;
     }

@@ -90,12 +90,12 @@ public enum XSDVocabulary implements HasShortForm, HasIRI, HasPrefixedName {
         iri = IRI.create(Namespaces.XSD.toString(), name);
     }
 
-    @Override
+
     public String getShortForm() {
         return shortName;
     }
 
-    @Override
+
     public IRI getIRI() {
         return iri;
     }
@@ -130,7 +130,7 @@ public enum XSDVocabulary implements HasShortForm, HasIRI, HasPrefixedName {
                         + s);
     }
 
-    @Override
+
     public String getPrefixedName() {
         return prefixedName;
     }

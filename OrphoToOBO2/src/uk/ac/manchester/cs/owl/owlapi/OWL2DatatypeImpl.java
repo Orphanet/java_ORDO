@@ -229,7 +229,6 @@ public class OWL2DatatypeImpl implements OWLDatatype {
         visitor.visit(this);
     }
 
-    @Override
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }

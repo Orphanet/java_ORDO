@@ -140,7 +140,7 @@ public class OWLLiteralImplBoolean extends OWLObjectImplWithoutEntityAndAnonCach
         return false;
     }
 
-    @Override
+
     public OWLDatatype getDatatype() {
         return datatype;
     }

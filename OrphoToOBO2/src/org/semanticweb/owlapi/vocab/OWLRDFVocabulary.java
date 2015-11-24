@@ -185,7 +185,7 @@ public enum OWLRDFVocabulary implements HasShortForm,HasIRI,HasPrefixedName {
     }
 
     @Nonnull
-    @Override
+
     public IRI getIRI() {
         return iri;
     }
@@ -212,7 +212,7 @@ public enum OWLRDFVocabulary implements HasShortForm,HasIRI,HasPrefixedName {
 
     private static final Function<HasIRI, IRI> AS_IRI = new Function<HasIRI, IRI>() {
 
-        @Override
+
         public IRI apply(HasIRI input) {
             return checkNotNull(input).getIRI();
         }

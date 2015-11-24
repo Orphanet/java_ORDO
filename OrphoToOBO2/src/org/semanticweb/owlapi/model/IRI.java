@@ -503,7 +503,7 @@ public class IRI implements OWLAnnotationSubject, OWLAnnotationValue, SWRLPredic
         return CollectionFactory.emptySet();
     }
 
-    @Override
+
     public int compareTo(OWLObject o) {
         if (o == this || equals(o)) {
             return 0;
