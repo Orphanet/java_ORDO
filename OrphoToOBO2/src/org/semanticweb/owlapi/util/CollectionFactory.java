@@ -471,7 +471,7 @@ public class CollectionFactory {
             return delegate.toString();
         }
 
-        @Override
+    
         public boolean add(T e) {
             if (!copyDone) {
                 copyDone = true;
@@ -480,7 +480,7 @@ public class CollectionFactory {
             return delegate.add(e);
         }
 
-        @Override
+    
         public boolean addAll(Collection<? extends T> c) {
             if (!copyDone) {
                 copyDone = true;
@@ -489,7 +489,7 @@ public class CollectionFactory {
             return delegate.addAll(c);
         }
 
-        @Override
+    
         public void clear() {
             if (!copyDone) {
                 copyDone = true;
@@ -498,7 +498,7 @@ public class CollectionFactory {
             delegate.clear();
         }
 
-        @Override
+    
         public boolean contains(Object o) {
             containsCounter++;
             if (containsCounter >= MAXCONTAINS && !copyDone) {
@@ -516,7 +516,7 @@ public class CollectionFactory {
             }
         }
 
-        @Override
+    
         public boolean containsAll(Collection<?> c) {
             containsCounter++;
             if (containsCounter >= MAXCONTAINS && !copyDone) {
@@ -525,18 +525,17 @@ public class CollectionFactory {
             return delegate.containsAll(c);
         }
 
-        @Override
+
         public boolean isEmpty() {
             return delegate.isEmpty();
         }
 
         @Nonnull
-        @Override
         public Iterator<T> iterator() {
             return delegate.iterator();
         }
 
-        @Override
+    
         public boolean remove(Object o) {
             if (!copyDone) {
                 copyDone = true;
@@ -545,7 +544,7 @@ public class CollectionFactory {
             return delegate.remove(o);
         }
 
-        @Override
+    
         public boolean removeAll(Collection<?> c) {
             if (!copyDone) {
                 copyDone = true;
@@ -554,7 +553,7 @@ public class CollectionFactory {
             return delegate.removeAll(c);
         }
 
-        @Override
+    
         public boolean retainAll(Collection<?> c) {
             if (!copyDone) {
                 copyDone = true;
@@ -563,19 +562,19 @@ public class CollectionFactory {
             return delegate.retainAll(c);
         }
 
-        @Override
+    
         public int size() {
             return delegate.size();
         }
 
         @Nonnull
-        @Override
+    
         public Object[] toArray() {
             return delegate.toArray();
         }
 
         @Nonnull
-        @Override
+    
         public <Type> Type[] toArray(Type[] a) {
             return delegate.toArray(a);
         }

@@ -23,7 +23,7 @@ public class OWLEntityIRIComparator implements Comparator<OWLEntity>,
 
     private static final long serialVersionUID = 40000L;
 
-    @Override
+
     public int compare(OWLEntity o1, OWLEntity o2) {
         return o1.getIRI().compareTo(o2.getIRI());
     }

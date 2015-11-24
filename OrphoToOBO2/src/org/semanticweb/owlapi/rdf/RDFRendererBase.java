@@ -478,7 +478,7 @@ public abstract class RDFRendererBase {
         axioms.addAll(ontology.getDeclarationAxioms(entity));
         entity.accept(new OWLEntityVisitor() {
 
-            @Override
+        
             public void visit(OWLClass cls) {
                 for (OWLAxiom ax : ontology.getAxioms(cls, EXCLUDED)) {
                     if (ax instanceof OWLDisjointClassesAxiom) {
@@ -496,13 +496,13 @@ public abstract class RDFRendererBase {
                 }
             }
 
-            @Override
+        
             public void visit(OWLDatatype datatype) {
                 axioms.addAll(ontology.getDatatypeDefinitions(datatype));
                 createGraph(axioms);
             }
 
-            @Override
+        
             public void visit(OWLNamedIndividual individual) {
                 for (OWLAxiom ax : sortOptionally(ontology.getAxioms(individual, EXCLUDED))) {
                     if (ax instanceof OWLDifferentIndividualsAxiom) {
@@ -526,7 +526,7 @@ public abstract class RDFRendererBase {
                 }
             }
 
-            @Override
+        
             public void visit(OWLDataProperty property) {
                 for (OWLAxiom ax : ontology.getAxioms(property, EXCLUDED)) {
                     if (ax instanceof OWLDisjointDataPropertiesAxiom && ((OWLDisjointDataPropertiesAxiom) ax)
@@ -537,7 +537,7 @@ public abstract class RDFRendererBase {
                 }
             }
 
-            @Override
+        
             public void visit(OWLObjectProperty property) {
                 for (OWLAxiom ax : ontology.getAxioms(property, EXCLUDED)) {
                     if (ax instanceof OWLDisjointObjectPropertiesAxiom && ((OWLDisjointObjectPropertiesAxiom) ax)
@@ -555,7 +555,7 @@ public abstract class RDFRendererBase {
                     .getOWLObjectInverseOf(property), EXCLUDED));
             }
 
-            @Override
+        
             public void visit(OWLAnnotationProperty property) {
                 axioms.addAll(ontology.getAxioms(property, EXCLUDED));
             }

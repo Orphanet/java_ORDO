@@ -52,23 +52,21 @@ public class OWLObjectPropertyImpl extends OWLObjectPropertyExpressionImpl
     }
 
     @Nonnull
-    @Override
     public OWLObjectInverseOf getInverseProperty() {
         return new OWLObjectInverseOfImpl(this);
     }
 
     @Nonnull
-    @Override
     public OWLObjectProperty getNamedProperty() {
         return this;
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(this);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 
     @Override
@@ -81,17 +79,17 @@ public class OWLObjectPropertyImpl extends OWLObjectPropertyExpressionImpl
         return isOWLBottomObjectProperty();
     }
 
-    @Override
+
     public EntityType<?> getEntityType() {
         return EntityType.OBJECT_PROPERTY;
     }
 
-    @Override
+
     public boolean isType(EntityType<?> entityType) {
         return getEntityType().equals(entityType);
     }
 
-    @Override
+
     public String toStringID() {
         return iri.toString();
     }
@@ -101,7 +99,7 @@ public class OWLObjectPropertyImpl extends OWLObjectPropertyExpressionImpl
         return iri;
     }
 
-    @Override
+
     public boolean isBuiltIn() {
         return builtin;
     }
@@ -120,12 +118,12 @@ public class OWLObjectPropertyImpl extends OWLObjectPropertyExpressionImpl
         return ((OWLObjectProperty) obj).getIRI().equals(iri);
     }
 
-    @Override
+
     public void accept(OWLEntityVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLPropertyExpressionVisitor visitor) {
         visitor.visit(this);
     }
@@ -135,117 +133,117 @@ public class OWLObjectPropertyImpl extends OWLObjectPropertyExpressionImpl
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLNamedObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLNamedObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLEntityVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLPropertyExpressionVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public boolean isAnonymous() {
         return false;
     }
 
-    @Override
+
     public OWLObjectProperty asOWLObjectProperty() {
         return this;
     }
 
-    @Override
+
     public OWLDataProperty asOWLDataProperty() {
         throw new OWLRuntimeException("Not a data property!");
     }
 
-    @Override
+
     public OWLDatatype asOWLDatatype() {
         throw new OWLRuntimeException("Not a data type!");
     }
 
-    @Override
+
     public OWLNamedIndividual asOWLNamedIndividual() {
         throw new OWLRuntimeException("Not an individual!");
     }
 
-    @Override
+
     public OWLClass asOWLClass() {
         throw new OWLRuntimeException("Not an OWLClass!");
     }
 
-    @Override
+
     public boolean isOWLClass() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLDataProperty() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLDatatype() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLNamedIndividual() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLObjectProperty() {
         return true;
     }
 
-    @Override
+
     public OWLAnnotationProperty asOWLAnnotationProperty() {
         throw new OWLRuntimeException("Not an annotation property");
     }
 
-    @Override
+
     public boolean isOWLAnnotationProperty() {
         return false;
     }
 
-    @Override
+
     protected int compareObjectOfSameType(OWLObject object) {
         return iri.compareTo(((OWLObjectProperty) object).getIRI());
     }
 
-    @Override
+
     public boolean isOWLTopObjectProperty() {
         return iri.equals(OWLRDFVocabulary.OWL_TOP_OBJECT_PROPERTY.getIRI());
     }
 
-    @Override
+
     public boolean isOWLBottomObjectProperty() {
         return iri.equals(OWLRDFVocabulary.OWL_BOTTOM_OBJECT_PROPERTY.getIRI());
     }
 
-    @Override
+
     public boolean isOWLTopDataProperty() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLBottomDataProperty() {
         return false;
     }

@@ -30,7 +30,7 @@ public abstract class RDFResource extends RDFNode {
     @Nonnull
     public abstract IRI getResource();
 
-    @Override
+
     public int compareTo(RDFNode o) {
         if (o.isLiteral()) {
             return 1;

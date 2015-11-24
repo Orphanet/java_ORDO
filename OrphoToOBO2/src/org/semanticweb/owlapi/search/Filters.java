@@ -76,13 +76,11 @@ public class Filters {
         }
 
         @Nonnull
-        @Override
         public Iterable<AxiomType<?>> getAxiomTypes() {
             return types;
         }
 
         @SuppressWarnings("unchecked")
-        @Override
         public boolean pass(@Nonnull OWLAxiom axiom, @Nonnull Object key) {
             return axiomValue((A) axiom).equals(key);
         }

@@ -50,67 +50,63 @@ public class OWLLiteralImplString implements OWLLiteral {
         return OWLObjectTypeIndexProvider.DATA_TYPE_INDEX_BASE + 8;
     }
 
-    @Override
+
     public String getLiteral() {
         return literal;
     }
 
-    @Override
+
     public boolean hasLang() {
         return false;
     }
 
-    @Override
     public int parseInteger() throws NumberFormatException {
         return Integer.parseInt(getLiteral());
     }
 
-    @Override
     public boolean isRDFPlainLiteral() {
         return false;
     }
 
-    @Override
     public boolean isInteger() {
         return false;
     }
 
-    @Override
     public boolean isBoolean() {
         return false;
     }
 
-    @Override
+
     public boolean isDouble() {
         return false;
     }
 
-    @Override
+
     public boolean isFloat() {
         return false;
     }
 
-    @Override
+
     public boolean parseBoolean() {
         throw new OWLRuntimeException(getClass().getName() + " does not have a boolean value");
     }
 
-    @Override
+
     public double parseDouble() {
         throw new OWLRuntimeException(getClass().getName() + " does not have a double value");
     }
 
-    @Override
+
     public float parseFloat() {
         throw new OWLRuntimeException(getClass().getName() + " does not have a float value");
     }
 
-    @Override
+
     public String getLang() {
         return "";
     }
 
-    @Override
+
     public boolean hasLang(String l) {
         return false;
     }
@@ -141,22 +137,22 @@ public class OWLLiteralImplString implements OWLLiteral {
             other.getLang());
     }
 
-    @Override
+
     public void accept(OWLDataVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLDataVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLAnnotationValueVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLAnnotationValueVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
@@ -179,67 +175,67 @@ public class OWLLiteralImplString implements OWLLiteral {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public Set<OWLEntity> getSignature() {
         return Collections.singleton((OWLEntity) XSD_STRING);
     }
 
-    @Override
+
     public Set<OWLAnonymousIndividual> getAnonymousIndividuals() {
         return CollectionFactory.emptySet();
     }
 
-    @Override
+
     public Set<OWLClass> getClassesInSignature() {
         return CollectionFactory.emptySet();
     }
 
-    @Override
+
     public Set<OWLAnnotationProperty> getAnnotationPropertiesInSignature() {
         return CollectionFactory.emptySet();
     }
 
-    @Override
+
     public Set<OWLDataProperty> getDataPropertiesInSignature() {
         return CollectionFactory.emptySet();
     }
 
-    @Override
+
     public Set<OWLObjectProperty> getObjectPropertiesInSignature() {
         return CollectionFactory.emptySet();
     }
 
-    @Override
+
     public Set<OWLNamedIndividual> getIndividualsInSignature() {
         return CollectionFactory.emptySet();
     }
 
-    @Override
+
     public Set<OWLDatatype> getDatatypesInSignature() {
         return CollectionFactory.emptySet();
     }
 
-    @Override
+
     public Set<OWLClassExpression> getNestedClassExpressions() {
         return CollectionFactory.emptySet();
     }
 
-    @Override
+
     public boolean isTopEntity() {
         return false;
     }
 
-    @Override
+
     public boolean isBottomEntity() {
         return false;
     }
 
-    @Override
+
     public int compareTo(OWLObject o) {
         int thisTypeIndex = index();
         int otherTypeIndex = 0;
@@ -257,22 +253,22 @@ public class OWLLiteralImplString implements OWLLiteral {
         }
     }
 
-    @Override
+
     public boolean containsEntityInSignature(OWLEntity owlEntity) {
         return false;
     }
 
-    @Override
+
     public Optional<IRI> asIRI() {
         return Optional.absent();
     }
 
-    @Override
+
     public Optional<OWLAnonymousIndividual> asAnonymousIndividual() {
         return Optional.absent();
     }
 
-    @Override
+
     public Optional<OWLLiteral> asLiteral() {
         return Optional.<OWLLiteral> of(this);
     }

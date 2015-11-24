@@ -34,12 +34,10 @@ public class RDFXMLStorer extends AbstractOWLStorer {
 
     private static final long serialVersionUID = 40000L;
 
-    @Override
     public boolean canStoreOntology(OWLDocumentFormat ontologyFormat) {
         return ontologyFormat instanceof RDFXMLDocumentFormat;
     }
 
-    @Override
     protected void storeOntology(@Nonnull OWLOntology ontology,
             @Nonnull Writer writer, @Nonnull OWLDocumentFormat format)
             throws OWLOntologyStorageException {

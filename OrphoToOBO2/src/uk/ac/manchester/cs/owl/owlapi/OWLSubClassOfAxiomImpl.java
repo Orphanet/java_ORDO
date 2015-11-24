@@ -59,14 +59,14 @@ public class OWLSubClassOfAxiomImpl extends OWLClassAxiomImpl implements
         this.superClass = checkNotNull(superClass, "superClass cannot be null");
     }
 
-    @Override
+
     public OWLSubClassOfAxiom getAnnotatedAxiom(
             @Nonnull Set<OWLAnnotation> annotations) {
         return new OWLSubClassOfAxiomImpl(subClass, superClass,
                 mergeAnnos(annotations));
     }
 
-    @Override
+
     public OWLSubClassOfAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -82,7 +82,7 @@ public class OWLSubClassOfAxiomImpl extends OWLClassAxiomImpl implements
         return superClass;
     }
 
-    @Override
+
     public boolean isGCI() {
         return subClass.isAnonymous();
     }
@@ -114,12 +114,12 @@ public class OWLSubClassOfAxiomImpl extends OWLClassAxiomImpl implements
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }

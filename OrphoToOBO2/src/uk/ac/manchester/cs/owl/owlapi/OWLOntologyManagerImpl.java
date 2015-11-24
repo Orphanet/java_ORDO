@@ -216,7 +216,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         }
     }
 
-    @Override
+
     public boolean contains(OWLOntology ontology) {
         readLock.lock();
         try {
@@ -226,7 +226,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         }
     }
 
-    @Override
+
     public boolean contains(IRI ontologyIRI) {
         checkNotNull(ontologyIRI, "Ontology IRI cannot be null");
         readLock.lock();
@@ -404,7 +404,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         }
     }
 
-    @Override
+
     public Set<OWLOntology> getDirectImports(OWLOntology ontology) {
         readLock.lock();
         try {
@@ -425,7 +425,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         }
     }
 
-    @Override
+
     public Set<OWLOntology> getImports(OWLOntology ontology) {
         readLock.lock();
         try {
@@ -463,7 +463,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         }
     }
 
-    @Override
+
     public Set<OWLOntology> getImportsClosure(OWLOntology ontology) {
         readLock.lock();
         try {
@@ -747,7 +747,6 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
     }
 
     @Nonnull
-    @Override
     public OWLDocumentFormat getOntologyFormat(@Nonnull OWLOntology ontology) {
         readLock.lock();
         try {
@@ -758,7 +757,6 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         }
     }
 
-    @Override
     public OWLOntology createOntology() throws OWLOntologyCreationException {
         // Brand new ontology without a URI
         return createOntology(new OWLOntologyID());
@@ -1194,7 +1192,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         }
     }
 
-    @Override
+
     public void saveOntology(OWLOntology ontology, IRI documentIRI) throws OWLOntologyStorageException {
         readLock.lock();
         try {
@@ -1205,7 +1203,7 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         }
     }
 
-    @Override
+
     public void saveOntology(OWLOntology ontology, OWLDocumentFormat ontologyFormat, IRI documentIRI)
         throws OWLOntologyStorageException {
         readLock.lock();
@@ -1299,43 +1297,36 @@ public class OWLOntologyManagerImpl implements OWLOntologyManager, OWLOntologyFa
         documentMappers.set(mappers);
     }
 
-    @Override
     public void addIRIMapper(OWLOntologyIRIMapper mapper) {
         // Locking done by collection
         documentMappers.add(mapper);
     }
 
-    @Override
     public void removeIRIMapper(OWLOntologyIRIMapper mapper) {
         // Locking done by collection
         documentMappers.remove(mapper);
     }
 
-    @Override
     public void clearIRIMappers() {
         // Locking done by collection
         documentMappers.clear();
     }
 
-    @Override
     public void addOntologyStorer(OWLStorerFactory storer) {
         // Locking done by collection
         ontologyStorers.add(storer);
     }
 
-    @Override
     public void removeOntologyStorer(OWLStorerFactory storer) {
         // Locking done by collection
         ontologyStorers.remove(storer);
     }
 
-    @Override
     public void clearOntologyStorers() {
         // Locking done by collection
         ontologyStorers.clear();
     }
 
-    @Override
     public PriorityCollection<OWLParserFactory> getOntologyParsers() {
         // Locking done by collection
         return parserFactories;

@@ -38,7 +38,7 @@ public class RDFResourceIRI extends RDFResource {
         return false;
     }
 
-    @Override
+
     public IRI getIRI() {
         return resource;
     }

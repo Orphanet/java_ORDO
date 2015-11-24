@@ -170,12 +170,10 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         }
     }
 
-    @Override
     public Map<String, String> getPrefixName2PrefixMap() {
         return Collections.unmodifiableMap(prefix2NamespaceMap);
     }
 
-    @Override
     public String getPrefix(String prefixName) {
         return prefix2NamespaceMap.get(prefixName);
     }
@@ -192,7 +190,7 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         reverseprefix2NamespaceMap.put(prefix, _prefixName);
     }
 
-    @Override
+
     public void unregisterNamespace(String namespace) {
         List<String> toRemove = new ArrayList<String>();
         for (Map.Entry<String, String> e : prefix2NamespaceMap.entrySet()) {

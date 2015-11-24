@@ -46,7 +46,7 @@ public abstract class OWLDocumentFormatImpl implements OWLDocumentFormat {
     private OWLOntologyLoaderMetaData loaderMetaData = new NullLoaderMetaData();
     private boolean addMissingTypes = true;
 
-    @Override
+
     public boolean isAddMissingTypes() {
         return addMissingTypes;
     }
@@ -139,17 +139,17 @@ public abstract class OWLDocumentFormatImpl implements OWLDocumentFormat {
         return illegals;
     }
 
-    @Override
+
     public void setAddMissingTypes(boolean addMissingTypes) {
         this.addMissingTypes = addMissingTypes;
     }
 
-    @Override
+
     public void setParameter(Serializable key, Serializable value) {
         parameterMap.put(key, value);
     }
 
-    @Override
+
     public Serializable
             getParameter(Serializable key, Serializable defaultValue) {
         Serializable val = parameterMap.get(key);
@@ -160,23 +160,22 @@ public abstract class OWLDocumentFormatImpl implements OWLDocumentFormat {
         }
     }
 
-    @Override
+
     public OWLOntologyLoaderMetaData getOntologyLoaderMetaData() {
         return loaderMetaData;
     }
 
-    @Override
+
     public void setOntologyLoaderMetaData(
             OWLOntologyLoaderMetaData loaderMetaData) {
         this.loaderMetaData = loaderMetaData;
     }
 
-    @Override
+
     public boolean isTextual() {
         return true;
     }
 
-    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;

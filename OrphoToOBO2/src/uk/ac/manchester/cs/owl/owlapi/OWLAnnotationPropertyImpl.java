@@ -53,22 +53,22 @@ public class OWLAnnotationPropertyImpl extends
         return iri;
     }
 
-    @Override
+
     public EntityType<?> getEntityType() {
         return EntityType.ANNOTATION_PROPERTY;
     }
 
-    @Override
+
     public boolean isType(EntityType<?> entityType) {
         return getEntityType().equals(entityType);
     }
 
-    @Override
+
     public String toStringID() {
         return iri.toString();
     }
 
-    @Override
+
     public boolean isDeprecated() {
         return iri.equals(OWLRDFVocabulary.OWL_DEPRECATED.getIRI());
     }
@@ -83,108 +83,108 @@ public class OWLAnnotationPropertyImpl extends
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public boolean isComment() {
         return iri.equals(OWLRDFVocabulary.RDFS_COMMENT.getIRI());
     }
 
-    @Override
+
     public boolean isLabel() {
         return iri.equals(OWLRDFVocabulary.RDFS_LABEL.getIRI());
     }
 
-    @Override
+
     public void accept(OWLEntityVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLEntityVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public OWLClass asOWLClass() {
         throw new OWLRuntimeException("Not OWLClass");
     }
 
-    @Override
+
     public <O> O accept(OWLPropertyExpressionVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public OWLDataProperty asOWLDataProperty() {
         throw new OWLRuntimeException("Not OWLDataProperty");
     }
 
-    @Override
+
     public OWLDatatype asOWLDatatype() {
         throw new OWLRuntimeException("Not OWLDatatype");
     }
 
-    @Override
+
     public OWLNamedIndividual asOWLNamedIndividual() {
         throw new OWLRuntimeException("Not OWLIndividual");
     }
 
-    @Override
+
     public OWLObjectProperty asOWLObjectProperty() {
         throw new OWLRuntimeException("Not OWLObjectProperty");
     }
 
-    @Override
+
     public boolean isBuiltIn() {
         return OWLRDFVocabulary.BUILT_IN_ANNOTATION_PROPERTY_IRIS
                 .contains(getIRI());
     }
 
-    @Override
+
     public boolean isOWLClass() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLDataProperty() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLDatatype() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLNamedIndividual() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLObjectProperty() {
         return false;
     }
 
-    @Override
+
     public OWLAnnotationProperty asOWLAnnotationProperty() {
         return this;
     }
 
-    @Override
+
     public boolean isOWLAnnotationProperty() {
         return true;
     }
 
-    @Override
+
     public void accept(OWLNamedObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLNamedObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
@@ -201,51 +201,51 @@ public class OWLAnnotationPropertyImpl extends
         return iri.equals(other.getIRI());
     }
 
-    @Override
+
     public boolean isAnonymous() {
         return false;
     }
 
-    @Override
+
     public void accept(OWLPropertyExpressionVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public boolean isDataPropertyExpression() {
         return false;
     }
 
-    @Override
+
     public boolean isObjectPropertyExpression() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLTopObjectProperty() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLBottomObjectProperty() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLTopDataProperty() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLBottomDataProperty() {
         return false;
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(this);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 }

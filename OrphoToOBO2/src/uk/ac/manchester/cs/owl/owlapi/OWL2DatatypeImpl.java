@@ -53,153 +53,153 @@ public class OWL2DatatypeImpl implements OWLDatatype {
     @Nonnull
     private final OWL2Datatype owl2Datatype;
 
-    @Override
+
     public OWL2Datatype getBuiltInDatatype() {
         return owl2Datatype;
     }
 
-    @Override
+
     public boolean isString() {
         return owl2Datatype == XSD_STRING;
     }
 
-    @Override
+
     public boolean isInteger() {
         return owl2Datatype == XSD_INTEGER;
     }
 
-    @Override
+
     public boolean isFloat() {
         return owl2Datatype == XSD_FLOAT;
     }
 
-    @Override
+
     public boolean isDouble() {
         return owl2Datatype == XSD_DOUBLE;
     }
 
-    @Override
+
     public boolean isBoolean() {
         return owl2Datatype == XSD_BOOLEAN;
     }
 
-    @Override
+
     public boolean isRDFPlainLiteral() {
         return owl2Datatype == RDF_PLAIN_LITERAL;
     }
 
-    @Override
+
     public boolean isDatatype() {
         return true;
     }
 
-    @Override
+
     public boolean isTopDatatype() {
         return owl2Datatype == RDFS_LITERAL;
     }
 
     @Nonnull
-    @Override
+
     public OWLDatatype asOWLDatatype() {
         return this;
     }
 
-    @Override
+
     public DataRangeType getDataRangeType() {
         return DataRangeType.DATATYPE;
     }
 
-    @Override
+
     public void accept(OWLDataVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLDataVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLDataRangeVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLDataRangeVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public EntityType<?> getEntityType() {
         return EntityType.DATATYPE;
     }
 
-    @Override
+
     public boolean isType(EntityType<?> entityType) {
         return EntityType.DATATYPE.equals(entityType);
     }
 
-    @Override
+
     public boolean isBuiltIn() {
         return true;
     }
 
-    @Override
+
     public boolean isOWLClass() {
         return false;
     }
 
-    @Override
+
     public OWLClass asOWLClass() {
         throw new UnsupportedOperationException("Not an OWLClass");
     }
 
-    @Override
+
     public boolean isOWLObjectProperty() {
         return false;
     }
 
-    @Override
+
     public OWLObjectProperty asOWLObjectProperty() {
         throw new UnsupportedOperationException("Not an OWLObjectProperty");
     }
 
-    @Override
+
     public boolean isOWLDataProperty() {
         return false;
     }
 
-    @Override
+
     public OWLDataProperty asOWLDataProperty() {
         throw new UnsupportedOperationException("Not an OWLDataProperty");
     }
 
-    @Override
+
     public boolean isOWLNamedIndividual() {
         return false;
     }
 
-    @Override
+
     public OWLNamedIndividual asOWLNamedIndividual() {
         throw new UnsupportedOperationException("Not an OWLNamedIndividual");
     }
 
-    @Override
+
     public boolean isOWLDatatype() {
         return true;
     }
 
-    @Override
+
     public boolean isOWLAnnotationProperty() {
         return false;
     }
 
-    @Override
+
     public OWLAnnotationProperty asOWLAnnotationProperty() {
         throw new UnsupportedOperationException("Not an OWLAnnotationProperty");
     }
 
-    @Override
+
     public String toStringID() {
         return owl2Datatype.getIRI().toString();
     }
@@ -209,12 +209,12 @@ public class OWL2DatatypeImpl implements OWLDatatype {
         return toStringID();
     }
 
-    @Override
+
     public void accept(OWLEntityVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLEntityVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
@@ -224,7 +224,7 @@ public class OWL2DatatypeImpl implements OWLDatatype {
         return owl2Datatype.getIRI();
     }
 
-    @Override
+
     public void accept(OWLNamedObjectVisitor visitor) {
         visitor.visit(this);
     }
@@ -233,12 +233,12 @@ public class OWL2DatatypeImpl implements OWLDatatype {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLNamedObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
@@ -255,73 +255,73 @@ public class OWL2DatatypeImpl implements OWLDatatype {
         return owl2Datatype.getIRI().equals(other.getIRI());
     }
 
-    @Override
+
     public Set<OWLEntity> getSignature() {
         return CollectionFactory.getCopyOnRequestSetFromImmutableCollection(Collections.<OWLEntity> singleton(this));
     }
 
-    @Override
+
     public boolean containsEntityInSignature(OWLEntity owlEntity) {
         return equals(owlEntity);
     }
 
-    @Override
+
     public Set<OWLAnonymousIndividual> getAnonymousIndividuals() {
         return CollectionFactory.getCopyOnRequestSetFromImmutableCollection(CollectionFactory
             .<OWLAnonymousIndividual> emptySet());
     }
 
-    @Override
+
     public Set<OWLClass> getClassesInSignature() {
         return CollectionFactory.getCopyOnRequestSetFromImmutableCollection(CollectionFactory.<OWLClass> emptySet());
     }
 
-    @Override
+
     public Set<OWLDataProperty> getDataPropertiesInSignature() {
         return CollectionFactory.getCopyOnRequestSetFromImmutableCollection(CollectionFactory
             .<OWLDataProperty> emptySet());
     }
 
-    @Override
+
     public Set<OWLObjectProperty> getObjectPropertiesInSignature() {
         return CollectionFactory.getCopyOnRequestSetFromImmutableCollection(CollectionFactory
             .<OWLObjectProperty> emptySet());
     }
 
-    @Override
+
     public Set<OWLAnnotationProperty> getAnnotationPropertiesInSignature() {
         return CollectionFactory.getCopyOnRequestSetFromImmutableCollection(CollectionFactory
             .<OWLAnnotationProperty> emptySet());
     }
 
-    @Override
+
     public Set<OWLNamedIndividual> getIndividualsInSignature() {
         return CollectionFactory.getCopyOnRequestSetFromImmutableCollection(CollectionFactory
             .<OWLNamedIndividual> emptySet());
     }
 
-    @Override
+
     public Set<OWLDatatype> getDatatypesInSignature() {
         return CollectionFactory.getCopyOnRequestSetFromImmutableCollection(Collections.singleton((OWLDatatype) this));
     }
 
-    @Override
+
     public Set<OWLClassExpression> getNestedClassExpressions() {
         return CollectionFactory.getCopyOnRequestSetFromImmutableCollection(CollectionFactory
             .<OWLClassExpression> emptySet());
     }
 
-    @Override
+
     public boolean isTopEntity() {
         return owl2Datatype == RDF_PLAIN_LITERAL;
     }
 
-    @Override
+
     public boolean isBottomEntity() {
         return false;
     }
 
-    @Override
+
     public int compareTo(OWLObject o) {
         if (!(o instanceof OWLDatatype)) {
             OWLObjectTypeIndexProvider provider = new OWLObjectTypeIndexProvider();

@@ -71,7 +71,7 @@ public class OWLAnnotationAssertionAxiomImpl extends
         this.value = checkNotNull(value, "value cannot be null");
     }
 
-    @Override
+
     public OWLAnnotationAssertionAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -80,12 +80,12 @@ public class OWLAnnotationAssertionAxiomImpl extends
                 getValue(), NO_ANNOTATIONS);
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(property);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {
         if (subject instanceof OWLAnonymousIndividual) {
             OWLAnonymousIndividual anonymousIndividual = (OWLAnonymousIndividual) subject;
@@ -105,13 +105,13 @@ public class OWLAnnotationAssertionAxiomImpl extends
      *         IRI of the assertion, otherwise {@code false}.
      * @see org.semanticweb.owlapi.model.OWLAnnotation#isDeprecatedIRIAnnotation()
      */
-    @Override
+
     public boolean isDeprecatedIRIAssertion() {
         return property.isDeprecated()
                 && getAnnotation().isDeprecatedIRIAnnotation();
     }
 
-    @Override
+
     public OWLAnnotationAssertionAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLAnnotationAssertionAxiomImpl(getSubject(), getProperty(),
@@ -133,17 +133,17 @@ public class OWLAnnotationAssertionAxiomImpl extends
         return property;
     }
 
-    @Override
+
     public OWLAnnotation getAnnotation() {
         return new OWLAnnotationImpl(property, value, NO_ANNOTATIONS);
     }
 
-    @Override
+
     public boolean isLogicalAxiom() {
         return false;
     }
 
-    @Override
+
     public boolean isAnnotationAxiom() {
         return true;
     }
@@ -172,12 +172,12 @@ public class OWLAnnotationAssertionAxiomImpl extends
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }

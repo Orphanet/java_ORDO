@@ -49,7 +49,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
     }
 
     @Nonnull
-    @Override
+
     public Set<OWLAnonymousIndividual> getAnonymousIndividuals() {
         Set<OWLAnonymousIndividual> result = new HashSet<OWLAnonymousIndividual>();
         addAnonymousIndividualsToSet(result);
@@ -57,7 +57,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
     }
 
     @Nonnull
-    @Override
+
     public Set<OWLEntity> getSignature() {
         Set<OWLEntity> result = new HashSet<OWLEntity>();
         addSignatureEntitiesToSet(result);
@@ -88,12 +88,12 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
         }
     }
 
-    @Override
+
     public boolean containsEntityInSignature(@Nonnull OWLEntity owlEntity) {
         return getSignature().contains(owlEntity);
     }
 
-    @Override
+
     public Set<OWLClass> getClassesInSignature() {
         Set<OWLClass> result = new HashSet<OWLClass>();
         for (OWLEntity ent : getSignature()) {
@@ -104,7 +104,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
         return result;
     }
 
-    @Override
+
     public Set<OWLDataProperty> getDataPropertiesInSignature() {
         Set<OWLDataProperty> result = new HashSet<OWLDataProperty>();
         for (OWLEntity ent : getSignature()) {
@@ -115,7 +115,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
         return result;
     }
 
-    @Override
+
     public Set<OWLObjectProperty> getObjectPropertiesInSignature() {
         Set<OWLObjectProperty> result = new HashSet<OWLObjectProperty>();
         for (OWLEntity ent : getSignature()) {
@@ -126,7 +126,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
         return result;
     }
 
-    @Override
+
     public Set<OWLNamedIndividual> getIndividualsInSignature() {
         Set<OWLNamedIndividual> result = new HashSet<OWLNamedIndividual>();
         for (OWLEntity ent : getSignature()) {
@@ -137,7 +137,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
         return result;
     }
 
-    @Override
+
     public Set<OWLDatatype> getDatatypesInSignature() {
         Set<OWLDatatype> result = new HashSet<OWLDatatype>();
         for (OWLEntity ent : getSignature()) {
@@ -148,7 +148,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
         return result;
     }
 
-    @Override
+
     public Set<OWLAnnotationProperty> getAnnotationPropertiesInSignature() {
         Set<OWLAnnotationProperty> result = new HashSet<OWLAnnotationProperty>();
         for (OWLEntity ent : getSignature()) {
@@ -159,7 +159,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
         return result;
     }
 
-    @Override
+
     public Set<OWLClassExpression> getNestedClassExpressions() {
         OWLClassExpressionCollector collector = new OWLClassExpressionCollector();
         return accept(collector);
@@ -199,7 +199,7 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
 
     protected abstract int index();
 
-    @Override
+
     public int compareTo(OWLObject o) {
         int thisTypeIndex = index();
         int otherTypeIndex = 0;
@@ -252,12 +252,12 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements OWLObj
         return ToStringRenderer.getInstance().getRendering(this);
     }
 
-    @Override
+
     public boolean isTopEntity() {
         return false;
     }
 
-    @Override
+
     public boolean isBottomEntity() {
         return false;
     }

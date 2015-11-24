@@ -71,25 +71,25 @@ public abstract class OWLAxiomIndexImpl extends
     @Nonnull
     protected final Internals ints = new Internals();
 
-    @Override
+
     public void trimToSize() {
         ints.trimToSize();
     }
 
-    @Override
+
     public Set<OWLDeclarationAxiom> getDeclarationAxioms(OWLEntity subject) {
         return getAxioms(OWLDeclarationAxiom.class, subject, EXCLUDED,
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLAnnotationAssertionAxiom> getAnnotationAssertionAxioms(
             OWLAnnotationSubject entity) {
         return getAxioms(OWLAnnotationAssertionAxiom.class,
                 OWLAnnotationSubject.class, entity, EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLDatatypeDefinitionAxiom> getDatatypeDefinitions(
             OWLDatatype datatype) {
         Set<OWLDatatypeDefinitionAxiom> toReturn = new HashSet<OWLDatatypeDefinitionAxiom>();
@@ -100,7 +100,7 @@ public abstract class OWLAxiomIndexImpl extends
         return toReturn;
     }
 
-    @Override
+
     public Set<OWLSubAnnotationPropertyOfAxiom>
             getSubAnnotationPropertyOfAxioms(OWLAnnotationProperty subProperty) {
         Set<OWLSubAnnotationPropertyOfAxiom> toReturn = new HashSet<OWLSubAnnotationPropertyOfAxiom>();
@@ -111,7 +111,7 @@ public abstract class OWLAxiomIndexImpl extends
         return toReturn;
     }
 
-    @Override
+
     public Set<OWLAnnotationPropertyDomainAxiom>
             getAnnotationPropertyDomainAxioms(OWLAnnotationProperty property) {
         Set<OWLAnnotationPropertyDomainAxiom> toReturn = new HashSet<OWLAnnotationPropertyDomainAxiom>();
@@ -121,7 +121,7 @@ public abstract class OWLAxiomIndexImpl extends
         return toReturn;
     }
 
-    @Override
+
     public Set<OWLAnnotationPropertyRangeAxiom>
             getAnnotationPropertyRangeAxioms(OWLAnnotationProperty property) {
         Set<OWLAnnotationPropertyRangeAxiom> toReturn = new HashSet<OWLAnnotationPropertyRangeAxiom>();
@@ -131,45 +131,45 @@ public abstract class OWLAxiomIndexImpl extends
         return toReturn;
     }
 
-    @Override
+
     public Set<OWLSubClassOfAxiom> getSubClassAxiomsForSubClass(OWLClass cls) {
         return getAxioms(OWLSubClassOfAxiom.class, OWLClass.class, cls,
                 EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLSubClassOfAxiom> getSubClassAxiomsForSuperClass(OWLClass cls) {
         return getAxioms(OWLSubClassOfAxiom.class, OWLClass.class, cls,
                 EXCLUDED, IN_SUPER_POSITION);
     }
 
-    @Override
+
     public Set<OWLEquivalentClassesAxiom> getEquivalentClassesAxioms(
             OWLClass cls) {
         return getAxioms(OWLEquivalentClassesAxiom.class, OWLClass.class, cls,
                 EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLDisjointClassesAxiom> getDisjointClassesAxioms(OWLClass cls) {
         return getAxioms(OWLDisjointClassesAxiom.class, OWLClass.class, cls,
                 EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLDisjointUnionAxiom> getDisjointUnionAxioms(OWLClass owlClass) {
         return getAxioms(OWLDisjointUnionAxiom.class, OWLClass.class, owlClass,
                 EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLHasKeyAxiom> getHasKeyAxioms(OWLClass cls) {
         return getAxioms(OWLHasKeyAxiom.class, OWLClass.class, cls, EXCLUDED,
                 IN_SUB_POSITION);
     }
 
     // Object properties
-    @Override
+
     public Set<OWLSubObjectPropertyOfAxiom>
             getObjectSubPropertyAxiomsForSubProperty(
                     OWLObjectPropertyExpression subProperty) {
@@ -178,7 +178,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLSubObjectPropertyOfAxiom>
             getObjectSubPropertyAxiomsForSuperProperty(
                     OWLObjectPropertyExpression superProperty) {
@@ -187,7 +187,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUPER_POSITION);
     }
 
-    @Override
+
     public Set<OWLObjectPropertyDomainAxiom> getObjectPropertyDomainAxioms(
             OWLObjectPropertyExpression property) {
         return getAxioms(OWLObjectPropertyDomainAxiom.class,
@@ -195,7 +195,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLObjectPropertyRangeAxiom> getObjectPropertyRangeAxioms(
             OWLObjectPropertyExpression property) {
         return getAxioms(OWLObjectPropertyRangeAxiom.class,
@@ -203,7 +203,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLInverseObjectPropertiesAxiom> getInverseObjectPropertyAxioms(
             OWLObjectPropertyExpression property) {
         return getAxioms(OWLInverseObjectPropertiesAxiom.class,
@@ -211,7 +211,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLEquivalentObjectPropertiesAxiom>getEquivalentObjectPropertiesAxioms(
                     OWLObjectPropertyExpression property) {
         return getAxioms(OWLEquivalentObjectPropertiesAxiom.class,
@@ -219,7 +219,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLDisjointObjectPropertiesAxiom>
             getDisjointObjectPropertiesAxioms(
                     OWLObjectPropertyExpression property) {
@@ -228,7 +228,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLFunctionalObjectPropertyAxiom>
             getFunctionalObjectPropertyAxioms(
                     OWLObjectPropertyExpression property) {
@@ -237,7 +237,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLInverseFunctionalObjectPropertyAxiom>
             getInverseFunctionalObjectPropertyAxioms(
                     OWLObjectPropertyExpression property) {
@@ -246,7 +246,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLSymmetricObjectPropertyAxiom>
             getSymmetricObjectPropertyAxioms(
                     OWLObjectPropertyExpression property) {
@@ -255,7 +255,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLAsymmetricObjectPropertyAxiom>
             getAsymmetricObjectPropertyAxioms(
                     OWLObjectPropertyExpression property) {
@@ -264,7 +264,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLReflexiveObjectPropertyAxiom>
             getReflexiveObjectPropertyAxioms(
                     OWLObjectPropertyExpression property) {
@@ -273,7 +273,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLIrreflexiveObjectPropertyAxiom>
             getIrreflexiveObjectPropertyAxioms(
                     OWLObjectPropertyExpression property) {
@@ -282,7 +282,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLTransitiveObjectPropertyAxiom>
             getTransitiveObjectPropertyAxioms(
                     OWLObjectPropertyExpression property) {
@@ -291,7 +291,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLFunctionalDataPropertyAxiom> getFunctionalDataPropertyAxioms(
             OWLDataPropertyExpression property) {
         return getAxioms(OWLFunctionalDataPropertyAxiom.class,
@@ -299,7 +299,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLSubDataPropertyOfAxiom>
             getDataSubPropertyAxiomsForSubProperty(OWLDataProperty subProperty) {
         return getAxioms(OWLSubDataPropertyOfAxiom.class,
@@ -307,7 +307,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLSubDataPropertyOfAxiom>
             getDataSubPropertyAxiomsForSuperProperty(
                     OWLDataPropertyExpression superProperty) {
@@ -316,7 +316,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUPER_POSITION);
     }
 
-    @Override
+
     public Set<OWLDataPropertyDomainAxiom> getDataPropertyDomainAxioms(
             OWLDataProperty property) {
         return getAxioms(OWLDataPropertyDomainAxiom.class,
@@ -324,7 +324,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLDataPropertyRangeAxiom> getDataPropertyRangeAxioms(
             OWLDataProperty property) {
         return getAxioms(OWLDataPropertyRangeAxiom.class,
@@ -332,7 +332,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLEquivalentDataPropertiesAxiom>
             getEquivalentDataPropertiesAxioms(OWLDataProperty property) {
         return getAxioms(OWLEquivalentDataPropertiesAxiom.class,
@@ -340,7 +340,7 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLDisjointDataPropertiesAxiom> getDisjointDataPropertiesAxioms(
             OWLDataProperty property) {
         return getAxioms(OWLDisjointDataPropertiesAxiom.class,
@@ -348,56 +348,56 @@ public abstract class OWLAxiomIndexImpl extends
                 IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLClassAssertionAxiom> getClassAssertionAxioms(
             OWLIndividual individual) {
         return getAxioms(OWLClassAssertionAxiom.class, OWLIndividual.class,
                 individual, EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLClassAssertionAxiom> getClassAssertionAxioms(
             OWLClassExpression ce) {
         return getAxioms(OWLClassAssertionAxiom.class,
                 OWLClassExpression.class, ce, EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLDataPropertyAssertionAxiom> getDataPropertyAssertionAxioms(
             OWLIndividual individual) {
         return getAxioms(OWLDataPropertyAssertionAxiom.class,
                 OWLIndividual.class, individual, EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLObjectPropertyAssertionAxiom>
             getObjectPropertyAssertionAxioms(OWLIndividual individual) {
         return getAxioms(OWLObjectPropertyAssertionAxiom.class,
                 OWLIndividual.class, individual, EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLNegativeObjectPropertyAssertionAxiom>
             getNegativeObjectPropertyAssertionAxioms(OWLIndividual individual) {
         return getAxioms(OWLNegativeObjectPropertyAssertionAxiom.class,
                 OWLIndividual.class, individual, EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLNegativeDataPropertyAssertionAxiom>
             getNegativeDataPropertyAssertionAxioms(OWLIndividual individual) {
         return getAxioms(OWLNegativeDataPropertyAssertionAxiom.class,
                 OWLIndividual.class, individual, EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLSameIndividualAxiom> getSameIndividualAxioms(
             OWLIndividual individual) {
         return getAxioms(OWLSameIndividualAxiom.class, OWLIndividual.class,
                 individual, EXCLUDED, IN_SUB_POSITION);
     }
 
-    @Override
+
     public Set<OWLDifferentIndividualsAxiom> getDifferentIndividualAxioms(
             OWLIndividual individual) {
         return getAxioms(OWLDifferentIndividualsAxiom.class,

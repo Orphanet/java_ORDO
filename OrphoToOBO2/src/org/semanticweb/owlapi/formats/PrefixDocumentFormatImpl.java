@@ -73,42 +73,41 @@ public class PrefixDocumentFormatImpl extends OWLDocumentFormatImpl implements
         return nsm.getPrefixNames();
     }
 
-    @Override
+
     public void setDefaultPrefix(String defaultPrefix) {
         nsm.setDefaultPrefix(defaultPrefix);
     }
 
-    @Override
     public boolean containsPrefixMapping(String prefixName) {
         return nsm.containsPrefixMapping(prefixName);
     }
 
-    @Override
+
     public String getDefaultPrefix() {
         return nsm.getDefaultPrefix();
     }
 
-    @Override
+
     public Map<String, String> getPrefixName2PrefixMap() {
         return nsm.getPrefixName2PrefixMap();
     }
 
-    @Override
+
     public String getPrefix(String prefixName) {
         return nsm.getPrefix(prefixName);
     }
 
-    @Override
+
     public IRI getIRI(String prefixIRI) {
         return nsm.getIRI(prefixIRI);
     }
 
-    @Override
+
     public String getPrefixIRI(IRI iri) {
         return nsm.getPrefixIRI(iri);
     }
 
-    @Override
+
     public void copyPrefixesFrom(PrefixManager from) {
         nsm.copyPrefixesFrom(from);
     }

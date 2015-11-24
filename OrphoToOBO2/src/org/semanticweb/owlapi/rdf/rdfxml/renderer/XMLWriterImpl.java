@@ -120,22 +120,22 @@ public class XMLWriterImpl implements XMLWriter {
         return xmlWriterNamespaceManager.getDefaultNamespace();
     }
 
-    @Override
+
     public String getXMLBase() {
         return xmlBase;
     }
 
-    @Override
+
     public XMLWriterNamespaceManager getNamespacePrefixes() {
         return xmlWriterNamespaceManager;
     }
 
-    @Override
+
     public void setEncoding(String encoding) {
         this.encoding = encoding;
     }
 
-    @Override
+
     public void setWrapAttributes(boolean b) {
         if (!elementStack.isEmpty()) {
             XMLElement element = elementStack.peek();
@@ -143,7 +143,7 @@ public class XMLWriterImpl implements XMLWriter {
         }
     }
 
-    @Override
+
     public void writeStartElement(IRI name) throws IOException {
         String qName = xmlWriterNamespaceManager.getQName(name);
         if (!XMLUtils.isQName(qName)) {
@@ -161,7 +161,7 @@ public class XMLWriterImpl implements XMLWriter {
         elementStack.push(element);
     }
 
-    @Override
+
     public void writeEndElement() throws IOException {
         // Pop the element off the stack and write it out
         if (!elementStack.isEmpty()) {
@@ -170,7 +170,7 @@ public class XMLWriterImpl implements XMLWriter {
         }
     }
 
-    @Override
+
     public void writeAttribute(String attr, String val) {
         XMLElement element = elementStack.peek();
         String qName = xmlWriterNamespaceManager.getQName(attr);
@@ -179,7 +179,7 @@ public class XMLWriterImpl implements XMLWriter {
         }
     }
 
-    @Override
+
     public void writeAttribute(@Nonnull IRI attr, String val) {
         XMLElement element = elementStack.peek();
         String qName = xmlWriterNamespaceManager.getQName(attr);
@@ -188,13 +188,13 @@ public class XMLWriterImpl implements XMLWriter {
         }
     }
 
-    @Override
+  
     public void writeTextContent(String text) {
         XMLElement element = elementStack.peek();
         element.setText(text);
     }
 
-    @Override
+
     public void writeComment(String commentText) throws IOException {
         XMLElement element = new XMLElement(null, elementStack.size());
         element.setText("<!-- " + commentText.replace("--", "&#45;&#45;") + " -->");
@@ -231,7 +231,7 @@ public class XMLWriterImpl implements XMLWriter {
         writer.write("]>\n\n\n");
     }
 
-    @Override
+
     public void startDocument(@Nonnull IRI rootElement) throws IOException {
         String encodingString = "";
         if (!encoding.isEmpty()) {
@@ -259,7 +259,7 @@ public class XMLWriterImpl implements XMLWriter {
         }
     }
 
-    @Override
+
     public void endDocument() throws IOException {
         // Pop of each element
         while (!elementStack.isEmpty()) {

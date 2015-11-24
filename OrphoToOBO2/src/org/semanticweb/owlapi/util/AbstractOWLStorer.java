@@ -48,7 +48,7 @@ public abstract class AbstractOWLStorer implements OWLStorer {
     /*protected static final Logger LOGGER = LoggerFactory
             .getLogger(AbstractOWLStorer.class);*/
 
-    @Override
+
     public void storeOntology(OWLOntology ontology, @Nonnull IRI documentIRI,
             OWLDocumentFormat ontologyFormat)
             throws OWLOntologyStorageException {

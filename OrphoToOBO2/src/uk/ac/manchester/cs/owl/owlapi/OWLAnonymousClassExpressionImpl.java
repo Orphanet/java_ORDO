@@ -33,40 +33,38 @@ public abstract class OWLAnonymousClassExpressionImpl extends
 
     private static final long serialVersionUID = 40000L;
 
-    @Override
+
     public boolean isAnonymous() {
         return true;
     }
 
-    @Override
+
     public boolean isOWLThing() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLNothing() {
         return false;
     }
 
-    @Override
+
     public OWLClassExpression getNNF() {
         NNF nnf = new NNF(new OWLDataFactoryImpl());
         return accept(nnf);
     }
 
-    @Override
+
     public OWLClassExpression getComplementNNF() {
         NNF nnf = new NNF(new OWLDataFactoryImpl());
         return new OWLObjectComplementOfImpl(this).accept(nnf);
     }
 
     @Nonnull
-    @Override
     public OWLClassExpression getObjectComplementOf() {
         return new OWLObjectComplementOfImpl(this);
     }
 
-    @Override
     public OWLClass asOWLClass() {
         throw new OWLRuntimeException(
                 "Not an OWLClass.  This method should only be called if the isAnonymous method returns false!");

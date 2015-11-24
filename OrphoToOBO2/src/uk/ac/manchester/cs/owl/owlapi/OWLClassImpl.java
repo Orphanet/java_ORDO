@@ -85,28 +85,27 @@ public class OWLClassImpl extends OWLClassExpressionImpl implements OWLClass,
         return isOWLNothing();
     }
 
-    @Override
+
     public ClassExpressionType getClassExpressionType() {
         return ClassExpressionType.OWL_CLASS;
     }
 
     @Nonnull
-    @Override
     public OWLClassExpression getObjectComplementOf() {
         return new OWLObjectComplementOfImpl(this);
     }
 
-    @Override
+
     public EntityType<?> getEntityType() {
         return EntityType.CLASS;
     }
 
-    @Override
+
     public boolean isType(EntityType<?> entityType) {
         return getEntityType().equals(entityType);
     }
 
-    @Override
+
     public String toStringID() {
         return iri.toString();
     }
@@ -116,7 +115,7 @@ public class OWLClassImpl extends OWLClassExpressionImpl implements OWLClass,
         return iri;
     }
 
-    @Override
+
     public boolean isBuiltIn() {
         return isOWLThing() || isOWLNothing();
     }
@@ -126,102 +125,101 @@ public class OWLClassImpl extends OWLClassExpressionImpl implements OWLClass,
         return false;
     }
 
-    @Override
+
     public boolean isClassExpressionLiteral() {
         return true;
     }
 
-    @Override
+
     public OWLClass asOWLClass() {
         return this;
     }
 
-    @Override
+
     public boolean isOWLThing() {
         return isThing;
     }
 
-    @Override
+
     public boolean isOWLNothing() {
         return isNothing;
     }
 
-    @Override
+
     public OWLClassExpression getNNF() {
         return this;
     }
 
-    @Override
+
     public Set<OWLClassExpression> asConjunctSet() {
         return CollectionFactory.createSet((OWLClassExpression) this);
     }
 
-    @Override
+
     public boolean containsConjunct(OWLClassExpression ce) {
         return ce.equals(this);
     }
 
-    @Override
+
     public Set<OWLClassExpression> asDisjunctSet() {
         return CollectionFactory.createSet((OWLClassExpression) this);
     }
 
-    @Override
+
     public OWLClassExpression getComplementNNF() {
         return new OWLObjectComplementOfImpl(this);
     }
 
-    @Override
+
     public OWLDataProperty asOWLDataProperty() {
         throw new OWLRuntimeException("Not a data property!");
     }
 
-    @Override
+
     public OWLDatatype asOWLDatatype() {
         throw new OWLRuntimeException("Not a data type!");
     }
 
-    @Override
+
     public OWLNamedIndividual asOWLNamedIndividual() {
         throw new OWLRuntimeException("Not an individual!");
     }
 
-    @Override
+
     public OWLObjectProperty asOWLObjectProperty() {
         throw new OWLRuntimeException("Not an object property");
     }
 
-    @Override
+
     public boolean isOWLClass() {
         return true;
     }
 
-    @Override
+
     public boolean isOWLDataProperty() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLDatatype() {
         return false;
     }
 
-    @Override
     public boolean isOWLNamedIndividual() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLObjectProperty() {
         return false;
     }
 
-    @Override
+
     public OWLAnnotationProperty asOWLAnnotationProperty() {
         throw new OWLRuntimeException("Not an annotation property");
     }
 
-    @Override
+
     public boolean isOWLAnnotationProperty() {
         return false;
     }
@@ -238,12 +236,12 @@ public class OWLClassImpl extends OWLClassExpressionImpl implements OWLClass,
         return otherIRI.equals(iri);
     }
 
-    @Override
+
     public void accept(OWLClassExpressionVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLEntityVisitor visitor) {
         visitor.visit(this);
     }
@@ -253,27 +251,27 @@ public class OWLClassImpl extends OWLClassExpressionImpl implements OWLClass,
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLNamedObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLNamedObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLEntityVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLClassExpressionVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
@@ -284,11 +282,11 @@ public class OWLClassImpl extends OWLClassExpressionImpl implements OWLClass,
         return iri.compareTo(other.getIRI());
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(this);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 }

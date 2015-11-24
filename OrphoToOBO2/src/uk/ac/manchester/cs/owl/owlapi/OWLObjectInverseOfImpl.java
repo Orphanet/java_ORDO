@@ -60,29 +60,29 @@ public class OWLObjectInverseOfImpl extends OWLObjectPropertyExpressionImpl
         this.inverseProperty = inverseProperty.asOWLObjectProperty();
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         addSignatureEntitiesToSetForValue(entities, inverseProperty);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {
         addAnonymousIndividualsToSetForValue(anons, inverseProperty);
     }
 
     @Nonnull
-    @Override
+
     public OWLObjectPropertyExpression getInverseProperty() {
         return getInverse();
     }
 
-    @Override
+
     public OWLObjectProperty getInverse() {
         return inverseProperty;
     }
 
     @Nonnull
-    @Override
+
     public OWLObjectProperty getNamedProperty() {
         return inverseProperty;
     }
@@ -101,32 +101,32 @@ public class OWLObjectInverseOfImpl extends OWLObjectPropertyExpressionImpl
         return ((OWLObjectInverseOf) obj).getInverse().equals(inverseProperty);
     }
 
-    @Override
+
     public void accept(@Nonnull OWLPropertyExpressionVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLPropertyExpressionVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public boolean isAnonymous() {
         return true;
     }
 
-    @Override
+
     public OWLObjectProperty asOWLObjectProperty() {
         throw new OWLRuntimeException(
                 "Property is not a named property.  Check using the isAnonymous method before calling this method!");
@@ -138,22 +138,22 @@ public class OWLObjectInverseOfImpl extends OWLObjectPropertyExpressionImpl
                 .getInverse());
     }
 
-    @Override
+
     public boolean isOWLTopObjectProperty() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLBottomObjectProperty() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLTopDataProperty() {
         return false;
     }
 
-    @Override
+
     public boolean isOWLBottomDataProperty() {
         return false;
     }
