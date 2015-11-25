@@ -98,7 +98,7 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 	throws SAXException {
    if (qName.equalsIgnoreCase("Orphanumber") && in_gene_node){
 		System.out.println(tempVal);
-		    		
+		currentDisease.add_geneNum(tempVal);    		
    }else if(qName.equalsIgnoreCase("Orphanumber") && within_geneAssociationType){
 		currentDisease.setGeneType(tempVal);
     }else if(qName.equalsIgnoreCase("Orphanumber")){
