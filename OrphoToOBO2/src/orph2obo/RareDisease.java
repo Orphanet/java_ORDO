@@ -789,7 +789,7 @@ public void setInheritNum(String inheritNum) {
 	
 	public void saveOWLFile() throws OWLOntologyStorageException, OWLOntologyCreationException{
 		writeToOWLFile();
-		IRI documentIRI = IRI.create("file:/OrphoToOBO2/orphadata1.2.owl");
+		IRI documentIRI = IRI.create("file:/OrphoToOBO2/orphadata.owl");
 		SimpleIRIMapper mapper = new SimpleIRIMapper(owlvar.getOntologyIRI(), documentIRI);
 		owlvar.getManager().addIRIMapper(mapper);
 		owlvar.getManager().saveOntology(owlvar.getOntology(), documentIRI);
