@@ -48,7 +48,7 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 	public void parseDocument(String XMLFilePath,HashMap<String,RareDisease> dis ) {
 		System.out.println("Parsing: " + XMLFilePath);
 		this.diseases = dis;
-		//System.out.println("Set up disease = size = " + diseases.size());
+		System.out.println("Set up disease = size = " + diseases.size());
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		try {
 			SAXParser sp = spf.newSAXParser();
@@ -98,7 +98,6 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 	throws SAXException {
    if (qName.equalsIgnoreCase("Orphanumber") && in_gene_node){
 		System.out.println(tempVal);
-		currentDisease.add_geneNum(tempVal);
 		    		
    }else if(qName.equalsIgnoreCase("Orphanumber") && within_geneAssociationType){
 		currentDisease.setGeneType(tempVal);

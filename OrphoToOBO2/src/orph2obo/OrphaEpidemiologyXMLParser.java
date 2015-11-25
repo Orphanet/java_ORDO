@@ -56,9 +56,10 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
     //Event Handlers
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 	//reset
-    	System.err.println("epidemio : "+uri+"; "+localName+"; "+qName); 
+    	
 		tempVal = "";
-		if(qName.equalsIgnoreCase("Disoder")) {
+		if(qName.equalsIgnoreCase("Disorder")) {
+			System.err.println("epidemio : "+uri+"; "+localName+"; "+qName); 
 		    currentDisease = null; // reset.
 		} else if (qName.equalsIgnoreCase("ClassOfPrevalence")){
 			within_ClassOfPrevalence = true;
@@ -140,9 +141,7 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 		    while (it.hasNext()) {
 			String s = it.next();
 			RareDisease dxr = this.diseases.get(s);
-			if(s.equals("166024")){
-			System.out.println(s + ":" + dxr.getName());
-			}
+			//System.out.println(s + ":" + dxr.getName());
 		    }
 		    System.err.println("Parsing Epidemiology File: Could not fetch OrphaID: " + orphID);
 		    System.exit(1);

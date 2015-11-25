@@ -585,6 +585,7 @@ public void setInheritNum(String inheritNum) {
 				//System.out.println("entered the non-group of phenome loop");
 				OWLClass classType = owlvar.getFactory().getOWLClass(this.diseaseType, owlvar.getPrefixmanager());
 				PrefixManager pm3 = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
+				System.out.println("Name "+this.orphanum);// test pour voir le contenu de this
 				OWLAnnotation manualAssert = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",pm3),owlvar.getFactory().getOWLLiteral(this.disTypeValidity));
 				Set<OWLAnnotation> owlAnn = new HashSet<OWLAnnotation>();
 				owlAnn.add(manualAssert);
