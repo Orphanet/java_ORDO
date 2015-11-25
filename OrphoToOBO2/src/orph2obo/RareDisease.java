@@ -264,6 +264,7 @@ public void setInheritNum(String inheritNum) {
 	this.inheritNum = new ArrayList<String>();
 	this.geneSyn = new ArrayList<String>();
 	this.genSynCount = new ArrayList<String> ();
+	//System.out.println(this.synonym.toString());
     }
     
     //variables that need to be set for OWL API
@@ -559,11 +560,11 @@ public void setInheritNum(String inheritNum) {
 		OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
 		owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));
 		if (this.diseaseType != "108939" && this.diseaseType != null && this.diseaseType != ""){//that is if disease is no type dont include in the ontology 
-		OWLDeclarationAxiom declarationClass = owlvar.getFactory().getOWLDeclarationAxiom(rareDisorder);
-		OWLAxiom labelling = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), labelRare);
-		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), declarationClass));
-		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), labelling));
-		//System.out.println("I am here");
+			OWLDeclarationAxiom declarationClass = owlvar.getFactory().getOWLDeclarationAxiom(rareDisorder);
+			OWLAxiom labelling = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), labelRare);
+			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), declarationClass));
+			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), labelling));
+			//System.out.println("I am here");
 			if (this.diseaseType.equalsIgnoreCase("377794")){//If disease is a group of Phenome then its a subclass relation
 				//System.out.println("entered the group of phenome loop");
 				OWLClass classType = owlvar.getFactory().getOWLClass(this.diseaseType, owlvar.getPrefixmanager());

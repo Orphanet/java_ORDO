@@ -67,6 +67,7 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 			Attributes attributes) throws SAXException {
 			//reset
 			tempVal = "";
+			System.err.println("uri : "+uri+"; "+localName+"; "+qName); 
 			if(qName.equalsIgnoreCase("Disorder")) {
 				currentDisease = null; // reset
 			} else if (qName.equalsIgnoreCase("DisorderGeneAssociationList")){
@@ -96,7 +97,9 @@ public class OrphaGenesXMLParser extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) 
 	throws SAXException {
    if (qName.equalsIgnoreCase("Orphanumber") && in_gene_node){
-		    		currentDisease.add_geneNum(tempVal);
+		System.out.println(tempVal);
+		currentDisease.add_geneNum(tempVal);
+		    		
    }else if(qName.equalsIgnoreCase("Orphanumber") && within_geneAssociationType){
 		currentDisease.setGeneType(tempVal);
     }else if(qName.equalsIgnoreCase("Orphanumber")){

@@ -56,20 +56,21 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
     //Event Handlers
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 	//reset
-	tempVal = "";
-	if(qName.equalsIgnoreCase("Disoder")) {
-	    currentDisease = null; // reset.
-	} else if (qName.equalsIgnoreCase("ClassOfPrevalence")){
-		within_ClassOfPrevalence = true;
+    	System.err.println("epidemio : "+uri+"; "+localName+"; "+qName); 
+		tempVal = "";
+		if(qName.equalsIgnoreCase("Disoder")) {
+		    currentDisease = null; // reset.
+		} else if (qName.equalsIgnoreCase("ClassOfPrevalence")){
+			within_ClassOfPrevalence = true;
 		} else if (qName.equalsIgnoreCase("AverageAgeOfOnset")){
-		within_AgeOfOnset = true;
+			within_AgeOfOnset = true;
 		} else if (qName.equalsIgnoreCase("AverageAgeOfDeath")){
-		within_AgeOfDeath = true;	
+			within_AgeOfDeath = true;	
 		} else if (qName.equalsIgnoreCase("TypeOfInheritance")){
-		within_Inheritance = true;
+			within_Inheritance = true;
 		}
 		    
-		}
+	}
 	    
     
     
@@ -81,11 +82,11 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 
 		public void endElement(String uri, String localName,
 			String qName) throws SAXException {
-
-			if (qName.equalsIgnoreCase("OrphaNumber") && !(within_ClassOfPrevalence) && !(within_AgeOfOnset) && !(within_AgeOfDeath) && !(within_Inheritance)) {
+			
+			if (qName.equalsIgnoreCase("OrphaNumber") && currentDisease==null && !(within_ClassOfPrevalence) && !(within_AgeOfOnset) && !(within_AgeOfDeath) && !(within_Inheritance)) {
 				//again make sure that the orphanumber does not contain F cause that means that its not a disease Orphanumber
 				/**if (!tempVal.contains("F")){*/
-				System.err.println("Passer ici valeur de tempVal: " + tempVal);
+				System.err.println("Epidemio : Passer ici valeur de tempVal: " + tempVal);
 				setOrphanum(tempVal);
 				}
 				else if(qName.equalsIgnoreCase("ClassOfPrevalence")){
@@ -131,20 +132,21 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 
     private void setOrphanum(String orphID) {
     	System.out.println("CurrentDiseaseBefore=" + orphID);
-	currentDisease = this.diseases.get(orphID);
-	System.out.println("CurrentDisease=" + currentDisease);
-	if (currentDisease == null) {
-		//System.out.println("You are here");
-	    Iterator<String> it = this.diseases.keySet().iterator();
-	    while (it.hasNext()) {
-		String s = it.next();
-		RareDisease dxr = this.diseases.get(s);
-		System.out.println(s + ":" + dxr.getName());
-		
-	    }
-	    System.err.println("Parsing Epidemiology File: Could not fetch OrphaID: " + orphID);
-	    System.exit(1);
-	}
+		currentDisease = this.diseases.get(orphID);
+		System.out.println("CurrentDisease=" + currentDisease);
+		if (currentDisease == null) {
+			System.err.println("You are here");
+		    Iterator<String> it = this.diseases.keySet().iterator();
+		    while (it.hasNext()) {
+			String s = it.next();
+			RareDisease dxr = this.diseases.get(s);
+			if(s.equals("166024")){
+			System.out.println(s + ":" + dxr.getName());
+			}
+		    }
+		    System.err.println("Parsing Epidemiology File: Could not fetch OrphaID: " + orphID);
+		    System.exit(1);
+		}
 	
     }
 

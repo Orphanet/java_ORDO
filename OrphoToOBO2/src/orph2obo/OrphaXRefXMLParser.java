@@ -66,6 +66,7 @@ public class OrphaXRefXMLParser extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 	//reset
 	tempVal = "";
+	//System.err.println("XREF attr : "+attributes+"; "+qName); 
 	if(qName.equalsIgnoreCase("Disorder")) {
 	    tmpDisXref = new RareDisease();
 	    tmpDisXref.setID(attributes.getValue("id")); /*The id is the internal id used by the Orphanet - differs from orphaNum*/
@@ -103,7 +104,7 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 	    String orphnum = tmpDisXref.get_orphanum();
 	   // System.out.println("orphanum="+ orphnum + "Value="+ tmpDisXref);
 	    this.diseaseXRefs.put(orphnum, tmpDisXref);
-	}else if (qName.equalsIgnoreCase("Orphanumber") && !(within_diseaseType)) {
+	}else if (qName.equalsIgnoreCase("Orphanumber") && !(within_diseaseType) && this.tmpDisXref.get_orphanum()==null) {
 		//In the new set of sata files orphanumber is even given to the disesase type, inheritance etc which starts from F,
 		//hence to make sure the Orphanumber is for a disease make sure it does not contain F
 		//if (!tempVal.contains("F"))

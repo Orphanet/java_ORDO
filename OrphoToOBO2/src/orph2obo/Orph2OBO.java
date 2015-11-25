@@ -37,7 +37,7 @@ public class Orph2OBO {
     public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException {
 	
     /**This is the name of the directory where the Orphanet XML files will be written to*/
-    String directory = "OrphadataMayBACKUP";
+    String directory = "OrphadataMay";
     	//String directory = "OrphadataMay";
 	
 	Orph2OBO o2o = new Orph2OBO();
@@ -326,6 +326,7 @@ public class Orph2OBO {
 	}
 	parser.parseDocument(rare_disease_xref_xml_file);
 	this.disease_xrefs = parser.getXrefHashMap();
+	System.out.println(disease_xrefs.toString());
 	//System.out.println(disease_xrefs.isEmpty());
 	
     }
