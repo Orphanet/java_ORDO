@@ -119,9 +119,11 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 	}else if (qName.equalsIgnoreCase("ExpertLink")) {
 		//System.out.println(tempVal);
 	    tmpDisXref.setExpertLink(tempVal);
-	}else if (qName.equalsIgnoreCase("Name")) {
-		if(within_DiseaseDefinition == false){
+	}else if (qName.equalsIgnoreCase("Name") ) {
+		if(within_DiseaseDefinition == false && tmpDisXref.getName()==null){
 			tmpDisXref.setName(tempVal);
+		}else if(within_diseaseType){
+			tmpDisXref.setTypeValidity(tempVal); //typevalidity n'existe plus, il faudra renommer la variable en diseaseType
 		}
 	}else if (qName.equalsIgnoreCase("Synonym")){
 		tmpDisXref.setSynonym(tempVal);
@@ -136,9 +138,9 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 	    this.tmpDisXref.addRef(tempVal);
 	}else if (qName.equalsIgnoreCase("DisorderType")){
 		within_diseaseType = false;
-	}else if (qName.equalsIgnoreCase("TypeValid")){
+	}/*else if (qName.equalsIgnoreCase("TypeValid")){
 		this.tmpDisXref.setTypeValidity(tempVal);
-	}
+	}*/
 	
     }
 

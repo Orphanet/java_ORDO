@@ -25,6 +25,7 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 	private Gene tmpGene;
 	private ExternalReference tmpExtRef;
 	private boolean in_gene_node = false;
+	private boolean in_gene_list = false;
 	private boolean within_externalReferenceElement = false;
 	private boolean within_geneAssociationType = false;
 	private ArrayList<Gene> genes;
@@ -67,7 +68,7 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 			Attributes attributes) throws SAXException {
 			//reset
 			tempVal = "";
-			System.err.println("uri : "+uri+"; "+localName+"; "+qName); 
+			//System.err.println("Gene : "+qName); 
 			if(qName.equalsIgnoreCase("Disorder")) {
 				currentDisease = null; // reset
 			} else if (qName.equalsIgnoreCase("DisorderGeneAssociationList")){
@@ -86,6 +87,8 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 				currentDisease.setGeneSynCount(attributes.getValue("count"));
 			}else if (qName.equalsIgnoreCase("DisorderGeneAssociationStatus")){
 				within_geneAssociationStatus =true;
+			}else if (qName.equalsIgnoreCase("GeneList")){
+				in_gene_list=true;
 			}
 		}
 
@@ -97,16 +100,18 @@ public class OrphaGenesXMLParser extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) 
 	throws SAXException {
    if (qName.equalsIgnoreCase("Orphanumber") && in_gene_node){
-		System.out.println(tempVal);
+		//System.out.println(tempVal);
 		currentDisease.add_geneNum(tempVal);    		
-   }else if(qName.equalsIgnoreCase("Orphanumber") && within_geneAssociationType){
+   }else if(qName.equalsIgnoreCase("Name") && within_geneAssociationType){ // Remettre Orphanmumber quand il seront présents dans les fichiers d'entrée
 		currentDisease.setGeneType(tempVal);
+		currentDisease.setgeneTypeName(tempVal);
     }else if(qName.equalsIgnoreCase("Orphanumber")){
-    		 if (!(in_gene_node) && !(within_geneAssociationType)){
-    	currentDisease = this.diseases.get(tempVal);}	//setting the gene-disease orphanumber
+		 if (!(in_gene_node) && !(within_geneAssociationType)){
+			 currentDisease = this.diseases.get(tempVal);
+		 }	//setting the gene-disease orphanumber
     } else if (qName.equalsIgnoreCase("Symbol")) {
 		currentDisease.setSymbol(tempVal);
-	} else if (in_gene_node && qName.equalsIgnoreCase("Name")) {
+	} else if (in_gene_node && qName.equalsIgnoreCase("Name") && !in_gene_list) { //ignorer la partie GeneList pour éviter les doublons de gènes
 		//System.out.println("you are in the gene name node and the name is :" + tempVal + " and the current disease object is :" + currentDisease);
 	    currentDisease.add_genes(tempVal);
 	   // System.out.println("the gene name has been added to the list");
@@ -132,6 +137,8 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 	    in_gene_node = false;
 	    
 	    this.genes.add(tmpGene);
+	}else if(qName.equalsIgnoreCase("GeneList")) {
+	    in_gene_list = false;
 	} else if (qName.equalsIgnoreCase("DisorderGeneAssociationType")){
 		within_geneAssociationType = false;
 	}else if (qName.equalsIgnoreCase("Synonym")){

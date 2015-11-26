@@ -585,7 +585,8 @@ public void setInheritNum(String inheritNum) {
 				//System.out.println("entered the non-group of phenome loop");
 				OWLClass classType = owlvar.getFactory().getOWLClass(this.diseaseType, owlvar.getPrefixmanager());
 				PrefixManager pm3 = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
-				System.out.println("Name "+this.orphanum);// test pour voir le contenu de this
+				System.out.println("Name: "+this.name);// test pour voir le contenu de this
+				System.out.println("Type: "+this.disTypeValidity);// test pour voir le contenu de this
 				OWLAnnotation manualAssert = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",pm3),owlvar.getFactory().getOWLLiteral(this.disTypeValidity));
 				Set<OWLAnnotation> owlAnn = new HashSet<OWLAnnotation>();
 				owlAnn.add(manualAssert);
@@ -713,7 +714,12 @@ public void setInheritNum(String inheritNum) {
 		//gene class and its annotations
 		int start = 0;
 		int start1 = 0;
+		
 		if(! this.genelists.isEmpty()){
+			System.out.println(this.genelists.toString());
+			System.out.println(this.symbol.toString());
+			System.out.println(this.geneTypeName.toString());
+			System.out.println(this.geneType.toString());
 			for( int i =0; i<this.genelists.size(); i++){
 				//creating gene class and adding the symbol annotation and label annotation
 				OWLClass gene = owlvar.getFactory().getOWLClass(this.geneNum.get(i), owlvar.getPrefixmanager());
