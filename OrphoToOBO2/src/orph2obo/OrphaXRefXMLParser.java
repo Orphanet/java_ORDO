@@ -47,7 +47,7 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 	
 
 	public void parseDocument(String XMLFilePath) {
-	    System.out.println("Parsing: " + XMLFilePath);
+	    //System.out.println("Parsing: " + XMLFilePath);
 	    
 	    SAXParserFactory spf = SAXParserFactory.newInstance();
 	     try {

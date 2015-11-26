@@ -37,7 +37,7 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 	 */
 
 	public void parseDocument(String XMLFilePath,HashMap<String,RareDisease> dis ) {
-		System.out.println("Parsing Epi: " + XMLFilePath);
+		//System.out.println("Parsing: " + XMLFilePath);
 		this.diseases = dis;
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		try {
