@@ -716,10 +716,10 @@ public void setInheritNum(String inheritNum) {
 		int start1 = 0;
 		
 		if(! this.genelists.isEmpty()){
-			System.out.println(this.genelists.toString());
-			//System.out.println(this.symbol.toString());
-			//System.out.println(this.geneTypeName.toString());
-			System.out.println(this.geneType.toString());
+			System.out.println("Genes: "+this.genelists.toString());
+			System.out.println("Smb: "+this.symbol.toString());
+			System.out.println("Type: "+this.geneTypeName.toString());
+			System.out.println("Type: "+this.geneType.toString());
 			for( int i =0; i<this.genelists.size(); i++){
 				//creating gene class and adding the symbol annotation and label annotation
 				OWLClass gene = owlvar.getFactory().getOWLClass(this.geneNum.get(i), owlvar.getPrefixmanager());
