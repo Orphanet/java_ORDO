@@ -32,7 +32,7 @@ import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 
 import orph2obo.ExternalReference;
-
+import orph2obo.Prevalence;
 /**
  * Class representing the information in a RareDisease XML stanza. See the code for the class
  * OrphaXRefXMLParser/OrphaGenesXMLParser/OrphaEpidemiologyParser/OrphadataClassificationXMLParser
@@ -50,8 +50,9 @@ public class RareDisease {
     private String def=null;
     /** The reference for this rare disease*/
     private String reference=null;
-    /** Prevalence name for that particulare disease that is 1/50,000 etc */
-    private String prevalence = null;
+    /** Prevalences */
+    private ArrayList<Prevalence> prevalences;
+    
     /**AgeofOnset for a disease*/
     private String ageOfOnset = null;
     /**AgeOfDeath for a disease*/
@@ -135,9 +136,15 @@ public class RareDisease {
     
     public void  setReference(String ref) { this.reference = ref; }
     public String getReference() { return this.reference ; }
-  
-    public void  setPrevalenceClass(String p) { this.prevalence = p; }
-    public String getPrevalenceClass() { return this.prevalence ; }
+    
+   /* public void  addPrevalence(String p) { this.prevalence.setPrevalClass(p); }
+    public String getPrevalenceClass() { return this.prevalence.getPrevalClass(); }  
+    
+    public void  setPrevalenceGeo(String p) { this.prevalence.setGeo(p); }
+    public String getPrevalenceGeo() { return this.prevalence.getGeo(); }  
+    
+    public void  setPrevalenceValMoy(String p) { this.prevalence.setValMoy(p); }
+    public String getPrevalenceValMoy() {return this.prevalence.getValMoy();}*/
     
     public void setAgeOfOnset (String onset){ this.ageOfOnset = onset;}
     public void setAgeOfDeath (String death) { this.ageOfDeath = death;}
@@ -173,6 +180,10 @@ public class RareDisease {
     
     public void addRef(String re){
     	this.refList.add(re);
+    }
+    
+    public void addPreval(Prevalence re){
+    	this.prevalences.add(re);
     }
     
     public void setExRefCount(String erc){
@@ -264,6 +275,7 @@ public void setInheritNum(String inheritNum) {
 	this.inheritNum = new ArrayList<String>();
 	this.geneSyn = new ArrayList<String>();
 	this.genSynCount = new ArrayList<String> ();
+	this.prevalences = new ArrayList<Prevalence> ();
 	//System.out.println(this.synonym.toString());
     }
     
@@ -652,20 +664,22 @@ public void setInheritNum(String inheritNum) {
 		}
 		
 		//point prevalence and its value
-		if (this.prevNum != null){
-			System.out.println("writing the prevelance");
-			OWLObjectProperty has_Prevalence = owlvar.getFactory().getOWLObjectProperty("C019",owlvar.getPrefixmanager());
-			OWLAnnotation hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_prevalence"));
-			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasPrevLab)));
-			OWLClass prevValue = owlvar.getFactory().getOWLClass(this.prevNum,owlvar.getPrefixmanager());
-			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLDeclarationAxiom(prevValue)));//asserting prevalence class
-			//set the subclass relationship
-			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(prevValue, owlvar.getFactory().getOWLClass("C012", owlvar.getPrefixmanager()))));
-			OWLAnnotation prevalenceLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.prevalence));//label for the value of prevalence
-			OWLClassExpression hasPrevalenceClass = owlvar.getFactory().getOWLObjectSomeValuesFrom(has_Prevalence, prevValue);
-			OWLSubClassOfAxiom ax = owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder,hasPrevalenceClass);
-			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ax));
-			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevValue.getIRI(), prevalenceLab)));
+		if (!this.prevalences.isEmpty()){
+			for(int i=0;i<this.prevalences.size();i++){
+				System.out.println("writing the prevelance");
+				OWLObjectProperty has_Prevalence = owlvar.getFactory().getOWLObjectProperty("C019",owlvar.getPrefixmanager());
+				OWLAnnotation hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_prevalence"));
+				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasPrevLab)));
+				OWLClass prevValue = owlvar.getFactory().getOWLClass(this.prevalences.get(i).getType(),owlvar.getPrefixmanager());
+				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLDeclarationAxiom(prevValue)));//asserting prevalence class
+				//set the subclass relationship
+				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(prevValue, owlvar.getFactory().getOWLClass("C012", owlvar.getPrefixmanager()))));
+				OWLAnnotation prevalenceLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getValMoy()));//label for the value of prevalence
+				OWLClassExpression hasPrevalenceClass = owlvar.getFactory().getOWLObjectSomeValuesFrom(has_Prevalence, prevValue);
+				OWLSubClassOfAxiom ax = owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder,hasPrevalenceClass);
+				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ax));
+				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevValue.getIRI(), prevalenceLab)));
+			}
 		}
 		
 		
@@ -716,9 +730,9 @@ public void setInheritNum(String inheritNum) {
 		int start1 = 0;
 		
 		if(! this.genelists.isEmpty()){
-			System.out.println("Genes: "+this.genelists.toString());
-			System.out.println("Smb: "+this.symbol.toString());
-			System.out.println("Type: "+this.geneTypeName.toString());
+			//System.out.println("Genes: "+this.genelists.toString());
+			//System.out.println("Smb: "+this.symbol.toString());
+			//System.out.println("Type: "+this.geneTypeName.toString());
 			for( int i =0; i<this.genelists.size(); i++){
 				//creating gene class and adding the symbol annotation and label annotation
 				OWLClass gene = owlvar.getFactory().getOWLClass(this.geneNum.get(i), owlvar.getPrefixmanager());
@@ -835,12 +849,12 @@ public void setInheritNum(String inheritNum) {
 	if(this.def != null){ sb.append("def:\"" + this.def + "\" [Orphanet]\n"); }
 	//sb.append("comment:uri:http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=en&Expert=" +  this.orphanum +  ".\n");
 	//sb.append("comment:Orphanet ID- " + this.orphID + ".\n");
-	if((this.prevalence != null) || (this.ageOfOnset != null) || (this.ageOfDeath != null) || (! this.inheritance.isEmpty()) || (! this.genelists.isEmpty())){
+	if((this.prevalences.size()>0 ) || (this.ageOfOnset != null) || (this.ageOfDeath != null) || (! this.inheritance.isEmpty()) || (! this.genelists.isEmpty())){
 		sb.append("comment:");
-		if((this.prevalence != null) || (this.ageOfOnset != null) || (this.ageOfDeath != null) || (! this.inheritance.isEmpty())){
+		if((this.prevalences.size()>0) || (this.ageOfOnset != null) || (this.ageOfDeath != null) || (! this.inheritance.isEmpty())){
 			sb.append("Epidemiology [");
 
-			if(this.prevalence != null){ sb.append(" Prevalence- " + this.prevalence + ";"); }
+			if(this.prevalences.size()>0){ sb.append(" Prevalence- " + this.prevalences.get(0).getPrevalClass() + ";"); }
 			if(this.ageOfOnset != null){ sb.append(" AgeOfOnset- "+ this.ageOfOnset + ";"); }
 			if(this.ageOfDeath != null){ sb.append(" AgeOfDeath- " + this.ageOfDeath + ";"); }
 			if (! this.inheritance.isEmpty()){

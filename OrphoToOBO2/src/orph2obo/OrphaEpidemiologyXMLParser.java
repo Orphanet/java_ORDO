@@ -12,6 +12,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import orph2obo.Prevalence;
+
 /**
  * Parse the file "http://www.orphadata.org/data/xml/en_product2.xml"
  * from the Orphadata website.
@@ -23,9 +25,12 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 	private RareDisease currentDisease;
 	private HashMap<String,RareDisease> diseases;
 	private boolean within_ClassOfPrevalence = false;
+	private boolean within_PrevalenceGeo = false;
+	private boolean within_PrevalenceType = false;
 	private boolean within_AgeOfOnset = false;
 	private boolean within_AgeOfDeath = false;
 	private boolean within_Inheritance = false;
+	private Prevalence prevalence;
 	
 	/**
 	 * This method parses the Epidemiological file,
@@ -61,7 +66,9 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 		if(qName.equalsIgnoreCase("Disorder")) {
 			System.err.println("epidemio : "+uri+"; "+localName+"; "+qName); 
 		    currentDisease = null; // reset.
-		} else if (qName.equalsIgnoreCase("ClassOfPrevalence")){
+		} else if (qName.equalsIgnoreCase("Prevalence")){
+		    prevalence=new Prevalence();
+		} else if (qName.equalsIgnoreCase("PrevalenceClass")){
 			within_ClassOfPrevalence = true;
 		} else if (qName.equalsIgnoreCase("AverageAgeOfOnset")){
 			within_AgeOfOnset = true;
@@ -69,7 +76,11 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 			within_AgeOfDeath = true;	
 		} else if (qName.equalsIgnoreCase("TypeOfInheritance")){
 			within_Inheritance = true;
-		}
+		} else if (qName.equalsIgnoreCase("PrevalenceType")){
+			within_PrevalenceType = true;
+		} else if (qName.equalsIgnoreCase("PrevalenceGeographic")){
+			within_PrevalenceGeo = true;
+		} 
 		    
 	}
 	    
@@ -90,16 +101,29 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 				System.err.println("Epidemio : Passer ici valeur de tempVal: " + tempVal);
 				setOrphanum(tempVal);
 				}
-				else if(qName.equalsIgnoreCase("ClassOfPrevalence")){
-				within_ClassOfPrevalence = false;
-				
+				else if(qName.equalsIgnoreCase("PrevalenceClass")){
+					within_ClassOfPrevalence = false;
 				}
-				else if (qName.equalsIgnoreCase("Name") && within_ClassOfPrevalence){
-					currentDisease.setPrevalenceClass(tempVal);
-					
+				else if(qName.equalsIgnoreCase("Prevalence")){
+					currentDisease.addPreval(prevalence);
+				}
+				else if(qName.equalsIgnoreCase("PrevalenceType")){
+					within_PrevalenceType = false;
+				}
+				else if(qName.equalsIgnoreCase("PrevalenceGeographic")){
+					within_PrevalenceGeo = false;
+				}
+				else if (qName.equalsIgnoreCase("ValMoy")){
+					prevalence.setValMoy(tempVal);	
+				} 				
+				else if (qName.equalsIgnoreCase("Orphanumber") && within_ClassOfPrevalence){
+					prevalence.setPrevalClass(tempVal);					
+				} 				
+				else if (qName.equalsIgnoreCase("Orphanumber") && within_PrevalenceType){
+					prevalence.setType(tempVal);					
 				} 
-				else if (within_ClassOfPrevalence && qName.equalsIgnoreCase("OrphaNumber")){
-					currentDisease.setPrevNum(tempVal);
+				else if (qName.equalsIgnoreCase("Orphanumber") && within_PrevalenceGeo){
+					prevalence.setGeo(tempVal);
 				}
 				else if (qName.equalsIgnoreCase("AverageAgeOfOnset")){
 					within_AgeOfOnset = false;
