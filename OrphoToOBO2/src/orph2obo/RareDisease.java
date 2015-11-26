@@ -719,6 +719,7 @@ public void setInheritNum(String inheritNum) {
 			System.out.println("Genes: "+this.genelists.toString());
 			System.out.println("Smb: "+this.symbol.toString());
 			System.out.println("Type: "+this.geneTypeName.toString());
+			System.out.println("Type2: "+this.geneTypeName.toString());
 
 			for( int i =0; i<this.genelists.size(); i++){
 				//creating gene class and adding the symbol annotation and label annotation
