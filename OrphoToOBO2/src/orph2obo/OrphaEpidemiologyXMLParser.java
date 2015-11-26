@@ -37,7 +37,7 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 	 */
 
 	public void parseDocument(String XMLFilePath,HashMap<String,RareDisease> dis ) {
-		System.out.println("Parsing: " + XMLFilePath);
+		//System.out.println("Parsing: " + XMLFilePath);
 		this.diseases = dis;
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		try {
@@ -59,7 +59,7 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
     	
 		tempVal = "";
 		if(qName.equalsIgnoreCase("Disorder")) {
-			System.err.println("epidemio : "+uri+"; "+localName+"; "+qName); 
+			//System.err.println("epidemio : "+uri+"; "+localName+"; "+qName); 
 		    currentDisease = null; // reset.
 		} else if (qName.equalsIgnoreCase("ClassOfPrevalence")){
 			within_ClassOfPrevalence = true;
