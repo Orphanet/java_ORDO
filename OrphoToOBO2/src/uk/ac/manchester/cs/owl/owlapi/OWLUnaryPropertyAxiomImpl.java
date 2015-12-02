@@ -49,7 +49,7 @@ public abstract class OWLUnaryPropertyAxiomImpl<P extends OWLPropertyExpression>
         this.property = checkNotNull(property, "property cannot be null");
     }
 
-    @Override
+
     public P getProperty() {
         return property;
     }

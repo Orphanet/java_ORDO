@@ -77,12 +77,12 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         this(null, null, null);
     }
 
-    @Override
+
     public StringComparator getPrefixComparator() {
         return comparator;
     }
 
-    @Override
+
     public void setPrefixComparator(StringComparator comparator) {
         checkNotNull(comparator, "comparator cannot be null");
         this.comparator = comparator;
@@ -91,13 +91,13 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         prefix2NamespaceMap.putAll(p);
     }
 
-    @Override
+
     public void clear() {
         prefix2NamespaceMap.clear();
         reverseprefix2NamespaceMap.clear();
     }
 
-    @Override
+
     public Set<String> getPrefixNames() {
         return new HashSet<String>(prefix2NamespaceMap.keySet());
     }
@@ -116,7 +116,7 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         setPrefix(":", defaultPrefix);
     }
 
-    @Override
+
     public String getPrefixIRI(IRI iri) {
         String prefix = reverseprefix2NamespaceMap.get(iri.getNamespace());
         if (prefix == null) {
@@ -130,17 +130,17 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         return prefix2NamespaceMap.get(":");
     }
 
-    @Override
+
     public boolean containsPrefixMapping(String prefixName) {
         return prefix2NamespaceMap.get(prefixName) != null;
     }
 
-    @Override
+
     public void copyPrefixesFrom(PrefixManager from) {
         copyPrefixesFrom(from.getPrefixName2PrefixMap());
     }
 
-    @Override
+
     public void copyPrefixesFrom(Map<String, String> from) {
         for (Map.Entry<String, String> e : from.entrySet()) {
             setPrefix(e.getKey(), e.getValue());
@@ -204,7 +204,7 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         }
     }
 
-    @Override
+
     public String getShortForm(IRI iri) {
         String sf = getPrefixIRI(iri);
         if (sf == null) {
@@ -214,11 +214,11 @@ public class DefaultPrefixManager implements PrefixManager, ShortFormProvider, I
         }
     }
 
-    @Override
+
     public String getShortForm(OWLEntity entity) {
         return getShortForm(entity.getIRI());
     }
 
-    @Override
+
     public void dispose() {}
 }

@@ -18,7 +18,7 @@ import orph2obo.Prevalence;
  * Parse the file "http://www.orphadata.org/data/xml/en_product2.xml"
  * from the Orphadata website.
  * @author peter
- *
+ * @author Samuel Demarest maj Nov2015
  */
 public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 	private String tempVal;

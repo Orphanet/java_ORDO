@@ -50,7 +50,7 @@ public class OWLObjectIntersectionOfImpl extends
         super(operands);
     }
 
-    @Override
+
     public ClassExpressionType getClassExpressionType() {
         return ClassExpressionType.OBJECT_INTERSECTION_OF;
     }
@@ -66,22 +66,22 @@ public class OWLObjectIntersectionOfImpl extends
         return obj instanceof OWLObjectIntersectionOf;
     }
 
-    @Override
+
     public void accept(@Nonnull OWLClassExpressionVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLClassExpressionVisitorEx<O> visitor) {
         return visitor.visit(this);
     }

@@ -17,7 +17,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * i.e., diseases and their associated genes.
  * @author peter 
  * @author Celine Rousselot maj Nov2015
- *
+ * @author Samuel Demarest maj Nov2015
  */
 public class OrphaGenesXMLParser extends DefaultHandler {
 	private String tempVal;

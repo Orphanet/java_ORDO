@@ -66,7 +66,7 @@ public class OWLObjectPropertyRangeAxiomImpl
     }
 
     @Nonnull
-    @Override
+
     public OWLObjectPropertyRangeAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -75,39 +75,39 @@ public class OWLObjectPropertyRangeAxiomImpl
                 NO_ANNOTATIONS);
     }
 
-    @Override
+
     public OWLObjectPropertyRangeAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLObjectPropertyRangeAxiomImpl(getProperty(), getRange(),
                 mergeAnnos(annotations));
     }
 
-    @Override
+
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public AxiomType<?> getAxiomType() {
         return AxiomType.OBJECT_PROPERTY_RANGE;
     }
 
-    @Override
+
     public OWLSubClassOfAxiom asOWLSubClassOfAxiom() {
         OWLClassExpression sup = new OWLObjectAllValuesFromImpl(getProperty(),
                 getRange());

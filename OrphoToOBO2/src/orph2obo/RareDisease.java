@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -15,9 +16,12 @@ import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLDataHasValue;
+import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLObjectHasValue;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -30,6 +34,7 @@ import org.semanticweb.owlapi.model.PrefixManager;
 import org.semanticweb.owlapi.model.SetOntologyID;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
+import org.semanticweb.owlapi.model.OWLLiteral;
 
 import orph2obo.ExternalReference;
 import orph2obo.Prevalence;
@@ -665,21 +670,52 @@ public void setInheritNum(String inheritNum) {
 		
 		//point prevalence and its value
 		if (!this.prevalences.isEmpty()){
+			System.out.println("writing the prevelances");
+			Set<OWLDataHasValue> intersec = new HashSet<OWLDataHasValue> (); // set de prévalence
+			
 			for(int i=0;i<this.prevalences.size();i++){
-				System.out.println("writing the prevelance");
-				OWLObjectProperty has_Prevalence = owlvar.getFactory().getOWLObjectProperty("C019",owlvar.getPrefixmanager());
-				OWLAnnotation hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_prevalence"));
-				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasPrevLab)));
-				OWLClass prevValue = owlvar.getFactory().getOWLClass(this.prevalences.get(i).getType(),owlvar.getPrefixmanager());
-				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLDeclarationAxiom(prevValue)));//asserting prevalence class
+				
+				/* UPDATE  pour gérer les valeurs moyennes*/
+				
+				if (this.prevalences.get(i).getValMoy()!=null && !this.prevalences.get(i).getValMoy().equals("")){
+					
+					OWLObjectProperty has_Prevalence = owlvar.getFactory().getOWLObjectProperty("C028", owlvar.getPrefixmanager());
+					OWLAnnotation hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_prevalence"));
+					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasPrevLab)));
+					OWLDataProperty prevalType = owlvar.getFactory().getOWLDataProperty(this.prevalences.get(i).getType(), owlvar.getPrefixmanager());
+			
+					OWLLiteral prevValue;
+					prevValue = owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getValMoy());
+					OWLDataHasValue hasPrevVal = owlvar.getFactory().getOWLDataHasValue(prevalType, prevValue);
+					intersec.add(hasPrevVal);
+					
+				}else{
+					/* UPDATE Ne devrais pas être rencontré, ne fonctionne pas encore */
+					OWLObjectProperty has_Prevalence = owlvar.getFactory().getOWLObjectProperty("C028",owlvar.getPrefixmanager());
+					OWLAnnotation hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_prevalence"));
+					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasPrevLab)));
+					OWLClass prevValue;
+					System.err.println("writing the prevelance (class)");
+					prevValue = owlvar.getFactory().getOWLClass(this.prevalences.get(i).getPrevalClass(),owlvar.getPrefixmanager());
+					// UPDATE SD add the type of prevalence
+					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLDeclarationAxiom(prevValue)));//asserting prevalence class
+					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(prevValue, owlvar.getFactory().getOWLClass(this.prevalences.get(i).getType(), owlvar.getPrefixmanager()))));
+					OWLAnnotation prevalenceLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getValMoy()));//label for the value of prevalence
+					OWLClassExpression hasPrevalenceClass = owlvar.getFactory().getOWLObjectSomeValuesFrom(has_Prevalence, prevValue); // a transformer en hasvalue
+					OWLSubClassOfAxiom ax = owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder,hasPrevalenceClass);
+					
+					//axs.add(ax);
+					//owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ax));
+					//owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevValue.getIRI(), prevalenceLab)));
+				}
+				
 				//set the subclass relationship
-				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(prevValue, owlvar.getFactory().getOWLClass("C012", owlvar.getPrefixmanager()))));
-				OWLAnnotation prevalenceLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getValMoy()));//label for the value of prevalence
-				OWLClassExpression hasPrevalenceClass = owlvar.getFactory().getOWLObjectSomeValuesFrom(has_Prevalence, prevValue);
-				OWLSubClassOfAxiom ax = owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder,hasPrevalenceClass);
-				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ax));
-				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevValue.getIRI(), prevalenceLab)));
 			}
+			/* UPDATE changement de la structure pour faire une intersection de toutes les prévalences (à combiner avec géo?) */
+			OWLClassExpression diseaseHasPrevVal = owlvar.getFactory().getOWLObjectIntersectionOf((Set<OWLDataHasValue>) intersec);
+			OWLSubClassOfAxiom ax = owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder,diseaseHasPrevVal);
+			
+			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ax));
 		}
 		
 		

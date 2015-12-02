@@ -51,32 +51,32 @@ public abstract class OWLNaryBooleanClassExpressionImpl extends
         this.operands = CollectionFactory.sortOptionally((Set<OWLClassExpression>) operands);
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         for (OWLClassExpression operand : operands) {
             addSignatureEntitiesToSetForValue(entities, operand);
         }
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {
         for (OWLClassExpression operand : operands) {
             addAnonymousIndividualsToSetForValue(anons, operand);
         }
     }
 
-    @Override
+
     public List<OWLClassExpression> getOperandsAsList() {
         return new ArrayList<OWLClassExpression>(operands);
     }
 
-    @Override
+
     public Set<OWLClassExpression> getOperands() {
         return CollectionFactory
             .getCopyOnRequestSetFromImmutableCollection(operands);
     }
 
-    @Override
+
     public boolean isClassExpressionLiteral() {
         return false;
     }

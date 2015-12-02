@@ -37,12 +37,12 @@ public abstract class OWLValueRestrictionImpl<V extends OWLObject> extends
         this.value = checkNotNull(value, "value cannot be null");
     }
 
-    @Override
+
     public V getFiller() {
         return value;
     }
 
-    @Override
+
     public V getValue() {
         return getFiller();
     }

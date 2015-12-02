@@ -48,13 +48,13 @@ public abstract class OWLQuantifiedDataRestrictionImpl extends
         this.property = checkNotNull(property, "property cannot be null");
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         addSignatureEntitiesToSetForValue(entities, getFiller());
         addSignatureEntitiesToSetForValue(entities, property);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {
         addAnonymousIndividualsToSetForValue(anons, getFiller());
         addAnonymousIndividualsToSetForValue(anons, property);
@@ -64,7 +64,7 @@ public abstract class OWLQuantifiedDataRestrictionImpl extends
         }
     }
 
-    @Override
+
     public OWLDataPropertyExpression getProperty() {
         return property;
     }

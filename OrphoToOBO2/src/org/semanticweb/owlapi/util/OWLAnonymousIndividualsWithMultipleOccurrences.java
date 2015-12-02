@@ -83,21 +83,21 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLDataPropertyDomainAxiom axiom) {
         axiom.getDomain().accept(this);
         axiom.getProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLObjectPropertyDomainAxiom axiom) {
         axiom.getDomain().accept(this);
         axiom.getProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLEquivalentObjectPropertiesAxiom axiom) {
         for (OWLObjectPropertyExpression prop : axiom.getProperties()) {
             prop.accept(this);
@@ -105,14 +105,14 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLNegativeDataPropertyAssertionAxiom axiom) {
         axiom.getProperty().accept(this);
         axiom.getObject().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLDifferentIndividualsAxiom axiom) {
         for (OWLIndividual ind : axiom.getIndividuals()) {
             ind.accept(this);
@@ -120,7 +120,7 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLDisjointDataPropertiesAxiom axiom) {
         for (OWLDataPropertyExpression prop : axiom.getProperties()) {
             prop.accept(this);
@@ -128,7 +128,7 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLDisjointObjectPropertiesAxiom axiom) {
         for (OWLObjectPropertyExpression prop : axiom.getProperties()) {
             prop.accept(this);
@@ -136,34 +136,34 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLObjectPropertyRangeAxiom axiom) {
         axiom.getRange().accept(this);
         axiom.getProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLObjectPropertyAssertionAxiom axiom) {
         axiom.getProperty().accept(this);
         axiom.getObject().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLFunctionalObjectPropertyAxiom axiom) {
         axiom.getProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLSubObjectPropertyOfAxiom axiom) {
         axiom.getSubProperty().accept(this);
         axiom.getSuperProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLDisjointUnionAxiom axiom) {
         axiom.getOWLClass().accept((OWLEntityVisitor) this);
         for (OWLClassExpression desc : axiom.getClassExpressions()) {
@@ -178,26 +178,26 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLSymmetricObjectPropertyAxiom axiom) {
         axiom.getProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLDataPropertyRangeAxiom axiom) {
         axiom.getProperty().accept(this);
         axiom.getRange().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLFunctionalDataPropertyAxiom axiom) {
         axiom.getProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLEquivalentDataPropertiesAxiom axiom) {
         for (OWLDataPropertyExpression prop : axiom.getProperties()) {
             prop.accept(this);
@@ -205,13 +205,13 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLClassAssertionAxiom axiom) {
         axiom.getClassExpression().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLEquivalentClassesAxiom axiom) {
         for (OWLClassExpression desc : axiom.getClassExpressions()) {
             desc.accept(this);
@@ -219,33 +219,33 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLDataPropertyAssertionAxiom axiom) {
         axiom.getProperty().accept(this);
         axiom.getObject().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLTransitiveObjectPropertyAxiom axiom) {
         axiom.getProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLIrreflexiveObjectPropertyAxiom axiom) {
         axiom.getProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLSubDataPropertyOfAxiom axiom) {
         axiom.getSubProperty().accept(this);
         axiom.getSuperProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLInverseFunctionalObjectPropertyAxiom axiom) {
         axiom.getProperty().accept(this);
         processAxiomAnnotations(axiom);
@@ -309,42 +309,42 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         desc.getFiller().accept(this);
     }
 
-    @Override
+
     public void visit(OWLObjectAllValuesFrom desc) {
         desc.getProperty().accept(this);
         desc.getFiller().accept(this);
     }
 
-    @Override
+
     public void visit(OWLObjectHasValue desc) {
         desc.getProperty().accept(this);
         desc.getFiller().accept(this);
     }
 
-    @Override
+
     public void visit(OWLObjectMinCardinality desc) {
         desc.getProperty().accept(this);
         desc.getFiller().accept(this);
     }
 
-    @Override
+
     public void visit(OWLObjectExactCardinality desc) {
         desc.getProperty().accept(this);
         desc.getFiller().accept(this);
     }
 
-    @Override
+
     public void visit(OWLObjectMaxCardinality desc) {
         desc.getProperty().accept(this);
         desc.getFiller().accept(this);
     }
 
-    @Override
+
     public void visit(OWLObjectHasSelf desc) {
         desc.getProperty().accept(this);
     }
 
-    @Override
+
     public void visit(OWLObjectOneOf desc) {
         for (OWLIndividual ind : desc.getIndividuals()) {
             ind.accept(this);
@@ -506,20 +506,20 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLAnnotationPropertyRangeAxiom axiom) {
         axiom.getProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLSubAnnotationPropertyOfAxiom axiom) {
         axiom.getSubProperty().accept(this);
         axiom.getSuperProperty().accept(this);
         processAxiomAnnotations(axiom);
     }
 
-    @Override
+
     public void visit(OWLDatatypeDefinitionAxiom axiom) {
         axiom.getDatatype().accept(this);
         axiom.getDataRange().accept(this);
@@ -531,7 +531,7 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
     // SWRL Object Visitor
     //
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @Override
+
     public void visit(SWRLRule rule) {
         for (SWRLAtom atom : rule.getBody()) {
             atom.accept(this);
@@ -542,58 +542,58 @@ public class OWLAnonymousIndividualsWithMultipleOccurrences implements OWLObject
         processAxiomAnnotations(rule);
     }
 
-    @Override
+
     public void visit(SWRLClassAtom node) {
         node.getArgument().accept(this);
         node.getPredicate().accept(this);
     }
 
-    @Override
+
     public void visit(SWRLDataRangeAtom node) {
         node.getArgument().accept(this);
         node.getPredicate().accept(this);
     }
 
-    @Override
+
     public void visit(SWRLObjectPropertyAtom node) {
         node.getPredicate().accept(this);
         node.getFirstArgument().accept(this);
         node.getSecondArgument().accept(this);
     }
 
-    @Override
+
     public void visit(SWRLDataPropertyAtom node) {
         node.getPredicate().accept(this);
         node.getFirstArgument().accept(this);
         node.getSecondArgument().accept(this);
     }
 
-    @Override
+
     public void visit(SWRLBuiltInAtom node) {
         for (SWRLArgument obj : node.getAllArguments()) {
             obj.accept(this);
         }
     }
 
-    @Override
+
     public void visit(SWRLVariable node) {}
 
-    @Override
+
     public void visit(SWRLIndividualArgument node) {
         node.getIndividual().accept(this);
     }
 
-    @Override
+
     public void visit(SWRLLiteralArgument node) {
         node.getLiteral().accept(this);
     }
 
-    @Override
+
     public void visit(SWRLDifferentIndividualsAtom node) {
         node.getFirstArgument().accept(this);
     }
 
-    @Override
+
     public void visit(SWRLSameIndividualAtom node) {
         node.getSecondArgument().accept(this);
     }
