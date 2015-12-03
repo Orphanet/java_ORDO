@@ -30,6 +30,7 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 	private boolean within_AgeOfOnset = false;
 	private boolean within_AgeOfDeath = false;
 	private boolean within_Inheritance = false;
+	private boolean within_Qualification = false; //UPDATE SD flag de PrevalenceQualification pour cas/famille
 	private Prevalence prevalence;
 	
 	/**
@@ -80,6 +81,8 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 			within_PrevalenceType = true;
 		} else if (qName.equalsIgnoreCase("PrevalenceGeographic")){
 			within_PrevalenceGeo = true;
+		} else if (qName.equalsIgnoreCase("PrevalenceQualification")){ //UPDATE SD flag de PrevalenceQualification pour cas/famille
+			within_Qualification = true;
 		} 
 		    
 	}
@@ -112,6 +115,8 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 				}
 				else if(qName.equalsIgnoreCase("PrevalenceGeographic")){
 					within_PrevalenceGeo = false;
+				}else if(qName.equalsIgnoreCase("PrevalenceQualification")){
+					within_Qualification = false;
 				}
 				else if (qName.equalsIgnoreCase("ValMoy")){
 					prevalence.setValMoy(tempVal);	
@@ -124,6 +129,9 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 				} 
 				else if (qName.equalsIgnoreCase("Orphanumber") && within_PrevalenceGeo){
 					prevalence.setGeo(tempVal);
+				}else if (qName.equalsIgnoreCase("Orphanumber") && within_Qualification && prevalence.getType().equals("409970")){
+					//UPDATE SD si type = "Cas/familles", garder le typage "Cas" ou "Familles" à la place 
+					prevalence.setType(tempVal);
 				}
 				else if (qName.equalsIgnoreCase("AverageAgeOfOnset")){
 					within_AgeOfOnset = false;
