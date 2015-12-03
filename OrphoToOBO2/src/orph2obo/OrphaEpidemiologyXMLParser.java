@@ -139,6 +139,12 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 				else if (within_AgeOfOnset && qName.equalsIgnoreCase("OrphaNumber")){
 					currentDisease.setOnsetNum(tempVal);
 				}
+				else if (qName.equalsIgnoreCase("Name") && within_PrevalenceGeo){
+					prevalence.setGeoLab(tempVal);
+				}
+				else if (qName.equalsIgnoreCase("Name") && within_PrevalenceType){
+					prevalence.setTypeLab(tempVal);
+				}
 				else if (qName.equalsIgnoreCase("Name") && within_AgeOfOnset){
 					currentDisease.setAgeOfOnset(tempVal);
 				}
