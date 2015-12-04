@@ -72,6 +72,8 @@ public class RareDisease {
     /**Count of synonyms for genes*/
     //this is necessary to get the division for the number of synonyms of a gene
     private ArrayList<String> genSynCount;
+    //this is necessary to get the division for the number of synonyms of a gene
+    private ArrayList<String> genLocusCount;
     /**list of gene symbol*/
     private ArrayList<String> symbol;
     /**Mode of Inheritance*/
@@ -112,6 +114,12 @@ public class RareDisease {
      private String prevNum = null;
      /** set the synonyms for the genes */
      private ArrayList<String> geneSyn;
+     /** set the locus for the genes */
+     private ArrayList<String> geneLocus;
+     /**list of geneType orphanumbers**/
+     private ArrayList<String> geneTypNum;
+     /**list of geneTyp name**/
+     private ArrayList<String> geneTyp;
      
      static private OWLVariables owlvar = null;
      static private Set<String> rareOrpho = new HashSet<String> ();
@@ -235,11 +243,14 @@ public void setInheritNum(String inheritNum) {
 	this.prevNum = prevNum;
 	
 }
+	
+	//====================== GESTION GENE =================================//
 	public void setgeneTypeName(String geneTypeName) {
 		//System.out.println("the gene typing recieved is :" + geneTypeName);
 		this.geneTypeName.add(geneTypeName);
 	}
 	
+	//============ Gestion des synonymes ==========//
 	public void setGeneSyn(String geneSyn) {
 		this.geneSyn.add(geneSyn);
 		
@@ -247,11 +258,35 @@ public void setInheritNum(String inheritNum) {
 	public void setGeneSynCount(String genSynCount) {
 		this.genSynCount.add(genSynCount);
 	}
+	//==============================================
 	
+	//============= Gestion des locus =============/
+	public void setGeneLocus(String geneLocus) {
+		this.geneLocus.add(geneLocus);
+		
+	}
+	public void setGeneLocusCount(String genLocusCount) {
+		this.genLocusCount.add(genLocusCount);
+	}
+	//================================================
+	
+	//============= Gestion des types  =============//
+	public void setGeneTyp(String geneTyp) {
+		this.geneTyp.add(geneTyp);
+		
+	}
+	public void setGeneTypNum(String geneTypNum) {
+		this.geneTypNum.add(geneTypNum);
+	}
+	//================================================
+	
+	//============= Gestion des associations gene/Disorder  =============//
 	public void setGeneTypeStatus(String geneTypeStatus) {
 		
 		this.geneTypeStatus = geneTypeStatus;
 	}
+	//====================================================================//
+
 	public void setTypeValidity(String disTypeValid) {
 		
 		this.disTypeValidity = disTypeValid;
@@ -281,6 +316,10 @@ public void setInheritNum(String inheritNum) {
 	this.geneSyn = new ArrayList<String>();
 	this.genSynCount = new ArrayList<String> ();
 	this.prevalences = new ArrayList<Prevalence> ();
+	this.geneLocus = new ArrayList<String>();
+	this.genLocusCount = new ArrayList<String> ();
+	this.geneTyp = new ArrayList<String>();//type de gene
+	this.geneTypNum = new ArrayList<String> ();//orphanNum du type de gene
 	//System.out.println(this.synonym.toString());
     }
     
@@ -823,6 +862,7 @@ public void setInheritNum(String inheritNum) {
 		//gene class and its annotations
 		int start = 0;
 		int start1 = 0;
+		int start2 = 0;//ajout pour la gestion des locus
 		
 		if(! this.genelists.isEmpty()){
 			//System.out.println("Genes: "+this.genelists.toString());
@@ -891,6 +931,24 @@ public void setInheritNum(String inheritNum) {
 					}
 				
 					start1 = (counter + start1);
+					
+					//adding locus for the gene
+					int counterLocus = Integer.parseInt(this.genLocusCount.get(i));
+					if(!this.geneLocus.isEmpty()){
+						for( int k = start2; k<(counterLocus +start2); k++){
+							PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");//QUOI METTRE comme Prefix?
+							OWLAnnotation alternativeTerm = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
+									.getOWLAnnotationProperty(
+											"alternative_term",
+											pm2), owlvar.getFactory().getOWLLiteral(this.geneLocus.get(k)));
+							OWLAxiom locus = owlvar.getFactory().getOWLAnnotationAssertionAxiom(gene.getIRI(), alternativeTerm);
+							owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),locus));
+							//sb.append("; locus :" + geneLocus.get(k));
+						}
+						
+					}
+				
+					start2 = (counterLocus + start2);
 			}
 		}
 		
