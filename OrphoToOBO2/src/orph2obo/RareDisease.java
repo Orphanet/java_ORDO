@@ -72,7 +72,7 @@ public class RareDisease {
     /**Count of synonyms for genes*/
     //this is necessary to get the division for the number of synonyms of a gene
     private ArrayList<String> genSynCount;
-    //this is necessary to get the division for the number of synonyms of a gene
+    //this is necessary to get the division for the number of locus of a gene
     private ArrayList<String> genLocusCount;
     /**list of gene symbol*/
     private ArrayList<String> symbol;
