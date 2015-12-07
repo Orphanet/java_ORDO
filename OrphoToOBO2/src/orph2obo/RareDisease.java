@@ -453,20 +453,42 @@ public void setInheritNum(String inheritNum) {
        	OWLAnnotation genelabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("gene"));
        	OWLClass inheritance = factory.getOWLClass("C005", pm);
        	OWLAnnotation inheritancelabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("inheritance"));
-    	OWLClass autoRecess = factory.getOWLClass("108933", pm);
-    	OWLAnnotation autoRLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal recessive"));
-    	OWLClass autoDom = factory.getOWLClass("108932", pm);
-    	OWLAnnotation autoDomLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal dominant"));
+    	//OWLClass autoRecess = factory.getOWLClass("108933", pm);
+    	//OWLAnnotation autoRLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal recessive"));
+    	//OWLClass autoDom = factory.getOWLClass("108932", pm);
+    	//OWLAnnotation autoDomLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal dominant"));
     	OWLClass mitoInher = factory.getOWLClass("108936", pm);
     	OWLAnnotation mitoInherLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("mitochondrial inheritance"));
-    	OWLClass multigen = factory.getOWLClass("108937", pm);
-    	OWLAnnotation multigenLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("multigenic / multifactorial"));
-    	OWLClass xRecess = factory.getOWLClass("108934", pm);
-    	OWLAnnotation xRecessLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x linked recessive"));
-    	OWLClass xDom = factory.getOWLClass("108935", pm);
-    	OWLAnnotation xDomLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x linked dominant"));
+    	//OWLClass multigen = factory.getOWLClass("108937", pm);
+    	//OWLAnnotation multigenLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("multigenic / multifactorial"));
+    	//OWLClass xRecess = factory.getOWLClass("108934", pm);
+    	//OWLAnnotation xRecessLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x linked recessive"));
+    	//OWLClass xDom = factory.getOWLClass("108935", pm);
+    	//OWLAnnotation xDomLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x linked dominant"));
     	OWLClass sporadic = factory.getOWLClass("108938", pm);
     	OWLAnnotation sporadicLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("sporadic"));
+    	
+    	OWLClass autoDominant = factory.getOWLClass("409929", pm);
+    	OWLAnnotation autoDominantLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal dominant"));
+    	OWLClass autoRecessive = factory.getOWLClass("409930", pm);
+    	OWLAnnotation autoRecessiveLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal recessive"));
+    	OWLClass multiGene = factory.getOWLClass("409931", pm);
+    	OWLAnnotation multiGeneLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("multigenic/multifactorial"));
+    	OWLClass xlinkedRecessive = factory.getOWLClass("409932", pm);
+    	OWLAnnotation xlinkedRecessiveLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x-linked recessive"));
+    	OWLClass xlinkedDominant = factory.getOWLClass("409934", pm);
+    	OWLAnnotation xlinkedDominantLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x-linked dominant"));
+    	OWLClass oligenic = factory.getOWLClass("409936", pm);
+    	OWLAnnotation oligenicLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("oligenic"));
+    	OWLClass yLinked = factory.getOWLClass("409938", pm);
+    	OWLAnnotation yLinkedLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("y-linked"));
+    	OWLClass unknown = factory.getOWLClass("409939", pm);
+    	OWLAnnotation unknownLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("unknown"));
+    	OWLClass nodata = factory.getOWLClass("409940", pm);
+    	OWLAnnotation noDataLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("no data avaible"));
+    	OWLClass notApplicable = factory.getOWLClass("409941", pm);
+    	OWLAnnotation notApplicableLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("not applicable"));
+    	
     	OWLClass ageofOnsetClass = factory.getOWLClass("C023", pm);
     	OWLAnnotation ageOfOnLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("age of onset"));
     	// UPDATE SD ajout de geography, epidemio, prevalence, cas/familles, cas et famille
@@ -495,13 +517,25 @@ public void setInheritNum(String inheritNum) {
     	OWLDeclarationAxiom declarationAxiom0 = factory.getOWLDeclarationAxiom(bioAna);
     	OWLDeclarationAxiom declarationGene = factory.getOWLDeclarationAxiom(gene);
     	OWLDeclarationAxiom inheritance0 = factory.getOWLDeclarationAxiom(inheritance);
-    	OWLDeclarationAxiom inheritance1 = factory.getOWLDeclarationAxiom(autoRecess);
-    	OWLDeclarationAxiom inheritance2 = factory.getOWLDeclarationAxiom(autoDom);
+    	//OWLDeclarationAxiom inheritance1 = factory.getOWLDeclarationAxiom(autoRecess);
+    	//OWLDeclarationAxiom inheritance2 = factory.getOWLDeclarationAxiom(autoDom);
     	OWLDeclarationAxiom inheritance3 = factory.getOWLDeclarationAxiom(mitoInher);
-    	OWLDeclarationAxiom inheritance4 = factory.getOWLDeclarationAxiom(multigen);
-    	OWLDeclarationAxiom inheritance5 = factory.getOWLDeclarationAxiom(xRecess);
-    	OWLDeclarationAxiom inheritance6 = factory.getOWLDeclarationAxiom(xDom);
+    	//OWLDeclarationAxiom inheritance4 = factory.getOWLDeclarationAxiom(multigen);
+    	//OWLDeclarationAxiom inheritance5 = factory.getOWLDeclarationAxiom(xRecess);
+    	//OWLDeclarationAxiom inheritance6 = factory.getOWLDeclarationAxiom(xDom);
     	OWLDeclarationAxiom inheritance7 = factory.getOWLDeclarationAxiom(sporadic);
+    	
+    	OWLDeclarationAxiom inheritance8 = factory.getOWLDeclarationAxiom(autoDominant);
+    	OWLDeclarationAxiom inheritance9 = factory.getOWLDeclarationAxiom(autoRecessive);
+    	OWLDeclarationAxiom inheritance10 = factory.getOWLDeclarationAxiom(multiGene);
+    	OWLDeclarationAxiom inheritance11 = factory.getOWLDeclarationAxiom(xlinkedRecessive);
+    	OWLDeclarationAxiom inheritance12 = factory.getOWLDeclarationAxiom(xlinkedDominant);
+    	OWLDeclarationAxiom inheritance13 = factory.getOWLDeclarationAxiom(oligenic);
+    	OWLDeclarationAxiom inheritance14 = factory.getOWLDeclarationAxiom(yLinked);
+    	OWLDeclarationAxiom inheritance15 = factory.getOWLDeclarationAxiom(unknown);
+    	OWLDeclarationAxiom inheritance16 = factory.getOWLDeclarationAxiom(nodata);
+    	OWLDeclarationAxiom inheritance17 = factory.getOWLDeclarationAxiom(notApplicable);
+    	
     	OWLDeclarationAxiom ageofOn = factory.getOWLDeclarationAxiom(ageofOnsetClass);
     	OWLDeclarationAxiom prev = factory.getOWLDeclarationAxiom(prevClass);
     	OWLDeclarationAxiom geography = factory.getOWLDeclarationAxiom(geographyClass);
@@ -533,13 +567,25 @@ public void setInheritNum(String inheritNum) {
        	manager.applyChange(new AddAxiom(ontology, declarationAxiom0));
        	manager.applyChange(new AddAxiom(ontology, declarationGene));
        	manager.applyChange(new AddAxiom(ontology, inheritance0));
-       	manager.applyChange(new AddAxiom(ontology, inheritance1));
-       	manager.applyChange(new AddAxiom(ontology, inheritance2));
+       	//manager.applyChange(new AddAxiom(ontology, inheritance1));
+       	//manager.applyChange(new AddAxiom(ontology, inheritance2));
        	manager.applyChange(new AddAxiom(ontology, inheritance3));
-       	manager.applyChange(new AddAxiom(ontology, inheritance4));
-       	manager.applyChange(new AddAxiom(ontology, inheritance5));
-       	manager.applyChange(new AddAxiom(ontology, inheritance6));
+       	//manager.applyChange(new AddAxiom(ontology, inheritance4));
+       	//manager.applyChange(new AddAxiom(ontology, inheritance5));
+       	//manager.applyChange(new AddAxiom(ontology, inheritance6));
        	manager.applyChange(new AddAxiom(ontology, inheritance7));
+
+       	manager.applyChange(new AddAxiom(ontology, inheritance8));
+       	manager.applyChange(new AddAxiom(ontology, inheritance9));
+       	manager.applyChange(new AddAxiom(ontology, inheritance10));
+       	manager.applyChange(new AddAxiom(ontology, inheritance11));
+       	manager.applyChange(new AddAxiom(ontology, inheritance12));
+       	manager.applyChange(new AddAxiom(ontology, inheritance13));
+       	manager.applyChange(new AddAxiom(ontology, inheritance14));
+       	manager.applyChange(new AddAxiom(ontology, inheritance15));
+       	manager.applyChange(new AddAxiom(ontology, inheritance16));
+       	manager.applyChange(new AddAxiom(ontology, inheritance17));
+       	
        	manager.applyChange(new AddAxiom(ontology, lab));
        	manager.applyChange(new AddAxiom(ontology, lab1));
        	manager.applyChange(new AddAxiom(ontology, lab2));
@@ -557,13 +603,25 @@ public void setInheritNum(String inheritNum) {
     	manager.applyChange(new AddAxiom(ontology, epidemiology));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(phenome.getIRI(), phenomelabel)));
        	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(inheritance.getIRI(), inheritancelabel)));
-       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(autoRecess.getIRI(), autoRLab)));
-       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(autoDom.getIRI(), autoDomLab)));
+       	//manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(autoRecess.getIRI(), autoRLab)));
+       	//manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(autoDom.getIRI(), autoDomLab)));
        	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(mitoInher.getIRI(), mitoInherLab)));
-       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(multigen.getIRI(), multigenLab)));
-       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(xRecess.getIRI(), xRecessLab)));
-       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(xDom.getIRI(), xDomLab)));
+       	//manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(multigen.getIRI(), multigenLab)));
+       	//manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(xRecess.getIRI(), xRecessLab)));
+       	//manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(xDom.getIRI(), xDomLab)));
        	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(sporadic.getIRI(), sporadicLab)));
+
+       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(autoDominant.getIRI(), autoDominantLab)));
+       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(autoRecessive.getIRI(), autoRecessiveLab)));
+       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(multiGene.getIRI(), multiGeneLab)));
+       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(xlinkedRecessive.getIRI(), xlinkedRecessiveLab)));
+       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(xlinkedDominant.getIRI(), xlinkedDominantLab)));
+       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(oligenic.getIRI(), oligenicLab)));
+       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(yLinked.getIRI(), yLinkedLab)));
+       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(unknown.getIRI(), unknownLab)));
+       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(nodata.getIRI(), noDataLab)));
+       	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(notApplicable.getIRI(), notApplicableLab)));
+       	
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(ageofOnsetClass.getIRI(), ageOfOnLab)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(prevClass.getIRI(), prevLab)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(geographyClass.getIRI(), geographyLab)));
@@ -571,13 +629,25 @@ public void setInheritNum(String inheritNum) {
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(casFamClass.getIRI(), casFamLab)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(casClass.getIRI(), casLab)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(famClass.getIRI(), famLab)));
-    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(autoRecess, inheritance)));
-    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(autoDom, inheritance)));
+    	//manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(autoRecess, inheritance)));
+    	//manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(autoDom, inheritance)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(mitoInher, inheritance)));
-    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(multigen, inheritance)));
-    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(xRecess, inheritance)));
-    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(xDom, inheritance)));
+    	//manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(multigen, inheritance)));
+    	//manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(xRecess, inheritance)));
+    	//manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(xDom, inheritance)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(sporadic, inheritance)));
+    	
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(autoDominant, inheritance)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(autoRecessive, inheritance)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(multiGene, inheritance)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(xlinkedRecessive, inheritance)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(xlinkedDominant, inheritance)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(oligenic, inheritance)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(yLinked, inheritance)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(unknown, inheritance)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(nodata, inheritance)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(notApplicable, inheritance)));
+    	
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(groupPhenome, phenome)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(disease, phenome)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(clinicalSub, phenome)));
@@ -714,14 +784,14 @@ public void setInheritNum(String inheritNum) {
 						OWLClass superClass = owlvar.getFactory().getOWLClass(this.isa_list.get(i), owlvar.getPrefixmanager());
 						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder, superClass)));
 					}else{
-					PrefixManager pm2 = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
-					OWLObjectProperty partOf = owlvar.getFactory().getOWLObjectProperty("BFO_0000050", pm2);
-					OWLAnnotation partOfLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("part_of"));
-					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(partOf.getIRI(), partOfLab)));
-					OWLClass superClass = owlvar.getFactory().getOWLClass(this.isa_list.get(i), owlvar.getPrefixmanager());
-					OWLClassExpression partOfSuperClass = owlvar.getFactory().getOWLObjectSomeValuesFrom(partOf, superClass);
-					OWLSubClassOfAxiom ax = owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder, partOfSuperClass);
-					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ax));
+						PrefixManager pm2 = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
+						OWLObjectProperty partOf = owlvar.getFactory().getOWLObjectProperty("BFO_0000050", pm2);
+						OWLAnnotation partOfLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("part_of"));
+						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(partOf.getIRI(), partOfLab)));
+						OWLClass superClass = owlvar.getFactory().getOWLClass(this.isa_list.get(i), owlvar.getPrefixmanager());
+						OWLClassExpression partOfSuperClass = owlvar.getFactory().getOWLObjectSomeValuesFrom(partOf, superClass);
+						OWLSubClassOfAxiom ax = owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder, partOfSuperClass);
+						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ax));
 					}
 				}
 			}			
@@ -1055,7 +1125,7 @@ public void setInheritNum(String inheritNum) {
 					int counterLocus = Integer.parseInt(this.genLocusCount.get(i));
 					if(!this.geneLocus.isEmpty()){
 						for( int k = start2; k<(counterLocus +start2); k++){
-							PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");//QUOI METTRE comme Prefix?
+							//PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");//QUOI METTRE comme Prefix?
 							OWLAnnotation alternativeTerm = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 									.getOWLAnnotationProperty(
 											"alternative_term",
