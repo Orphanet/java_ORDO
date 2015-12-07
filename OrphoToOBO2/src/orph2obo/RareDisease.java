@@ -1055,7 +1055,7 @@ public void setInheritNum(String inheritNum) {
 					int counterLocus = Integer.parseInt(this.genLocusCount.get(i));
 					if(!this.geneLocus.isEmpty()){
 						for( int k = start2; k<(counterLocus +start2); k++){
-							PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");//QUOI METTRE comme Prefix?
+							//PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");//QUOI METTRE comme Prefix?
 							OWLAnnotation alternativeTerm = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 									.getOWLAnnotationProperty(
 											"alternative_term",
