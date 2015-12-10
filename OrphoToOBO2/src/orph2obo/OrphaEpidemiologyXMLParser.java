@@ -65,7 +65,7 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
     	
 		tempVal = "";
 		if(qName.equalsIgnoreCase("Disorder")) {
-			System.err.println("epidemio : "+uri+"; "+localName+"; "+qName); 
+			//System.err.println("epidemio : "+uri+"; "+localName+"; "+qName); 
 		    currentDisease = null; // reset.
 		} else if (qName.equalsIgnoreCase("Prevalence")){
 		    prevalence=new Prevalence();
@@ -101,7 +101,7 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 			if (qName.equalsIgnoreCase("OrphaNumber") && currentDisease==null && !(within_ClassOfPrevalence) && !(within_AgeOfOnset) && !(within_AgeOfDeath) && !(within_Inheritance)) {
 				//again make sure that the orphanumber does not contain F cause that means that its not a disease Orphanumber
 				/**if (!tempVal.contains("F")){*/
-				System.err.println("Epidemio : Passer ici valeur de tempVal: " + tempVal);
+				//System.err.println("Epidemio : Passer ici valeur de tempVal: " + tempVal);
 				setOrphanum(tempVal);
 				}
 				else if(qName.equalsIgnoreCase("PrevalenceClass")){
@@ -170,18 +170,18 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 		}
 
     private void setOrphanum(String orphID) {
-    	System.out.println("CurrentDiseaseBefore=" + orphID);
+    	//System.out.println("CurrentDiseaseBefore=" + orphID);
 		currentDisease = this.diseases.get(orphID);
-		System.out.println("CurrentDisease=" + currentDisease);
+		//System.out.println("CurrentDisease=" + currentDisease);
 		if (currentDisease == null) {
-			System.err.println("You are here");
+			//System.err.println("You are here");
 		    Iterator<String> it = this.diseases.keySet().iterator();
 		    while (it.hasNext()) {
 			String s = it.next();
 			RareDisease dxr = this.diseases.get(s);
 			//System.out.println(s + ":" + dxr.getName());
 		    }
-		    System.err.println("Parsing Epidemiology File: Could not fetch OrphaID: " + orphID);
+		    //System.err.println("Parsing Epidemiology File: Could not fetch OrphaID: " + orphID);
 		    System.exit(1);
 		}
 	
