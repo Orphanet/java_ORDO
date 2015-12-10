@@ -48,7 +48,7 @@ public class OrphadataClassificationXMLParser extends DefaultHandler {
  * @param disXRefs
  */
     public void parseDocument(String XMLFilePath,HashMap<String,RareDisease> disXRefs) {
-	System.out.println("Parsing: " + XMLFilePath);
+	//System.out.println("Parsing: " + XMLFilePath);
 	if (XMLFilePath.contains("en_product3_156.xml")){
 		rareGenetic = true;
 	}

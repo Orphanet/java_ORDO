@@ -69,10 +69,10 @@ public class OrphadataDownloader {
 		String fullpath = directory_path + fname;
 		File file = new File(fullpath);
 		if (file.exists()) {
-			System.out.println("XML file " + fullpath + " already exists.");
+			//System.out.println("XML file " + fullpath + " already exists.");
 			return fullpath;
 		} else {
-			System.out.println("XML file " + fullpath + " will be downloaded.");
+			//System.out.println("XML file " + fullpath + " will be downloaded.");
 		}
 		download_file(uri,fullpath);
 		return fullpath;
@@ -89,10 +89,10 @@ public class OrphadataDownloader {
 		String fullpath = directory_path + fname;
 		File file = new File(fullpath);
 		if (file.exists()) {
-			System.out.println("XML file " + fullpath + " already exists.");
+			//System.out.println("XML file " + fullpath + " already exists.");
 			return fullpath;
 		} else {
-			System.out.println("XML file " + fullpath + " will be downloaded.");
+			//System.out.println("XML file " + fullpath + " will be downloaded.");
 		}
 		download_file(uri,fullpath);
 		return fullpath;
@@ -108,10 +108,10 @@ public class OrphadataDownloader {
 		String fullpath = directory_path + fname;
 		File file = new File(fullpath);
 		if (file.exists()) {
-			System.out.println("XML file " + fullpath + " already exists.");
+			//System.out.println("XML file " + fullpath + " already exists.");
 			return fullpath;
 		} else {
-			System.out.println("XML file " + fullpath + " will be downloaded.");
+			//System.out.println("XML file " + fullpath + " will be downloaded.");
 		}
 		download_file(uri,fullpath);
 		return fullpath;
@@ -129,10 +129,10 @@ public class OrphadataDownloader {
 		String fullpath = directory_path + fname;
 		File file = new File(fullpath);
 		if (file.exists()) {
-			System.out.println("XML file " + fullpath + " already exists.");
+			//System.out.println("XML file " + fullpath + " already exists.");
 			return fullpath;
 		} else {
-			System.out.println("XML file " + fullpath + " will be downloaded.");
+			//System.out.println("XML file " + fullpath + " will be downloaded.");
 		}
 		download_file(url,fullpath);
 		return fullpath;

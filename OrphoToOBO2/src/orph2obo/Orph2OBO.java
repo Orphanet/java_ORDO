@@ -238,7 +238,7 @@ public class Orph2OBO {
      * to the objects.
      */
     private void addEpidemiologyData() {
-    	System.err.println("Passer dans addEpidemiologyData");
+    	//System.err.println("Passer dans addEpidemiologyData");
 	OrphaEpidemiologyXMLParser oe = new OrphaEpidemiologyXMLParser();
 	if (this.epidemiology_xml_file == null) {
 	    System.err.println("Error: Rare Disease Epidemiology XML File not initialized");
@@ -354,12 +354,12 @@ public class Orph2OBO {
 	try {
 	    File file=new File(directory);
 	    if (file.exists()) {
-		System.out.println("Directory: \"" + directory + "\" exists already. ");
+		//System.out.println("Directory: \"" + directory + "\" exists already. ");
 		return;
 	    }
 	    boolean success = file.mkdir();
 	    if (success) {
-		System.out.println("Directory: " + directory + " created for downloading Orphanet data");
+		//System.out.println("Directory: " + directory + " created for downloading Orphanet data");
 	    }  
 	    
 	}catch (Exception e){//Catch exception if any
