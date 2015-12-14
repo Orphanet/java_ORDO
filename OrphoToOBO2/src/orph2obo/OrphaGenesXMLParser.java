@@ -114,11 +114,11 @@ public class OrphaGenesXMLParser extends DefaultHandler {
     	//=============================== GESTION DES ORPHANUMBER =============================================//
    if(qName.equalsIgnoreCase("Orphanumber")){
 		 if (!in_gene_list  && !in_disordergeneassociation_list){ //infos sur Disorder - Orphanumber
-			 //System.out.println("disease orphanummm" + tempVal);
+			 System.out.println("disease orphanummm" + tempVal);
 			 currentDisease = this.diseases.get(tempVal);
 		 }	
 		 else if (in_gene_list && in_gene_node && !in_gene_type){ //infos sur Gene - Orphanumber
-			//System.out.println("Gene Orphanum" + tempVal);
+			System.out.println("Gene Orphanum" + tempVal);
 				currentDisease.add_geneNum(tempVal); 
 		 }
 		 else if (in_gene_list && in_gene_type && in_gene_node){//infos sur GeneType - Orphanumber
@@ -132,7 +132,7 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 		 }
 		 else if (in_disordergeneassociation_list && !within_geneAssociationType){//infos sur DisorderGeneAssociationStatus - Orphanumber
 			//System.out.println("GeneAssociationStatus Orphanum" + tempVal);
-				//currentDisease.setGeneStatusOrphaNum(tempVal); //A FAIRE
+				//currentDisease.setGeneStatusOrphaNum(tempVal); //Pas utiliser pour le moment
 		 }
    }
    //======================================================================================================//

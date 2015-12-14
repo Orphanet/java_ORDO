@@ -534,9 +534,9 @@ public void setInheritNum(String inheritNum) {
     	OWLDeclarationAxiom declarationAxiom0 = factory.getOWLDeclarationAxiom(bioAna);
     	//==gene=====
     	OWLDeclarationAxiom declarationGene = factory.getOWLDeclarationAxiom(gene);
-    	OWLDeclarationAxiom genType1= factory.getOWLDeclarationAxiom(geneTypProtProd);
-    	OWLDeclarationAxiom genType2 = factory.getOWLDeclarationAxiom(geneTypDisAssLoc);
-    	OWLDeclarationAxiom genType3 = factory.getOWLDeclarationAxiom(geneTypNonCodingRNA);
+    	OWLDeclarationAxiom genType1= factory.getOWLDeclarationAxiom(geneTypProtProd);//gene with protein product
+    	OWLDeclarationAxiom genType2 = factory.getOWLDeclarationAxiom(geneTypDisAssLoc);//disorder-associated locus
+    	OWLDeclarationAxiom genType3 = factory.getOWLDeclarationAxiom(geneTypNonCodingRNA);//non-coding RNA
     	//===========
     	OWLDeclarationAxiom inheritance0 = factory.getOWLDeclarationAxiom(inheritance);
     	OWLDeclarationAxiom inheritance1 = factory.getOWLDeclarationAxiom(semiDom);
@@ -881,12 +881,37 @@ public void setInheritNum(String inheritNum) {
 		OWLAxiom unknownDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(unknown.getIRI(), unknownDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), unknownDefine));
     		
-		//========Gene====// A COMPLETER
-		// Type de gène 
-		OWLAnnotation geneTypDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
+		//========Gene====//
+		// Type de gène-gene with protein product
+		OWLAnnotation geneTyp1Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
+				factory.getOWLLiteral("Basic unit of heredity, consisting of a segment of DNA arranged in a linear manner along a chromosome that is transcribed in RNA and translated in a protein."));
+		OWLAxiom geneTyp1Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypProtProd.getIRI(), geneTyp1Definition);
+		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTyp1Define));
+		
+		// Type de gène-disorder-associated locus
+		OWLAnnotation geneTyp2Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
 				factory.getOWLLiteral("Chromosomal region associated with a single heritable disorder. The heritable disorder may be mapped to a chromosome but generally has not been associated to a specific gene."));
 		OWLAxiom geneTypDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypProtProd.getIRI(), geneTypDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTypDefine));
+		OWLAxiom geneTyp2Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypDisAssLoc.getIRI(), geneTyp2Definition);
+		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTyp2Define));
+		
+		// Type de gène-non-coding RNA
+		OWLAnnotation geneTyp3Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
+				factory.getOWLLiteral("RNA encoded by a gene but not translated in protein. Ex :  Transfer RNA."));
+		OWLAxiom geneTyp3Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypNonCodingRNA.getIRI(), geneTyp3Definition);
+		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTyp3Define));
+		
+		// genetic material
+		OWLAnnotation geneticMaterialDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
+				factory.getOWLLiteral("Strands of nucleotides encompassing gene with protein product, non-coding and disease-associated locus."));
+		OWLAxiom genMatDefinition = owlvar.getFactory().getOWLAnnotationAssertionAxiom(gene.getIRI(), geneticMaterialDefinition);
+		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), genMatDefinition));
+		//====================================//
+		
+		
+		
+		
     	//for the module ontology
         IRI ontologyIRImod = IRI.create("http://www.orpha.net/ontology/orphaEfoMod.owl");
         owlvar.setOntologyIRImod(ontologyIRImod);
@@ -897,9 +922,7 @@ public void setInheritNum(String inheritNum) {
     	OWLOntologyID newOntologyIDmod = new OWLOntologyID(ontologyIRImod,versionIRImod);
     	SetOntologyID setOntologyIDmod = new SetOntologyID(ontologymod, newOntologyIDmod);
     	manager.applyChange(setOntologyIDmod);
-    	
-    	
-    	
+     	
        } 
     
     private boolean checkParentDisease(){
