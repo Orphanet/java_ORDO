@@ -997,7 +997,7 @@ public void setInheritNum(String inheritNum) {
 		//System.out.println("exited the disease loop starting inheritance Inheritance size is  " + this.inheritNum.size());
 		//type of inheritance for that disease
 		 if (!(this.inheritNum.isEmpty())){
-			System.out.println("writing the inheritance");
+			//System.out.println("writing the inheritance");
 			for (int i= 0; i< this.inheritNum.size(); i++){
 				if (!inheritNum.get(i).contentEquals("108939") &&! inheritNum.get(i).contentEquals("108940")){//that is if inheritance is not Unknown
 				OWLObjectProperty has_inheritance = owlvar.getFactory().getOWLObjectProperty("C016", owlvar.getPrefixmanager());
@@ -1013,8 +1013,8 @@ public void setInheritNum(String inheritNum) {
 		
 		//age of onset
 		 if (this.onsetNum != null){
+			//System.out.println("writing the age of onset");
 			 for(int i=0;i<this.ageOfOnset.size();i++){
-				System.out.println("writing the age of onset");
 				OWLObjectProperty has_ageOfOnset = owlvar.getFactory().getOWLObjectProperty("C017", owlvar.getPrefixmanager());
 				OWLAnnotation hasageOfOnLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_AgeOfOnset"));
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_ageOfOnset.getIRI(), hasageOfOnLab)));
@@ -1101,7 +1101,7 @@ public void setInheritNum(String inheritNum) {
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLDeclarationAxiom(prevType)));//asserting prevalence Type
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), prevalTypeDefine));
 					// Ajout du label
-					OWLAnnotation prevalTypeLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getTypeLab()));
+					OWLAnnotation prevalTypeLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getTypeLab().toLowerCase()));
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevType.getIRI(), prevalTypeLab)));
 					
 					// UPDATE SD add the Class of prevalence
@@ -1259,12 +1259,12 @@ public void setInheritNum(String inheritNum) {
 		int start2 = 0;//ajout pour la gestion des locus
 		
 		if(! this.genelists.isEmpty()){
-			System.out.println("Genes*********: "+this.genelists.toString());
-			System.out.println("Smb********: "+this.symbol.toString());
-			System.out.println("Type*****: "+this.geneTypeName.toString());
-			System.out.println("GeneType*****: "+this.geneTyp.toString());
-			System.out.println("GeneLocus*****: "+this.geneLocus.toString());
-			System.out.println("GeneSyn*****: "+this.geneSyn.toString());
+			//System.out.println("Genes*********: "+this.genelists.toString());
+			//System.out.println("Smb********: "+this.symbol.toString());
+			//System.out.println("Type*****: "+this.geneTypeName.toString());
+			//System.out.println("GeneType*****: "+this.geneTyp.toString());
+			//System.out.println("GeneLocus*****: "+this.geneLocus.toString());
+			//System.out.println("GeneSyn*****: "+this.geneSyn.toString());
 			for( int i =0; i<this.genelists.size(); i++){
 				//creating gene class and adding the symbol annotation and label annotation
 				OWLClass gene = owlvar.getFactory().getOWLClass(this.geneNum.get(i), owlvar.getPrefixmanager());
@@ -1353,7 +1353,7 @@ public void setInheritNum(String inheritNum) {
 						for( int k = start2; k<(counterLocus +start2); k++){
 
 							OWLClass thisgeneLocusClass = owlvar.getFactory().getOWLClass(gene.getIRI());
-							OWLDataHasValue hasLocus = owlvar.getFactory().getOWLDataHasValue(has_Locus, owlvar.getFactory().getOWLLiteral("has_chromosomal_location"));
+							OWLDataHasValue hasLocus = owlvar.getFactory().getOWLDataHasValue(has_Locus, owlvar.getFactory().getOWLLiteral(geneLocus.get(k)));
 							OWLSubClassOfAxiom locusax1 = owlvar.getFactory().getOWLSubClassOfAxiom(thisgeneLocusClass,hasLocus);
 							owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), locusax1));
 							owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Locus.getIRI(), has_LocusLabel)));

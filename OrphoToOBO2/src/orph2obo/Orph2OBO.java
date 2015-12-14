@@ -39,12 +39,10 @@ public class Orph2OBO {
     /**This is the name of the directory where the Orphanet XML files will be written to*/
     String directory = "OrphadataMay";
     	//String directory = "OrphadataMay";
-	
 	Orph2OBO o2o = new Orph2OBO();
 	o2o.createDownloadDirectoryIfDoesntExist(directory);
 	o2o.downloadOrphanetFiles(directory);//uncomment this to generate an Orphanet OWL file 
 	o2o.getDiseaseXRefs();
-	
 	
 	o2o.addEpidemiologyData();//uncomment this to generate an Orphanet OWL file 
 	o2o.addGenesData();//uncomment this to generate an Orphanet OWL file  
@@ -326,7 +324,7 @@ public class Orph2OBO {
 	}
 	parser.parseDocument(rare_disease_xref_xml_file);
 	this.disease_xrefs = parser.getXrefHashMap();
-	System.out.println(disease_xrefs.toString());
+	//System.out.println(disease_xrefs.toString());
 	//System.out.println(disease_xrefs.isEmpty());
 	
     }

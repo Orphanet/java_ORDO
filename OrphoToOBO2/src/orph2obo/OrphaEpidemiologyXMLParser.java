@@ -174,14 +174,14 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 		currentDisease = this.diseases.get(orphID);
 		//System.out.println("CurrentDisease=" + currentDisease);
 		if (currentDisease == null) {
-			//System.err.println("You are here");
+			System.err.println("You are here");
 		    Iterator<String> it = this.diseases.keySet().iterator();
 		    while (it.hasNext()) {
 			String s = it.next();
 			RareDisease dxr = this.diseases.get(s);
-			//System.out.println(s + ":" + dxr.getName());
+			System.out.println(s + ":" + dxr.getName());
 		    }
-		    //System.err.println("Parsing Epidemiology File: Could not fetch OrphaID: " + orphID);
+		    System.err.println("Parsing Epidemiology File: Could not fetch OrphaID: " + orphID);
 		    System.exit(1);
 		}
 	
