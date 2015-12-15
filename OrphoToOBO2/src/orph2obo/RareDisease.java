@@ -473,7 +473,7 @@ public void setInheritNum(String inheritNum) {
        	OWLAnnotation inheritancelabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("inheritance"));
        	// OBSOLETE_CLASS
        	OWLClass obsoleteClass = factory.getOWLClass("obsolete_class", new DefaultPrefixManager("http://www.orpha.net/ORDO/"));  // /_\ à revoir, le lien d'origine n'existe plus
-       	OWLAnnotation obsoleteLabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("ObsoleteClass"));      	
+       	OWLAnnotation obsoleteLabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("obsolete_class"));      	
        	
     	//OWLClass autoRecess = factory.getOWLClass("108933", pm);
     	//OWLAnnotation autoRLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal recessive"));
@@ -656,6 +656,7 @@ public void setInheritNum(String inheritNum) {
     	manager.applyChange(new AddAxiom(ontology, geography));
     	manager.applyChange(new AddAxiom(ontology, epidemiology));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(phenome.getIRI(), phenomelabel)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(obsoleteClass.getIRI(), obsoleteLabel)));
        	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(inheritance.getIRI(), inheritancelabel)));
        	//manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(autoDom.getIRI(), autoDomLab)));
        	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(mitoInher.getIRI(), mitoInherLab)));
@@ -980,7 +981,7 @@ public void setInheritNum(String inheritNum) {
 			
 			String idObsoletFrom = this.getObsoleteFrom();
 			if(idObsoletFrom!=null && disease_xrefs.get(idObsoletFrom)!=null){
-				OWLAnnotation definition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("definition", new DefaultPrefixManager("http://www.ebi.ac.uk/efo/")),
+				OWLAnnotation definition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("reason_for_obsolescence", new DefaultPrefixManager("http://www.ebi.ac.uk/efo/")),
 						owlvar.getFactory().getOWLLiteral(ifMovedTo+"use http://www.orpha.net/ORDO/Orphanet_"+idObsoletFrom+" with label: "+disease_xrefs.get(idObsoletFrom).getName()));
 				OWLAxiom define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), definition);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), define));
