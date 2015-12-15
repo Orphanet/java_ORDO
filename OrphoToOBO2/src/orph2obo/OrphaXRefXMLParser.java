@@ -32,6 +32,8 @@ public class OrphaXRefXMLParser extends DefaultHandler {
     private boolean within_DiseaseDefinition = false;
     /**this variable is true if the SAX parser is currently in the DisorderType element */
     private boolean within_diseaseType;
+    /**this variable is true if the SAX parser is currently in the DisorderDisorderAssociation element */
+    private boolean within_disorderDisorder;
     /** List of Rare disease objects. */
 	//private ArrayList<RareDisease> classes;
     private HashMap<String,RareDisease> diseaseXRefs;
@@ -64,28 +66,38 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 
     //Event Handlers
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-	//reset
-	tempVal = "";
-	//System.err.println("XREF attr : "+attributes+"; "+qName); 
-	if(qName.equalsIgnoreCase("Disorder")) {
-	    tmpDisXref = new RareDisease();
-	    tmpDisXref.setID(attributes.getValue("id")); /*The id is the internal id used by the Orphanet - differs from orphaNum*/
-	} else if (qName.equalsIgnoreCase("ExternalReference")){
-	    this.tmpExtRef = new ExternalReference();
-	    within_externalReferenceElement = true;
-	}else if (qName.equalsIgnoreCase("TextSection")){
+		//reset
+		tempVal = "";
+		//System.err.println("XREF attr : "+attributes+"; "+qName); 
+		if(qName.equalsIgnoreCase("Disorder")) {
+		    tmpDisXref = new RareDisease();
+		    tmpDisXref.setID(attributes.getValue("id")); /*The id is the internal id used by the Orphanet - differs from orphaNum*/
+		} else if (qName.equalsIgnoreCase("ExternalReference")){
 		    this.tmpExtRef = new ExternalReference();
-		    within_DiseaseDefinition = true;
-	}else if (qName.equalsIgnoreCase("DisorderType")){
-		 within_diseaseType = true;
-	}
-	
+		    within_externalReferenceElement = true;
+		}else if (qName.equalsIgnoreCase("TextSection")){
+			    this.tmpExtRef = new ExternalReference();
+			    within_DiseaseDefinition = true;
+		}else if (qName.equalsIgnoreCase("DisorderType")){
+			 within_diseaseType = true;
+		}else if (qName.equalsIgnoreCase("DisorderDisorderAssociation")){
+			 within_disorderDisorder = true;
+		}else if (qName.equalsIgnoreCase("DisorderDisorderAssociationType")){
+			 within_disorderDisorder = false;
+		}else if(qName.equalsIgnoreCase("DisorderFlag")){
+			if(attributes.getValue("id").equals("455")){
+				tmpDisXref.setObsolete();
+			}else if(attributes.getValue("id").equals("459")){
+				tmpDisXref.setMovedTo();
+			}
+			
+		}
     }
     
     
     public void characters(char[] ch, int start, int length) throws SAXException {
-	tempVal = new String(ch,start,length);
-	//System.out.println(ch);
+		tempVal = new String(ch,start,length);
+		//System.out.println(ch);
     }
     
     /*
@@ -99,48 +111,52 @@ public class OrphaXRefXMLParser extends DefaultHandler {
     
     public void endElement(String uri, String localName,
 			   String qName) throws SAXException {
-	
-	if(qName.equalsIgnoreCase("Disorder")) {
-	    String orphnum = tmpDisXref.get_orphanum();
-	   // System.out.println("orphanum="+ orphnum + "Value="+ tmpDisXref);
-	    this.diseaseXRefs.put(orphnum, tmpDisXref);
-	}else if (qName.equalsIgnoreCase("Orphanumber") && !(within_diseaseType) && this.tmpDisXref.get_orphanum()==null) {
-		//In the new set of sata files orphanumber is even given to the disesase type, inheritance etc which starts from F,
-		//hence to make sure the Orphanumber is for a disease make sure it does not contain F
-		//if (!tempVal.contains("F"))
-	    tmpDisXref.setOrphanum(tempVal);
-	} else if (qName.equalsIgnoreCase("Orphanumber") && within_diseaseType){
-	    this.tmpDisXref.setTypeOrph(tempVal);
-	}else if (qName.equalsIgnoreCase("TextSection")){
-		within_DiseaseDefinition = false;
-	} else if (within_DiseaseDefinition && 
-			   qName.equalsIgnoreCase("Contents")){
-		    this.tmpDisXref.setDef(tempVal);
-	}else if (qName.equalsIgnoreCase("ExpertLink")) {
-		//System.out.println(tempVal);
-	    tmpDisXref.setExpertLink(tempVal);
-	}else if (qName.equalsIgnoreCase("Name") ) {
-		if(within_DiseaseDefinition == false && tmpDisXref.getName()==null){
-			tmpDisXref.setName(tempVal);
-		}else if(within_diseaseType){
-			tmpDisXref.setTypeValidity(tempVal); //typevalidity n'existe plus, il faudra renommer la variable en diseaseType
-		}
-	}else if (qName.equalsIgnoreCase("Synonym")){
-		tmpDisXref.setSynonym(tempVal);
-	}else if (qName.equalsIgnoreCase("ExternalReference")){
-	    within_externalReferenceElement = false;
-	    tmpDisXref.addExternalReference(tmpExtRef);
-	} else if (within_externalReferenceElement && 
-		   qName.equalsIgnoreCase("Source")){
-	    this.tmpDisXref.addSource(tempVal);
-	} else if (within_externalReferenceElement && 
-		   qName.equalsIgnoreCase("Reference")){
-	    this.tmpDisXref.addRef(tempVal);
-	}else if (qName.equalsIgnoreCase("DisorderType")){
-		within_diseaseType = false;
-	}/*else if (qName.equalsIgnoreCase("TypeValid")){
-		this.tmpDisXref.setTypeValidity(tempVal);
-	}*/
+
+    	if(qName.equalsIgnoreCase("Orphanumber") && within_disorderDisorder && (tmpDisXref.isMovedTo() ||tmpDisXref.isObsolete())){
+			tmpDisXref.setObsoleteFrom(tempVal);
+		}else if(qName.equalsIgnoreCase("Disorder")) {
+		    String orphnum = tmpDisXref.get_orphanum();
+		   // System.out.println("orphanum="+ orphnum + "Value="+ tmpDisXref);
+		    this.diseaseXRefs.put(orphnum, tmpDisXref);
+		}else if (qName.equalsIgnoreCase("Orphanumber") && !(within_diseaseType) && this.tmpDisXref.get_orphanum()==null) {
+			//In the new set of sata files orphanumber is even given to the disesase type, inheritance etc which starts from F,
+			//hence to make sure the Orphanumber is for a disease make sure it does not contain F
+			//if (!tempVal.contains("F"))
+		    tmpDisXref.setOrphanum(tempVal);
+		} else if (qName.equalsIgnoreCase("Orphanumber") && within_diseaseType){
+		    this.tmpDisXref.setTypeOrph(tempVal);
+		}else if (qName.equalsIgnoreCase("TextSection")){
+			within_DiseaseDefinition = false;
+		} else if (within_DiseaseDefinition && 
+				   qName.equalsIgnoreCase("Contents")){
+			    this.tmpDisXref.setDef(tempVal);
+		}else if (qName.equalsIgnoreCase("ExpertLink")) {
+			//System.out.println(tempVal);
+		    tmpDisXref.setExpertLink(tempVal);
+		}else if (qName.equalsIgnoreCase("Name") ) {
+			if(within_DiseaseDefinition == false && tmpDisXref.getName()==null){
+				tmpDisXref.setName(tempVal);
+			}else if(within_diseaseType){
+				tmpDisXref.setTypeValidity(tempVal); //typevalidity n'existe plus, il faudra renommer la variable en diseaseType
+			}
+		}else if (qName.equalsIgnoreCase("Synonym")){
+			tmpDisXref.setSynonym(tempVal);
+		}else if (qName.equalsIgnoreCase("ExternalReference")){
+		    within_externalReferenceElement = false;
+		    tmpDisXref.addExternalReference(tmpExtRef);
+		} else if (within_externalReferenceElement && 
+			   qName.equalsIgnoreCase("Source")){
+		    this.tmpDisXref.addSource(tempVal);
+		} else if (within_externalReferenceElement && 
+			   qName.equalsIgnoreCase("Reference")){
+		    this.tmpDisXref.addRef(tempVal);
+		}else if (qName.equalsIgnoreCase("DisorderType")){
+			within_diseaseType = false;
+		}else if (qName.equalsIgnoreCase("DisorderDisorderAssociation")){
+			 within_disorderDisorder = false;
+		}/*else if (qName.equalsIgnoreCase("TypeValid")){
+			this.tmpDisXref.setTypeValidity(tempVal);
+		}*/
 	
     }
 

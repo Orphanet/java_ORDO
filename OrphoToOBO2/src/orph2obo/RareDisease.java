@@ -58,6 +58,12 @@ public class RareDisease {
     /** Prevalences */
     private ArrayList<Prevalence> prevalences;
     
+    /** Obsolete Flag */
+    private boolean obsolete; 
+    private boolean movedTo;
+    /** Obsolete from disorder */
+    private String obsoleteFrom;
+    
     /**AgeofOnset for a disease*/
     private ArrayList<String> ageOfOnset = null;
     /**AgeOfDeath for a disease*/
@@ -146,19 +152,17 @@ public class RareDisease {
     public void setName(String s) { this.name = s;}
     public String getName() { return this.name; }
 
-   
+    public void setObsolete(){this.obsolete=true;}
+    public boolean isObsolete(){return this.obsolete;}
+    
+    public void setMovedTo(){this.movedTo=true;}
+    public boolean isMovedTo(){return this.movedTo;}
+    
+    public void setObsoleteFrom(String id){this.obsoleteFrom = id;}
+    public String getObsoleteFrom(){return this.obsoleteFrom;}
     
     public void  setReference(String ref) { this.reference = ref; }
     public String getReference() { return this.reference ; }
-    
-   /* public void  addPrevalence(String p) { this.prevalence.setPrevalClass(p); }
-    public String getPrevalenceClass() { return this.prevalence.getPrevalClass(); }  
-    
-    public void  setPrevalenceGeo(String p) { this.prevalence.setGeo(p); }
-    public String getPrevalenceGeo() { return this.prevalence.getGeo(); }  
-    
-    public void  setPrevalenceValMoy(String p) { this.prevalence.setValMoy(p); }
-    public String getPrevalenceValMoy() {return this.prevalence.getValMoy();}*/
     
     public void setAgeOfOnset (String onset){ this.ageOfOnset.add(onset);}
     public void setAgeOfDeath (String death) { this.ageOfDeath.add(death);}
@@ -467,6 +471,10 @@ public void setInheritNum(String inheritNum) {
        	
        	OWLClass inheritance = factory.getOWLClass("C005", pm);
        	OWLAnnotation inheritancelabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("inheritance"));
+       	// OBSOLETE_CLASS
+       	OWLClass obsoleteClass = factory.getOWLClass("obsolete_class", new DefaultPrefixManager("http://www.orpha.net/ORDO/"));  // /_\ à revoir, le lien d'origine n'existe plus
+       	OWLAnnotation obsoleteLabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("ObsoleteClass"));      	
+       	
     	//OWLClass autoRecess = factory.getOWLClass("108933", pm);
     	//OWLAnnotation autoRLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal recessive"));
     	//OWLClass autoDom = factory.getOWLClass("108932", pm);
@@ -538,6 +546,9 @@ public void setInheritNum(String inheritNum) {
     	OWLDeclarationAxiom genType2 = factory.getOWLDeclarationAxiom(geneTypDisAssLoc);//disorder-associated locus
     	OWLDeclarationAxiom genType3 = factory.getOWLDeclarationAxiom(geneTypNonCodingRNA);//non-coding RNA
     	//===========
+    	// OBSOLETE
+    	OWLDeclarationAxiom obsolete = factory.getOWLDeclarationAxiom(obsoleteClass);
+    	
     	OWLDeclarationAxiom inheritance0 = factory.getOWLDeclarationAxiom(inheritance);
     	OWLDeclarationAxiom inheritance1 = factory.getOWLDeclarationAxiom(semiDom);
     	//OWLDeclarationAxiom inheritance2 = factory.getOWLDeclarationAxiom(autoDom);
@@ -607,7 +618,7 @@ public void setInheritNum(String inheritNum) {
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(geneTypNonCodingRNA.getIRI(), geneTypNonCodingRNALabel)));
       //================
        	
-       	
+    	manager.applyChange(new AddAxiom(ontology, obsolete));
        	manager.applyChange(new AddAxiom(ontology, inheritance0));
        	manager.applyChange(new AddAxiom(ontology, inheritance1));
        	//manager.applyChange(new AddAxiom(ontology, inheritance2));
@@ -891,7 +902,7 @@ public void setInheritNum(String inheritNum) {
 		// Type de gène-disorder-associated locus
 		OWLAnnotation geneTyp2Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
 				factory.getOWLLiteral("Chromosomal region associated with a single heritable disorder. The heritable disorder may be mapped to a chromosome but generally has not been associated to a specific gene."));
-		OWLAxiom geneTypDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypProtProd.getIRI(), geneTypDefinition);
+		OWLAxiom geneTypDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypProtProd.getIRI(), geneTyp2Definition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTypDefine));
 		OWLAxiom geneTyp2Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypDisAssLoc.getIRI(), geneTyp2Definition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTyp2Define));
@@ -944,16 +955,45 @@ public void setInheritNum(String inheritNum) {
     
 	public void createOWLFile(HashMap<String, RareDisease> disease_xrefs) throws OWLOntologyCreationException {
 		writeToOWLFile();
+
 		boolean flag = checkParentDisease();
 		//addition of diseases as classes along with sub-class or part_of axiom 
 		//remove those that are not head of classification and have no superclass
 		//System.out.println("is the subclass list empty? " + isa_list.isEmpty() + "and the head flag is set to " + flag);
 		//System.out.println("No a head and orphaned");
-		if(flag == false && this.isa_list.isEmpty()){
-			//System.out.println("Not a head and orphaned");
+		if(this.isObsolete() || this.isMovedTo()  ){
+
+			/** Création des obsolete */
+			OWLClass rareDisorder = owlvar.getFactory().getOWLClass(this.orphanum, owlvar.getPrefixmanager());
+			OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
+					owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));
+			OWLDeclarationAxiom declarationClass = owlvar.getFactory().getOWLDeclarationAxiom(rareDisorder);
+			OWLAxiom labelling = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), labelRare);
+			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), declarationClass));
+			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), labelling));
+			
+			PrefixManager pmObso = new DefaultPrefixManager("http://www.orpha.net/ORDO/");				
+			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder, owlvar.getFactory().getOWLClass("obsolete_class",pmObso))));
+			
+			String ifMovedTo="";
+			if(this.isMovedTo()){ifMovedTo="This class is deprecated. The preferred class is ";}
+			
+			String idObsoletFrom = this.getObsoleteFrom();
+			if(idObsoletFrom!=null && disease_xrefs.get(idObsoletFrom)!=null){
+				OWLAnnotation definition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("definition", new DefaultPrefixManager("http://www.ebi.ac.uk/efo/")),
+						owlvar.getFactory().getOWLLiteral(ifMovedTo+"use http://www.orpha.net/ORDO/Orphanet_"+idObsoletFrom+" with label: "+disease_xrefs.get(idObsoletFrom).getName()));
+				OWLAxiom define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), definition);
+				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), define));
+			}else if (idObsoletFrom!=null){
+				System.out.println(idObsoletFrom+" : is null");
+			}
+		}
+		else if(flag == false && this.isa_list.isEmpty()){
+			//System.out.println("Not a head and orphaned : "+this.orphanum);
 		}
 		else{
 			//System.out.println("entered the disease loop");
+		if(this.get_orphanum().equals("953")){System.err.println("FOND 953");}
 		OWLClass rareDisorder = owlvar.getFactory().getOWLClass(this.orphanum, owlvar.getPrefixmanager());
 		OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
 		owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));

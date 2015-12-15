@@ -279,13 +279,13 @@ public class Orph2OBO {
 	    DiseaseXRef print = new DiseaseXRef();
 	    out.write(print.toString());
 	    while (it.hasNext()) {
-		String id = it.next();
-		RareDisease st = this.disease_xrefs.get(id); /**retrieving the disease object for every orphanumber*/
-		st.createOWLFile(this.disease_xrefs); //uncomment this to write the Orphanet OWL file 
-		st.extractModule();
-		out.write(st.getDXRString(this.disease_xrefs) + "\n");
-		Gene gen = new Gene();
-		out.write(gen.toString());
+			String id = it.next();
+			RareDisease st = this.disease_xrefs.get(id); /**retrieving the disease object for every orphanumber*/
+			st.createOWLFile(this.disease_xrefs); //uncomment this to write the Orphanet OWL file 
+			st.extractModule();
+			out.write(st.getDXRString(this.disease_xrefs) + "\n");
+			Gene gen = new Gene();
+			out.write(gen.toString());
 	    }
 	    out.close();
 	}catch (IOException e){
