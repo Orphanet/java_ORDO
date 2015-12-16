@@ -426,6 +426,7 @@ public void setInheritNum(String inheritNum) {
         owlvar.setOntologyIRI(ontologyIRI);
         OWLOntology ontology = manager.createOntology(ontologyIRI);
         owlvar.setOntology(ontology);
+
     	System.out.println("Created ontology1: " + ontology);
     	IRI versionIRI = IRI.create("/version1.2");
     	OWLOntologyID newOntologyID = new OWLOntologyID(ontologyIRI,versionIRI);
@@ -435,6 +436,16 @@ public void setInheritNum(String inheritNum) {
     	owlvar.setPrefixmanager(pm);
     	OWLDataFactory factory = manager.getOWLDataFactory();
     	owlvar.setFactory(factory);
+    	
+        // UPDATE SD essai ajout créateur 
+        
+		/*OWLAnnotation creator1 = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("creator", pm),
+				factory.getOWLLiteral("Samuel Demarest"));
+		OWLAxiom creatorDefine = factory.getOWLAnnotationAssertionAxiom(ontologyIRI, creator1);
+		manager.applyChange(new AddAxiom(ontology, creatorDefine));*/
+        
+        // FIN essai ajout créateur
+		
     	OWLClass phenome = factory.getOWLClass("C001",pm);
     	OWLAnnotation phenomelabel = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("phenome"));
     	OWLClass groupPhenome = factory.getOWLClass("377794",pm);
@@ -519,7 +530,7 @@ public void setInheritNum(String inheritNum) {
     	OWLClass geographyClass = factory.getOWLClass("C009", pm);
     	OWLAnnotation geographyLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("geography"));
     	OWLClass epidemioClass = factory.getOWLClass("C003", pm);
-    	OWLAnnotation epidemioLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("epidemilogy"));
+    	OWLAnnotation epidemioLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("epidemiology"));
     	OWLClass prevClass = factory.getOWLClass("C004", pm);
     	OWLAnnotation prevLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("prevalence"));
     	OWLClass casFamClass = factory.getOWLClass("409970", pm);
@@ -990,7 +1001,7 @@ public void setInheritNum(String inheritNum) {
 			}
 		}
 		else if(flag == false && this.isa_list.isEmpty()){
-			//System.out.println("Not a head and orphaned : "+this.orphanum);
+			System.out.println("Not a head and orphaned : "+this.orphanum);
 		}
 		else{
 			//System.out.println("entered the disease loop");
