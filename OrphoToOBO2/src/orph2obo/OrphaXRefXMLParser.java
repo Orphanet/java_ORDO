@@ -28,6 +28,22 @@ public class OrphaXRefXMLParser extends DefaultHandler {
     private ExternalReference tmpExtRef;
     /** This variable is true if the SAX parser is currently in an external reference element. */
     private boolean within_externalReferenceElement = false;
+    
+    /** UPDATE SD validation/relation status **/
+    /** This variable is true if the SAX parser is currently in an external reference validation status element. */
+    private boolean within_externalReferenceValid = false;
+    /** This variable is the temp orpha value of the validation status **/ 
+    private String validationValue;
+    /** This variable is true if the SAX parser is currently in an external reference relation element. */
+    private boolean within_externalReferenceRelation = false;
+    /** This variable is the temp orpha value of the relation status **/ 
+    private String relationValue;
+    /** This variable is true if the SAX parser is currently in an external reference ICD relation element. */
+    private boolean within_externalReferenceICDRel = false;
+    /** This variable is the temp orpha value of the ICD relation status **/ 
+    private String ICDRelValue;
+    /***** END UPDATE validation status ****/
+    
     /** This variable is true if the SAX parser is currently in an TextSectionType element. */
     private boolean within_DiseaseDefinition = false;
     /**this variable is true if the SAX parser is currently in the DisorderType element */
@@ -90,6 +106,8 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 			}else if(attributes.getValue("id").equals("459")){
 				tmpDisXref.setMovedTo();
 			}
+			
+		}else if(qName.equalsIgnoreCase("")){
 			
 		}
     }

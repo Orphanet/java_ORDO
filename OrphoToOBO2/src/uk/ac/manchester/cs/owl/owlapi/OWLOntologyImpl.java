@@ -55,7 +55,7 @@ public class OWLOntologyImpl extends OWLImmutableOntologyImpl implements
     }
 
     @Nonnull
-    @Override
+    
     public ChangeApplied applyChanges(
         @Nonnull List<? extends OWLOntologyChange> changes) {
         ChangeApplied appliedChanges = SUCCESSFULLY;
@@ -72,12 +72,12 @@ public class OWLOntologyImpl extends OWLImmutableOntologyImpl implements
         return appliedChanges;
     }
 
-    @Override
+    
     public ChangeApplied addAxiom(OWLAxiom axiom) {
         return getOWLOntologyManager().addAxiom(this, axiom);
     }
 
-    @Override
+    
     public ChangeApplied addAxioms(Set<? extends OWLAxiom> axioms) {
         return getOWLOntologyManager().addAxioms(this, axioms);
     }
@@ -87,7 +87,7 @@ public class OWLOntologyImpl extends OWLImmutableOntologyImpl implements
 
         private static final long serialVersionUID = 40000L;
 
-        @Override
+        
         public ChangeApplied visit(@Nonnull RemoveAxiom change) {
             if (ints.removeAxiom(change.getAxiom())) {
                 return SUCCESSFULLY;
@@ -113,7 +113,7 @@ public class OWLOntologyImpl extends OWLImmutableOntologyImpl implements
             return NO_OPERATION;
         }
 
-        @Override
+        
         public ChangeApplied visit(@Nonnull AddImport change) {
             // TODO change this to be done inside
             if (ints.addImportsDeclaration(change.getImportDeclaration())) {
@@ -122,7 +122,7 @@ public class OWLOntologyImpl extends OWLImmutableOntologyImpl implements
             return NO_OPERATION;
         }
 
-        @Override
+        
         public ChangeApplied visit(@Nonnull RemoveImport change) {
             if (ints.removeImportsDeclaration(change.getImportDeclaration())) {
                 return SUCCESSFULLY;
@@ -130,7 +130,7 @@ public class OWLOntologyImpl extends OWLImmutableOntologyImpl implements
             return NO_OPERATION;
         }
 
-        @Override
+        
         public ChangeApplied visit(@Nonnull AddOntologyAnnotation change) {
             if (ints.addOntologyAnnotation(change.getAnnotation())) {
                 return SUCCESSFULLY;
@@ -138,7 +138,7 @@ public class OWLOntologyImpl extends OWLImmutableOntologyImpl implements
             return NO_OPERATION;
         }
 
-        @Override
+        
         public ChangeApplied visit(@Nonnull RemoveOntologyAnnotation change) {
             if (ints.removeOntologyAnnotation(change.getAnnotation())) {
                 return SUCCESSFULLY;
