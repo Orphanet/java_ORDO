@@ -30,19 +30,11 @@ public class OrphaXRefXMLParser extends DefaultHandler {
     private boolean within_externalReferenceElement = false;
     
     /** UPDATE SD validation/relation status **/
-    /** This variable is true if the SAX parser is currently in an external reference validation status element. */
-    private boolean within_externalReferenceValid = false;
-    /** This variable is the temp orpha value of the validation status **/ 
-    private String validationValue;
     /** This variable is true if the SAX parser is currently in an external reference relation element. */
     private boolean within_externalReferenceRelation = false;
     /** This variable is the temp orpha value of the relation status **/ 
     private String relationValue;
-    /** This variable is true if the SAX parser is currently in an external reference ICD relation element. */
-    private boolean within_externalReferenceICDRel = false;
-    /** This variable is the temp orpha value of the ICD relation status **/ 
-    private String ICDRelValue;
-    /***** END UPDATE validation status ****/
+    private String relationOrpha;
     
     /** This variable is true if the SAX parser is currently in an TextSectionType element. */
     private boolean within_DiseaseDefinition = false;
@@ -107,8 +99,10 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 				tmpDisXref.setMovedTo();
 			}
 			
-		}else if(qName.equalsIgnoreCase("")){
-			
+		}else if(qName.equalsIgnoreCase("DisorderMappingRelation")){
+			within_externalReferenceRelation=true;
+			relationValue="";
+			relationOrpha="";
 		}
     }
     
@@ -143,6 +137,10 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 		    tmpDisXref.setOrphanum(tempVal);
 		} else if (qName.equalsIgnoreCase("Orphanumber") && within_diseaseType){
 		    this.tmpDisXref.setTypeOrph(tempVal);
+		}else if(qName.equalsIgnoreCase("Orphanumber") && within_externalReferenceRelation){
+			relationOrpha=tempVal;
+		}else if(qName.equalsIgnoreCase("Name") && within_externalReferenceRelation){
+			relationValue=tempVal;
 		}else if (qName.equalsIgnoreCase("TextSection")){
 			within_DiseaseDefinition = false;
 		} else if (within_DiseaseDefinition && 
@@ -168,6 +166,10 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 		} else if (within_externalReferenceElement && 
 			   qName.equalsIgnoreCase("Reference")){
 		    this.tmpDisXref.addRef(tempVal);
+		}else if(qName.equalsIgnoreCase("DisorderMappingRelation")){
+			within_externalReferenceRelation=false;
+			this.tmpDisXref.addValidRef(relationValue);
+			//tmpDisXref.addValidOrphaRef(relationOrpha);
 		}else if (qName.equalsIgnoreCase("DisorderType")){
 			within_diseaseType = false;
 		}else if (qName.equalsIgnoreCase("DisorderDisorderAssociation")){

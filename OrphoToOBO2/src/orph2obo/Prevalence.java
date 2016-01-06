@@ -16,6 +16,7 @@ public class Prevalence {
 	private String geoLab;
 	private String type;
 	private String typeLab;
+	private String validation;
 	
 	
 	public Prevalence() {}
@@ -26,6 +27,7 @@ public class Prevalence {
 	public void setGeoLab(String tempVal) { this.geoLab = tempVal; }
 	public void setType(String tempVal) { this.type = tempVal; }
 	public void setTypeLab(String tempVal) { this.typeLab = tempVal; }
+	public void setValidation(String tempVal) { this.validation = tempVal;}
 	
 	public String getPrevalClass() { return this.prevalclass; }
 	public String getValMoy() { return this.valMoy;}
@@ -33,6 +35,7 @@ public class Prevalence {
 	public String getGeoLab() { return this.geoLab; }
 	public String getType() { return this.type; }
 	public String getTypeLab() { return this.typeLab; }
+	public String getValidation() { return this.validation; }
 	
 	public String toString() {
 		/*StringBuilder sb = new StringBuilder();

@@ -374,12 +374,12 @@ public class IRI implements OWLAnnotationSubject, OWLAnnotationValue, SWRLPredic
         this(checkNotNull(uri, "uri cannot be null").toString());
     }
 
-    @Override
+ 
     public int length() {
         return namespace.length() + remainder.length();
     }
 
-    @Override
+ 
     public char charAt(int index) {
         if (index < 0) {
             throw new IndexOutOfBoundsException(Integer.toString(index));
@@ -390,7 +390,7 @@ public class IRI implements OWLAnnotationSubject, OWLAnnotationValue, SWRLPredic
         return remainder.charAt(index - namespace.length());
     }
 
-    @Override
+ 
     public CharSequence subSequence(int start, int end) {
         StringBuilder sb = new StringBuilder();
         sb.append(namespace);
@@ -412,7 +412,7 @@ public class IRI implements OWLAnnotationSubject, OWLAnnotationValue, SWRLPredic
         return prefix + remainder;
     }
 
-    @Override
+ 
     @Nonnull
     public String getShortForm() {
         if (!remainder.isEmpty()) {
@@ -430,75 +430,75 @@ public class IRI implements OWLAnnotationSubject, OWLAnnotationValue, SWRLPredic
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(@Nonnull OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(@Nonnull OWLAnnotationSubjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <E> E accept(@Nonnull OWLAnnotationSubjectVisitorEx<E> visitor) {
         return visitor.visit(this);
     }
 
     @Nonnull
-    @Override
+ 
     public Set<OWLClass> getClassesInSignature() {
         return CollectionFactory.emptySet();
     }
 
     @Nonnull
-    @Override
+ 
     public Set<OWLDataProperty> getDataPropertiesInSignature() {
         return CollectionFactory.emptySet();
     }
 
     @Nonnull
-    @Override
+ 
     public Set<OWLNamedIndividual> getIndividualsInSignature() {
         return CollectionFactory.emptySet();
     }
 
     @Nonnull
-    @Override
+ 
     public Set<OWLObjectProperty> getObjectPropertiesInSignature() {
         return CollectionFactory.emptySet();
     }
 
     @Nonnull
-    @Override
+ 
     public Set<OWLEntity> getSignature() {
         return CollectionFactory.emptySet();
     }
 
-    @Override
+ 
     public boolean containsEntityInSignature(OWLEntity owlEntity) {
         return false;
     }
 
     @Nonnull
-    @Override
+ 
     public Set<OWLAnonymousIndividual> getAnonymousIndividuals() {
         return CollectionFactory.emptySet();
     }
 
     @Nonnull
-    @Override
+ 
     public Set<OWLDatatype> getDatatypesInSignature() {
         return CollectionFactory.emptySet();
     }
 
-    @Override
+ 
     public Set<OWLAnnotationProperty> getAnnotationPropertiesInSignature() {
         return CollectionFactory.emptySet();
     }
 
     @Nonnull
-    @Override
+ 
     public Set<OWLClassExpression> getNestedClassExpressions() {
         return CollectionFactory.emptySet();
     }
@@ -533,37 +533,37 @@ public class IRI implements OWLAnnotationSubject, OWLAnnotationValue, SWRLPredic
         return namespace.hashCode() + remainder.hashCode();
     }
 
-    @Override
+ 
     public void accept(@Nonnull OWLAnnotationValueVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(@Nonnull OWLAnnotationValueVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public Optional<IRI> asIRI() {
         return Optional.of(this);
     }
 
-    @Override
+ 
     public Optional<OWLAnonymousIndividual> asAnonymousIndividual() {
         return Optional.absent();
     }
 
-    @Override
+ 
     public Optional<OWLLiteral> asLiteral() {
         return Optional.absent();
     }
 
-    @Override
+ 
     public boolean isTopEntity() {
         return false;
     }
 
-    @Override
+ 
     public boolean isBottomEntity() {
         return false;
     }

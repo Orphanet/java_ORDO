@@ -31,6 +31,7 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 	private boolean within_AgeOfDeath = false;
 	private boolean within_Inheritance = false;
 	private boolean within_Qualification = false; //UPDATE SD flag de PrevalenceQualification pour cas/famille
+	private boolean within_PrevalenceValidation = false; //UPDATE SD validation status
 	private Prevalence prevalence;
 	
 	/**
@@ -83,7 +84,9 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 			within_PrevalenceGeo = true;
 		} else if (qName.equalsIgnoreCase("PrevalenceQualification")){ //UPDATE SD flag de PrevalenceQualification pour cas/famille
 			within_Qualification = true;
-		} 
+		}else if(qName.equals("PrevalenceValidationStatus")){ //UPDATE SD validation status
+			within_PrevalenceValidation = true;
+		}
 		    
 	}
 	    
@@ -118,6 +121,9 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 				}else if(qName.equalsIgnoreCase("PrevalenceQualification")){
 					within_Qualification = false;
 				}
+				else if(qName.equals("PrevalenceValidationStatus")){ //UPDATE SD validation status
+					within_PrevalenceValidation = false;
+				}
 				else if (qName.equalsIgnoreCase("ValMoy")){
 					prevalence.setValMoy(tempVal);	
 				} 				
@@ -136,17 +142,20 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 				else if (qName.equalsIgnoreCase("AverageAgeOfOnset")){
 					within_AgeOfOnset = false;
 				}
-				else if (within_AgeOfOnset && qName.equalsIgnoreCase("OrphaNumber")){
+				else if (within_AgeOfOnset && qName.equalsIgnoreCase("OrphaNumber")){ 
 					currentDisease.setOnsetNum(tempVal);
 				}
 				else if (qName.equalsIgnoreCase("Name") && within_PrevalenceGeo){
 					prevalence.setGeoLab(tempVal);
 				}
-				else if (qName.equalsIgnoreCase("Name") && within_PrevalenceType){
+				else if (qName.equalsIgnoreCase("Name") && within_PrevalenceType){ 
 					prevalence.setTypeLab(tempVal);
 				}
 				else if (qName.equalsIgnoreCase("Name") && within_AgeOfOnset){
 					currentDisease.setAgeOfOnset(tempVal);
+				}
+				else if (qName.equalsIgnoreCase("Name") && within_PrevalenceValidation){ //UPDATE SD validation status
+					prevalence.setValidation(tempVal);
 				}
 				else if (qName.equalsIgnoreCase("AverageAgeOfDeath")){
 					within_AgeOfDeath = false;

@@ -13,6 +13,7 @@ import org.semanticweb.owlapi.model.AddOntologyAnnotation;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
+import org.semanticweb.owlapi.model.OWLAnonymousClassExpression;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
@@ -24,6 +25,7 @@ import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectHasValue;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -93,9 +95,7 @@ public class RareDisease {
     /** List of Sources and references for external ref for the disease*/
     private ArrayList<String> sourceList;
     private ArrayList<String> refList;
-    private ArrayList<String> refValidList; // UPDATE SD validation/relation status
-    private ArrayList<String> refRelationList; // UPDATE SD validation/relation status
-    private ArrayList<String> refICDRelationList; // UPDATE SD validation/relation status
+    private ArrayList<String> refValidList; // UPDATE SD validation status
     
     /** List of names of genes for this disease */
     private ArrayList<String> genelists;
@@ -206,17 +206,9 @@ public class RareDisease {
     	this.refList.add(re);
     }    
     
-    //UPDATE SD validation/relation status
+    //UPDATE SD validation status
     public void addValidRef(String re){ 
     	this.refValidList.add(re);
-    }
-    //UPDATE SD validation/relation status
-    public void addRelationRef(String re){ 
-    	this.refRelationList.add(re);
-    }
-    //UPDATE SD validation/relation status
-    public void addICDRelationRef(String re){ 
-    	this.refICDRelationList.add(re);
     }
     
     public void addPreval(Prevalence re){
@@ -329,9 +321,7 @@ public void setInheritNum(String inheritNum) {
 	this.synonym = new ArrayList<String> ();
 	this.sourceList = new ArrayList<String> ();
 	this.refList = new ArrayList<String>();
-	this.refValidList = new ArrayList<String>(); // UPDATE SD validation/relation status
-	this.refRelationList = new ArrayList<String>(); // UPDATE SD validation/relation status
-	this.refICDRelationList = new ArrayList<String>(); // UPDATE SD validation/relation status
+	this.refValidList = new ArrayList<String>(); // UPDATE SD validation status
 	this.symbol = new ArrayList<String>();
 	this.geneNum = new ArrayList<String>();
 	this.gsources = new ArrayList<String>();
@@ -367,70 +357,84 @@ public void setInheritNum(String inheritNum) {
     	OrphadataClassificationXMLParser parser = new OrphadataClassificationXMLParser();
     	rareOrpho = parser.getRareGeneOrpha();
     	if(rareOrpho.contains(this.orphanum)){
-    	OWLClass rareDisorder = owlvar.getFactory().getOWLClass(this.orphanum, owlvar.getPrefixmanager());
-		OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
-		owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));
-		OWLDeclarationAxiom declarationClass = owlvar.getFactory().getOWLDeclarationAxiom(rareDisorder);
-		OWLAxiom labelling = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), labelRare);
-		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), declarationClass));
-		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), labelling));
-		if(!isa_list.isEmpty()){
-		for ( int i= 0; i<isa_list.size(); i++){
-			
-			OWLClass superClass = owlvar.getFactory().getOWLClass(this.isa_list.get(i), owlvar.getPrefixmanager());
-			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder, superClass)));
-				}
-		}
-		
-
-		//def for the disease if any
-		 if (this.def != null) {
-			PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");
-			OWLAnnotation definition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
-					.getOWLAnnotationProperty(
-							"definition", pm2),
-							owlvar.getFactory().getOWLLiteral(this.def));
-			OWLAxiom define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), definition);
-			OWLAnnotation definitionCitation = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
-					.getOWLAnnotationProperty(
-							"definition_citation",
-							pm2),owlvar.getFactory().getOWLLiteral("orphanet"));
-			OWLAxiom defineCite = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), definitionCitation);
-			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), define));
-			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), defineCite));
-		}
-		//synonyms for the disease
-		 if (! this.synonym.isEmpty()){
-			for( int i=0; i< this.synonym.size(); i++){
-				PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");
-				OWLAnnotation alternativeTerm = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
-						.getOWLAnnotationProperty(
-								"alternative_term",
-								pm2), owlvar.getFactory().getOWLLiteral(this.synonym.get(i)));
-				OWLAxiom synonym = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), alternativeTerm);
-				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(),synonym));
-			}
-		}
-		
-		//xrefs for the disease
-		 if (!this.sourceList.isEmpty()){
-			for (int i=0; i<this.sourceList.size(); i++){
-				PrefixManager pm2 = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl");
-				OWLAnnotation database_cross_reference = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
-						.getOWLAnnotationProperty(
-								"hasDbXref",
-								pm2), owlvar.getFactory().getOWLLiteral(this.sourceList.get(i) + ":" + this.refList.get(i)));
-				OWLAxiom xref = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference);
-				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), xref));
+	    	OWLClass rareDisorder = owlvar.getFactory().getOWLClass(this.orphanum, owlvar.getPrefixmanager());
+			OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
+			owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));
+			OWLDeclarationAxiom declarationClass = owlvar.getFactory().getOWLDeclarationAxiom(rareDisorder);
+			OWLAxiom labelling = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), labelRare);
+			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), declarationClass));
+			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), labelling));
+			if(!isa_list.isEmpty()){
+				for ( int i= 0; i<isa_list.size(); i++){
 				
+					OWLClass superClass = owlvar.getFactory().getOWLClass(this.isa_list.get(i), owlvar.getPrefixmanager());
+					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder, superClass)));
 				}
 			}
-    	}		 			
-    }
-    
-    
-    
-    
+			
+	
+			//def for the disease if any
+			 if (this.def != null) {
+				PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");
+				OWLAnnotation definition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
+						.getOWLAnnotationProperty(
+								"definition", pm2),
+								owlvar.getFactory().getOWLLiteral(this.def));
+				OWLAxiom define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), definition);
+				OWLAnnotation definitionCitation = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
+						.getOWLAnnotationProperty(
+								"definition_citation",
+								pm2),owlvar.getFactory().getOWLLiteral("orphanet"));
+				OWLAxiom defineCite = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), definitionCitation);
+				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), define));
+				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), defineCite));
+			}
+			//synonyms for the disease
+			 if (! this.synonym.isEmpty()){
+				for( int i=0; i< this.synonym.size(); i++){
+					PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");
+					OWLAnnotation alternativeTerm = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
+							.getOWLAnnotationProperty(
+									"alternative_term",
+									pm2), owlvar.getFactory().getOWLLiteral(this.synonym.get(i)));
+					OWLAxiom synonym = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), alternativeTerm);
+					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(),synonym));
+				}
+			}
+			
+			//xrefs for the disease
+			 if (!this.sourceList.isEmpty()){
+				for (int i=0; i<this.sourceList.size(); i++){
+					
+					//PrefixManager pm2 = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl/");
+					PrefixManager oboInOwl = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl#");
+					PrefixManager obo  = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
+					
+					OWLAnnotation database_cross_reference = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
+							.getOWLAnnotationProperty(
+									"hasDbXref",
+									oboInOwl), owlvar.getFactory().getOWLLiteral(this.sourceList.get(i) + ":" + this.refList.get(i)));
+					OWLAxiom xref = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference);
+					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), xref));
+					//UPDATE SD mapping relation
+					Set<OWLAnnotation> ref = new HashSet<OWLAnnotation>();
+					ref.add(database_cross_reference);
+										
+					if(!this.refValidList.get(i).equals("")){
+						
+						OWLAnnotation curationAssertion = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.refValidList.get(i)));
+						Set<OWLAnnotation> owlAnnoCur = new HashSet<OWLAnnotation>();
+
+						owlAnnoCur.add(curationAssertion);						
+						OWLAxiom xref2 = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference,owlAnnoCur);
+						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref2));
+					}
+					// FIN UPDATE
+		
+				}
+			}
+		}		 			
+	}
     
     
     
@@ -468,6 +472,7 @@ public void setInheritNum(String inheritNum) {
     	
     	PrefixManager obo = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
     	// UPDATE SD add Version 
+    	PrefixManager oboInOwl = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl#");
     	PrefixManager owl = new DefaultPrefixManager("http://www.w3.org/2002/07/owl#");
 		OWLAnnotation version = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("versionInfo", owl),
 				factory.getOWLLiteral("2.0"));
@@ -477,8 +482,9 @@ public void setInheritNum(String inheritNum) {
 		
     	PrefixManager dc = new DefaultPrefixManager("http://purl.org/dc/elements/1.1/");
     	ArrayList<String> list = new ArrayList<String>() {{
-    	    add("XXX");
-    	    add("YYY");
+    	    add("James Malone");
+    	    add("Drashtti Vasant");
+    	    add("Valérie Lanneau");
       	    add("Céline Rousselot");
     	    add("Samuel Demarest");
     	    add("Annie Olry");
@@ -588,9 +594,9 @@ public void setInheritNum(String inheritNum) {
     	OWLAnnotation famLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Family"));
     	
     	// UPDATE SD 4/01/2015
-    	OWLClass curatorClass = factory.getOWLClass("ECO_0000205", obo);
+    	OWLAnnotationProperty curatorClass = factory.getOWLAnnotationProperty("ECO_0000205", obo);
     	OWLAnnotation curatorLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("curator_inference"));
-    	OWLClass assertionClass = factory.getOWLClass("ECO_0000218", obo);
+    	OWLAnnotationProperty assertionClass = factory.getOWLAnnotationProperty("ECO_0000218", obo);
     	OWLAnnotation assertionLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("manual_assertion"));
     	
     	OWLClass disGermMutClass = factory.getOWLClass("317343", pm);
@@ -1420,8 +1426,8 @@ public void setInheritNum(String inheritNum) {
 				}
 				
 				type = this.prevalences.get(i).getType();
-				/* UPDATE  pour gérer les valeurs moyennes*/
-				if (this.prevalences.get(i).getValMoy()!=null && !this.prevalences.get(i).getValMoy().equals("")){
+				/* UPDATE  pour gérer les valeurs moyennes (0.0 exclu)*/
+				if (this.prevalences.get(i).getValMoy()!=null && !this.prevalences.get(i).getValMoy().equals("0.0") && !this.prevalences.get(i).getValMoy().equals("")){
 					/* UPDATE sélection du typage de Valeur moyenne */
 					if (type.equals("409966") ){ type = "C028";      // prevalence point
 					}else if (type.equals("409968") ){type = "C029"; // prevalence at birth
@@ -1431,6 +1437,7 @@ public void setInheritNum(String inheritNum) {
 					}else if (type.equals("409974") ){type = "C024"; // Family
 					}else if (type.equals("409973") ){type = "C024"; // Case
 					}
+					
 					OWLObjectProperty has_Prevalence = owlvar.getFactory().getOWLObjectProperty(type, owlvar.getPrefixmanager());
 					OWLAnnotation hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_"+this.prevalences.get(i).getTypeLab().toLowerCase().replaceAll(" ","_")+"_average_value"));
 					
@@ -1470,6 +1477,15 @@ public void setInheritNum(String inheritNum) {
 				OWLSubClassOfAxiom ax = owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder,diseaseHasPrevVal);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ax));
 
+				// UPDATE SD validation status for prevalence
+				if(this.prevalences.get(i).getValidation()!=null){
+					PrefixManager pm3 = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
+					OWLAnnotation manualAssert = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000205",pm3),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getValidation()));
+					Set<OWLAnnotation> owlAnn = new HashSet<OWLAnnotation>();
+					owlAnn.add(manualAssert);
+					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder, diseaseHasPrevVal,owlAnn)));
+				}
+				
 			}
 
 		}
@@ -1507,17 +1523,32 @@ public void setInheritNum(String inheritNum) {
 		//xrefs for the disease
 		 if (!this.sourceList.isEmpty()){
 			for (int i=0; i<this.sourceList.size(); i++){
-				//PrefixManager pm2 = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl");
+				PrefixManager oboInOwl = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl");
+				PrefixManager obo  = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
 				OWLAnnotation database_cross_reference = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 						.getOWLAnnotationProperty(
 								"hasDbXref",
-								pm2), owlvar.getFactory().getOWLLiteral(this.sourceList.get(i) + ":" + this.refList.get(i)));
+								obo), owlvar.getFactory().getOWLLiteral(this.sourceList.get(i) + ":" + this.refList.get(i)));
 				OWLAxiom xref = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref));
-				
+				//UPDATE SD mapping relation
+				Set<OWLAnnotation> ref = new HashSet<OWLAnnotation>();
+				ref.add(database_cross_reference);
+									
+				if(!this.refValidList.get(i).equals("")){
+					
+					OWLAnnotation curationAssertion = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.refValidList.get(i)));
+					Set<OWLAnnotation> owlAnnoCur = new HashSet<OWLAnnotation>();
+
+					owlAnnoCur.add(curationAssertion);						
+					OWLAxiom xref2 = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference,owlAnnoCur);
+					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref2));
 				}
+				// FIN UPDATE
 			}
-		 
+		
+		}
+	 
 		 
 		 
 		//gene class and its annotations
@@ -1578,14 +1609,27 @@ public void setInheritNum(String inheritNum) {
 				int cnt = Integer.parseInt(this.count.get(i));
 				if(!this.gsources.isEmpty()){
 					for (int j= start; j< (cnt+start); j++){
-						//PrefixManager pm2 = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl");
+						PrefixManager obo = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl");
 						OWLAnnotation database_cross_reference = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 								.getOWLAnnotationProperty(
 										"hasDbXref",
-										pm2), owlvar.getFactory().getOWLLiteral(this.gsources.get(j) + ":" + this.grefs.get(j)));
+										obo), owlvar.getFactory().getOWLLiteral(this.gsources.get(j) + ":" + this.grefs.get(j)));
 						OWLAxiom xref = owlvar.getFactory().getOWLAnnotationAssertionAxiom(gene.getIRI(), database_cross_reference);
 						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref));
-						
+						/*//UPDATE SD mapping relation
+						Set<OWLAnnotation> ref = new HashSet<OWLAnnotation>();
+						ref.add(database_cross_reference);
+											
+						if(!this.refValidList.get(i).equals("")){
+							
+							OWLAnnotation curationAssertion = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.refValidList.get(i)));
+							Set<OWLAnnotation> owlAnnoCur = new HashSet<OWLAnnotation>();
+
+							owlAnnoCur.add(curationAssertion);						
+							OWLAxiom xref2 = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference,owlAnnoCur);
+							owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref2));
+						}
+						// FIN UPDATE*/
 						 }
 					}
 					start = (cnt + start);

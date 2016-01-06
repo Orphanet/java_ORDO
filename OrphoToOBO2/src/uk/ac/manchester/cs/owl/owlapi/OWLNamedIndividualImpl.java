@@ -33,12 +33,12 @@ public class OWLNamedIndividualImpl extends OWLIndividualImpl implements
     @Nonnull
     private final IRI iri;
 
-    @Override
+ 
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(this);
     }
 
-    @Override
+ 
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 
     @Override
@@ -54,57 +54,57 @@ public class OWLNamedIndividualImpl extends OWLIndividualImpl implements
         this.iri = checkNotNull(iri, "iri cannot be null");
     }
 
-    @Override
+ 
     public boolean isNamed() {
         return true;
     }
 
-    @Override
+ 
     public EntityType<?> getEntityType() {
         return EntityType.NAMED_INDIVIDUAL;
     }
 
-    @Override
+ 
     public boolean isType(EntityType<?> entityType) {
         return getEntityType().equals(entityType);
     }
 
-    @Override
+ 
     public String toStringID() {
         return iri.toString();
     }
 
-    @Override
+ 
     public boolean isOWLNamedIndividual() {
         return true;
     }
 
-    @Override
+ 
     public IRI getIRI() {
         return iri;
     }
 
-    @Override
+ 
     public boolean isAnonymous() {
         return false;
     }
 
-    @Override
+ 
     public OWLNamedIndividual asOWLNamedIndividual() {
         return this;
     }
 
-    @Override
+ 
     public OWLAnonymousIndividual asOWLAnonymousIndividual() {
         throw new OWLRuntimeException("Not an anonymous individual");
     }
 
-    @Override
+ 
     public OWLAnnotationProperty asOWLAnnotationProperty() {
         throw new OWLRuntimeException("Not an annotation property");
     }
 
-    @Override
+ 
     public boolean isOWLAnnotationProperty() {
         return false;
     }
@@ -130,87 +130,87 @@ public class OWLNamedIndividualImpl extends OWLIndividualImpl implements
         return iri.compareTo(other.getIRI());
     }
 
-    @Override
+ 
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLEntityVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLEntityVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLNamedObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLNamedObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLIndividualVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLIndividualVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public OWLClass asOWLClass() {
         throw new OWLRuntimeException("Not an OWLClass!");
     }
 
-    @Override
+ 
     public OWLDataProperty asOWLDataProperty() {
         throw new OWLRuntimeException("Not a data property!");
     }
 
-    @Override
+ 
     public OWLDatatype asOWLDatatype() {
         throw new OWLRuntimeException("Not a data type!");
     }
 
-    @Override
+ 
     public OWLObjectProperty asOWLObjectProperty() {
         throw new OWLRuntimeException("Not an object property");
     }
 
-    @Override
+ 
     public boolean isOWLClass() {
         return false;
     }
 
-    @Override
+ 
     public boolean isOWLDataProperty() {
         return false;
     }
 
-    @Override
+ 
     public boolean isOWLDatatype() {
         return false;
     }
 
-    @Override
+ 
     public boolean isOWLObjectProperty() {
         return false;
     }
 
-    @Override
+ 
     public boolean isBuiltIn() {
         return false;
     }
