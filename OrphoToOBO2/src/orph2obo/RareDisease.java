@@ -13,7 +13,6 @@ import org.semanticweb.owlapi.model.AddOntologyAnnotation;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
-import org.semanticweb.owlapi.model.OWLAnonymousClassExpression;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
@@ -21,13 +20,8 @@ import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataHasValue;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
-import org.semanticweb.owlapi.model.OWLIndividual;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
-import org.semanticweb.owlapi.model.OWLObjectHasValue;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyID;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -680,6 +674,7 @@ public void setInheritNum(String inheritNum) {
     	// UPDATE SD 4/01/2015
     	OWLDeclarationAxiom curator = factory.getOWLDeclarationAxiom(curatorClass);
     	OWLDeclarationAxiom assertion = factory.getOWLDeclarationAxiom(assertionClass);
+    	
     	OWLDeclarationAxiom disGermMut = factory.getOWLDeclarationAxiom(disGermMutClass);
     	OWLDeclarationAxiom cgt = factory.getOWLDeclarationAxiom(cgtClass);
     	OWLDeclarationAxiom dgmgf = factory.getOWLDeclarationAxiom(dgmgfClass);
@@ -755,6 +750,10 @@ public void setInheritNum(String inheritNum) {
        	manager.applyChange(new AddAxiom(ontology, inheritance16));
        	manager.applyChange(new AddAxiom(ontology, inheritance17));
        	manager.applyChange(new AddAxiom(ontology, inheritance18));
+       	
+       	//UPDATE SD
+       	manager.applyChange(new AddAxiom(ontology, curator));
+       	manager.applyChange(new AddAxiom(ontology, assertion));
        	
        	manager.applyChange(new AddAxiom(ontology, lab));
        	manager.applyChange(new AddAxiom(ontology, lab1));
