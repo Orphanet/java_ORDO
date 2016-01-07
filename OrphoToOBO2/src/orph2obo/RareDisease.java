@@ -1522,12 +1522,12 @@ public void setInheritNum(String inheritNum) {
 		//xrefs for the disease
 		 if (!this.sourceList.isEmpty()){
 			for (int i=0; i<this.sourceList.size(); i++){
-				PrefixManager oboInOwl = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl");
+				PrefixManager oboInOwl = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl#");
 				PrefixManager obo  = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
 				OWLAnnotation database_cross_reference = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 						.getOWLAnnotationProperty(
 								"hasDbXref",
-								obo), owlvar.getFactory().getOWLLiteral(this.sourceList.get(i) + ":" + this.refList.get(i)));
+								oboInOwl), owlvar.getFactory().getOWLLiteral(this.sourceList.get(i) + ":" + this.refList.get(i)));
 				OWLAxiom xref = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref));
 				//UPDATE SD mapping relation
@@ -1608,7 +1608,7 @@ public void setInheritNum(String inheritNum) {
 				int cnt = Integer.parseInt(this.count.get(i));
 				if(!this.gsources.isEmpty()){
 					for (int j= start; j< (cnt+start); j++){
-						PrefixManager obo = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl");
+						PrefixManager obo = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl#");
 						OWLAnnotation database_cross_reference = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 								.getOWLAnnotationProperty(
 										"hasDbXref",
