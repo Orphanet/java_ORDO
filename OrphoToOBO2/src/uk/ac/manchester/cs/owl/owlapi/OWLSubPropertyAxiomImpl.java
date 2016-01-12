@@ -58,12 +58,10 @@ public abstract class OWLSubPropertyAxiomImpl<P extends OWLPropertyExpression>
                 "superProperty cannot be null");
     }
 
-    @Override
     public P getSubProperty() {
         return subProperty;
     }
 
-    @Override
     public P getSuperProperty() {
         return superProperty;
     }

@@ -54,7 +54,7 @@ public class OWLFunctionalDataPropertyAxiomImpl extends
     }
 
     @Nonnull
-    @Override
+  
     public OWLFunctionalDataPropertyAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -63,7 +63,7 @@ public class OWLFunctionalDataPropertyAxiomImpl extends
                 NO_ANNOTATIONS);
     }
 
-    @Override
+  
     public OWLFunctionalDataPropertyAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLFunctionalDataPropertyAxiomImpl(getProperty(),
@@ -81,27 +81,27 @@ public class OWLFunctionalDataPropertyAxiomImpl extends
         return obj instanceof OWLFunctionalDataPropertyAxiom;
     }
 
-    @Override
+  
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+  
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+  
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+  
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+  
     public AxiomType<?> getAxiomType() {
         return AxiomType.FUNCTIONAL_DATA_PROPERTY;
     }
@@ -112,7 +112,7 @@ public class OWLFunctionalDataPropertyAxiomImpl extends
                 ((OWLFunctionalDataPropertyAxiom) object).getProperty());
     }
 
-    @Override
+  
     public OWLSubClassOfAxiom asOWLSubClassOfAxiom() {
         return new OWLSubClassOfAxiomImpl(OWL_THING,
                 new OWLDataMaxCardinalityImpl(getProperty(), 1,

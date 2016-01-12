@@ -50,7 +50,7 @@ public class OWLInverseFunctionalObjectPropertyAxiomImpl extends
         super(property, annotations);
     }
 
-    @Override
+  
     public OWLInverseFunctionalObjectPropertyAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -59,7 +59,7 @@ public class OWLInverseFunctionalObjectPropertyAxiomImpl extends
                 NO_ANNOTATIONS);
     }
 
-    @Override
+  
     public OWLInverseFunctionalObjectPropertyAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLInverseFunctionalObjectPropertyAxiomImpl(getProperty(),
@@ -77,32 +77,32 @@ public class OWLInverseFunctionalObjectPropertyAxiomImpl extends
         return obj instanceof OWLInverseFunctionalObjectPropertyAxiom;
     }
 
-    @Override
+  
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+  
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+  
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+  
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+  
     public AxiomType<?> getAxiomType() {
         return AxiomType.INVERSE_FUNCTIONAL_OBJECT_PROPERTY;
     }
 
-    @Override
+  
     public OWLSubClassOfAxiom asOWLSubClassOfAxiom() {
         return new OWLSubClassOfAxiomImpl(OWL_THING,
                 new OWLObjectMaxCardinalityImpl(getProperty()

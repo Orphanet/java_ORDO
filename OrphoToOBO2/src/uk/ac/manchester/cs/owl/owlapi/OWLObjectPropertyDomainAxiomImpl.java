@@ -53,7 +53,7 @@ public class OWLObjectPropertyDomainAxiomImpl extends
         super(property, domain, annotations);
     }
 
-    @Override
+ 
     public OWLObjectPropertyDomainAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -62,7 +62,7 @@ public class OWLObjectPropertyDomainAxiomImpl extends
                 NO_ANNOTATIONS);
     }
 
-    @Override
+ 
     public OWLObjectPropertyDomainAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLObjectPropertyDomainAxiomImpl(getProperty(), getDomain(),
@@ -80,32 +80,32 @@ public class OWLObjectPropertyDomainAxiomImpl extends
         return obj instanceof OWLObjectPropertyDomainAxiom;
     }
 
-    @Override
+ 
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public AxiomType<?> getAxiomType() {
         return AxiomType.OBJECT_PROPERTY_DOMAIN;
     }
 
-    @Override
+ 
     public OWLSubClassOfAxiom asOWLSubClassOfAxiom() {
         OWLClassExpression sub = new OWLObjectSomeValuesFromImpl(getProperty(),
                 OWL_THING);

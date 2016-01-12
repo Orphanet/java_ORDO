@@ -24,17 +24,14 @@ import org.semanticweb.owlapi.model.NodeID;
  */
 public class AnonymousNodeCheckerImpl implements AnonymousNodeChecker {
 
-    @Override
     public boolean isAnonymousNode(IRI iri) {
         return NodeID.isAnonymousNodeIRI(iri);
     }
 
-    @Override
     public boolean isAnonymousNode(String iri) {
         return NodeID.isAnonymousNodeIRI(iri);
     }
 
-    @Override
     public boolean isAnonymousSharedNode(String iri) {
         return NodeID.isAnonymousNodeID(iri);
     }

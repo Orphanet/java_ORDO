@@ -40,12 +40,12 @@ public class OWLLiteralImplNoCompression extends OWLObjectImplWithoutEntityAndAn
     @Nonnull
     private final String language;
 
-    @Override
+ 
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(datatype);
     }
 
-    @Override
+ 
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 
     @Override
@@ -84,37 +84,37 @@ public class OWLLiteralImplNoCompression extends OWLObjectImplWithoutEntityAndAn
     }
 
     @Nonnull
-    @Override
+ 
     public String getLiteral() {
         return literal;
     }
 
-    @Override
+ 
     public boolean isRDFPlainLiteral() {
         return datatype.getIRI().equals(OWL2Datatype.RDF_PLAIN_LITERAL.getIRI());
     }
 
-    @Override
+ 
     public boolean hasLang() {
         return !language.isEmpty();
     }
 
-    @Override
+ 
     public boolean isInteger() {
         return datatype.getIRI().equals(OWL2Datatype.XSD_INTEGER.getIRI());
     }
 
-    @Override
+ 
     public int parseInteger() {
         return Integer.parseInt(getLiteral());
     }
 
-    @Override
+ 
     public boolean isBoolean() {
         return datatype.getIRI().equals(OWL2Datatype.XSD_BOOLEAN.getIRI());
     }
 
-    @Override
+ 
     public boolean parseBoolean() {
         if (literal.equals("0")) {
             return false;
@@ -131,22 +131,22 @@ public class OWLLiteralImplNoCompression extends OWLObjectImplWithoutEntityAndAn
         return Boolean.parseBoolean(literal);
     }
 
-    @Override
+ 
     public boolean isDouble() {
         return datatype.getIRI().equals(OWL2Datatype.XSD_DOUBLE.getIRI());
     }
 
-    @Override
+ 
     public double parseDouble() {
         return Double.parseDouble(literal);
     }
 
-    @Override
+ 
     public boolean isFloat() {
         return datatype.getIRI().equals(OWL2Datatype.XSD_FLOAT.getIRI());
     }
 
-    @Override
+ 
     public float parseFloat() {
         if ("inf".equalsIgnoreCase(literal)) {
             return Float.POSITIVE_INFINITY;
@@ -158,12 +158,12 @@ public class OWLLiteralImplNoCompression extends OWLObjectImplWithoutEntityAndAn
     }
 
     @Nonnull
-    @Override
+ 
     public String getLang() {
         return language;
     }
 
-    @Override
+ 
     public boolean hasLang(@Nullable String lang) {
         if (lang == null) {
             return language.isEmpty();
@@ -172,7 +172,7 @@ public class OWLLiteralImplNoCompression extends OWLObjectImplWithoutEntityAndAn
     }
 
     @Nonnull
-    @Override
+ 
     public OWLDatatype getDatatype() {
         return datatype;
     }
@@ -230,24 +230,24 @@ public class OWLLiteralImplNoCompression extends OWLObjectImplWithoutEntityAndAn
             .getLang());
     }
 
-    @Override
+ 
     public void accept(@Nonnull OWLDataVisitor visitor) {
         visitor.visit(this);
     }
 
     @Nonnull
-    @Override
+ 
     public <O> O accept(@Nonnull OWLDataVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(@Nonnull OWLAnnotationValueVisitor visitor) {
         visitor.visit(this);
     }
 
     @Nonnull
-    @Override
+ 
     public <O> O accept(@Nonnull OWLAnnotationValueVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
@@ -266,28 +266,28 @@ public class OWLLiteralImplNoCompression extends OWLObjectImplWithoutEntityAndAn
         return language.compareTo(other.getLang());
     }
 
-    @Override
+ 
     public void accept(@Nonnull OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
     @Nonnull
-    @Override
+ 
     public <O> O accept(@Nonnull OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public Optional<IRI> asIRI() {
         return Optional.absent();
     }
 
-    @Override
+ 
     public Optional<OWLAnonymousIndividual> asAnonymousIndividual() {
         return Optional.absent();
     }
 
-    @Override
+ 
     public Optional<OWLLiteral> asLiteral() {
         return Optional.<OWLLiteral> of(this);
     }

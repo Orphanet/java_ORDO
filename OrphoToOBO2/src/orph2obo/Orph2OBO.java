@@ -7,17 +7,27 @@ package orph2obo;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
 
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.model.IRI;
 
+import uk.ac.ox.krr.logmap2.LogMap2_Matcher;
+import uk.ac.ox.krr.logmap2.mappings.objects.MappingObjectStr;
+import uk.ac.ebi.efo.bubastis.CompareOntologies;
+import uk.ac.ebi.efo.bubastis.OWLClassAxiomsInfo;
+import uk.ac.ebi.efo.bubastis.OntologyChangesBean;
 
 public class Orph2OBO {
     /** This class downloads the ca. 20 Orpha Rare Disease XML files. */
@@ -36,39 +46,64 @@ public class Orph2OBO {
      */
     public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException {
 	
-    /**This is the name of the directory where the Orphanet XML files will be written to*/
-    String directory = "OrphadataMay";
-    	//String directory = "OrphadataMay";
-	Orph2OBO o2o = new Orph2OBO();
-	o2o.createDownloadDirectoryIfDoesntExist(directory);
-	o2o.downloadOrphanetFiles(directory);//uncomment this to generate an Orphanet OWL file 
-	o2o.getDiseaseXRefs();
-	
-	o2o.addEpidemiologyData();//uncomment this to generate an Orphanet OWL file 
-	o2o.addGenesData();//uncomment this to generate an Orphanet OWL file  
-	o2o.downloadDiseaseClassifications();//uncomment this to generate an Orphanet OWL file 
-	/* Rare immunological diseases */
-	//String immunological = "http://www.orphadata.org/data/xml/en_product3_195.xml";
-	//o2o.download_specific_disease_classification(immunological,"immunological.out");
-	
-	/* rare cardiac diseases */
-	//String cardiac = "http://www.orphadata.org/data/xml/en_product3_146.xml";
-	//o2o.download_specific_disease_classification(cardiac,"cardiac.txt");
-	o2o.printOutputToFile();//uncomment this to generate an Orphanet OWL file 
-	System.out.println("Obo File written");//uncomment this to generate an Orphanet OWL file 
-	System.out.println("starting to save the owl module file");
-	RareDisease rd = new RareDisease();
-	try {
-		//Comment this out if you do not just want to extract a module 
-		rd.saveOWLFile();//uncomment this to generate an Orphanet OWL file 
-	} catch (OWLOntologyStorageException e) {
-		// TODO Auto-generated catch block
-		System.out.println("problem saving the owl file");
-		e.printStackTrace();
-	}
-	System.out.println("Owl file is now saved");
+	    /**This is the name of the directory where the Orphanet XML files will be written to*/
+	    String directory = "OrphadataMay";
+	    	//String directory = "OrphadataMay";
+		Orph2OBO o2o = new Orph2OBO();
+		o2o.createDownloadDirectoryIfDoesntExist(directory);
+		o2o.downloadOrphanetFiles(directory);//uncomment this to generate an Orphanet OWL file 
+		o2o.getDiseaseXRefs();
+		
+		o2o.addEpidemiologyData();//uncomment this to generate an Orphanet OWL file 
+		o2o.addGenesData();//uncomment this to generate an Orphanet OWL file  
+		o2o.downloadDiseaseClassifications();//uncomment this to generate an Orphanet OWL file 
+		/* Rare immunological diseases */
+		//String immunological = "http://www.orphadata.org/data/xml/en_product3_195.xml";
+		//o2o.download_specific_disease_classification(immunological,"immunological.out");
+		
+		/* rare cardiac diseases */
+		//String cardiac = "http://www.orphadata.org/data/xml/en_product3_146.xml";
+		//o2o.download_specific_disease_classification(cardiac,"cardiac.txt");
+		o2o.printOutputToFile();//uncomment this to generate an Orphanet OWL file 
+		System.out.println("Obo File written");//uncomment this to generate an Orphanet OWL file 
+		System.out.println("starting to save the owl module file");
+		RareDisease rd = new RareDisease();
+		try {
+			//Comment this out if you do not just want to extract a module 
+			rd.saveOWLFile();//uncomment this to generate an Orphanet OWL file 
+		} catch (OWLOntologyStorageException e) {
+			// TODO Auto-generated catch block
+			System.out.println("problem saving the owl file");
+			e.printStackTrace();
+		}
+		System.out.println("Owl file is now saved");
+		
+		
+		/******** UPDATE SD Add ChangeLog ********/
+		
+		FileOutputStream f;
+		PrintStream defaultOut =  System.out;
+		try {
+			 f = new FileOutputStream("C:\\OrphoToOBO2\\bubastis_change_log.txt");			 
+			 System.setOut(new PrintStream(f));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		CompareOntologies bubastis = new CompareOntologies();
+		bubastis.doFindAllChanges("http://www.orpha.net/ontology/orphanet.owl","file:/OrphoToOBO2/orphadata.owl");
+		bubastis.writeDiffAsXMLFile("C:\\OrphoToOBO2\\bubastis_change_log.xml");
+		System.setOut(defaultOut);
+		System.out.println("Exit program after saving Change Log");
+		
+		/****************************************/
+		
     }
-    
+    /*LogMap2_Matcher logmap2 = new LogMap2_Matcher(
+            "http://oaei.ontologymatching.org/2012/conference/data/ekaw.owl",
+            "http://oaei.ontologymatching.org/2012/conference/data/cmt.owl");
+
+    Set<MappingObjectStr> logmap2_mappings = logmap2.getLogmap2_Mappings();*/
 
 	/*  
     private void download_specific_disease_classification(String URI,String outname)

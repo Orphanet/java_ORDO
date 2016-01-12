@@ -56,7 +56,7 @@ public class OWLDataPropertyDomainAxiomImpl extends
         super(property, domain, annotations);
     }
 
-    @Override
+  
     public OWLDataPropertyDomainAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -65,7 +65,7 @@ public class OWLDataPropertyDomainAxiomImpl extends
                 NO_ANNOTATIONS);
     }
 
-    @Override
+  
     public OWLAxiom getAnnotatedAxiom(Set<OWLAnnotation> annotations) {
         return new OWLDataPropertyDomainAxiomImpl(getProperty(), getDomain(),
                 mergeAnnos(annotations));
@@ -82,32 +82,32 @@ public class OWLDataPropertyDomainAxiomImpl extends
         return obj instanceof OWLDataPropertyDomainAxiom;
     }
 
-    @Override
+  
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+  
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+  
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+  
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+  
     public AxiomType<?> getAxiomType() {
         return AxiomType.DATA_PROPERTY_DOMAIN;
     }
 
-    @Override
+  
     public OWLSubClassOfAxiom asOWLSubClassOfAxiom() {
         OWLClassExpression sub = new OWLDataSomeValuesFromImpl(getProperty(),
                 new OWL2DatatypeImpl(RDFS_LITERAL));

@@ -45,35 +45,35 @@ public abstract class OWLDataCardinalityRestrictionImpl extends
         this.property = checkNotNull(property, "property cannot be null");
     }
 
-    @Override
+  
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         OWLDataRange filler = getFiller();
         addSignatureEntitiesToSetForValue(entities, filler);
         addSignatureEntitiesToSetForValue(entities, property);
     }
 
-    @Override
+  
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {
         OWLDataRange filler = getFiller();
         addAnonymousIndividualsToSetForValue(anons, filler);
     }
 
-    @Override
+  
     public OWLDataPropertyExpression getProperty() {
         return property;
     }
 
-    @Override
+  
     public boolean isQualified() {
         return !getFiller().isTopDatatype();
     }
 
-    @Override
+  
     public boolean isObjectRestriction() {
         return false;
     }
 
-    @Override
+  
     public boolean isDataRestriction() {
         return true;
     }

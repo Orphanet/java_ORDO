@@ -142,7 +142,7 @@ public class OWLOntologyFactoryImpl implements OWLOntologyFactory {
         return parsers.getByMIMEType(mimeType);
     }
 
-    @Override
+ 
     public boolean canLoad(@Nonnull OWLOntologyDocumentSource documentSource) {
         if (documentSource.isReaderAvailable()) {
             return true;
@@ -172,7 +172,7 @@ public class OWLOntologyFactoryImpl implements OWLOntologyFactory {
     }
 
     @Nonnull
-    @Override
+ 
     public OWLOntology loadOWLOntology(@Nonnull OWLOntologyManager manager,
                                        @Nonnull OWLOntologyDocumentSource documentSource,
                                        @Nonnull OWLOntologyCreationHandler handler,

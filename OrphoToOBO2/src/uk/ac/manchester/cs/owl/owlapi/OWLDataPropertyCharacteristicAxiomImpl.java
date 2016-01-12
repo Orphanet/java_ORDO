@@ -48,7 +48,6 @@ public abstract class OWLDataPropertyCharacteristicAxiomImpl extends
         this.property = checkNotNull(property, "property cannot be null");
     }
 
-    @Override
     public OWLDataPropertyExpression getProperty() {
         return property;
     }

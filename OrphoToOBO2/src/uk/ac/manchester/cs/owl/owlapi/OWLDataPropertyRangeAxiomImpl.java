@@ -56,7 +56,6 @@ public class OWLDataPropertyRangeAxiomImpl extends
     }
 
     @Nonnull
-    @Override
     public OWLDataPropertyRangeAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -65,7 +64,7 @@ public class OWLDataPropertyRangeAxiomImpl extends
                 NO_ANNOTATIONS);
     }
 
-    @Override
+  
     public OWLAxiom getAnnotatedAxiom(Set<OWLAnnotation> annotations) {
         return new OWLDataPropertyRangeAxiomImpl(getProperty(), getRange(),
                 mergeAnnos(annotations));
@@ -82,32 +81,32 @@ public class OWLDataPropertyRangeAxiomImpl extends
         return obj instanceof OWLDataPropertyRangeAxiom;
     }
 
-    @Override
+  
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+  
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+  
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+  
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+  
     public AxiomType<?> getAxiomType() {
         return AxiomType.DATA_PROPERTY_RANGE;
     }
 
-    @Override
+  
     public OWLSubClassOfAxiom asOWLSubClassOfAxiom() {
         OWLClassExpression sup = new OWLDataAllValuesFromImpl(getProperty(),
                 getRange());

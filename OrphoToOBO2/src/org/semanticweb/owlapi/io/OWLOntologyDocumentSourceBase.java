@@ -66,22 +66,22 @@ public abstract class OWLOntologyDocumentSourceBase implements
         mimeType = mime;
     }
 
-    @Override
+ 
     public OWLDocumentFormat getFormat() {
         return format;
     }
 
-    @Override
+ 
     public boolean isFormatKnown() {
         return format != null;
     }
 
-    @Override
+ 
     public String getMIMEType() {
         return mimeType;
     }
 
-    @Override
+ 
     public boolean isMIMETypeKnown() {
         return mimeType != null && !mimeType.isEmpty();
     }

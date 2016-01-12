@@ -53,7 +53,6 @@ public class OWLObjectMinCardinalityImpl extends
         super(property, cardinality, filler);
     }
 
-    @Override
     public ClassExpressionType getClassExpressionType() {
         return ClassExpressionType.OBJECT_MIN_CARDINALITY;
     }
@@ -69,22 +68,22 @@ public class OWLObjectMinCardinalityImpl extends
         return obj instanceof OWLObjectMinCardinality;
     }
 
-    @Override
+ 
     public void accept(@Nonnull OWLClassExpressionVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLClassExpressionVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }

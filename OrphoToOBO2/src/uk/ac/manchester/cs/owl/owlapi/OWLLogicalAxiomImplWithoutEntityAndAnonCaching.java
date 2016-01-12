@@ -37,12 +37,10 @@ public abstract class OWLLogicalAxiomImplWithoutEntityAndAnonCaching extends
         super(annotations);
     }
 
-    @Override
     public boolean isLogicalAxiom() {
         return true;
     }
 
-    @Override
     public boolean isAnnotationAxiom() {
         return false;
     }

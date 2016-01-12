@@ -76,12 +76,10 @@ public class OWLDisjointClassesAxiomImpl extends OWLNaryClassAxiomImpl implement
         visitor.visit(this);
     }
 
-    @Override
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }

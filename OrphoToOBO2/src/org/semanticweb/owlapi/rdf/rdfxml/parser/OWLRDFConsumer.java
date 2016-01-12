@@ -250,7 +250,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         tripleLogger = new TripleLogger();
     }
 
-    @Override
+ 
     public void addPrefix(String abbreviation, String value) {
         if (ontologyFormat.isPrefixOWLOntologyFormat()) {
             ontologyFormat.asPrefixOWLOntologyFormat().setPrefix(abbreviation, value);
@@ -498,7 +498,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         // We cache IRIs of various entities here.
         // We also mop up any triples that weren't parsed and consumed in the
         // imports closure.
-        for (OWLOntology ont : owlOntologyManager.getImportsClosure(ontology)) {
+        for (OWLOntology ont : ontology.getImportsClosure()) {
             for (OWLAnnotationProperty prop : ont.getAnnotationPropertiesInSignature(EXCLUDED)) {
                 annotationPropertyIRIs.add(prop.getIRI());
             }
@@ -520,17 +520,17 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         }
     }
 
-    @Override
+ 
     public boolean isAnonymousNode(String iri) {
         return nodeCheckerDelegate.isAnonymousNode(iri);
     }
 
-    @Override
+ 
     public boolean isAnonymousSharedNode(String iri) {
         return nodeCheckerDelegate.isAnonymousSharedNode(iri);
     }
 
-    @Override
+ 
     public boolean isAnonymousNode(IRI iri) {
         return nodeCheckerDelegate.isAnonymousNode(iri);
     }
@@ -1066,7 +1066,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         }
     }
 
-    @Override
+ 
     public OWLAnonymousIndividual getOWLAnonymousIndividual(String nodeId) {
         return anonProvider.getOWLAnonymousIndividual(nodeId);
     }
@@ -1343,7 +1343,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         //LOGGER.info("done dumping remaining triples");
     }
 
-    @Override
+ 
     public void startModel(IRI physicalURI) {}
 
     /**
@@ -1355,7 +1355,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         return parsedAllTriples;
     }
 
-    @Override
+ 
     public void endModel() {
         parsedAllTriples = true;
         // We are now left with triples that could not be consumed during
@@ -1454,12 +1454,12 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         guessedDeclarations.clear();
     }
 
-    @Override
+ 
     public void includeModel(String logicalURI, String physicalURI) {
         // XXX should this do nothing?
     }
 
-    @Override
+ 
     public void logicalURI(IRI logicalURI) {
         // XXX what is the purpose of this?
     }
@@ -1482,7 +1482,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         return original;
     }
 
-    @Override
+ 
     public void statementWithLiteralValue(@Nonnull String subject, @Nonnull String predicate, @Nonnull String object,
         @Nullable String language, @Nullable String datatype) {
         tripleLogger.logTriple(subject, predicate, object, language, datatype);
@@ -1492,14 +1492,14 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         handlerAccessor.handleStreaming(subjectIRI, predicateIRI, object, getIRINullable(datatype), language);
     }
 
-    @Override
+ 
     public void statementWithLiteralValue(@Nonnull IRI subject, @Nonnull IRI predicate, @Nonnull String object,
         String language, IRI datatype) {
         tripleLogger.logTriple(subject, predicate, object, language, datatype);
         handlerAccessor.handleStreaming(subject, getSynonym(predicate), object, datatype, language);
     }
 
-    @Override
+ 
     public void statementWithResourceValue(@Nonnull String subject, @Nonnull String predicate, @Nonnull String object) {
         tripleLogger.logTriple(subject, predicate, object);
         IRI subjectIRI = getIRI(subject);
@@ -1509,7 +1509,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         handlerAccessor.handleStreaming(subjectIRI, predicateIRI, objectIRI);
     }
 
-    @Override
+ 
     public void statementWithResourceValue(@Nonnull IRI subject, @Nonnull IRI predicate, @Nonnull IRI object) {
         tripleLogger.logTriple(subject, predicate, object);
         handlerAccessor.handleStreaming(subject, getSynonym(predicate), getSynonym(object));
@@ -2337,7 +2337,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
     private final Map<IRI, IRI> remappedIRIs = CollectionFactory.createMap();
     private final Map<String, IRI> remappedIRIStrings = CollectionFactory.createMap();
 
-    @Override
+ 
     @Nonnull
     public IRI remapIRI(@Nonnull IRI i) {
         if (nodeCheckerDelegate.isAnonymousNode(i)) {
@@ -2353,7 +2353,7 @@ public class OWLRDFConsumer implements RDFConsumer, AnonymousNodeChecker, OWLAno
         return computeIfAbsent;
     }
 
-    @Override
+ 
     @Nonnull
     public String remapOnlyIfRemapped(@Nonnull String i) {
         if (nodeCheckerDelegate.isAnonymousNode(i) || nodeCheckerDelegate.isAnonymousSharedNode(i)) {

@@ -54,7 +54,6 @@ public abstract class OWLPropertyDomainAxiomImpl<P extends OWLPropertyExpression
         this.domain = checkNotNull(domain, "domain cannot be null");
     }
 
-    @Override
     public OWLClassExpression getDomain() {
         return domain;
     }

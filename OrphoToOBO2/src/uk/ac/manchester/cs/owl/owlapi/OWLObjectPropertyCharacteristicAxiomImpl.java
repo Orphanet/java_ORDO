@@ -52,7 +52,6 @@ public abstract class OWLObjectPropertyCharacteristicAxiomImpl extends
         this.property = checkNotNull(property, "property cannot be null");
     }
 
-    @Override
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         if (property instanceof OWLObjectPropertyExpressionImpl) {
             OWLObjectPropertyExpressionImpl objectProperty = (OWLObjectPropertyExpressionImpl) property;
@@ -62,10 +61,10 @@ public abstract class OWLObjectPropertyCharacteristicAxiomImpl extends
         }
     }
 
-    @Override
+ 
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 
-    @Override
+ 
     public OWLObjectPropertyExpression getProperty() {
         return property;
     }
@@ -85,7 +84,7 @@ public abstract class OWLObjectPropertyCharacteristicAxiomImpl extends
                 .equals(property);
     }
 
-    @Override
+ 
     protected int compareObjectOfSameType(OWLObject object) {
         return property
                 .compareTo(((OWLObjectPropertyCharacteristicAxiom) object)

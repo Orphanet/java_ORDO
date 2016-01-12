@@ -53,22 +53,22 @@ public class PrefixDocumentFormatImpl extends OWLDocumentFormatImpl implements
         nsm = checkNotNull(manager, "manager cannot be null");
     }
 
-    @Override
+ 
     public void setPrefixManager(@Nonnull PrefixManager m) {
         nsm = checkNotNull(m, "m cannot be null");
     }
 
-    @Override
+ 
     public void setPrefix(String prefixName, String prefix) {
         nsm.setPrefix(prefixName, prefix);
     }
 
-    @Override
+ 
     public void clear() {
         nsm.clear();
     }
 
-    @Override
+ 
     public Set<String> getPrefixNames() {
         return nsm.getPrefixNames();
     }
@@ -112,37 +112,37 @@ public class PrefixDocumentFormatImpl extends OWLDocumentFormatImpl implements
         nsm.copyPrefixesFrom(from);
     }
 
-    @Override
+ 
     public void copyPrefixesFrom(Map<String, String> from) {
         nsm.copyPrefixesFrom(from);
     }
 
-    @Override
+ 
     public void unregisterNamespace(String namespace) {
         nsm.unregisterNamespace(namespace);
     }
 
-    @Override
+ 
     public StringComparator getPrefixComparator() {
         return nsm.getPrefixComparator();
     }
 
-    @Override
+ 
     public void setPrefixComparator(StringComparator comparator) {
         nsm.setPrefixComparator(comparator);
     }
 
-    @Override
+ 
     public String getKey() {
         return "Generic prefix ontology format";
     }
 
-    @Override
+ 
     public boolean isPrefixOWLOntologyFormat() {
         return true;
     }
 
-    @Override
+ 
     public PrefixDocumentFormat asPrefixOWLOntologyFormat() {
         return this;
     }

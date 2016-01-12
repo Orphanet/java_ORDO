@@ -57,7 +57,6 @@ public class OWLObjectExactCardinalityImpl extends
         super(property, cardinality, filler);
     }
 
-    @Override
     public ClassExpressionType getClassExpressionType() {
         return ClassExpressionType.OBJECT_EXACT_CARDINALITY;
     }
@@ -74,7 +73,6 @@ public class OWLObjectExactCardinalityImpl extends
     }
 
     @Nonnull
-    @Override
     public OWLClassExpression asIntersectionOfMinMax() {
         return new OWLObjectIntersectionOfImpl(new HashSet<OWLClassExpression>(
                 Arrays.asList(new OWLObjectMinCardinalityImpl(getProperty(),
@@ -83,22 +81,20 @@ public class OWLObjectExactCardinalityImpl extends
                                 getCardinality(), getFiller()))));
     }
 
-    @Override
     public void accept(OWLClassExpressionVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLClassExpressionVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }

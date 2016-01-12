@@ -39,12 +39,10 @@ public abstract class OWLCardinalityRestrictionImpl<F extends OWLPropertyRange>
         this.filler = checkNotNull(filler, "filler cannot be null");
     }
 
-    @Override
     public int getCardinality() {
         return cardinality;
     }
 
-    @Override
     public F getFiller() {
         return filler;
     }

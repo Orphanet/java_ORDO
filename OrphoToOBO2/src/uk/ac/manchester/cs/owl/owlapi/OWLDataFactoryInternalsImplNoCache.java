@@ -63,40 +63,40 @@ public class OWLDataFactoryInternalsImplNoCache implements OWLDataFactoryInterna
         this.useCompression = useCompression;
     }
 
-    @Override
+ 
     public void purge() {}
 
-    @Override
+ 
     public OWLClass getOWLClass(IRI iri) {
         return new OWLClassImpl(iri);
     }
 
-    @Override
+ 
     public OWLObjectProperty getOWLObjectProperty(IRI iri) {
         return new OWLObjectPropertyImpl(iri);
     }
 
-    @Override
+ 
     public OWLDataProperty getOWLDataProperty(IRI iri) {
         return new OWLDataPropertyImpl(iri);
     }
 
-    @Override
+ 
     public OWLNamedIndividual getOWLNamedIndividual(IRI iri) {
         return new OWLNamedIndividualImpl(iri);
     }
 
-    @Override
+ 
     public OWLDatatype getOWLDatatype(IRI iri) {
         return new OWLDatatypeImpl(iri);
     }
 
-    @Override
+ 
     public OWLAnnotationProperty getOWLAnnotationProperty(IRI iri) {
         return new OWLAnnotationPropertyImpl(iri);
     }
 
-    @Override
+ 
     public OWLLiteral getOWLLiteral(float value) {
         return new OWLLiteralImplFloat(value, getFloatOWLDatatype());
     }
@@ -110,7 +110,7 @@ public class OWLDataFactoryInternalsImplNoCache implements OWLDataFactoryInterna
         return new OWLLiteralImplString(value);
     }
 
-    @Override
+ 
     public OWLLiteral getOWLLiteral(String literal, @Nullable String lang) {
         String normalisedLang;
         if (lang == null) {
@@ -121,26 +121,26 @@ public class OWLDataFactoryInternalsImplNoCache implements OWLDataFactoryInterna
         if (useCompression) {
             return new OWLLiteralImpl(literal, normalisedLang, null);
         }
-        return new OWLLiteralImplPlain(literal, normalisedLang);
+        return new OWLLiteralImplPlain(literal,  normalisedLang);
     }
 
-    @Override
+ 
     public OWLLiteral getOWLLiteral(int value) {
         return new OWLLiteralImplInteger(value, getIntegerOWLDatatype());
     }
 
-    @Override
+ 
     public OWLLiteral getOWLLiteral(boolean value) {
         return value ? TRUELITERAL : FALSELITERAL;
     }
 
-    @Override
+ 
     public OWLLiteral getOWLLiteral(double value) {
         return new OWLLiteralImplDouble(value, getDoubleOWLDatatype());
     }
 
     @SuppressWarnings("null")
-    @Override
+ 
     public OWLLiteral getOWLLiteral(@Nonnull String lexicalValue,
         @Nonnull OWLDatatype datatype) {
         OWLLiteral literal;
@@ -235,37 +235,37 @@ public class OWLDataFactoryInternalsImplNoCache implements OWLDataFactoryInterna
         return lexicalValue.equals("1") || lexicalValue.equals("true");
     }
 
-    @Override
+ 
     public OWLDatatype getTopDatatype() {
         return RDFSLITERAL;
     }
 
-    @Override
+ 
     public OWLDatatype getIntegerOWLDatatype() {
         return XSDINTEGER;
     }
 
-    @Override
+ 
     public OWLDatatype getFloatOWLDatatype() {
         return XSDFLOAT;
     }
 
-    @Override
+ 
     public OWLDatatype getDoubleOWLDatatype() {
         return XSDDOUBLE;
     }
 
-    @Override
+ 
     public OWLDatatype getBooleanOWLDatatype() {
         return XSDBOOLEAN;
     }
 
-    @Override
+ 
     public OWLDatatype getRDFPlainLiteral() {
         return PLAIN;
     }
 
-    @Override
+ 
     public OWLAnnotation getOWLAnnotation(OWLAnnotationProperty property, OWLAnnotationValue value,
         @Nonnull Set<? extends OWLAnnotation> annotations) {
         return new OWLAnnotationImpl(property, value, annotations);

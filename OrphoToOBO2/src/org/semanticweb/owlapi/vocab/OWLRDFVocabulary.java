@@ -199,13 +199,11 @@ public enum OWLRDFVocabulary implements HasShortForm,HasIRI,HasPrefixedName {
     }
 
     @Nonnull
-    @Override
     public String getPrefixedName() {
         return prefixedName;
     }
 
     @Nonnull
-    @Override
     public String getShortForm() {
         return shortName;
     }

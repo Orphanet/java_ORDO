@@ -52,7 +52,7 @@ public class OWLSubObjectPropertyOfAxiomImpl extends
         super(subProperty, superProperty, annotations);
     }
 
-    @Override
+ 
     public OWLSubObjectPropertyOfAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -61,7 +61,7 @@ public class OWLSubObjectPropertyOfAxiomImpl extends
                 getSuperProperty(), NO_ANNOTATIONS);
     }
 
-    @Override
+ 
     public OWLSubObjectPropertyOfAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLSubObjectPropertyOfAxiomImpl(getSubProperty(),
@@ -79,27 +79,27 @@ public class OWLSubObjectPropertyOfAxiomImpl extends
         return obj instanceof OWLSubObjectPropertyOfAxiom;
     }
 
-    @Override
+ 
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public AxiomType<?> getAxiomType() {
         return AxiomType.SUB_OBJECT_PROPERTY;
     }

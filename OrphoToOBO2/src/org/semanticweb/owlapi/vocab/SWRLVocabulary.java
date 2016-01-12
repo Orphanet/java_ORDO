@@ -60,17 +60,17 @@ public enum SWRLVocabulary implements HasShortForm, HasIRI, HasPrefixedName {
         iri = IRI.create(Namespaces.SWRL.toString(), name);
     }
 
-    @Override
+ 
     public IRI getIRI() {
         return iri;
     }
 
-    @Override
+ 
     public String getShortForm() {
         return shortName;
     }
 
-    @Override
+ 
     public String getPrefixedName() {
         return prefixedName;
     }

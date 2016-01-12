@@ -56,22 +56,21 @@ public abstract class OWLNaryClassAxiomImpl extends OWLClassAxiomImpl implements
         this.classExpressions = (List<OWLClassExpression>) sortOptionally(classExpressions);
     }
 
-    @Override
     public Set<OWLClassExpression> getClassExpressions() {
         return getCopyOnRequestSetFromImmutableCollection(classExpressions);
     }
 
-    @Override
+ 
     public List<OWLClassExpression> getClassExpressionsAsList() {
         return new ArrayList<OWLClassExpression>(classExpressions);
     }
 
-    @Override
+ 
     public boolean contains(OWLClassExpression ce) {
         return classExpressions.contains(ce);
     }
 
-    @Override
+ 
     public Set<OWLClassExpression> getClassExpressionsMinus(
             OWLClassExpression... desc) {
         Set<OWLClassExpression> result = new HashSet<OWLClassExpression>(classExpressions);
@@ -105,7 +104,7 @@ public abstract class OWLNaryClassAxiomImpl extends OWLClassAxiomImpl implements
                 ((OWLNaryClassAxiom) object).getClassExpressions());
     }
 
-    @Override
+ 
     public <T> Collection<T> walkPairwise(
             OWLPairwiseVisitor<T, OWLClassExpression> visitor) {
         List<T> l = new ArrayList<T>();

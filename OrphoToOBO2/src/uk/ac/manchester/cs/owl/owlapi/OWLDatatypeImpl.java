@@ -80,42 +80,42 @@ public class OWLDatatypeImpl extends OWLObjectImplWithoutEntityAndAnonCaching
         return top;
     }
 
-    @Override
+ 
     public boolean isRDFPlainLiteral() {
         return iri.isPlainLiteral();
     }
 
-    @Override
+ 
     public EntityType<?> getEntityType() {
         return EntityType.DATATYPE;
     }
 
-    @Override
+ 
     public boolean isType(EntityType<?> entityType) {
         return getEntityType().equals(entityType);
     }
 
-    @Override
+ 
     public String toStringID() {
         return iri.toString();
     }
 
-    @Override
+ 
     public IRI getIRI() {
         return iri;
     }
 
-    @Override
+ 
     public boolean isBuiltIn() {
         return builtin;
     }
 
-    @Override
+ 
     public DataRangeType getDataRangeType() {
         return DataRangeType.DATATYPE;
     }
 
-    @Override
+ 
     public OWL2Datatype getBuiltInDatatype() {
         if (!builtin) {
             throw new OWLRuntimeException(
@@ -126,37 +126,37 @@ public class OWLDatatypeImpl extends OWLObjectImplWithoutEntityAndAnonCaching
         }
     }
 
-    @Override
+ 
     public boolean isDouble() {
         return iri.equals(OWL2Datatype.XSD_DOUBLE.getIRI());
     }
 
-    @Override
+ 
     public boolean isFloat() {
         return iri.equals(OWL2Datatype.XSD_FLOAT.getIRI());
     }
 
-    @Override
+ 
     public boolean isInteger() {
         return iri.equals(OWL2Datatype.XSD_INTEGER.getIRI());
     }
 
-    @Override
+ 
     public boolean isString() {
         return iri.equals(OWL2Datatype.XSD_STRING.getIRI());
     }
 
-    @Override
+ 
     public boolean isBoolean() {
         return iri.equals(OWL2Datatype.XSD_BOOLEAN.getIRI());
     }
 
-    @Override
+ 
     public boolean isDatatype() {
         return true;
     }
 
-    @Override
+ 
     public boolean isTopDatatype() {
         return top;
     }
@@ -172,126 +172,126 @@ public class OWLDatatypeImpl extends OWLObjectImplWithoutEntityAndAnonCaching
         return false;
     }
 
-    @Override
+ 
     public OWLClass asOWLClass() {
         throw new OWLRuntimeException("Not an OWLClass!");
     }
 
-    @Override
+ 
     public OWLDataProperty asOWLDataProperty() {
         throw new OWLRuntimeException("Not a data property!");
     }
 
-    @Override
+ 
     public OWLDatatype asOWLDatatype() {
         return this;
     }
 
-    @Override
+ 
     public OWLNamedIndividual asOWLNamedIndividual() {
         throw new OWLRuntimeException("Not an individual!");
     }
 
-    @Override
+ 
     public OWLObjectProperty asOWLObjectProperty() {
         throw new OWLRuntimeException("Not an object property");
     }
 
-    @Override
+ 
     public boolean isOWLClass() {
         return false;
     }
 
-    @Override
+ 
     public boolean isOWLDataProperty() {
         return false;
     }
 
-    @Override
+ 
     public boolean isOWLDatatype() {
         return true;
     }
 
-    @Override
+ 
     public boolean isOWLNamedIndividual() {
         return false;
     }
 
-    @Override
+ 
     public boolean isOWLObjectProperty() {
         return false;
     }
 
-    @Override
+ 
     public OWLAnnotationProperty asOWLAnnotationProperty() {
         throw new OWLRuntimeException("Not an annotation property");
     }
 
-    @Override
+ 
     public boolean isOWLAnnotationProperty() {
         return false;
     }
 
-    @Override
+ 
     public void accept(OWLEntityVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLDataVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLNamedObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLNamedObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLEntityVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLDataVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLDataRangeVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLDataRangeVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     protected int compareObjectOfSameType(OWLObject object) {
         return iri.compareTo(((OWLDatatype) object).getIRI());
     }
 
-    @Override
+ 
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(this);
     }
 
-    @Override
+ 
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 }

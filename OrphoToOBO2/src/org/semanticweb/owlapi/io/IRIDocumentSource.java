@@ -55,29 +55,28 @@ public class IRIDocumentSource extends OWLOntologyDocumentSourceBase {
                 "document iri cannot be null");
     }
 
-    @Override
+
     public IRI getDocumentIRI() {
         return documentIRI;
     }
 
-    @Override
+ 
     public boolean isInputStreamAvailable() {
         return false;
     }
 
-    @Nonnull
-    @Override
+    @Nonnull 
     public InputStream getInputStream() {
         throw new OWLOntologyInputSourceException(
                 "InputStream not available.  Check with IRIDocumentSource.isInputStreamAvailable() first!");
     }
 
-    @Override
+ 
     public boolean isReaderAvailable() {
         return false;
     }
 
-    @Override
+ 
     public Reader getReader() {
         throw new OWLOntologyInputSourceException(
                 "Reader not available.  Check with IRIDocumentSource.isReaderAvailable() first!");

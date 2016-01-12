@@ -74,7 +74,6 @@ public enum OWLFacet implements HasShortForm, HasIRI, HasPrefixedName {
         prefixedName = ns.getPrefixName() + ':' + shortForm;
     }
 
-    @Override
     public String getShortForm() {
         return shortForm;
     }
@@ -156,7 +155,6 @@ public enum OWLFacet implements HasShortForm, HasIRI, HasPrefixedName {
         return result;
     }
 
-    @Override
     public String getPrefixedName() {
         return prefixedName;
     }

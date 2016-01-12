@@ -743,7 +743,7 @@ public class OWLDataFactoryImpl implements OWLDataFactory, Serializable,
     public OWLObjectUnionOf getOWLObjectUnionOf(
         @Nonnull Set<? extends OWLClassExpression> operands) {
         checkNull(operands, "operands", true);
-        return new nOfImpl(operands);
+        return new OWLObjectUnionOfImpl(operands);
     }
 
 

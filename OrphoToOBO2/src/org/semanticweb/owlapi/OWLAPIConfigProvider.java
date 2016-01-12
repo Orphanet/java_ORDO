@@ -28,7 +28,7 @@ public class OWLAPIConfigProvider implements
 
     private static final long serialVersionUID = 40000L;
 
-    @Override
+
     public OWLOntologyLoaderConfiguration get() {
         return new OWLOntologyLoaderConfiguration();
     }

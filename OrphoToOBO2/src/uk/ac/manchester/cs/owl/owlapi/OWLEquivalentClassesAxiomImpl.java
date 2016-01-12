@@ -51,7 +51,7 @@ public class OWLEquivalentClassesAxiomImpl extends OWLNaryClassAxiomImpl impleme
         super(classExpressions, annotations);
     }
 
-    @Override
+  
     public OWLEquivalentClassesAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -59,12 +59,12 @@ public class OWLEquivalentClassesAxiomImpl extends OWLNaryClassAxiomImpl impleme
         return new OWLEquivalentClassesAxiomImpl(getClassExpressions(), NO_ANNOTATIONS);
     }
 
-    @Override
+  
     public OWLEquivalentClassesAxiom getAnnotatedAxiom(Set<OWLAnnotation> annotations) {
         return new OWLEquivalentClassesAxiomImpl(getClassExpressions(), mergeAnnos(annotations));
     }
 
-    @Override
+  
     public Set<OWLEquivalentClassesAxiom> asPairwiseAxioms() {
         List<OWLClassExpression> classExpressions = new ArrayList<OWLClassExpression>(getClassExpressions());
         Set<OWLEquivalentClassesAxiom> result = new HashSet<OWLEquivalentClassesAxiom>();
@@ -76,7 +76,7 @@ public class OWLEquivalentClassesAxiomImpl extends OWLNaryClassAxiomImpl impleme
         return result;
     }
 
-    @Override
+  
     public Set<OWLEquivalentClassesAxiom> splitToAnnotatedPairs() {
         List<OWLClassExpression> individuals = new ArrayList<OWLClassExpression>(getClassExpressions());
         if (individuals.size() == 2) {
@@ -91,12 +91,12 @@ public class OWLEquivalentClassesAxiomImpl extends OWLNaryClassAxiomImpl impleme
         return result;
     }
 
-    @Override
+  
     public boolean containsNamedEquivalentClass() {
         return !getNamedClasses().isEmpty();
     }
 
-    @Override
+  
     public boolean containsOWLNothing() {
         for (OWLClassExpression desc : getClassExpressions()) {
             if (desc.isOWLNothing()) {
@@ -106,7 +106,7 @@ public class OWLEquivalentClassesAxiomImpl extends OWLNaryClassAxiomImpl impleme
         return false;
     }
 
-    @Override
+  
     public boolean containsOWLThing() {
         for (OWLClassExpression desc : getClassExpressions()) {
             if (desc.isOWLThing()) {
@@ -116,7 +116,7 @@ public class OWLEquivalentClassesAxiomImpl extends OWLNaryClassAxiomImpl impleme
         return false;
     }
 
-    @Override
+  
     public Set<OWLClass> getNamedClasses() {
         Set<OWLClass> toReturn = null;
         if (namedClasses != null) {
@@ -135,7 +135,7 @@ public class OWLEquivalentClassesAxiomImpl extends OWLNaryClassAxiomImpl impleme
         return toReturn;
     }
 
-    @Override
+  
     public Set<OWLSubClassOfAxiom> asOWLSubClassOfAxioms() {
         Set<OWLSubClassOfAxiom> result = new HashSet<OWLSubClassOfAxiom>();
         List<OWLClassExpression> classExpressions = new ArrayList<OWLClassExpression>(getClassExpressions());
@@ -161,27 +161,27 @@ public class OWLEquivalentClassesAxiomImpl extends OWLNaryClassAxiomImpl impleme
         return obj instanceof OWLEquivalentClassesAxiom;
     }
 
-    @Override
+  
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+  
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+  
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+  
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+  
     public AxiomType<?> getAxiomType() {
         return AxiomType.EQUIVALENT_CLASSES;
     }

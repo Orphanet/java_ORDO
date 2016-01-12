@@ -63,7 +63,6 @@ public abstract class OWLAxiomImplWithoutEntityAndAnonCaching extends OWLObjectI
         }
     }
 
-    @Override
     public boolean isAnnotated() {
         return !annotations.isEmpty();
     }
@@ -86,7 +85,7 @@ public abstract class OWLAxiomImplWithoutEntityAndAnonCaching extends OWLObjectI
         }
     }
 
-    @Override
+
     public Set<OWLAnnotation> getAnnotations(OWLAnnotationProperty annotationProperty) {
         if (annotations.isEmpty()) {
             return emptySet();
@@ -101,12 +100,12 @@ public abstract class OWLAxiomImplWithoutEntityAndAnonCaching extends OWLObjectI
         }
     }
 
-    @Override
+
     public boolean equalsIgnoreAnnotations(OWLAxiom axiom) {
         return getAxiomWithoutAnnotations().equals(axiom.getAxiomWithoutAnnotations());
     }
 
-    @Override
+
     public boolean isOfType(AxiomType<?>... axiomTypes) {
         for (AxiomType<?> type : axiomTypes) {
             if (getAxiomType().equals(type)) {
@@ -116,7 +115,7 @@ public abstract class OWLAxiomImplWithoutEntityAndAnonCaching extends OWLObjectI
         return false;
     }
 
-    @Override
+
     public boolean isOfType(Set<AxiomType<?>> types) {
         return types.contains(getAxiomType());
     }
@@ -155,7 +154,7 @@ public abstract class OWLAxiomImplWithoutEntityAndAnonCaching extends OWLObjectI
         return getAnnotations().equals(other.getAnnotations());
     }
 
-    @Override
+
     public OWLAxiom getNNF() {
         NNF con = new NNF(new OWLDataFactoryImpl());
         OWLAxiom nnf = accept(con);

@@ -42,12 +42,12 @@ public class RDFXMLParser extends AbstractOWLParser {
         return "RDFXMLParser";
     }
 
-    @Override
+ 
     public OWLDocumentFormatFactory getSupportedFormat() {
         return new RDFXMLDocumentFormatFactory();
     }
 
-    @Override
+ 
     public OWLDocumentFormat parse(OWLOntologyDocumentSource documentSource,
             OWLOntology ontology, OWLOntologyLoaderConfiguration configuration)
             throws IOException {

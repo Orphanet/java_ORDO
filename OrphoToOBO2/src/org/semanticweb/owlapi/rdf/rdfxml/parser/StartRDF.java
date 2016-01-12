@@ -192,7 +192,7 @@ class StartRDF extends AbstractState implements State {
         super(parser);
     }
 
-    @Override
+ 
     public void startElement(String namespaceIRI, String localName,
             String qName, @Nonnull Attributes atts) {
         parser.verify(
@@ -210,12 +210,12 @@ class StartRDF extends AbstractState implements State {
         parser.pushState(new NodeElementList(parser));
     }
 
-    @Override
+ 
     public void endElement(String namespaceIRI, String localName, String qName) {
         parser.popState();
     }
 
-    @Override
+ 
     public void characters(char[] data, int start, int length) {
         parser.verify(notBlank(data, start, length), RDF_RDF_EXPECTED);
     }
@@ -239,7 +239,7 @@ class EmptyPropertyElement extends AbstractState implements State {
         this.nodeElement = nodeElement;
     }
 
-    @Override
+ 
     public void startElement(String namespaceIRI, String localName,
             String qName, @Nonnull Attributes atts) {
         parser.verify(pIRI != null, INCORRECT_START);
@@ -255,12 +255,12 @@ class EmptyPropertyElement extends AbstractState implements State {
         propertyAttributes(objectIRI, atts, getReificationManager(atts));
     }
 
-    @Override
+ 
     public void endElement(String namespaceIRI, String localName, String qName) {
         parser.popState();
     }
 
-    @Override
+ 
     public void characters(char[] data, int start, int length) {
         parser.verify(true, CHARACTERS_NOT_EXPECTED);
     }
@@ -321,7 +321,7 @@ class NodeElement extends AbstractState implements State {
         return uri;
     }
 
-    @Override
+ 
     public void startElement(String namespaceIRI, String localName,
             String qName, @Nonnull Attributes atts) {
         subjectIRI = getIDNodeIDAboutResourceIRI(atts);
@@ -374,12 +374,12 @@ class NodeElement extends AbstractState implements State {
         return result;
     }
 
-    @Override
+ 
     public void endElement(String namespaceIRI, String localName, String qName) {
         parser.popState();
     }
 
-    @Override
+ 
     public void characters(char[] data, int start, int length) {
         parser.verify(notBlank(data, start, length), NODE_EXPECTED);
     }
@@ -392,21 +392,21 @@ class NodeElementList extends AbstractState implements State {
         super(parser);
     }
 
-    @Override
+ 
     public void startElement(String namespaceIRI, String localName,
             String qName, Attributes atts) throws SAXException {
         parser.pushState(new NodeElement(parser));
         parser.state.startElement(namespaceIRI, localName, qName, atts);
     }
 
-    @Override
+ 
     public void endElement(String namespaceIRI, String localName, String qName)
             throws SAXException {
         parser.popState();
         parser.state.endElement(namespaceIRI, localName, qName);
     }
 
-    @Override
+ 
     public void characters(char[] data, int start, int length) {
         parser.verify(notBlank(data, start, length), EXPECTING_OBJECT);
     }
@@ -437,7 +437,7 @@ class ParseTypeCollectionElement extends AbstractState implements State {
         this.nodeElement = nodeElement;
     }
 
-    @Override
+ 
     public void startElement(String namespaceIRI, String localName,
             String qName, @Nonnull Attributes atts) throws SAXException {
         if (pIRI == null) {
@@ -468,7 +468,7 @@ class ParseTypeCollectionElement extends AbstractState implements State {
         return listCellIRI;
     }
 
-    @Override
+ 
     public void endElement(String namespaceIRI, String localName, String qName) {
         if (lastCellIRI == null) {
             parser.statementWithResourceValue(nodeElement.subjectIRI(),
@@ -480,7 +480,7 @@ class ParseTypeCollectionElement extends AbstractState implements State {
         parser.popState();
     }
 
-    @Override
+ 
     public void characters(char[] data, int start, int length) {
         parser.verify(notBlank(data, start, length), EXPECTING_OBJECT);
     }
@@ -512,7 +512,7 @@ class ResourceOrLiteralElement extends AbstractState implements State {
         this.nodeElement = nodeElement;
     }
 
-    @Override
+ 
     public void startElement(String namespaceIRI, String localName,
             String qName, @Nonnull Attributes atts) throws SAXException {
         if (text == null) {
@@ -530,7 +530,7 @@ class ResourceOrLiteralElement extends AbstractState implements State {
         }
     }
 
-    @Override
+ 
     public void endElement(String namespaceIRI, String localName, String qName) {
         if (innerNode != null) {
             parser.statementWithResourceValue(nodeElement.subjectIRI(),
@@ -543,7 +543,7 @@ class ResourceOrLiteralElement extends AbstractState implements State {
         parser.popState();
     }
 
-    @Override
+ 
     public void characters(char[] data, int start, int length) {
         if (innerNode != null) {
             parser.verify(notBlank(data, start, length), OP_EXPECTED);
@@ -573,7 +573,7 @@ class ParseTypeLiteralElement extends AbstractState implements State {
         this.nodeElement = nodeElement;
     }
 
-    @Override
+ 
     public void startElement(String namespaceIRI, String localName,
             String qName, @Nonnull Attributes atts) {
         if (depth == 0) {
@@ -596,7 +596,7 @@ class ParseTypeLiteralElement extends AbstractState implements State {
         depth++;
     }
 
-    @Override
+ 
     public void endElement(String namespaceIRI, String localName, String qName) {
         if (depth == 1) {
             parser.statementWithLiteralValue(nodeElement.subjectIRI(),
@@ -611,7 +611,7 @@ class ParseTypeLiteralElement extends AbstractState implements State {
         depth--;
     }
 
-    @Override
+ 
     public void characters(char[] data, int start, int length) {
         m_content.append(data, start, length);
     }
@@ -630,7 +630,7 @@ class ParseTypeResourceElement extends AbstractState implements State {
         this.nodeElement = nodeElement;
     }
 
-    @Override
+ 
     public void startElement(String namespaceIRI, String localName,
             String qName, @Nonnull Attributes atts) {
         mpIRI = nodeElement.getPropertyIRI(namespaceIRI + localName);
@@ -643,12 +643,12 @@ class ParseTypeResourceElement extends AbstractState implements State {
         parser.pushState(new PropertyElementList(anonymousNodeElement, parser));
     }
 
-    @Override
+ 
     public void endElement(String namespaceIRI, String localName, String qName) {
         parser.popState();
     }
 
-    @Override
+ 
     public void characters(char[] data, int start, int length) {
         parser.verify(notBlank(data, start, length), OP_EXPECTED);
     }
@@ -669,7 +669,7 @@ class PropertyElementList extends AbstractState implements State {
         node = nodeElement;
     }
 
-    @Override
+ 
     public void startElement(String namespaceIRI, String localName,
             String qName, @Nonnull Attributes atts) throws SAXException {
         String parseType = atts.getValue(RDFNS, ATTR_PARSE_TYPE);
@@ -692,14 +692,14 @@ class PropertyElementList extends AbstractState implements State {
         parser.state.startElement(namespaceIRI, localName, qName, atts);
     }
 
-    @Override
+ 
     public void endElement(String namespaceIRI, String localName, String qName)
             throws SAXException {
         parser.popState();
         parser.state.endElement(namespaceIRI, localName, qName);
     }
 
-    @Override
+ 
     public void characters(char[] data, int start, int length) {
         parser.verify(notBlank(data, start, length), OP_EXPECTED);
     }

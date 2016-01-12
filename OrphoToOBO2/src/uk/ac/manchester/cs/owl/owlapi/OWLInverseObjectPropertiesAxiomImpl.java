@@ -59,18 +59,18 @@ public class OWLInverseObjectPropertiesAxiomImpl extends
                 checkNotNull(second, "second cannot be null"));
     }
 
-    @Override
+ 
     public Set<OWLInverseObjectPropertiesAxiom> asPairwiseAxioms() {
         return CollectionFactory
                 .createSet((OWLInverseObjectPropertiesAxiom) this);
     }
 
-    @Override
+ 
     public Set<OWLInverseObjectPropertiesAxiom> splitToAnnotatedPairs() {
         return asPairwiseAxioms();
     }
 
-    @Override
+ 
     public OWLInverseObjectPropertiesAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -79,39 +79,39 @@ public class OWLInverseObjectPropertiesAxiomImpl extends
                 getSecondProperty(), NO_ANNOTATIONS);
     }
 
-    @Override
+ 
     public OWLInverseObjectPropertiesAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLInverseObjectPropertiesAxiomImpl(getFirstProperty(),
                 getSecondProperty(), mergeAnnos(annotations));
     }
 
-    @Override
+ 
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public OWLObjectPropertyExpression getFirstProperty() {
         return properties.get(0);
     }
 
-    @Override
+ 
     public OWLObjectPropertyExpression getSecondProperty() {
         return properties.get(1);
     }
@@ -127,12 +127,12 @@ public class OWLInverseObjectPropertiesAxiomImpl extends
         return obj instanceof OWLInverseObjectPropertiesAxiom;
     }
 
-    @Override
+ 
     public AxiomType<?> getAxiomType() {
         return AxiomType.INVERSE_OBJECT_PROPERTIES;
     }
 
-    @Override
+ 
     public Set<OWLSubObjectPropertyOfAxiom> asSubObjectPropertyOfAxioms() {
         Set<OWLSubObjectPropertyOfAxiom> axs = new HashSet<OWLSubObjectPropertyOfAxiom>();
         axs.add(new OWLSubObjectPropertyOfAxiomImpl(getFirstProperty(),

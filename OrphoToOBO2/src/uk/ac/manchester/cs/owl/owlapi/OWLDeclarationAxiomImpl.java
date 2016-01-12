@@ -54,25 +54,25 @@ public class OWLDeclarationAxiomImpl extends
         this.entity = checkNotNull(entity, "entity cannot be null");
     }
 
-    @Override
+ 
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(entity);
     }
 
-    @Override
+ 
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 
-    @Override
+ 
     public boolean isLogicalAxiom() {
         return false;
     }
 
-    @Override
+ 
     public boolean isAnnotationAxiom() {
         return false;
     }
 
-    @Override
+ 
     public OWLDeclarationAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -80,7 +80,7 @@ public class OWLDeclarationAxiomImpl extends
         return new OWLDeclarationAxiomImpl(getEntity(), NO_ANNOTATIONS);
     }
 
-    @Override
+
     public OWLDeclarationAxiom
             getAnnotatedAxiom(Set<OWLAnnotation> annotations) {
         return new OWLDeclarationAxiomImpl(getEntity(), mergeAnnos(annotations));
@@ -116,12 +116,12 @@ public class OWLDeclarationAxiomImpl extends
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }

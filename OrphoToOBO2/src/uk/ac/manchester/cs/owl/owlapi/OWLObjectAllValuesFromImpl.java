@@ -51,17 +51,16 @@ public class OWLObjectAllValuesFromImpl extends
         super(property, filler);
     }
 
-    @Override
     public ClassExpressionType getClassExpressionType() {
         return ClassExpressionType.OBJECT_ALL_VALUES_FROM;
     }
 
-    @Override
+ 
     public boolean isObjectRestriction() {
         return true;
     }
 
-    @Override
+ 
     public boolean isDataRestriction() {
         return false;
     }
@@ -77,22 +76,22 @@ public class OWLObjectAllValuesFromImpl extends
         return obj instanceof OWLObjectAllValuesFrom;
     }
 
-    @Override
+ 
     public void accept(@Nonnull OWLClassExpressionVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLClassExpressionVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+ 
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }

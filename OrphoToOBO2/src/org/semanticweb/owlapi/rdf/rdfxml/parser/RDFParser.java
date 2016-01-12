@@ -52,15 +52,15 @@ public class RDFParser extends DefaultHandler implements IRIProvider {
     /** Registered error handler. */
     protected ErrorHandler errorHandler = new ErrorHandler() {
 
-        @Override
+     
         public void warning(SAXParseException exception) {}
 
-        @Override
+     
         public void fatalError(SAXParseException exception) throws SAXException {
             throw exception;
         }
 
-        @Override
+     
         public void error(SAXParseException exception) {}
     };
     /** Stack of base IRIs. */
@@ -123,18 +123,18 @@ public class RDFParser extends DefaultHandler implements IRIProvider {
             inputConsumer.startModel(getBaseIRI());
             DeclHandler handler = new DeclHandler() {
 
-                @Override
+             
                 public void internalEntityDecl(String name, String value) {
                     consumer.addPrefix(name, value);
                 }
 
-                @Override
+             
                 public void externalEntityDecl(String name, String publicId, String systemId) {}
 
-                @Override
+             
                 public void elementDecl(String name, String model) {}
 
-                @Override
+             
                 public void attributeDecl(String eName, String aName, String type, String mode, String value) {}
             };
             SAXParsers.initParserWithOWLAPIStandards(handler).parse(source, this);
@@ -425,7 +425,6 @@ public class RDFParser extends DefaultHandler implements IRIProvider {
         }
     }
 
-    @Override
     @Nonnull
     public IRI getIRI(@Nonnull String s) {
         return uriCache.get(checkNotNull(s, "s cannot be null"));
