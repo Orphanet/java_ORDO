@@ -17,17 +17,10 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
 
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
-import org.semanticweb.owlapi.model.IRI;
-
-import uk.ac.ox.krr.logmap2.LogMap2_Matcher;
-import uk.ac.ox.krr.logmap2.mappings.objects.MappingObjectStr;
 import uk.ac.ebi.efo.bubastis.CompareOntologies;
-import uk.ac.ebi.efo.bubastis.OWLClassAxiomsInfo;
-import uk.ac.ebi.efo.bubastis.OntologyChangesBean;
 
 public class Orph2OBO {
     /** This class downloads the ca. 20 Orpha Rare Disease XML files. */
