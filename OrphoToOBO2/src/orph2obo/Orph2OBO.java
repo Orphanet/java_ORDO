@@ -73,7 +73,7 @@ public class Orph2OBO {
 		
 		
 		/******** UPDATE SD Add ChangeLog ********/
-		
+		/*
 		FileOutputStream f;
 		PrintStream defaultOut =  System.out;
 		try {

@@ -28,13 +28,18 @@ public class OrphaXRefXMLParser extends DefaultHandler {
     private ExternalReference tmpExtRef;
     /** This variable is true if the SAX parser is currently in an external reference element. */
     private boolean within_externalReferenceElement = false;
-    
+   
     /** UPDATE SD validation/relation status **/
     /** This variable is true if the SAX parser is currently in an external reference relation element. */
     private boolean within_externalReferenceRelation = false;
     /** This variable is the temp orpha value of the relation status **/ 
     private String relationValue;
     private String relationOrpha;
+    /** This variable is true if the SAX parser is currently in an ICD Relation element. */
+    private boolean within_ICDRelation = false;
+
+    private String ICDrelVal;
+    private String ICDrelOrpha;
     
     /** This variable is true if the SAX parser is currently in an TextSectionType element. */
     private boolean within_DiseaseDefinition = false;
@@ -103,6 +108,11 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 			within_externalReferenceRelation=true;
 			relationValue="";
 			relationOrpha="";
+			
+		}else if(qName.equalsIgnoreCase("DisorderMappingICDRelation")){
+			within_ICDRelation = true;
+			ICDrelVal="";
+			ICDrelOrpha="";
 		}
     }
     
@@ -141,6 +151,10 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 			relationOrpha=tempVal;
 		}else if(qName.equalsIgnoreCase("Name") && within_externalReferenceRelation){
 			relationValue=tempVal;
+		}else if(qName.equalsIgnoreCase("Orphanumber") && within_ICDRelation){
+			ICDrelOrpha=tempVal;
+		}else if(qName.equalsIgnoreCase("Name") && within_ICDRelation){
+			ICDrelVal=tempVal;
 		}else if (qName.equalsIgnoreCase("TextSection")){
 			within_DiseaseDefinition = false;
 		} else if (within_DiseaseDefinition && 
@@ -169,6 +183,10 @@ public class OrphaXRefXMLParser extends DefaultHandler {
 		}else if(qName.equalsIgnoreCase("DisorderMappingRelation")){
 			within_externalReferenceRelation=false;
 			this.tmpDisXref.addValidRef(relationValue);
+			//tmpDisXref.addValidOrphaRef(relationOrpha);
+		}else if(qName.equalsIgnoreCase("DisorderMappingICDRelation")){
+			within_ICDRelation=false;
+			this.tmpDisXref.addICDRel(ICDrelVal);
 			//tmpDisXref.addValidOrphaRef(relationOrpha);
 		}else if (qName.equalsIgnoreCase("DisorderType")){
 			within_diseaseType = false;

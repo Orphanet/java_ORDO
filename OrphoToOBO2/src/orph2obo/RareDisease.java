@@ -90,7 +90,7 @@ public class RareDisease {
     private ArrayList<String> sourceList;
     private ArrayList<String> refList;
     private ArrayList<String> refValidList; // UPDATE SD validation status
-    
+    private ArrayList<String> ICDRelList; // UPDATE SD validation status
     /** List of names of genes for this disease */
     private ArrayList<String> genelists;
     /**list of gene orphanumbers**/
@@ -204,6 +204,9 @@ public class RareDisease {
     public void addValidRef(String re){ 
     	this.refValidList.add(re);
     }
+    public void addICDRel(String re){ 
+    	this.ICDRelList.add(re);
+    }
     
     public void addPreval(Prevalence re){
     	this.prevalences.add(re);
@@ -316,6 +319,7 @@ public void setInheritNum(String inheritNum) {
 	this.sourceList = new ArrayList<String> ();
 	this.refList = new ArrayList<String>();
 	this.refValidList = new ArrayList<String>(); // UPDATE SD validation status
+	this.ICDRelList = new ArrayList<String>(); // UPDATE SD  ICDRelList
 	this.symbol = new ArrayList<String>();
 	this.geneNum = new ArrayList<String>();
 	this.gsources = new ArrayList<String>();
@@ -419,9 +423,16 @@ public void setInheritNum(String inheritNum) {
 						OWLAnnotation curationAssertion = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.refValidList.get(i)));
 						Set<OWLAnnotation> owlAnnoCur = new HashSet<OWLAnnotation>();
 
-						owlAnnoCur.add(curationAssertion);						
-						OWLAxiom xref2 = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference,owlAnnoCur);
-						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref2));
+						owlAnnoCur.add(curationAssertion);
+						if(!this.ICDRelList.get(i).equals("")){
+							
+							OWLAnnotation icd10Rel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.ICDRelList.get(i)));
+							owlAnnoCur.add(icd10Rel);
+							
+						}
+							OWLAxiom xref2 = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference,owlAnnoCur);
+							owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref2));
+						
 					}
 					// FIN UPDATE
 		
@@ -1189,11 +1200,11 @@ public void setInheritNum(String inheritNum) {
 			}
 		}
 		else if(flag == false && this.isa_list.isEmpty()){
-			System.out.println("Not a head and orphaned : "+this.orphanum);
+			//System.out.println("Not a head and orphaned : "+this.orphanum);
 		}
 		else{
 			//System.out.println("entered the disease loop");
-		if(this.get_orphanum().equals("953")){System.err.println("FOND 953");}
+		//if(this.get_orphanum().equals("953")){System.err.println("FOUND 953");}
 		OWLClass rareDisorder = owlvar.getFactory().getOWLClass(this.orphanum, owlvar.getPrefixmanager());
 		OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
 		owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));

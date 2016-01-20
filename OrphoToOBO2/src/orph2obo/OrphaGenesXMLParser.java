@@ -114,11 +114,11 @@ public class OrphaGenesXMLParser extends DefaultHandler {
     	//=============================== GESTION DES ORPHANUMBER =============================================//
    if(qName.equalsIgnoreCase("Orphanumber")){
 		 if (!in_gene_list  && !in_disordergeneassociation_list){ //infos sur Disorder - Orphanumber
-			 System.out.println("disease orphanummm" + tempVal);
+			 //System.out.println("disease orphanummm" + tempVal);
 			 currentDisease = this.diseases.get(tempVal);
 		 }	
 		 else if (in_gene_list && in_gene_node && !in_gene_type){ //infos sur Gene - Orphanumber
-			System.out.println("Gene Orphanum" + tempVal);
+			//System.out.println("Gene Orphanum" + tempVal);
 				currentDisease.add_geneNum(tempVal); 
 		 }
 		 else if (in_gene_list && in_gene_type && in_gene_node){//infos sur GeneType - Orphanumber
@@ -140,32 +140,32 @@ public class OrphaGenesXMLParser extends DefaultHandler {
  //=============================== GESTION DES INFOS SUR GENE =============================================//
    //infos sur gene - Symbol
    else if (qName.equalsIgnoreCase("Symbol")) {
-	   System.out.println("Symbole du gene" + tempVal);
+	   //System.out.println("Symbole du gene" + tempVal);
 		currentDisease.setSymbol(tempVal);
 	} 
   
 
    //infos sur gene - Name
    else if (in_gene_list && in_gene_node && !in_gene_type && qName.equalsIgnoreCase("Name")) { 
-		System.out.println("Nom du gene :" + tempVal + " and the current disease object is :" + currentDisease);
+		//System.out.println("Nom du gene :" + tempVal + " and the current disease object is :" + currentDisease);
 	    currentDisease.add_genes(tempVal);
    } 
    
    //infos sur les synonymes
 	else if (qName.equalsIgnoreCase("Synonym")){
-		System.out.println("Current disease object is :" + currentDisease + " and synonym is : " + tempVal);
+		//System.out.println("Current disease object is :" + currentDisease + " and synonym is : " + tempVal);
 		currentDisease.setGeneSyn(tempVal);
 	}
    
       //infos sur geneType - type name
    else if (in_gene_node && qName.equalsIgnoreCase("Name") && in_gene_type) { 
-		System.out.println("you are in the gene name node and the name is :" + tempVal);
+		//System.out.println("you are in the gene name node and the name is :" + tempVal);
 		currentDisease.setGeneTyp(tempVal);//CREATION setGenType
    } 
    
    //infos sur les locus
   	else if (qName.equalsIgnoreCase("GeneLocus")){
-  		System.out.println("Current disease object is :" + currentDisease + " and locus is : " + tempVal);
+  		//System.out.println("Current disease object is :" + currentDisease + " and locus is : " + tempVal);
   		currentDisease.setGeneLocus(tempVal);
   	}
    
@@ -175,13 +175,13 @@ public class OrphaGenesXMLParser extends DefaultHandler {
  //=============================== GESTION DES INFOS SUR ASSOCIATION GENE/DISORDER ========================//
    //infos sur DisorderGeneAssociationType - status
    else if (within_geneAssociationStatus && qName.equalsIgnoreCase("Name")){
-	   System.out.println("genAssociationStatus :" + tempVal);
+	   //System.out.println("genAssociationStatus :" + tempVal);
 		currentDisease.setGeneTypeStatus(tempVal);
 	}
    
    //infos sur DisorderGeneAssociationType - name
    else if(within_geneAssociationType && qName.equalsIgnoreCase("Name")){
-	   System.out.println("you are in the gene name node and gentype and the name is :" + tempVal);
+	   //System.out.println("you are in the gene name node and gentype and the name is :" + tempVal);
 		currentDisease.setgeneTypeName(tempVal);
 	}
  //======================================================================================================//
@@ -194,11 +194,11 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 	    tmpGene.addExternalReference(tmpExtRef);
 	} else if (within_externalReferenceElement && 
 		qName.equalsIgnoreCase("Source")){
-		System.out.println("referecence source :" + tempVal);
+		//System.out.println("referecence source :" + tempVal);
 		currentDisease.setGeneSource(tempVal);
 	} else if (within_externalReferenceElement && 
 		qName.equalsIgnoreCase("Reference")){
-		System.out.println("referecence reference :" + tempVal);
+		//System.out.println("referecence reference :" + tempVal);
 	  	currentDisease.setGeneRefs(tempVal);
 	} 
  //======================================================================================================//
