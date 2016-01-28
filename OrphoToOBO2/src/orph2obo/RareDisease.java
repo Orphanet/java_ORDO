@@ -426,12 +426,13 @@ public void setInheritNum(String inheritNum) {
 						owlAnnoCur.add(curationAssertion);
 						if(!this.ICDRelList.get(i).equals("")){
 							
-							OWLAnnotation icd10Rel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.ICDRelList.get(i)));
+							OWLAnnotation icd10Rel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.ICDRelList.get(i)),owlAnnoCur);
+							owlAnnoCur = new HashSet<OWLAnnotation>();
 							owlAnnoCur.add(icd10Rel);
 							
 						}
-							OWLAxiom xref2 = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference,owlAnnoCur);
-							owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref2));
+						OWLAxiom xref2 = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference,owlAnnoCur);
+						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref2));
 						
 					}
 					// FIN UPDATE
@@ -462,7 +463,7 @@ public void setInheritNum(String inheritNum) {
     	
     	 // UPDATE SD Absolute IRI
     	
-    	IRI versionIRI = IRI.create("http://www.orpha.net/version2.0");
+    	IRI versionIRI = IRI.create("http://www.orpha.net/version2.1");
     	OWLOntologyID newOntologyID = new OWLOntologyID(ontologyIRI,versionIRI);
     	SetOntologyID setOntologyID = new SetOntologyID(ontology, newOntologyID);
     	manager.applyChange(setOntologyID);
@@ -480,7 +481,7 @@ public void setInheritNum(String inheritNum) {
     	PrefixManager oboInOwl = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl#");
     	PrefixManager owl = new DefaultPrefixManager("http://www.w3.org/2002/07/owl#");
 		OWLAnnotation version = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("versionInfo", owl),
-				factory.getOWLLiteral("2.0"));
+				factory.getOWLLiteral("2.1"));
 		manager.applyChange(new AddOntologyAnnotation(ontology, version));
 		
         /* **** UPDATE SD   ajout créateur **** */
@@ -1140,7 +1141,7 @@ public void setInheritNum(String inheritNum) {
         OWLOntology ontologymod = manager.createOntology(ontologyIRImod);
         owlvar.setOntologymod(ontologymod);
     	System.out.println("Created ontology2: " + ontologymod);
-    	IRI versionIRImod = IRI.create("/version2.0");
+    	IRI versionIRImod = IRI.create("/version2.1");
     	OWLOntologyID newOntologyIDmod = new OWLOntologyID(ontologyIRImod,versionIRImod);
     	SetOntologyID setOntologyIDmod = new SetOntologyID(ontologymod, newOntologyIDmod);
     	manager.applyChange(setOntologyIDmod);
