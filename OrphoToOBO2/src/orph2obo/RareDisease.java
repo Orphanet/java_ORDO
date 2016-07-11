@@ -481,7 +481,7 @@ public void setInheritNum(String inheritNum) {
     	PrefixManager oboInOwl = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl#");
     	PrefixManager owl = new DefaultPrefixManager("http://www.w3.org/2002/07/owl#");
 		OWLAnnotation version = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("versionInfo", owl),
-				factory.getOWLLiteral("2.1"));
+				factory.getOWLLiteral("2.2"));
 		manager.applyChange(new AddOntologyAnnotation(ontology, version));
 		
         /* **** UPDATE SD   ajout créateur **** */
@@ -1141,7 +1141,7 @@ public void setInheritNum(String inheritNum) {
         OWLOntology ontologymod = manager.createOntology(ontologyIRImod);
         owlvar.setOntologymod(ontologymod);
     	System.out.println("Created ontology2: " + ontologymod);
-    	IRI versionIRImod = IRI.create("/version2.1");
+    	IRI versionIRImod = IRI.create("/version2.2");
     	OWLOntologyID newOntologyIDmod = new OWLOntologyID(ontologyIRImod,versionIRImod);
     	SetOntologyID setOntologyIDmod = new SetOntologyID(ontologymod, newOntologyIDmod);
     	manager.applyChange(setOntologyIDmod);

@@ -153,13 +153,13 @@ public class OrphaGenesXMLParser extends DefaultHandler {
    
    //infos sur les synonymes
 	else if (qName.equalsIgnoreCase("Synonym")){
-		//System.out.println("Current disease object is :" + currentDisease + " and synonym is : " + tempVal);
+		System.out.println("Current disease object is :" + currentDisease + " and synonym is : " + tempVal);
 		currentDisease.setGeneSyn(tempVal);
 	}
    
       //infos sur geneType - type name
    else if (in_gene_node && qName.equalsIgnoreCase("Name") && in_gene_type) { 
-		//System.out.println("you are in the gene name node and the name is :" + tempVal);
+		System.out.println("you are in the gene name node and the name is :" + tempVal);
 		currentDisease.setGeneTyp(tempVal);//CREATION setGenType
    } 
    
@@ -175,7 +175,7 @@ public class OrphaGenesXMLParser extends DefaultHandler {
  //=============================== GESTION DES INFOS SUR ASSOCIATION GENE/DISORDER ========================//
    //infos sur DisorderGeneAssociationType - status
    else if (within_geneAssociationStatus && qName.equalsIgnoreCase("Name")){
-	   //System.out.println("genAssociationStatus :" + tempVal);
+	   System.out.println("genAssociationStatus :" + tempVal);
 		currentDisease.setGeneTypeStatus(tempVal);
 	}
    
@@ -194,11 +194,11 @@ public class OrphaGenesXMLParser extends DefaultHandler {
 	    tmpGene.addExternalReference(tmpExtRef);
 	} else if (within_externalReferenceElement && 
 		qName.equalsIgnoreCase("Source")){
-		//System.out.println("referecence source :" + tempVal);
+		System.out.println("referecence source :" + tempVal);
 		currentDisease.setGeneSource(tempVal);
 	} else if (within_externalReferenceElement && 
 		qName.equalsIgnoreCase("Reference")){
-		//System.out.println("referecence reference :" + tempVal);
+		System.out.println("referecence reference :" + tempVal);
 	  	currentDisease.setGeneRefs(tempVal);
 	} 
  //======================================================================================================//

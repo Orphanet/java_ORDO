@@ -40,7 +40,7 @@ public class Orph2OBO {
     public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException {
 	
 	    /**This is the name of the directory where the Orphanet XML files will be written to*/
-	    String directory = "OrphadataMay";
+	    String directory = "juin2016_2";
 	    	//String directory = "OrphadataMay";
 		Orph2OBO o2o = new Orph2OBO();
 		o2o.createDownloadDirectoryIfDoesntExist(directory);
@@ -84,7 +84,7 @@ public class Orph2OBO {
 			e.printStackTrace();
 		}
 		CompareOntologies bubastis = new CompareOntologies();
-		bubastis.doFindAllChanges("http://www.orpha.net/ontology/orphanet.owl","file:/OrphoToOBO2/orphadata.owl");
+		bubastis.doFindAllChanges("file:/OrphoToOBO2/orphadata.owl","http://www.orpha.net/ontology/orphanet.owl");
 		bubastis.writeDiffAsXMLFile("C:\\OrphoToOBO2\\bubastis_change_log.xml");
 		System.setOut(defaultOut);
 		System.out.println("Exit program after saving Change Log");
@@ -380,12 +380,12 @@ public class Orph2OBO {
 	try {
 	    File file=new File(directory);
 	    if (file.exists()) {
-		//System.out.println("Directory: \"" + directory + "\" exists already. ");
+		System.out.println("Directory: \"" + directory + "\" exists already. ");
 		return;
 	    }
 	    boolean success = file.mkdir();
 	    if (success) {
-		//System.out.println("Directory: " + directory + " created for downloading Orphanet data");
+		System.out.println("Directory: " + directory + " created for downloading Orphanet data");
 	    }  
 	    
 	}catch (Exception e){//Catch exception if any
