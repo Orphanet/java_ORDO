@@ -463,7 +463,7 @@ public void setInheritNum(String inheritNum) {
     	
     	 // UPDATE SD Absolute IRI
     	
-    	IRI versionIRI = IRI.create("http://www.orpha.net/version2.1");
+    	IRI versionIRI = IRI.create("http://www.orpha.net/version2.4");
     	OWLOntologyID newOntologyID = new OWLOntologyID(ontologyIRI,versionIRI);
     	SetOntologyID setOntologyID = new SetOntologyID(ontology, newOntologyID);
     	manager.applyChange(setOntologyID);
@@ -481,7 +481,7 @@ public void setInheritNum(String inheritNum) {
     	PrefixManager oboInOwl = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl#");
     	PrefixManager owl = new DefaultPrefixManager("http://www.w3.org/2002/07/owl#");
 		OWLAnnotation version = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("versionInfo", owl),
-				factory.getOWLLiteral("2.2"));
+				factory.getOWLLiteral("2.4"));
 		manager.applyChange(new AddOntologyAnnotation(ontology, version));
 		
         /* **** UPDATE SD   ajout créateur **** */
@@ -620,7 +620,7 @@ public void setInheritNum(String inheritNum) {
     	OWLClass mgClass = factory.getOWLClass("317346", pm);
     	OWLAnnotation mgLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Modifying germline mutation in"));
     	OWLClass msmClass = factory.getOWLClass("317347", pm);
-    	OWLAnnotation msmLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Modifying somatic mutation in"));
+    	OWLAnnotation msmLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Biomarker tested in"));
     	OWLClass partOfFusionClass = factory.getOWLClass("317348", pm);
     	OWLAnnotation partOfFusionLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Part of a fusion gene in"));
     	OWLClass roleInClass = factory.getOWLClass("317349", pm);
@@ -1054,7 +1054,7 @@ public void setInheritNum(String inheritNum) {
 		
 		// Type de gène-non-coding RNA
 		OWLAnnotation geneTyp3Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("RNA encoded by a gene but not translated in protein. Ex :  Transfer RNA."));
+				factory.getOWLLiteral("RNA encoded by a gene but not translated in protein. ie:  Transfer RNA."));
 		OWLAxiom geneTyp3Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypNonCodingRNA.getIRI(), geneTyp3Definition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTyp3Define));
 		
@@ -1102,19 +1102,19 @@ public void setInheritNum(String inheritNum) {
 				factory.getOWLLiteral("A gene mutation in a germ cell that modifies the clinical presentation of the disorder and that can be passed on to offspring."));
 		OWLAxiom mgDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(mgClass.getIRI(), mgDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), mgDefine));
-		// Modifying somatic mutation in
+		// Biomarker tested in
 		OWLAnnotation msmDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene mutation in a somatic cell that modifies the clinical presentation of the disorder and that cannot be passed on to offspring."));
+				factory.getOWLLiteral("A gene in which a variation is used to monitor disease activity and/or patientoutcome."));
 		OWLAxiom msmDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(msmClass.getIRI(), msmDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), msmDefine));
 		// Part of a fusion gene in
 		OWLAnnotation partOfFusionDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene that has fusioned with a promotor and/or other coding DNA sequences from a different gene."));
+				factory.getOWLLiteral("A coding or regulatory DNA sequence from a gene that has fused with another coding and/or regulatory DNA sequence from a different gene."));
 		OWLAxiom partOfFusionDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(partOfFusionClass.getIRI(), partOfFusionDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), partOfFusionDefine));
 		// Role in the phenotype of
 		OWLAnnotation roleInDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene included in a chromosomal rearrangement of which the mutation results in a phenotype related to the given chromosomal rearrangement, therefore proving its influence in a particular manifestation."));
+				factory.getOWLLiteral("A gene included in a chromosomal rearrangement, and proved to have a major influence in the phenotype of the chromosomal rearrangement."));
 		OWLAxiom roleInDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(roleInClass.getIRI(), roleInDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), roleInDefine));
 		// has_chromosomal location
@@ -1141,7 +1141,7 @@ public void setInheritNum(String inheritNum) {
         OWLOntology ontologymod = manager.createOntology(ontologyIRImod);
         owlvar.setOntologymod(ontologymod);
     	System.out.println("Created ontology2: " + ontologymod);
-    	IRI versionIRImod = IRI.create("/version2.2");
+    	IRI versionIRImod = IRI.create("/version2.4");
     	OWLOntologyID newOntologyIDmod = new OWLOntologyID(ontologyIRImod,versionIRImod);
     	SetOntologyID setOntologyIDmod = new SetOntologyID(ontologymod, newOntologyIDmod);
     	manager.applyChange(setOntologyIDmod);
