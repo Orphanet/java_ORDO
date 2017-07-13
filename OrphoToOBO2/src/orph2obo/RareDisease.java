@@ -1047,6 +1047,7 @@ public void setInheritNum(String inheritNum) {
 		// Type de gène-disorder-associated locus
 		OWLAnnotation geneTyp2Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
 				factory.getOWLLiteral("Chromosomal region associated with a single heritable disorder. The heritable disorder may be mapped to a chromosome but generally has not been associated to a specific gene."));
+		/*  Enlève une définition de trop pour les gene with protein product  */
 		//OWLAxiom geneTypDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypProtProd.getIRI(), geneTyp2Definition);
 		//owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTypDefine));
 		OWLAxiom geneTyp2Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypDisAssLoc.getIRI(), geneTyp2Definition);
