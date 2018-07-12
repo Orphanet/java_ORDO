@@ -357,7 +357,7 @@ public void setInheritNum(String inheritNum) {
     	if(rareOrpho.contains(this.orphanum)){
 	    	OWLClass rareDisorder = owlvar.getFactory().getOWLClass(this.orphanum, owlvar.getPrefixmanager());
 			OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
-			owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));
+			owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name,"en"));
 			OWLDeclarationAxiom declarationClass = owlvar.getFactory().getOWLDeclarationAxiom(rareDisorder);
 			OWLAxiom labelling = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), labelRare);
 			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(), declarationClass));
@@ -377,7 +377,7 @@ public void setInheritNum(String inheritNum) {
 				OWLAnnotation definition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 						.getOWLAnnotationProperty(
 								"definition", pm2),
-								owlvar.getFactory().getOWLLiteral(this.def));
+								owlvar.getFactory().getOWLLiteral(this.def,"en"));
 				OWLAxiom define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), definition);
 				OWLAnnotation definitionCitation = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 						.getOWLAnnotationProperty(
@@ -394,14 +394,14 @@ public void setInheritNum(String inheritNum) {
 					OWLAnnotation alternativeTerm = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 							.getOWLAnnotationProperty(
 									"alternative_term",
-									pm2), owlvar.getFactory().getOWLLiteral(this.synonym.get(i)));
+									pm2), owlvar.getFactory().getOWLLiteral(this.synonym.get(i),"en"));
 					OWLAxiom synonym = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), alternativeTerm);
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntologymod(),synonym));
 				}
 			}
 			
 			//xrefs for the disease
-			 if (!this.sourceList.isEmpty()){
+			 /*if (!this.sourceList.isEmpty()){
 				for (int i=0; i<this.sourceList.size(); i++){
 					
 					//PrefixManager pm2 = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl/");
@@ -420,7 +420,7 @@ public void setInheritNum(String inheritNum) {
 										
 					if(!this.refValidList.get(i).equals("")){
 						
-						OWLAnnotation curationAssertion = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.refValidList.get(i)));
+						OWLAnnotation curationAssertion = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.refValidList.get(i),"en"));
 						Set<OWLAnnotation> owlAnnoCur = new HashSet<OWLAnnotation>();
 
 						owlAnnoCur.add(curationAssertion);
@@ -438,7 +438,7 @@ public void setInheritNum(String inheritNum) {
 					// FIN UPDATE
 		
 				}
-			}
+			}*/
 		}		 			
 	}
     
@@ -463,7 +463,7 @@ public void setInheritNum(String inheritNum) {
     	
     	 // UPDATE SD Absolute IRI
     	
-    	IRI versionIRI = IRI.create("http://www.orpha.net/version2.4");
+    	IRI versionIRI = IRI.create("http://www.orpha.net/version2.6");
     	OWLOntologyID newOntologyID = new OWLOntologyID(ontologyIRI,versionIRI);
     	SetOntologyID setOntologyID = new SetOntologyID(ontology, newOntologyID);
     	manager.applyChange(setOntologyID);
@@ -481,7 +481,7 @@ public void setInheritNum(String inheritNum) {
     	PrefixManager oboInOwl = new DefaultPrefixManager("http://www.geneontology.org/formats/oboInOwl#");
     	PrefixManager owl = new DefaultPrefixManager("http://www.w3.org/2002/07/owl#");
 		OWLAnnotation version = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("versionInfo", owl),
-				factory.getOWLLiteral("2.4"));
+				factory.getOWLLiteral("2.6"));
 		manager.applyChange(new AddOntologyAnnotation(ontology, version));
 		
         /* **** UPDATE SD   ajout créateur **** */
@@ -506,51 +506,51 @@ public void setInheritNum(String inheritNum) {
     	 /* **** UPDATE SD  FIN ajout créateur **** */
 		
     	OWLClass phenome = factory.getOWLClass("C001",pm);
-    	OWLAnnotation phenomelabel = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("phenome"));
+    	OWLAnnotation phenomelabel = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("clinical entity","en"));
     	OWLClass groupPhenome = factory.getOWLClass("377794",pm);
-    	OWLAnnotation label = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("group of disorders"));
+    	OWLAnnotation label = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("group of disorders","en"));
     	OWLClass disease = factory.getOWLClass("377788",pm);
-    	OWLAnnotation label1 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("disease"));
+    	OWLAnnotation label1 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("disease","en"));
     	OWLClass clinicalSub = factory.getOWLClass("377796", pm);
-    	OWLAnnotation label2 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("clinical subtype"));
+    	OWLAnnotation label2 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("clinical subtype","en"));
     	OWLClass malformSyn = factory.getOWLClass("377789", pm);
-    	OWLAnnotation label3 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("malformation syndrome"));
+    	OWLAnnotation label3 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("malformation syndrome","en"));
     	OWLClass etioSub = factory.getOWLClass("377795", pm);
-    	OWLAnnotation label4 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("etiological subtype"));
+    	OWLAnnotation label4 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("etiological subtype","en"));
     	OWLClass morphAna = factory.getOWLClass("377791", pm);
-    	OWLAnnotation label5 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("morphological anomaly"));
+    	OWLAnnotation label5 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("morphological anomaly","en"));
     	OWLClass clinicalSyn = factory.getOWLClass("377792", pm);
-    	OWLAnnotation label6 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("clinical syndrome"));
+    	OWLAnnotation label6 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("clinical syndrome","en"));
     	OWLClass partClinSitu = factory.getOWLClass("377793", pm);
-    	OWLAnnotation label7 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("particular clinical situation in a disease or syndrome"));
+    	OWLAnnotation label7 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("particular clinical situation in a disease or syndrome","en"));
     	OWLClass histoPathoSub = factory.getOWLClass("377797", pm);
-    	OWLAnnotation label9 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("histopathological subtype"));
+    	OWLAnnotation label9 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("histopathological subtype","en"));
     	OWLClass bioAna = factory.getOWLClass("377790", pm);
-    	OWLAnnotation label0 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("biological anomaly"));
+    	OWLAnnotation label0 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral("biological anomaly","en"));
     	
     	//=======Gene=====
     	OWLClass gene = factory.getOWLClass("C010", pm);
-       	OWLAnnotation genelabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("genetic material"));
+       	OWLAnnotation genelabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("genetic material","en"));
     	OWLClass geneTypProtProd = factory.getOWLClass("410298", pm);
-       	OWLAnnotation geneTypProtProdLabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("gene with protein product"));
+       	OWLAnnotation geneTypProtProdLabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("gene with protein product","en"));
     	OWLClass geneTypDisAssLoc = factory.getOWLClass("410297", pm);
-       	OWLAnnotation geneTypDisAssLocLabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("disorder-associated locus"));
+       	OWLAnnotation geneTypDisAssLocLabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("disorder-associated locus","en"));
     	OWLClass geneTypNonCodingRNA = factory.getOWLClass("410299", pm);
-       	OWLAnnotation geneTypNonCodingRNALabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("non-coding RNA"));
+       	OWLAnnotation geneTypNonCodingRNALabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("non-coding RNA","en"));
        	//=================
        	
        	OWLClass inheritance = factory.getOWLClass("C005", pm);
-       	OWLAnnotation inheritancelabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("inheritance"));
+       	OWLAnnotation inheritancelabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("inheritance","en"));
        	// OBSOLETE_CLASS
        	OWLClass obsoleteClass = factory.getOWLClass("ObsoleteClass", new DefaultPrefixManager("http://www.orpha.net/ORDO/"));  // /_\ à revoir, le lien d'origine n'existe plus
-       	OWLAnnotation obsoleteLabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("obsolete_class"));      	
+       	OWLAnnotation obsoleteLabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("obsolete_class","en"));      	
        	
     	//OWLClass autoRecess = factory.getOWLClass("108933", pm);
     	//OWLAnnotation autoRLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal recessive"));
     	//OWLClass autoDom = factory.getOWLClass("108932", pm);
     	//OWLAnnotation autoDomLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal dominant"));
     	OWLClass mitoInher = factory.getOWLClass("409933", pm);
-    	OWLAnnotation mitoInherLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("mitochondrial inheritance"));
+    	OWLAnnotation mitoInherLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("mitochondrial inheritance","en"));
     	//OWLClass xRecess = factory.getOWLClass("108934", pm);
     	//OWLAnnotation xRecessLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x linked recessive"));
     	//OWLClass xDom = factory.getOWLClass("108935", pm);
@@ -559,78 +559,86 @@ public void setInheritNum(String inheritNum) {
     	//OWLAnnotation sporadicLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("sporadic"));
     	
     	OWLClass autoDominant = factory.getOWLClass("409929", pm);
-    	OWLAnnotation autoDominantLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal dominant"));
+    	OWLAnnotation autoDominantLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal dominant","en"));
     	OWLClass autoRecessive = factory.getOWLClass("409930", pm);
-    	OWLAnnotation autoRecessiveLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal recessive"));
+    	OWLAnnotation autoRecessiveLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("autosomal recessive","en"));
     	OWLClass multiGene = factory.getOWLClass("409931", pm);
-    	OWLAnnotation multiGeneLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("multigenic/multifactorial"));
+    	OWLAnnotation multiGeneLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("multigenic/multifactorial","en"));
     	OWLClass xlinkedRecessive = factory.getOWLClass("409932", pm);
-    	OWLAnnotation xlinkedRecessiveLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x-linked recessive"));
+    	OWLAnnotation xlinkedRecessiveLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x-linked recessive","en"));
     	OWLClass mitho = factory.getOWLClass("409933", pm);
-    	OWLAnnotation mithoLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("mitochondrial inheritance"));
+    	OWLAnnotation mithoLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("mitochondrial inheritance","en"));
     	OWLClass xlinkedDominant = factory.getOWLClass("409934", pm);
-    	OWLAnnotation xlinkedDominantLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x-linked dominant"));
+    	OWLAnnotation xlinkedDominantLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("x-linked dominant","en"));
     	OWLClass oligenic = factory.getOWLClass("409936", pm);
-    	OWLAnnotation oligenicLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("oligogenic"));
+    	OWLAnnotation oligenicLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("oligogenic","en"));
     	OWLClass semiDom = factory.getOWLClass("409937", pm);
-    	OWLAnnotation semiDomLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("semi-dominant"));
+    	OWLAnnotation semiDomLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("semi-dominant","en"));
     	OWLClass yLinked = factory.getOWLClass("409938", pm);
-    	OWLAnnotation yLinkedLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("y-linked"));
+    	OWLAnnotation yLinkedLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("y-linked","en"));
     	OWLClass unknown = factory.getOWLClass("409939", pm);
-    	OWLAnnotation unknownLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Inheritance with unknown mechanism"));
+    	OWLAnnotation unknownLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("unknown inheritance","en"));
     	OWLClass nodata = factory.getOWLClass("409940", pm);
-    	OWLAnnotation noDataLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("no data available"));
+    	OWLAnnotation noDataLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("no inheritance data available","en"));
     	OWLClass notApplicable = factory.getOWLClass("409941", pm);
-    	OWLAnnotation notApplicableLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("not inherited"));
+    	OWLAnnotation notApplicableLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("not genetically inherited","en"));
     	
     	OWLClass ageofOnsetClass = factory.getOWLClass("C023", pm);
-    	OWLAnnotation ageOfOnLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("age of onset"));
+    	OWLAnnotation ageOfOnLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("age of onset","en"));
     	// UPDATE SD ajout de geography, epidemio, prevalence, cas/familles, cas et famille
     	OWLClass geographyClass = factory.getOWLClass("C009", pm);
-    	OWLAnnotation geographyLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("geography"));
+    	OWLAnnotation geographyLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("geography","en"));
     	OWLClass epidemioClass = factory.getOWLClass("C003", pm);
-    	OWLAnnotation epidemioLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("epidemiology"));
+    	OWLAnnotation epidemioLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("epidemiology","en"));
     	OWLClass prevClass = factory.getOWLClass("C004", pm);
-    	OWLAnnotation prevLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("prevalence"));
+    	OWLAnnotation prevLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("prevalence","en"));
+    	// ajout point preval etc
+    	OWLClass pointPrevClass = factory.getOWLClass("409966", pm);
+    	OWLAnnotation pointPrevLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("point prevalence","en"));
+    	OWLClass birthPrevClass = factory.getOWLClass("409968", pm);
+    	OWLAnnotation birthPrevLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("birth prevalence","en"));
+    	OWLClass lifePrevClass = factory.getOWLClass("409969", pm);
+    	OWLAnnotation lifePrevLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("lifetime prevalence","en"));
+    	
     	OWLClass casFamClass = factory.getOWLClass("409970", pm);
-    	OWLAnnotation casFamLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("cases/families"));
+    	OWLAnnotation casFamLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("cases/families","en"));
     	OWLClass casClass = factory.getOWLClass("409973", pm);
-    	OWLAnnotation casLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Case"));
+    	OWLAnnotation casLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("case","en"));
     	OWLClass famClass = factory.getOWLClass("409974", pm);
-    	OWLAnnotation famLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Family"));
+    	OWLAnnotation famLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("family","en"));
     	
     	// UPDATE SD 4/01/2015
     	OWLAnnotationProperty curatorClass = factory.getOWLAnnotationProperty("ECO_0000205", obo);
-    	OWLAnnotation curatorLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("curator_inference"));
+    	OWLAnnotation curatorLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("curator_inference","en"));
     	OWLAnnotationProperty assertionClass = factory.getOWLAnnotationProperty("ECO_0000218", obo);
-    	OWLAnnotation assertionLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("manual_assertion"));
+    	OWLAnnotation assertionLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("manual_assertion","en"));
     	
     	OWLClass disGermMutClass = factory.getOWLClass("317343", pm);
-    	OWLAnnotation disGermMutLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Disease-causing germline mutation(s) in"));
+    	OWLAnnotation disGermMutLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Disease-causing germline mutation(s) in","en"));
     	OWLClass cgtClass = factory.getOWLClass("327767", pm);
-    	OWLAnnotation cgtLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Candidate gene tested in"));
+    	OWLAnnotation cgtLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Candidate gene tested in","en"));
     	OWLClass dgmgfClass = factory.getOWLClass("410296", pm);
-    	OWLAnnotation dgmgfLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Disease-causing germline mutation(s) (gain of function) in"));
+    	OWLAnnotation dgmgfLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Disease-causing germline mutation(s) (gain of function) in","en"));
     	OWLClass dgmlfClass = factory.getOWLClass("410295", pm);
-    	OWLAnnotation dgmlfLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Disease-causing germline mutation(s) (loss of function) in"));
+    	OWLAnnotation dgmlfLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Disease-causing germline mutation(s) (loss of function) in","en"));
     	OWLClass dgsClass = factory.getOWLClass("317344", pm);
-    	OWLAnnotation dgsLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Disease-causing somatic mutation(s) in"));
+    	OWLAnnotation dgsLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Disease-causing somatic mutation(s) in","en"));
     	OWLClass majSusClass = factory.getOWLClass("317345", pm);
-    	OWLAnnotation majSusLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Major susceptibility factor in"));
+    	OWLAnnotation majSusLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Major susceptibility factor in","en"));
     	OWLClass mgClass = factory.getOWLClass("317346", pm);
-    	OWLAnnotation mgLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Modifying germline mutation in"));
-    	OWLClass msmClass = factory.getOWLClass("317347", pm);
-    	OWLAnnotation msmLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Biomarker tested in"));
+    	OWLAnnotation mgLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Modifying germline mutation in","en"));
+    	OWLClass msmClass = factory.getOWLClass("465410", pm);
+    	OWLAnnotation msmLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Biomarker tested in","en"));
     	OWLClass partOfFusionClass = factory.getOWLClass("317348", pm);
-    	OWLAnnotation partOfFusionLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Part of a fusion gene in"));
+    	OWLAnnotation partOfFusionLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Part of a fusion gene in","en"));
     	OWLClass roleInClass = factory.getOWLClass("317349", pm);
-    	OWLAnnotation roleInLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Role in the phenotype of"));
+    	OWLAnnotation roleInLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("Role in the phenotype of","en"));
     	OWLClass hasLocClass = factory.getOWLClass("C040", pm);
-    	OWLAnnotation hasLocLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("has_chromosomal location"));
+    	OWLAnnotation hasLocLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("has_chromosomal location","en"));
     	OWLClass presentInClass = factory.getOWLClass("C022", pm);
-    	OWLAnnotation presentInLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("present_in"));
+    	OWLAnnotation presentInLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("present_in","en"));
     	OWLClass partOfClass = factory.getOWLClass("C021", pm);
-    	OWLAnnotation partOfLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("part_of"));
+    	OWLAnnotation partOfLab = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral("part_of","en"));
     	
    	
     	
@@ -677,6 +685,11 @@ public void setInheritNum(String inheritNum) {
     	
     	OWLDeclarationAxiom ageofOn = factory.getOWLDeclarationAxiom(ageofOnsetClass);
     	OWLDeclarationAxiom prev = factory.getOWLDeclarationAxiom(prevClass);
+    	// ajout point preval etc
+    	OWLDeclarationAxiom pointPrev = factory.getOWLDeclarationAxiom(pointPrevClass);
+    	OWLDeclarationAxiom birthPrev = factory.getOWLDeclarationAxiom(birthPrevClass);
+    	OWLDeclarationAxiom lifePrev = factory.getOWLDeclarationAxiom(lifePrevClass);
+    	
     	OWLDeclarationAxiom geography = factory.getOWLDeclarationAxiom(geographyClass);
     	OWLDeclarationAxiom epidemiology = factory.getOWLDeclarationAxiom(epidemioClass);
     	OWLDeclarationAxiom casFam = factory.getOWLDeclarationAxiom(casFamClass);
@@ -780,6 +793,11 @@ public void setInheritNum(String inheritNum) {
        	manager.applyChange(new AddAxiom(ontology, labGene));
        	manager.applyChange(new AddAxiom(ontology, ageofOn));
     	manager.applyChange(new AddAxiom(ontology, prev));
+    	// ajout point preval etc
+    	manager.applyChange(new AddAxiom(ontology, pointPrev));
+    	manager.applyChange(new AddAxiom(ontology, birthPrev));
+    	manager.applyChange(new AddAxiom(ontology, lifePrev));
+    	
     	manager.applyChange(new AddAxiom(ontology, geography));
     	manager.applyChange(new AddAxiom(ontology, epidemiology));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(phenome.getIRI(), phenomelabel)));
@@ -807,6 +825,11 @@ public void setInheritNum(String inheritNum) {
        	
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(ageofOnsetClass.getIRI(), ageOfOnLab)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(prevClass.getIRI(), prevLab)));
+    	// ajout point preval etc
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(pointPrevClass.getIRI(), pointPrevLab)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(birthPrevClass.getIRI(), birthPrevLab)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(lifePrevClass.getIRI(), lifePrevLab)));
+    	
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(geographyClass.getIRI(), geographyLab)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(epidemioClass.getIRI(), epidemioLab)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(casFamClass.getIRI(), casFamLab)));
@@ -842,6 +865,11 @@ public void setInheritNum(String inheritNum) {
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(histoPathoSub, phenome)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(bioAna, phenome)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(prevClass, epidemioClass)));
+    	// ajout point preval etc
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(pointPrevClass, prevClass)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(birthPrevClass, prevClass)));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(lifePrevClass, prevClass)));
+    	
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(casFamClass, epidemioClass)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(casClass, casFamClass)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(famClass, casFamClass)));
@@ -865,188 +893,216 @@ public void setInheritNum(String inheritNum) {
     	
     	// UPDATE SD Definitions 
 		PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");
+		
+		// obsolete_class  
+		OWLAnnotation obsoleteDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
+				factory.getOWLLiteral("ORPHA number withdrawn from the Orphanet nomenclature of rare disease. This includes deprecated entities, that were clinical entities thought to be unique in the past but now considered, thanks to the evolution of the knowledge, part of another clinical entity.","en"));
+		OWLAxiom obsoleteDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(obsoleteClass.getIRI(), obsoleteDefinition);
+		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), obsoleteDefine));
+		
 		// epidemio
 		OWLAnnotation epidemioDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Refers to the concepts describing the distribution of cases of a disorder in a given population at a given time."));
+				factory.getOWLLiteral("Number of cases in a population during a given period. The number of cases may be expressed by annual incidence (Annual incidence), prevalence (Prevalence) and / or number of cases / families (Cases/families) published in the literature.","en"));
 		OWLAxiom epidemioDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(epidemioClass.getIRI(), epidemioDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), epidemioDefine));
 		// geo
 		OWLAnnotation geographyDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Refers to a country, a continent, or the entire world."));
+				factory.getOWLLiteral("Refers to a country, a continent or the whole world.","en"));
 		OWLAxiom geographyDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geographyClass.getIRI(), geographyDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geographyDefine));
 		// Cas/familles
 		OWLAnnotation casFamDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("The number of cases or families with the disorder published in the literature."));
+				factory.getOWLLiteral("Number of cases or family (ies) published in the literature.","en"));
 		OWLAxiom casFamDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(casFamClass.getIRI(), casFamDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), casFamDefine));
 		// Cas
 		OWLAnnotation casDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("The number of all cases with the disorder published in the literature."));
+				factory.getOWLLiteral("Number of cases published in the literature.","en"));
 		OWLAxiom casDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(casClass.getIRI(), casDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), casDefine));
 		// Famille
 		OWLAnnotation famDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("The number of all families with the disorder published in the literature."));
+				factory.getOWLLiteral("Number of family(ies) published in the literature.","en"));
 		OWLAxiom famDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(famClass.getIRI(), famDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), famDefine));
 		
 		// prevalence
 		OWLAnnotation prevalDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Refers to the concepts describing the distribution of all current cases (new and old cases) of a disorder in a given population at a given time."));
+				factory.getOWLLiteral("Number of cases scaled up to the general population at a given time or during a given period. Prevalence can be observed at birth (prevalence at birth), at a point in time (point prevalence), or in a lifetime (lifetime prevalence).","en"));
 		OWLAxiom prevalDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevClass.getIRI(), prevalDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), prevalDefine));
 		
+		// ajout point preval etc
+
+		// point prevalence
+		OWLAnnotation pointPrevalDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
+				factory.getOWLLiteral("Number of cases scaled up to the general population at a given time.","en"));
+		OWLAxiom pointPrevalDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(pointPrevClass.getIRI(), pointPrevalDefinition);
+		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), pointPrevalDefine));
+		
+		// birth prevalence
+		OWLAnnotation birthPrevalDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
+				factory.getOWLLiteral("Number of cases observed at birth relative to the number of children born alive at a given moment.","en"));
+		OWLAxiom birthPrevalDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(birthPrevClass.getIRI(), birthPrevalDefinition);
+		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), birthPrevalDefine));
+		
+		// lifetime prevalence
+		OWLAnnotation lifePrevalDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
+				factory.getOWLLiteral("Number of cases presenting or having presented the clinical entity during their lifetime scaled up to the general population.","en"));
+		OWLAxiom lifePrevalDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(lifePrevClass.getIRI(), lifePrevalDefinition);
+		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), lifePrevalDefine));
+		
+		
 		// age of onset
 		OWLAnnotation ageOfOnsetDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Age of onset of clinical manifestations related to a disorder."));
+				factory.getOWLLiteral("Age of onset of clinical manifestations related to a clinical entity.","en"));
 		OWLAxiom ageOfOnsetDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(ageofOnsetClass.getIRI(), ageOfOnsetDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ageOfOnsetDefine));
 		
 		// inheritance
 		OWLAnnotation inheritanceDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("The way a genetic disorder can be spread to one or more members of a family."));
+				factory.getOWLLiteral("Pattern in which a clinical entity of genetic origin is being passed down to the offspring.","en"));
 		OWLAxiom inheritanceDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(inheritance.getIRI(), inheritanceDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), inheritanceDefine));
 		
 		// Phenome
 		OWLAnnotation phenomeDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A set of phenotypes expressed at the cell, tissue, organ or organism level. It describes the \"physical totality of all traits of an organism or of one of its subsystems\" (Mahner and Kary, 1997)."));
+				factory.getOWLLiteral("A set of phenotypic abnormalities.","en"));
 		OWLAxiom phenomeDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(phenome.getIRI(), phenomeDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), phenomeDefine));
 		
 		// biological anormaly
 		OWLAnnotation bioAnaDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("An alteration of the normal values of biological products. Example :  hypertransferrinemia."));
+				factory.getOWLLiteral("Clinical entity defined by a set of physiological abnormalities without clear associated clinical manifestations.","en"));
 		OWLAxiom bioAnaDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(bioAna.getIRI(), bioAnaDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), bioAnaDefine));
 		
 		// clinical subtype
 		OWLAnnotation clinicalSubDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A subset of a disorder defined by a distinct clinical presentation."));
+				factory.getOWLLiteral("Subdivision of a disease, malformation syndrome, morphological anomaly, biological anomaly, clinical syndrome or particular clinical situation in a disease or a syndrome further defined by its particular clinical presentation.","en"));
 		OWLAxiom clinicalSubDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(clinicalSub.getIRI(), clinicalSubDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), clinicalSubDefine));
 		
 		// clinical syndrome
 		OWLAnnotation clinicalSynDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A set of manifestations resulting from the alteration of a physiological state and that can be present in several diseases. Examples :  nephrotic syndrome, hepatic failure."));
+				factory.getOWLLiteral("Clinical entity defined by a set of phenotypic abnormalities with a homogeneous evolution and homogeneous therapeutic possibilities, regardless of the physiopathological mechanism.","en"));
 		OWLAxiom clinicalSynDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(clinicalSyn.getIRI(),clinicalSynDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), clinicalSynDefine));
 		
 		// disease
 		OWLAnnotation diseaseDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("An alteration of health status resulting from a physiopathological mechanism, and having a homogeneous clinical presentation and evolution and homogeneous therapeutic possibilities. Excludes developmental anomalies."));
+				factory.getOWLLiteral("Clinical entity defined by a set of phenotypic abnormalities resulting from a common physiopathological mechanism with a homogeneous evolution and homogeneous therapeutic possibilities. Excludes developmental anomalies.","en"));
 		OWLAxiom diseaseDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(disease.getIRI(), diseaseDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), diseaseDefine));
 		
 		// etiological subtype
 		OWLAnnotation etioSubDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A subset of a disorder defined by its cause, and clinically indistinguishable from other etiological subtypes."));
+				factory.getOWLLiteral("Subdivision of a disease, malformation syndrome, morphological anomaly, biological anomaly or particular clinical situation in a disease or a syndrome further defined by its aetiology.","en"));
 		OWLAxiom etioSubDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(etioSub.getIRI(), etioSubDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), etioSubDefine));	
 				
 		// groupe of disorders
 		OWLAnnotation groupPhenomeDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A collection of different types of phenomes, sharing a given characteristic and therefore being classified together."));
+				factory.getOWLLiteral("Clinical entity defined by a set of phenotypic abnormalities shared by several diseases, malformation or clinical syndromes, morphological or biological anomalies, and particular clinical situations in a disease or a syndrome and used to group them together.","en"));
 		OWLAxiom groupPhenomeDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(groupPhenome.getIRI(), groupPhenomeDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), groupPhenomeDefine));
 		
 		// histopathological subtype
 		OWLAnnotation histoPathoSubDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A subset of a disorder defined on the basis of its histological aspect."));
+				factory.getOWLLiteral("Subdivision of a disease, malformation syndrome, morphological anomaly, biological anomaly, clinical syndrome or particular clinical situation in a disease defined by the histological abnormalities in affected tissues.","en"));
 		OWLAxiom histoPathoSubDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(histoPathoSub.getIRI(),histoPathoSubDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), histoPathoSubDefine));
 		
 		// malformation syndrome
 		OWLAnnotation malformSynDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A set of morphological anomalies resulting from a developmental anomaly involving more than one morphogenetic field, regardless of the cause.  Includes sequences and associations."));
+				factory.getOWLLiteral("Clinical entity defined by a set of morphological abnormalities resulting from a developmental anomaly involving more than one morphogenetic field. Includes sequences and associations.","en"));
 		OWLAxiom malformSynDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(malformSyn.getIRI(), malformSynDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), malformSynDefine));
 		
 		// particular clinical situation in a disease or syndrome
 		OWLAnnotation partClinSituDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A set of manifestations presenting as a subset of a disorder under particular circumstances."));
+				factory.getOWLLiteral("Clinical entity defined by a set of phenotypic abnormalities occurring in particular circumstances.","en"));
 		OWLAxiom partClinSituDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(partClinSitu.getIRI(), partClinSituDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), partClinSituDefine));	
 		
 		// Morphological anomaly
 		OWLAnnotation morphAnaDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A set of anomalies resulting from a developmental anomaly involving only one morphogenetic field. Includes isolated anomalies and anatomical variants."));
+				factory.getOWLLiteral("Clinical entity defined by an alteration of the normal morphology resulting from a development anomaly involving a single morphogenetic field.","en"));
 		OWLAxiom morphAnaDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(morphAna.getIRI(), morphAnaDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), morphAnaDefine));
 		
 		/* *** UPDATE SD : Inheritance  *** */
 		// autosomal recessive
 		OWLAnnotation autoRecDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes a disorder in which two mutated alleles located on one of the 22 autosomes (non-sex chromosomes) are necessary to express the phenotype and which carries a 25% risk of being passed on to offspring."));
+				factory.getOWLLiteral("Pattern of inheritance in which two mutated alleles of the same gene located on one of the 22 autosomes (non-sexual chromosomes) are needed to express the phenotype.","en"));
 		OWLAxiom autoRecDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(autoRecessive.getIRI(), autoRecDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), autoRecDefine));
 		// autosomal dominant
 		OWLAnnotation autoDomDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes a disorder in which only one mutated allele located on one of the 22 autosomes (non-sex chromosomes) is sufficient to express the phenotype and which carries a 50% risk of being passed on to offspring."));
+				factory.getOWLLiteral("Pattern of inheritance in which a single mutated allele located on one of the 22 autosomes (non-sex chromosomes) is sufficient to express the phenotype.","en"));
 		OWLAxiom autoDomDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(autoDominant.getIRI(), autoDomDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), autoDomDefine));
 		// multigenic/multifactorial
 		OWLAnnotation multigenDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes a disorder in which the combination of one or more genes and/or environmental factors contributes to the expression of the phenotype."));
+				factory.getOWLLiteral("The combination of one or more genes and/or environmental factors contributes to the expression of the phenotype.","en"));
 		OWLAxiom multigenDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(multiGene.getIRI(), multigenDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), multigenDefine));
 		// x linked recessive
 		OWLAnnotation xlinkedRecDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes a disorder in which two mutated alleles located on the X chromosome are necessary to express the phenotype, and which carries a risk of inheritance that differs between males and females. The phenotype is expressed in hemizygous males (having only one X chromosome) and homozygous females."));
+				factory.getOWLLiteral("Pattern of inheritance in which two mutated alleles on the X chromosome are needed to express the phenotype. The phenotype is expressed in hemizygous boys (having only one copy of the gene) and homozygous girls.","en"));
 		OWLAxiom xlinkedRecDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(xlinkedRecessive.getIRI(), xlinkedRecDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xlinkedRecDefine));
 		// mitochondrial
 		OWLAnnotation mithoDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes a disorder in which a mutation in one of the mitochondrial genes is necessary to express the phenotype and that is always maternally inherited."));
+				factory.getOWLLiteral("Pattern of inheritance in which a mutation in one of the mitochondrial genes is sufficient to express the phenotype. The transmission is exclusively maternal.","en"));
 		OWLAxiom mithoDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(mitho.getIRI(), mithoDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), mithoDefine));
 		// x linked dominant
 		OWLAnnotation xlinkedDomDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes a disorder in which only one mutated alleles located on the X chromosome is sufficient to express the phenotype, and which carries a risk of inheritance that differs between males and females. The phenotype is  more consistently and severely expressed in hemizygous males (having only one X chromosome) than in heterozygous females."));
+				factory.getOWLLiteral("Pattern of inheritance in which a single mutated allele on the X chromosome is sufficient to express the phenotype. The phenotype is more consistently and severely expressed in hemizygous boys (having only one copy of the gene) than in heterozygous girls.","en"));
 		OWLAxiom xlinkedDomDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(xlinkedDominant.getIRI(), xlinkedDomDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xlinkedDomDefine));
 		//oligogenic
 		OWLAnnotation oligogenicDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes a disorder in which the combination of mutated alleles of two or more genes are sufficient to express the phenotype.."));
+				factory.getOWLLiteral("The combination of mutated alleles of two or more genes is necessary to express the phenotype.","en"));
 		OWLAxiom oligogenicDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(oligenic.getIRI(), oligogenicDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), oligogenicDefine));
 		// semi-dominant
 		OWLAnnotation semiDomDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes a disorder in which only one mutated allele located on one of the 22 autosomes (non-sex chromosomes) is sufficient to express the phenotype, the phenotype of the homozyguous individual being more severe, when the two alleles are mutated."));
+				factory.getOWLLiteral("Pattern of inheritance in which a single mutated allele located on one of the 22 autosomes (non-sex chromosomes) suffices to express the phenotype, the phenotype of the homozygous individual being more severe, when both alleles are mutated.","en"));
 		OWLAxiom semiDomDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(semiDom.getIRI(), semiDomDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), semiDomDefine));
 		// y linked
 		OWLAnnotation yLinkedDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes a disorder in which only one mutated allele located on the Y chromosome is sufficient to express the phenotype. There is only male-to-male transmission."));
+				factory.getOWLLiteral("Pattern of inheritance in which a single mutated allele on the Y chromosome is sufficient to express the phenotype. The transmission is exclusively paternal.","en"));
 		OWLAxiom yLinkedDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(yLinked.getIRI(), yLinkedDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), yLinkedDefine));
 		// no data available
 		OWLAnnotation noDataDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("This value is used when no data is available in the scientific literature about the inheritability of the disorder."));
+				factory.getOWLLiteral("No information is available in the scientific literature on heredity of the clinical entity.","en"));
 		OWLAxiom noDataDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(nodata.getIRI(), noDataDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), noDataDefine));
 		// not applicable
 		OWLAnnotation notApplicDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes a disorder that is not inherited."));
+				factory.getOWLLiteral("Clinical entity without genetic inheritance.","en"));
 		OWLAxiom notApplicDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(notApplicable.getIRI(), notApplicDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), notApplicDefine));
 		// unknown
 		OWLAnnotation unknownDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Describes an inherited disorder with unknown mode of inheritance."));
+				factory.getOWLLiteral("Hereditary clinical entity whose mode of inheritance is unknown.","en"));
 		OWLAxiom unknownDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(unknown.getIRI(), unknownDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), unknownDefine));
     		
 		//========Gene====//
 		// Type de gène-gene with protein product
 		OWLAnnotation geneTyp1Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Basic unit of heredity, consisting of a segment of DNA arranged in a linear manner along a chromosome that is transcribed in RNA and translated in a protein."));
+				factory.getOWLLiteral("DNA sequence translated into protein.","en"));
 		OWLAxiom geneTyp1Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypProtProd.getIRI(), geneTyp1Definition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTyp1Define));
 		
 		// Type de gène-disorder-associated locus
 		OWLAnnotation geneTyp2Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Chromosomal region associated with a single heritable disorder. The heritable disorder may be mapped to a chromosome but generally has not been associated to a specific gene."));
+				factory.getOWLLiteral("Chromosomal region associated with a hereditary disorder but without any precision on the possible associated gene.","en"));
 		/*  Enlève une définition de trop pour les gene with protein product  */
 		//OWLAxiom geneTypDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypProtProd.getIRI(), geneTyp2Definition);
 		//owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTypDefine));
@@ -1055,13 +1111,13 @@ public void setInheritNum(String inheritNum) {
 		
 		// Type de gène-non-coding RNA
 		OWLAnnotation geneTyp3Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("RNA encoded by a gene but not translated in protein. ie:  Transfer RNA."));
+				factory.getOWLLiteral("RNA transcript not translated into protein.","en"));
 		OWLAxiom geneTyp3Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypNonCodingRNA.getIRI(), geneTyp3Definition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTyp3Define));
 		
 		// genetic material
 		OWLAnnotation geneticMaterialDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Strands of nucleotides encompassing gene with protein product, non-coding and disease-associated locus."));
+				factory.getOWLLiteral("DNA or RNA sequence (gene with protein product, non-coding RNA and disorder-associated locus).","en"));
 		OWLAxiom genMatDefinition = owlvar.getFactory().getOWLAnnotationAssertionAxiom(gene.getIRI(), geneticMaterialDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), genMatDefinition));
 		//====================================//
@@ -1069,68 +1125,68 @@ public void setInheritNum(String inheritNum) {
     	// UPDATE SD 4/01/2015
     	// Disease-causing germline mutation(s) in
 		OWLAnnotation disGermMutDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene mutation in a germ cell that is sufficient to produce the disorder and that can be passed on to offspring."));
+				factory.getOWLLiteral("A mutation of a gene in a germ cell that is sufficient to cause the disorder and can be transmitted to the offspring.","en"));
 		OWLAxiom disGermMutDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(disGermMutClass.getIRI(), disGermMutDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), disGermMutDefine));
     	
 		// Candidate gene tested in
 		OWLAnnotation cgtDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene in which a mutation is suspected, but not yet proven, to be responsible for a disorder, and that is tested for in a clinical setting. "));
+				factory.getOWLLiteral("A gene in which a mutation is suspected, but not yet proven, to be responsible for a disorder, but for which a genetic test (s) is (are) available.","en"));
 		OWLAxiom cgtDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(cgtClass.getIRI(), cgtDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), cgtDefine));
 		// Disease-causing germline mutation(s) (gain of function) in
 		OWLAnnotation dgmgfDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene mutation in a germ cell that provides a new function of the corresponding protein and that is sufficient to produce the disorder and that can be passed on to offspring."));
+				factory.getOWLLiteral("A mutation of a gene in a germ cell that results in a new function of the corresponding protein is sufficient to cause the disorder and can be transmitted to the offspring.","en"));
 		OWLAxiom dgmgfDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(dgmgfClass.getIRI(), dgmgfDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), dgmgfDefine));
 		// Disease-causing germline mutation(s) (loss of function) in
 		OWLAnnotation dgmlfDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene mutation in a germ cell that impairs the function of the corresponding protein and that is sufficient to produce the disorder and that can be passed on to offspring."));
+				factory.getOWLLiteral("A mutation of a gene in a germ cell that alters the function of the corresponding protein is sufficient to cause the disorder and can be transmitted to the offspring.","en"));
 		OWLAxiom dgmlfDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(dgmlfClass.getIRI(), dgmlfDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), dgmlfDefine));
 		// Disease-causing somatic mutation(s) in
 		OWLAnnotation dgsDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene mutation in a somatic cell that is sufficient to produce the disorder but that cannot be passed on to offspring."));
+				factory.getOWLLiteral("A mutation of a gene in a somatic cell that is sufficient to cause the disorder but can not be transmitted to the offspring.","en"));
 		OWLAxiom dgsDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(dgsClass.getIRI(), dgsDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), dgsDefine));
 		// Major susceptibility factor in
 		OWLAnnotation majSusDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene mutation in a germ cell that predisposes to the development of a disorder, and that is necessary but not sufficient to develop the disorder."));
+				factory.getOWLLiteral("A gene mutation in a germ cell that predisposes to the development of a disorder, and that is necessary but not sufficient to develop the disorder.","en"));
 		OWLAxiom majSusDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(majSusClass.getIRI(), majSusDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), majSusDefine));
 		// Modifying germline mutation in
 		OWLAnnotation mgDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene mutation in a germ cell that modifies the clinical presentation of the disorder and that can be passed on to offspring."));
+				factory.getOWLLiteral("A gene mutation in a germ cell that modifies the clinical presentation of the disorder and that can be passed on to offspring.","en"));
 		OWLAxiom mgDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(mgClass.getIRI(), mgDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), mgDefine));
 		// Biomarker tested in
 		OWLAnnotation msmDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene in which a variation is used to monitor disease activity and/or patientoutcome."));
+				factory.getOWLLiteral("A gene in which a variation is used to monitor disease activity and/or patientoutcome.","en"));
 		OWLAxiom msmDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(msmClass.getIRI(), msmDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), msmDefine));
 		// Part of a fusion gene in
 		OWLAnnotation partOfFusionDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A coding or regulatory DNA sequence from a gene that has fused with another coding and/or regulatory DNA sequence from a different gene."));
+				factory.getOWLLiteral("A coding or regulatory DNA sequence from a gene that has fused with another coding and/or regulatory DNA sequence from a different gene.","en"));
 		OWLAxiom partOfFusionDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(partOfFusionClass.getIRI(), partOfFusionDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), partOfFusionDefine));
 		// Role in the phenotype of
 		OWLAnnotation roleInDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("A gene included in a chromosomal rearrangement, and proved to have a major influence in the phenotype of the chromosomal rearrangement."));
+				factory.getOWLLiteral("A gene included in a chromosomal rearrangement, and proved to have a major influence in the phenotype of the chromosomal rearrangement.","en"));
 		OWLAxiom roleInDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(roleInClass.getIRI(), roleInDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), roleInDefine));
 		// has_chromosomal location
 		OWLAnnotation hasLocDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Relation between a gene with protein product, non-coding RNA or disease-associated locus and its cytogenetic location on the chromosome."));
+				factory.getOWLLiteral("Relation between a gene with protein product, non-coding RNA or disease-associated locus and its cytogenetic location on the chromosome.","en"));
 		OWLAxiom hasLocDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(hasLocClass.getIRI(), hasLocDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), hasLocDefine));
 		// present_in
 		OWLAnnotation presentInDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Relation between a phenome and the georaphical area where it has been observed"));
+				factory.getOWLLiteral("Relationship between a clinical entity and the geographical area for which epidemiological data (Epidemiology) is available.","en"));
 		OWLAxiom presentInDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(presentInClass.getIRI(), presentInDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), presentInDefine));
 		// part_of
 		OWLAnnotation partOfDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
-				factory.getOWLLiteral("Relation between two phenomes, one being included in the other. Ex : clinical subtype part_of disease."));
+				factory.getOWLLiteral("Relation between two phenomes, one being included in the other. Ex : clinical subtype part_of disease.","en"));
 		OWLAxiom partOfDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(partOfClass.getIRI(), partOfDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), partOfDefine));
 		
@@ -1142,7 +1198,7 @@ public void setInheritNum(String inheritNum) {
         OWLOntology ontologymod = manager.createOntology(ontologyIRImod);
         owlvar.setOntologymod(ontologymod);
     	System.out.println("Created ontology2: " + ontologymod);
-    	IRI versionIRImod = IRI.create("/version2.4");
+    	IRI versionIRImod = IRI.create("/version2.6");
     	OWLOntologyID newOntologyIDmod = new OWLOntologyID(ontologyIRImod,versionIRImod);
     	SetOntologyID setOntologyIDmod = new SetOntologyID(ontologymod, newOntologyIDmod);
     	manager.applyChange(setOntologyIDmod);
@@ -1157,7 +1213,7 @@ public void setInheritNum(String inheritNum) {
     			this.orphanum.contentEquals("57146")|| this.orphanum.contentEquals("98004")|| this.orphanum.contentEquals("68416")||
     			this.orphanum.contentEquals("98047")|| this.orphanum.contentEquals("108999") || this.orphanum.contentEquals("68329")||
     			this.orphanum.contentEquals("98006")||this.orphanum.contentEquals("98026")|| this.orphanum.contentEquals("250908")||
-    			this.orphanum.contentEquals("98036") ||this.orphanum.contentEquals("93626")||
+    			this.orphanum.contentEquals("98036") ||this.orphanum.contentEquals("93626")|| this.orphanum.contentEquals("280342")||
     			this.orphanum.contentEquals("97955")|| this.orphanum.contentEquals("89826") || this.orphanum.contentEquals("97965")||
     			this.orphanum.contentEquals("97962") || this.orphanum.contentEquals("98023")||this.orphanum.contentEquals("101433") ||
     			this.orphanum.contentEquals("68367")|| this.orphanum.contentEquals("52662") || this.orphanum.contentEquals("93890") || this.orphanum.contentEquals("98053")){
@@ -1179,9 +1235,12 @@ public void setInheritNum(String inheritNum) {
 			/** Création des obsolete */
 			OWLClass rareDisorder = owlvar.getFactory().getOWLClass(this.orphanum, owlvar.getPrefixmanager());
 			OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
-					owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));
+					owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name,"en"));
+			
 			OWLDeclarationAxiom declarationClass = owlvar.getFactory().getOWLDeclarationAxiom(rareDisorder);
 			OWLAxiom labelling = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), labelRare);
+			
+			
 			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), declarationClass));
 			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), labelling));
 			
@@ -1190,11 +1249,12 @@ public void setInheritNum(String inheritNum) {
 			
 			String ifMovedTo="";
 			if(this.isMovedTo()){ifMovedTo="This class is deprecated. The preferred class is ";}
+			else{ifMovedTo="use ";}
 			
 			String idObsoletFrom = this.getObsoleteFrom();
 			if(idObsoletFrom!=null && disease_xrefs.get(idObsoletFrom)!=null){
 				OWLAnnotation definition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("reason_for_obsolescence", new DefaultPrefixManager("http://www.ebi.ac.uk/efo/")),
-						owlvar.getFactory().getOWLLiteral(ifMovedTo+"use http://www.orpha.net/ORDO/Orphanet_"+idObsoletFrom+" with label: "+disease_xrefs.get(idObsoletFrom).getName()));
+						owlvar.getFactory().getOWLLiteral(ifMovedTo+"http://www.orpha.net/ORDO/Orphanet_"+idObsoletFrom+" with label: "+disease_xrefs.get(idObsoletFrom).getName(),"en"));
 				OWLAxiom define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), definition);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), define));
 			}else if (idObsoletFrom!=null){
@@ -1209,7 +1269,7 @@ public void setInheritNum(String inheritNum) {
 		//if(this.get_orphanum().equals("953")){System.err.println("FOUND 953");}
 		OWLClass rareDisorder = owlvar.getFactory().getOWLClass(this.orphanum, owlvar.getPrefixmanager());
 		OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
-		owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));
+		owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name,"en"));
 		if (this.diseaseType != "108939" && this.diseaseType != null && this.diseaseType != ""){//that is if disease is no type dont include in the ontology 
 			OWLDeclarationAxiom declarationClass = owlvar.getFactory().getOWLDeclarationAxiom(rareDisorder);
 			OWLAxiom labelling = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), labelRare);
@@ -1220,7 +1280,7 @@ public void setInheritNum(String inheritNum) {
 				//System.out.println("entered the group of phenome loop");
 				OWLClass classType = owlvar.getFactory().getOWLClass(this.diseaseType, owlvar.getPrefixmanager());
 				PrefixManager pm3 = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
-				OWLAnnotation manualAssert = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",pm3),owlvar.getFactory().getOWLLiteral(this.disTypeValidity));
+				OWLAnnotation manualAssert = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",pm3),owlvar.getFactory().getOWLLiteral(this.disTypeValidity,"en"));
 				Set<OWLAnnotation> owlAnn = new HashSet<OWLAnnotation>();
 				owlAnn.add(manualAssert);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder, classType,owlAnn)));
@@ -1238,7 +1298,7 @@ public void setInheritNum(String inheritNum) {
 				PrefixManager pm3 = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
 				//System.out.println("Name: "+this.name);// test pour voir le contenu de this
 				//System.out.println("Type: "+this.disTypeValidity);// test pour voir le contenu de this
-				OWLAnnotation manualAssert = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",pm3),owlvar.getFactory().getOWLLiteral(this.disTypeValidity));
+				OWLAnnotation manualAssert = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",pm3),owlvar.getFactory().getOWLLiteral(this.disTypeValidity,"en"));
 				Set<OWLAnnotation> owlAnn = new HashSet<OWLAnnotation>();
 				owlAnn.add(manualAssert);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder, classType,owlAnn)));
@@ -1258,7 +1318,7 @@ public void setInheritNum(String inheritNum) {
 					}else{
 						PrefixManager pm2 = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
 						OWLObjectProperty partOf = owlvar.getFactory().getOWLObjectProperty("BFO_0000050", pm2);
-						OWLAnnotation partOfLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("part_of"));
+						OWLAnnotation partOfLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("part_of","en"));
 						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(partOf.getIRI(), partOfLab)));
 						OWLClass superClass = owlvar.getFactory().getOWLClass(this.isa_list.get(i), owlvar.getPrefixmanager());
 						OWLClassExpression partOfSuperClass = owlvar.getFactory().getOWLObjectSomeValuesFrom(partOf, superClass);
@@ -1269,7 +1329,13 @@ public void setInheritNum(String inheritNum) {
 			}			
 			
 		PrefixManager pm2 = new DefaultPrefixManager("http://www.ebi.ac.uk/efo/");
-		
+		// SD add ORPHA:XXX
+		OWLAnnotation orphaLab = owlvar.getFactory().getOWLAnnotation(
+					owlvar.getFactory().getOWLAnnotationProperty("notation", new DefaultPrefixManager("http://www.w3.org/2004/02/skos/core#")),
+					owlvar.getFactory().getOWLLiteral("ORPHA:"+this.orphanum));
+		OWLAxiom orpha = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), orphaLab);
+
+		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), orpha));
 		//System.out.println("exited the disease loop starting inheritance Inheritance size is  " + this.inheritNum.size());
 		//type of inheritance for that disease
 		 if (!(this.inheritNum.isEmpty())){
@@ -1277,10 +1343,18 @@ public void setInheritNum(String inheritNum) {
 			for (int i= 0; i< this.inheritNum.size(); i++){
 				if (!inheritNum.get(i).contentEquals("108939") &&! inheritNum.get(i).contentEquals("108940")){//that is if inheritance is not Unknown
 				OWLObjectProperty has_inheritance = owlvar.getFactory().getOWLObjectProperty("C016", owlvar.getPrefixmanager());
-				OWLAnnotation hasInheritLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_inheritance"));
+				OWLAnnotation hasInheritLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_inheritance","en"));
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_inheritance.getIRI(), hasInheritLab)));
 				OWLClass inheritanceType  = owlvar.getFactory().getOWLClass(this.inheritNum.get(i),owlvar.getPrefixmanager());
 				OWLClassExpression hasInheritanceClass = owlvar.getFactory().getOWLObjectSomeValuesFrom(has_inheritance, inheritanceType);
+				
+				//SD 22/06/18
+				OWLAnnotation hasInheritDef =  owlvar.getFactory().getOWLAnnotation( owlvar.getFactory().getOWLAnnotationProperty("definition", pm2),
+						owlvar.getFactory().getOWLLiteral("Relationship between a clinical entity and modes of inheritance.","en"));
+				OWLAxiom defineHasInherit = owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_inheritance.getIRI(), hasInheritDef);
+				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), defineHasInherit));
+				
+				
 				OWLSubClassOfAxiom ax = owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder,hasInheritanceClass);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ax));
 				}
@@ -1292,10 +1366,10 @@ public void setInheritNum(String inheritNum) {
 			//System.out.println("writing the age of onset");
 			 for(int i=0;i<this.ageOfOnset.size();i++){
 				OWLObjectProperty has_ageOfOnset = owlvar.getFactory().getOWLObjectProperty("C017", owlvar.getPrefixmanager());
-				OWLAnnotation hasageOfOnLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_AgeOfOnset"));
+				OWLAnnotation hasageOfOnLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_AgeOfOnset","en"));
 				
 				OWLAnnotation onsetDef =  owlvar.getFactory().getOWLAnnotation( owlvar.getFactory().getOWLAnnotationProperty("definition", pm2),
-						owlvar.getFactory().getOWLLiteral("Relation between a phenome and its range(s) of age of onset"));
+						owlvar.getFactory().getOWLLiteral("Relationship between clinical entity and age of onset.","en"));
 				OWLAxiom onsetDefin = owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_ageOfOnset.getIRI(), onsetDef);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), onsetDefin));
 
@@ -1305,7 +1379,15 @@ public void setInheritNum(String inheritNum) {
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLDeclarationAxiom(onsetValue)));//asserting age class
 				//set the subclass relationship
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(onsetValue, owlvar.getFactory().getOWLClass("C023", owlvar.getPrefixmanager()))));
-				OWLAnnotation onsetLabel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.ageOfOnset.get(i)));//label for the value of age of onset
+				
+				
+				// SD 22/06/18
+				OWLAnnotation onsetLabel;
+				if(this.onsetNum.get(i).equals("409951")){
+					onsetLabel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("no age of onset data available","en"));//no data avaible label
+				}else{
+					onsetLabel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.ageOfOnset.get(i).toLowerCase(),"en"));//label for the value of age of onset
+				}
 				OWLClassExpression hasageOfOnsetClass = owlvar.getFactory().getOWLObjectSomeValuesFrom(has_ageOfOnset, onsetValue);
 				OWLSubClassOfAxiom ax = owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder,hasageOfOnsetClass);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), ax));
@@ -1313,18 +1395,18 @@ public void setInheritNum(String inheritNum) {
 				
 				/* *** UPDATE SD : Age of onset  *** */
 				String def="";
-				if(this.onsetNum.get(i).equals("409943")){def="Before delivery";}                                            //antenatal
-				else if(this.onsetNum.get(i).equals("409944")){def="From delivery to 4 weeks of life.";}                     //neonatal
-				else if(this.onsetNum.get(i).equals("409945")){def="From 4 weeks to 23 months of life.";}                    //infancy
-				else if(this.onsetNum.get(i).equals("409946")){def="From 2 to 11 years of life.";}                           //childhood
-				else if(this.onsetNum.get(i).equals("409947")){def="From 12 to 18 years of life.";}                          //adolescent
-				else if(this.onsetNum.get(i).equals("409948")){def="From 19 to 65 years of life.";}                          //adult
-				else if(this.onsetNum.get(i).equals("409949")){def="After 65 years of life.";}                               //eldery
-				else if(this.onsetNum.get(i).equals("409950")){def="From delivery to adulthood without any peak of onset.";} //all age
-				else if(this.onsetNum.get(i).equals("409951")){def="This value is used when there is no data in the scientific literature to allow for a specific age of onset to be assigned to a disorder.";} //no data avaible
+				if(this.onsetNum.get(i).equals("409943")){def="Before birth.";}                                                    //antenatal
+				else if(this.onsetNum.get(i).equals("409944")){def="From birth to the fourth week of life.";}                      //neonatal
+				else if(this.onsetNum.get(i).equals("409945")){def="From the end of the fourth week to the 23rd month of life.";}  //infancy
+				else if(this.onsetNum.get(i).equals("409946")){def="From 2 to 11 years.";}                                         //childhood
+				else if(this.onsetNum.get(i).equals("409947")){def="From 12 to 18 years.";}                                        //adolescent
+				else if(this.onsetNum.get(i).equals("409948")){def="From 19 to 65 years.";}                                        //adult
+				else if(this.onsetNum.get(i).equals("409949")){def="After 65 years.";}                                             //eldery
+				else if(this.onsetNum.get(i).equals("409950")){def="From birth to adulthood without peak of onset.";}              //all age
+				else if(this.onsetNum.get(i).equals("409951")){def="No information is available in the scientific literature on the age of onset of the first clinical manifestations.";} //no data avaible
 				
 				OWLAnnotation onsetDefinition =  owlvar.getFactory().getOWLAnnotation( owlvar.getFactory().getOWLAnnotationProperty("definition", pm2),
-						owlvar.getFactory().getOWLLiteral(def));
+						owlvar.getFactory().getOWLLiteral(def,"en"));
 				OWLAxiom onsetDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(onsetValue.getIRI(), onsetDefinition);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), onsetDefine));
 
@@ -1343,21 +1425,39 @@ public void setInheritNum(String inheritNum) {
 				String type=this.prevalences.get(i).getType();                         // type de prévalence
 				
 				if (this.prevalences.get(i).getPrevalClass()!=null && !this.prevalences.get(i).getPrevalClass().equals("") 
-						&& !this.prevalences.get(i).getPrevalClass().equals("409981")){
+						&& !this.prevalences.get(i).getPrevalClass().equals("409982")){
 					/* UPDATE sélection du typage de classe */
 					if (type.equals("409966") ){ type = "C025";      // prevalence point
 					}else if (type.equals("409968") ){type = "C026"; // prevalence at birth
 													  this.prevalences.get(i).setTypeLab(this.prevalences.get(i).getTypeLab().toLowerCase().replaceAll("prevalence at birth","birth prevalence"));
 					}else if (type.equals("409969") ){type = "C027"; // lifetime prevalence		
 					}else if (type.equals("409967") ){type = "C020"; // annual incidence
+					}else if (type.equals("409973") ){type = "C024"; // cases
+					}else if (type.equals("409974") ){type = "C024"; // families
 					}
 					
 					// UPDATE SD create has_.... anonymous class
 					OWLObjectProperty has_Prevalence = owlvar.getFactory().getOWLObjectProperty(type,owlvar.getPrefixmanager());
 					
 					if(this.prevalences.get(i).getTypeLab()!=null && !this.prevalences.get(i).getTypeLab().equals("")){
-						OWLAnnotation hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_"+this.prevalences.get(i).getTypeLab().toLowerCase().replaceAll(" ","_")+"_range"));
+						OWLAnnotation hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_"+this.prevalences.get(i).getTypeLab().toLowerCase().replaceAll(" ","_")+"_range","en"));
 						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasPrevLab)));
+						
+						// UPDATE SD ajout def sur les propriété has_...
+						String defHasPrev="";
+						if (type.equals("C025") ){      defHasPrev = "Relationship between clinical entity and point prevalence range.";    // prevalence point
+						}else if (type.equals("C026") ){defHasPrev = "Relationship between clinical entity and birth prevalence range.";    // prevalence at birth
+						}else if (type.equals("C027") ){defHasPrev = "Relationship between clinical entity and lifetime prevalence range."; // lifetime prevalence		
+						}else if (type.equals("C020") ){defHasPrev = "Relationship between clinical entity and annual incidence range.";    // annual incidence
+						// SD 18/04/18 
+						}else if (type.equals("C024") ){defHasPrev = "Relationship between clinical entity and number of cases/families.";    // cases/families
+						}
+						
+						OWLAnnotation hasPrevDefinition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("definition", pm2),
+								owlvar.getFactory().getOWLLiteral(defHasPrev,"en"));
+						OWLAxiom prevalTypeDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasPrevDefinition);
+						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), prevalTypeDefine));
+						// FIN UPDATE
 					}
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLDeclarationAxiom(has_Prevalence)));//asserting prevalence class
 					
@@ -1368,25 +1468,29 @@ public void setInheritNum(String inheritNum) {
 					String defType="";
 					// définition et super classe
 					if (type.equals("C020")){
-						defType="The number of new cases that arise in a population in a given time period (year).";
+						defType="Number of newly diagnosed cases in a population in 1 year.";
 						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(prevType, owlvar.getFactory().getOWLClass("C003", owlvar.getPrefixmanager()))));
-					}else{
+					}/*else{
 						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(prevType, owlvar.getFactory().getOWLClass("C004", owlvar.getPrefixmanager()))));
-						if (type.equals("C025")       ){ defType = "The number of all the existing cases of a disorder in a given population at a specific point in time.";      // prevalence point
-						}else if (type.equals("C026") ){ defType = "The number of infants born with the disorder compared to the total number of live births in a given time period."; // prevalence at birth
-						}else if (type.equals("C027") ){ defType = "The number of individuals in a statistical population that at some point in their lives have experienced a disorder, compared to the total number of individuals."; // lifetime prevalence						
+						if (type.equals("C025")       ){ defType = "Number of all the existing cases of a disorder in a given population at a specific point in time.";      // prevalence point
+						}else if (type.equals("C026") ){ defType = "Number of infants born with the disorder compared to the total number of live births in a given time period."; // prevalence at birth
+						}else if (type.equals("C027") ){ defType = "Number of individuals in a statistical population that at some point in their lives have experienced a disorder, compared to the total number of individuals."; // lifetime prevalence						
 						}
-					}
+					}*/
 					// UPDATE SD application définition
-					OWLAnnotation prevalTypeDefinition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("definition", pm2),
-							owlvar.getFactory().getOWLLiteral(defType));	
-					OWLAxiom prevalTypeDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevType.getIRI(), prevalTypeDefinition);
-										
+					// SD 22/06/18 test modif fonctionnement
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLDeclarationAxiom(prevType)));//asserting prevalence Type
-					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), prevalTypeDefine));
-					// Ajout du label
-					OWLAnnotation prevalTypeLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getTypeLab().toLowerCase()));
-					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevType.getIRI(), prevalTypeLab)));
+					if(defType!=""){
+						OWLAnnotation prevalTypeDefinition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("definition", pm2),
+								owlvar.getFactory().getOWLLiteral(defType,"en"));	
+						OWLAxiom prevalTypeDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevType.getIRI(), prevalTypeDefinition);
+						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), prevalTypeDefine));
+						
+						// Ajout du label
+						OWLAnnotation prevalTypeLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getTypeLab().toLowerCase(),"en"));
+						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevType.getIRI(), prevalTypeLab)));
+						
+					}	
 					
 					// UPDATE SD add the Class of prevalence
 					OWLClass prevClass = owlvar.getFactory().getOWLClass(this.prevalences.get(i).getPrevalClass(),owlvar.getPrefixmanager());
@@ -1400,37 +1504,40 @@ public void setInheritNum(String inheritNum) {
 					String def="";
 					String label="";
 					if(this.prevalences.get(i).getPrevalClass().equals("409975")){
-						def="Prevalence or incidence figures ranging from 1 to 5 individuals per ten thousand inhabitants.";
+						def="Interval of prevalence or annual incidence of between 1 and 5 cases per 10,000 in the population.";
 						label="1-5 / 10 000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409976")){
-						def="Prevalence or incidence figures ranging from 1 to 9 individuals per 1 million inhabitants.";
+						def="Interval of prevalence or annual incidence of between 1 and 9 cases per 1,000,000 in the population.";
 						label="1-9 / 1 000 000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409977")){
-						def="Prevalence or incidence figures ranging from 1 to 9 individuals per 1 hundred thousand inhabitants.";
+						def="Interval of prevalence or annual incidence of between 1 and 9 cases per 100,000 in the population.";
 						label="1-9 / 100 000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409978")){
-						def="Prevalence or incidence figures ranging from 6 to 9 individuals per ten thousand inhabitants.";
+						def="Interval of prevalence or annual incidence of between 6 and 9 cases per 10,000 in the population.";
 						label="6-9 / 10 000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409979")){
-						def="Prevalence or incidence figures are inferior to 1 individual per 1 million inhabitants.";
+						def="Interval of prevalence or annual incidence of less than 1 case per 1,000,000 in the population.";
 						label="<1 / 1 000 000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409980")){
-						def="Prevalence or incidence figures are greater than 1 individual per 1 thousand inhabitants.";
+						def="Interval of prevalence or annual incidence greater than 1 case per 1,000 in the population.";
 						label=">1 / 1000";
+					}else if (this.prevalences.get(i).getPrevalClass().equals("409981")){
+						def   = "No information is available in the scientific literature to inform prevalence or annual incidence."; // unknown
+						label ="Unknown_epidemiological_range";
 					}
 					
 					//label for prevalence class
-					OWLAnnotation prevalClassLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(label));
+					OWLAnnotation prevalClassLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(label,"en"));
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevClass.getIRI(), prevalClassLab)));
 					
 					//definition for prevalence class
 					OWLAnnotation prevalClassDefinition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("definition", pm2),
-							owlvar.getFactory().getOWLLiteral(def));
+							owlvar.getFactory().getOWLLiteral(def,"en"));
 					OWLAxiom prevalClassDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(prevClass.getIRI(), prevalClassDefinition);
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), prevalClassDefine));
 					
@@ -1451,12 +1558,32 @@ public void setInheritNum(String inheritNum) {
 					}
 					
 					OWLObjectProperty has_Prevalence = owlvar.getFactory().getOWLObjectProperty(type, owlvar.getPrefixmanager());
-					OWLAnnotation hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_"+this.prevalences.get(i).getTypeLab().toLowerCase().replaceAll(" ","_")+"_average_value"));
-					
+					OWLAnnotation hasPrevLab;
+					if(type=="C024"){
+						hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_"+this.prevalences.get(i).getTypeLab().toLowerCase().replaceAll(" ","_")+"_number","en"));
+					}else{
+						hasPrevLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_"+this.prevalences.get(i).getTypeLab().toLowerCase().replaceAll(" ","_")+"_average_value","en"));
+					}
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasPrevLab)));
 					OWLDataProperty prevalType = owlvar.getFactory().getOWLDataProperty(type, owlvar.getPrefixmanager());
-			
-					OWLLiteral prevValue = owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getValMoy());
+					
+					// UPDATE SD ajout def sur les propriété has_...
+					String defAvgPrev="";
+					if (type.equals("C028") ){      defAvgPrev = "Relationship between the clinical entity and the mean value of its point prevalence.";    // prevalence point
+					}else if (type.equals("C029") ){defAvgPrev = "Relationship between the clinical entity and the mean value of its birth prevalence.";    // prevalence at birth
+					}else if (type.equals("C030") ){defAvgPrev = "Relationship between the clinical entity and the mean value of its lifetime prevalence."; // lifetime prevalence		
+					}else if (type.equals("C032") ){defAvgPrev = "Relationship between the clinical entity and the mean value of its annual incidence.";    // annual incidence
+					}else if (type.equals("C024") ){defAvgPrev = "Relationship between clinical entity and number of cases/families.";    // cases/families
+					/*}else if (type.equals("409974") ){defAvgPrev = "Number of family(ies) published in the literature..";    // families
+					}else if (type.equals("409973") ){defAvgPrev = "Number of cases published in the literature.";    // cases  */
+					}
+					
+					OWLAnnotation hasAvgDefinition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("definition", pm2),
+							owlvar.getFactory().getOWLLiteral(defAvgPrev,"en"));
+					OWLAxiom hasAvgDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasAvgDefinition);
+					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), hasAvgDefine));
+					// FIN UPDATE
+					OWLLiteral prevValue = owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getValMoy(),owlvar.getFactory().getFloatOWLDatatype());
 					OWLDataHasValue hasPrevVal = owlvar.getFactory().getOWLDataHasValue(prevalType, prevValue);
 					intersec.add(hasPrevVal);
 					
@@ -1469,9 +1596,9 @@ public void setInheritNum(String inheritNum) {
 				if (this.prevalences.get(i).getGeo()!=null && !this.prevalences.get(i).getGeo().equals("")){
 					
 					OWLObjectProperty has_Geo = owlvar.getFactory().getOWLObjectProperty("C022",owlvar.getPrefixmanager());
-					OWLAnnotation GeoLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("present_in"));
+					OWLAnnotation GeoLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("present_in","en"));
 					
-					OWLAnnotation hasGeoLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getGeoLab()));
+					OWLAnnotation hasGeoLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getGeoLab(),"en"));
 					
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Geo.getIRI(), GeoLab)));
 					OWLClass prevGeoClass = owlvar.getFactory().getOWLClass(this.prevalences.get(i).getGeo(),owlvar.getPrefixmanager());
@@ -1492,7 +1619,7 @@ public void setInheritNum(String inheritNum) {
 				// UPDATE SD validation status for prevalence
 				if(this.prevalences.get(i).getValidation()!=null){
 					PrefixManager pm3 = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");
-					OWLAnnotation manualAssert = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000205",pm3),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getValidation()));
+					OWLAnnotation manualAssert = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000205",pm3),owlvar.getFactory().getOWLLiteral(this.prevalences.get(i).getValidation(),"en"));
 					Set<OWLAnnotation> owlAnn = new HashSet<OWLAnnotation>();
 					owlAnn.add(manualAssert);
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLSubClassOfAxiom(rareDisorder, diseaseHasPrevVal,owlAnn)));
@@ -1509,7 +1636,7 @@ public void setInheritNum(String inheritNum) {
 			OWLAnnotation definition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 					.getOWLAnnotationProperty(
 							"definition", pm2),
-							owlvar.getFactory().getOWLLiteral(this.def));
+							owlvar.getFactory().getOWLLiteral(this.def,"en"));
 			OWLAxiom define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), definition);
 			OWLAnnotation definitionCitation = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 					.getOWLAnnotationProperty(
@@ -1526,7 +1653,7 @@ public void setInheritNum(String inheritNum) {
 				OWLAnnotation alternativeTerm = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 						.getOWLAnnotationProperty(
 								"alternative_term",
-								pm2), owlvar.getFactory().getOWLLiteral(this.synonym.get(i)));
+								pm2), owlvar.getFactory().getOWLLiteral(this.synonym.get(i),"en"));
 				OWLAxiom synonym = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), alternativeTerm);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),synonym));
 			}
@@ -1540,7 +1667,7 @@ public void setInheritNum(String inheritNum) {
 				OWLAnnotation database_cross_reference = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 						.getOWLAnnotationProperty(
 								"hasDbXref",
-								oboInOwl), owlvar.getFactory().getOWLLiteral(this.sourceList.get(i) + ":" + this.refList.get(i)));
+								oboInOwl), owlvar.getFactory().getOWLLiteral(this.sourceList.get(i) + ":" + this.refList.get(i)/*,"en"*/));
 				OWLAxiom xref = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), database_cross_reference);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), xref));
 				//UPDATE SD mapping relation
@@ -1549,7 +1676,7 @@ public void setInheritNum(String inheritNum) {
 									
 				if(!this.refValidList.get(i).equals("")){
 					
-					OWLAnnotation curationAssertion = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.refValidList.get(i)));
+					OWLAnnotation curationAssertion = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000218",obo),owlvar.getFactory().getOWLLiteral(this.refValidList.get(i),"en"));
 					Set<OWLAnnotation> owlAnnoCur = new HashSet<OWLAnnotation>();
 
 					owlAnnoCur.add(curationAssertion);						
@@ -1578,7 +1705,7 @@ public void setInheritNum(String inheritNum) {
 			for( int i =0; i<this.genelists.size(); i++){
 				//creating gene class and adding the symbol annotation and label annotation
 				OWLClass gene = owlvar.getFactory().getOWLClass(this.geneNum.get(i), owlvar.getPrefixmanager());
-				OWLAnnotation geneLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(), owlvar.getFactory().getOWLLiteral(this.genelists.get(i)));
+				OWLAnnotation geneLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(), owlvar.getFactory().getOWLLiteral(this.genelists.get(i),"en"));
 				OWLDeclarationAxiom geneClass = owlvar.getFactory().getOWLDeclarationAxiom(gene);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneClass));
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLAnnotationAssertionAxiom(gene.getIRI(), geneLab)));
@@ -1603,10 +1730,10 @@ public void setInheritNum(String inheritNum) {
 				//LIEN GENE/MALADIE
 				//adding gene typing object property along with the label for the typing
 				OWLObjectProperty has_typing = owlvar.getFactory().getOWLObjectProperty(this.geneType.get(i), owlvar.getPrefixmanager());
-				OWLAnnotation typeLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(), owlvar.getFactory().getOWLLiteral(this.geneTypeName.get(i)));
+				OWLAnnotation typeLab = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(), owlvar.getFactory().getOWLLiteral(this.geneTypeName.get(i),"en"));
 				PrefixManager pmCur = new DefaultPrefixManager("http://purl.obolibrary.org/obo/");//pas utiliser?!
 				//System.out.println("gene type status is  " + this.geneTypeStatus);
-				OWLAnnotation curationAssertion = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000205",pmCur),owlvar.getFactory().getOWLLiteral(this.geneTypeStatus));
+				OWLAnnotation curationAssertion = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("ECO_0000205",pmCur),owlvar.getFactory().getOWLLiteral(this.geneTypeStatus,"en"));
 				Set<OWLAnnotation> owlAnnoCur = new HashSet<OWLAnnotation>();
 				owlAnnoCur.add(curationAssertion);
 				OWLClass thisgeneClass = owlvar.getFactory().getOWLClass(gene.getIRI());
@@ -1654,7 +1781,7 @@ public void setInheritNum(String inheritNum) {
 							OWLAnnotation alternativeTerm = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory()
 									.getOWLAnnotationProperty(
 											"alternative_term",
-											pm2), owlvar.getFactory().getOWLLiteral(this.geneSyn.get(k)));
+											pm2), owlvar.getFactory().getOWLLiteral(this.geneSyn.get(k),"en"));
 							OWLAxiom synonym = owlvar.getFactory().getOWLAnnotationAssertionAxiom(gene.getIRI(), alternativeTerm);
 							owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),synonym));
 							//sb.append("; synonym :" + geneSyn.get(k));
@@ -1667,7 +1794,7 @@ public void setInheritNum(String inheritNum) {
 					//adding locus for the gene
 					int counterLocus = Integer.parseInt(this.genLocusCount.get(i));
 					OWLDataProperty has_Locus = owlvar.getFactory().getOWLDataProperty("C040", owlvar.getPrefixmanager());
-					OWLAnnotation has_LocusLabel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_chromosomal_location"));
+					OWLAnnotation has_LocusLabel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("has_chromosomal_location","en"));
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Locus.getIRI(), has_LocusLabel)));
 					
 					
@@ -1722,7 +1849,7 @@ public void setInheritNum(String inheritNum) {
 			this.orphanum.contentEquals("57146")|| this.orphanum.contentEquals("98004")|| this.orphanum.contentEquals("68416")||
 			this.orphanum.contentEquals("98047")|| this.orphanum.contentEquals("108999") || this.orphanum.contentEquals("68329")||
 			this.orphanum.contentEquals("98006")||this.orphanum.contentEquals("98026")|| this.orphanum.contentEquals("250908")||
-			this.orphanum.contentEquals("98036") ||this.orphanum.contentEquals("93626")||
+			this.orphanum.contentEquals("98036") ||this.orphanum.contentEquals("93626")||  this.orphanum.contentEquals("280342")||
 			this.orphanum.contentEquals("97955")|| this.orphanum.contentEquals("89826") || this.orphanum.contentEquals("97965")||
 			this.orphanum.contentEquals("97962") || this.orphanum.contentEquals("98023")||this.orphanum.contentEquals("101433") ||
 			this.orphanum.contentEquals("68367")|| this.orphanum.contentEquals("52662")){

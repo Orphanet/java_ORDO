@@ -22,6 +22,8 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import uk.ac.ebi.efo.bubastis.CompareOntologies;
 
+
+
 public class Orph2OBO {
     /** This class downloads the ca. 20 Orpha Rare Disease XML files. */
     private OrphadataDownloader downloader;
@@ -36,13 +38,18 @@ public class Orph2OBO {
      * @param args
      * @throws OWLOntologyCreationException 
      * @throws OWLOntologyStorageException 
+     * @throws FileNotFoundException 
      */
-    public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException {
+    public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException, FileNotFoundException {
 	
 	    /**This is the name of the directory where the Orphanet XML files will be written to*/
-	    String directory = "juin2016_2";
+	    String directory = "juin_2018";
 	    	//String directory = "OrphadataMay";
-		Orph2OBO o2o = new Orph2OBO();
+		
+	    
+	    
+	    
+	    Orph2OBO o2o = new Orph2OBO();
 		o2o.createDownloadDirectoryIfDoesntExist(directory);
 		o2o.downloadOrphanetFiles(directory);//uncomment this to generate an Orphanet OWL file 
 		o2o.getDiseaseXRefs();
@@ -69,9 +76,9 @@ public class Orph2OBO {
 			System.out.println("problem saving the owl file");
 			e.printStackTrace();
 		}
-		System.out.println("Owl file is now saved");
+		System.out.println("Owl EN file is now saved");
 		
-		
+		System.out.println("Generating Change Log EN");
 		/******** UPDATE SD Add ChangeLog ********/
 		
 		FileOutputStream f;
@@ -84,7 +91,8 @@ public class Orph2OBO {
 			e.printStackTrace();
 		}
 		CompareOntologies bubastis = new CompareOntologies();
-		bubastis.doFindAllChanges("file:/OrphoToOBO2/orphadata.owl","http://www.orpha.net/ontology/orphanet.owl");
+		//bubastis.doFindAllChanges("http://www.orpha.net/ontology/orphanet.owl","file:/OrphoToOBO2/orphadata.owl");
+		bubastis.doFindAllChanges("file:/OrphoToOBO2/hoom1.0.owl","file:/OrphoToOBO2/hoom1.1.owl");
 		bubastis.writeDiffAsXMLFile("C:\\OrphoToOBO2\\bubastis_change_log.xml");
 		System.setOut(defaultOut);
 		System.out.println("Exit program after saving Change Log");
@@ -241,6 +249,10 @@ public class Orph2OBO {
 	addClassificationData(XML_file);
 	/* 	Teratologic disorders */
 	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_216.xml";
+	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
+	addClassificationData(XML_file);
+	/* 	childhood disorders */
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_231.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare cardiac malformations */
