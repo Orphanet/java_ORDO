@@ -1,0 +1,85 @@
+C003	Epidemiologia	Liczba przypadków w populacji występujących w określonym czasie. Liczba przypadków może być wyrażona jako: liczba przypadków w ciągu roku (Częstotliwość występowania rocznie), (Prewalencja) i (lub) liczba  przypadków/rodzin (Przypadki/rodziny) opublikowanych w literaturze.	
+409967	liczba przypadków w ciągu roku	Liczba nowo rozpoznanych przypadków występujących w danej populacji w ciągu 1 roku.
+409969	prewalencja życiowa	Liczba przypadków osób, które w trakcie swojego życia wykazywały lub wykazują obecność danej jednostki chorobowej w  populacji generalnej.	
+409970	przypadki/rodziny	Liczba przypadków lub rodzin opisanych w literaturze.
+409973	przypadek	Liczba przypadków opisanych w literaturze.	
+409974	rodzina	Liczba rodzin opisanych w literaturze.	
+C004	prewalencja	Liczba przypadków w skali ogólnej populacji występujących w określonym czasie bądź przez określony okres czasu. Prewalencja może być obserwowana przy narodzeniu (prewalencja urodzeniowa), w określonym czasie (prewalencja punktowa) lub na przestrzeni całego życia (prewalencja życiowa).	
+409966	prewalencja punktowa	Liczba przypadków w skali ogólnej populacji występujących w określonym czasie.	
+409968	prewalencja urodzeniowa	Liczba przypadków zaobserwowanych podczas narodzin w odniesieniu do liczby żywo narodzonych dzieci w danym momencie.	
+409980	>1/1000	Przedział prewalencji lub roczna częstotliwość zachorowań przewyższająca 1 przypadek na 1.000 osób w populacji.
+409978	6-9/10.000	Przedział prewalencji lub roczna częstotliwość zachorowań od 6-9 przypadków na 10.000 osób w populacji.
+409975	1-5/10.000	Przedział prewalencji lub roczna częstotliwość zachorowań od 1 do 5 przypadków na 10.000 osób w populacji. 	
+409977	1-9/100.00	Przedział prewalencji lub roczna częstotliwość zachorowań od 1 do 9 przypadków na 100.000 osób w populacji.
+409976	1-9/1.000.000	Przedział prewalencji lub roczna częstotliwość zachorowań od 1 do 9 przypadków na 1.000.000 osób w populacji.
+409979	<1/1.000.000	Przedział prewalencji lub roczna częstotliwość zachorowań niższa niż 1 przypadek na 1.000.000 osób w populacji.	
+409981	#N/A	#N/A	
+C025	cechuje zakres prewalencji punktowej	Zależność pomiędzy jednostką chorobową a zakresem prewalencji punktowej.	
+C020	cechuje roczny zakres częstotliwości zachorowań	Zależność pomiędzy jednostką chorobową a zakresem rocznej częstotliwości zachorowań.	
+C026	cechuje zakres prewalencji urodzeniowej	Zależność pomiędzy jednostką chorobową a zakresem prewalencji urodzeniowej.	
+C027	cechuje zakres prewalencji życiowej	Zależność pomiędzy jednostką chorobową a zakresem prewalencji życiowej.	
+C024	cechuje się średnią liczbą przypadków/rodzin	Zależność pomiędzy jednostką chorobową a liczbą przypadków/rodzin.	
+C028	średnia wartość prewalencji punktowej wynosi	Zależność pomiędzy jednostką chorobową a średnią wartością jej prewalencji punktowej.	
+C032	średnia wartość rocznej częstotliwości zachorowań wynosi	Zależność pomiędzy jednostką chorobową a średnią wartością rocznej częstotliwości zachorowań.
+C029	średnia wartość prewalencji urodzeniowej wynosi	Zależność pomiędzy jednostką chorobową a średnią wartością jej prewalencji urodzeniowej.	
+C030	średnia wartość prewalencji życiowej wynosi	Zależność pomiędzy jednostką chorobową a średnią wartością jej prewalencji życiowej.	
+C005	Sposób dziedziczenia	Sposób w jaki dana choroba o podłożu genetycznym jest przekazywana potomstwu.	
+409929	Autosomalny dominujący	Sposób dziedziczenia, w którym pojedynczy allel znajdujący się na jednym z 22 autosomów (chromosomów nie sprzężąnych z płcią) wystarczy, aby doszło do ekspresji fenotypu.	
+409930	Autosomalny recesywny	Sposób dziedziczenia, w którym aby doszło do  ekspresji fenotypu, konieczna jest obecność dwóch zmutowanych alleli tego samego genu znajdujących się na jednym z 22 autosomów (chromosomów nie sprzężąnych z płcią).	
+409932	Recesywny, sprzężony  z chromosomem X	Sposób dziedziczenia, w którym, aby doszło do ekspresji fenotypu, konieczna jest obecność dwóch zmutowanych alleli na chromosomie X. Fenotyp podlega ekspresji u hemizygotycznych chłopców (posiadających tylko jedną kopię genu) i homozygotycznych dziewcząt.	
+409934	Dominujący, związany z chromosomem X	Sposób dziedziczenia, w którym do ujawnienia się fenotypu wystarcza obecność pojedynczego zmutowanego allelu na chromosomie X. Fenotyp ujawnia się w sposób bardziej stały i cięższy u hemizygotycznych chłopców (posiadających tylko jedną kopię genu) niż u heterozygotycznych dziewcząt.	
+409931	Wielogenowy/wieloczynnikowy	Do ekspresji fenotypu przyczynia się kombinacja występowania jednego rodzaju lub więcej genów i (lub) wpływ czynników środowiskowych.	
+409938	Związany z chromosomem Y	Sposób dziedziczenia, w którym do ujawnienia się fenotypu wystarcza obecność pojedynczego zmutowanego allelu na chromosomie Y. Mutację może przekazywać jedynie ojciec. 	
+409933	Mitochondrialny	Sposób dziedziczenia, w którym do ujawnienia fenotypu wystarcza obecność mutacji w jednym z genów mitochondrialnych.  Mutację może przekazywać jedynie matka. 	
+409936	Oligogeniczny	Aby doszło do ujawnienia się fenotypu, konieczna jest kombinacja występowania zmutowanych alleli dwóch lub więcej genów.	
+409937	Semi-dominujący	Sposób dziedziczenia, w którym, aby doszło do ekspresji fenotypu, wystarczy obecność pojedynczego zmutowanego allelu na jednym z 22 autosomów (chromosomów nie sprzężonych z płcią), fenotyp osoby homozygotycznej jest cięższy w przypadku, gdy mutacji ulegną obydwa allele.	
+409940	#N/A	#N/A	
+409941	Nie dziedziczony genetycznie	Choroba nie dziedziczona genetycznie.	
+409939	#N/A	#N/A	
+C016	jest dziedziczona	związek pomiędzy jednostką chorobową a rodzajami dziedziczenia.	
+C023	Wiek wystąpienia choroby	Wiek, w którym jednostka chorobowa ujawnia się klinicznie.
+409943	w okresie płodowym	Przed narodzeniem.
+409944	w okresie neonatalnym	Od narodzin do czwartego tygodnia życia.	
+409945	w okresie niemowlęcym	Od końca czwartego tygodnia do 23 miesiąca życia.	
+409946	w okresie dziecięcym	Od 2 do 11 roku życia.
+409947	w okresie młodzieńczym	Od 12 do 18 roku życia.
+409948	w wieku dorosłym	Od 19 do 65 roku życia.
+409949	w wieku starszym	Po ukończeniu 65 roku życia.
+409950	w każdym wieku	Od narodzin do dorosłości bez wyraźnego zwiększenia występowania w konkretnym okresie.	
+409951	#N/A	#N/A	
+C017	jej wystąpienie ma związek z wiekiem	Istnieje związek pomiędzy jednostką chorobową a wiekiem pacjenta w momencie wystąpienia jej objawów.	
+C001	Jednostka chorobowa	Zestaw nieprawidłowości dotyczących fenotypu.	
+377794	#N/A	#N/A	
+377795	Podtyp w zależności od etiologii	Podział/klasyfikacja choroby, zespołu malformacji, anomalii morfologicznej/strukturalnej, biologicznej lub szczególnego zaburzenia klinicznego towarzyszącego danej chorobie lub zespołowi określana dokładniej w zależności od ich etiologii.	
+377788	Choroba	Jednostka chorobowa określona przez zestaw zaburzeń fenotypowych wywołanych przez wspólne mechanizmy patofizjologiczne charakteryzująca się jednolitym rozwojem i ujednoliconymi zaleceniami terapeutycznymi. Nie zalicza się tu anomalii rozwojowych.	
+377790	Anomalia biologiczna	Jednostka chorobowa określana przez zestaw zaburzeń patofizjologicznych, którym nie towarzyszą jednoznaczne objawy chorobowe.	
+377789	Zespół malformacji	Jednostka chorobowa określona przez zestaw zaburzeń strukturalnych spowodowanych anomalią rozwojową obejmującą więcej niż jeden obszar morfogenetyczny. Zalicza się tu sekwencje i asocjacje.	
+377791	Anomalia strukturalna	Jednostka chorobowa określona przez zaburzenie prawidłowej struktury spowodowanej anomalią  rozwojową w obrębie pojedynczego obszaru morfogenetycznego.	
+377793	Szczególne zaburzenie kliniczne w przebiegu choroby lub zespołu	Jednostka chorobowa określona przez zespół zaburzeń fenotypowych ujawniających się w konkretnych okolicznościach.	
+377792	Zespół kliniczny	ednostka chorobowa określona przez zestaw zaburzeń fenotypowych o jednolitym czasie rozwoju i ujednoliconych zaleceniach terapeutycznych, niezależnie od mechanizmów patofizjologicznych zaangażowanych w jej wystąpienie.	
+377796	Podtyp kliniczny	Podział/klasyfikacja choroby, zespołu malformacji, anomalii strukturalnej, anomalii biologicznej lub zespołu klinicznego bądź szczególnego zaburzenia klinicznego towarzyszącego danej chorobie lub zespołowi definiowana na podstawie swojego obrazu klinicznego.	
+377797	Podtyp histopatologiczny	Podział/klasyfikacja choroby, zespołu malformacji, anomalii strukturalnej, anomalii biologicznej lub zespołu klinicznego bądź szczególnego zaburzenia klinicznego towarzyszącego danej chorobie definiowana na podstawie zaburzeń histopatologicznych obserwowanych w zmienionych tkankach.	
+C009	Lokalizacja geograficzna	Dotyczy kraju, kontynentu lub całego świata.
+C022	Występuje w	Zależność pomiędzy jednostką chorobową a rejonem geograficzny, dla którego dostępne są dane epidemiologiczne.	
+C010	Materiał genetyczny	Sekwencja DNA lub RNA ( gen z produktem białkowym,  z nie kodującym RNA i locus związanym z chorobą ).	
+410298	Gen z produktem białkowym	Sekwencja DNA przepisana na białko.	
+410299	Nie kodujące RNA	Transkrypt RNA nie przepisany na białko.	
+410297	Locus związany z zaburzeniem	Region chromosomu związany z chorobą dziedziczną, jednak bez dokładnego określenia potencjalnie związanego z nim genu.	
+327767	Gen kandydat badany w	Gen, w którym podejrzewa się, jednak dotychczas tego nie udowodniono, występowanie mutacji, odpowiedzialnej za zaburzenie, przy podejrzeniu którego można wykonać test(y) genetyczny/genetyczne.	
+410296	Choroba powodująca mutację/e w linii germinalnej (uzyskanie nowej funkcji)	Mutacja genu w komórce rozrodczej, która przekłada się na nową funkcję odpowiadającego jej białka i wystarcza do spowodowania zaburzenia oraz może być przekazywana potomstwu.	
+410295	Choroba powodująca mutację/e w linii germinalnej	Mutacja genu w komórce rozrodczej, która zmienia funkcję odpowiadającego jej białka i jest wystarczającą  przyczyną wystąpienia choroby oraz może być przekazywana potomstwu.	
+317343	Choroba powodująca mutację/e w linii germinalnej	Mutacja genu w komórce rozrodczej, która jest wystarczającą przyczyną wystąpienia choroby i może być przekazywana potomstwu.	
+317344	Choroba powodująca mutację/e w komórkach somatycznych	Mutacja genu w komórce somatycznej, która jest wystarczającą przyczyną wystąpienia choroby, jednak nie może być przekazywana potomstwu.	
+317345	Najważniejszy podejrzewany czynnik	Mutacja genu w komórce rozrodczej, która predysponuje i jest niezbędna do rozwoju choroby, jednak nie wystarczająca do jejwystąpienia.	
+317346	Mutacja modyfikująca linii germinalnej	Mutacja genu w komórce rozrodczej, która zmienia prezentację kliniczną choroby i może zostać przekazana potomstwu.	
+465410	Biomarker badany w	Gen, którego różnorodność jest wykorzystywana do monitorowania rozwoju choroby i (lub) rokowania dla pacjenta.	
+317348	Część przyłączonego genu 	Sekwencja kodująca lub regulatorowa sekwencji DNA  genu, który połączył się z inną sekwencją kodującą i (lub) regulatorową DNA pochodzącą z innego genu.	
+317349	Rola w fenotypie	Gen włączony w rearanżację chromosomową, co do którego udowodniono, że odgrywa wiodący wpływ na fenotyp wywołany przez rearanżację chromosomową. 	
+C040	posiada lokalizację chromosomalną	Zależność pomiędzy genem a produktem białkowym, nie kodującym RNA lub locus związanym z chorobą oraz jego lokalizacją cytogenetyczną na chromosomie.
+ObsoleteClass	#N/A	#N/A	
+C021	#N/A	#N/A	
+ECO_0000205	#N/A	#N/A	
+ECO_0000218	#N/A	#N/A	
+with_label	#N/A	#N/A	
+deprecated	#N/A	#N/A	
+use	#N/A	#N/A	

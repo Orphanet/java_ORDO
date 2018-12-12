@@ -1,0 +1,85 @@
+C003	epidemiología	Número de casos en una población durante un período determinado. El número de casos puede expresarse según su incidencia anual (incidencia anual), prevalencia (prevalencia) y/o número de casos/familias (casos/familias) publicados en la literatura.
+409967	incidencia anual	Número de casos nuevos diagnosticados en una población en 1 año.
+409970	casos / familias	Número de casos o familia(s) publicado(s) en la literatura.
+409973	caso	Número de casos publicado(s) en la literatura.
+409974	familia	Número de familia(s) publicado(s) en la literatura.
+C004	prevalencia	Número de casos ampliados a la población general en un momento dado o durante un período determinado. La prevalencia puede observarse al nacimiento (prevalencia al nacimiento), en un punto en el tiempo (prevalencia puntual) o en la vida (prevalencia de vida).
+409966	prevalencia puntual	Número de casos ampliados a la población general en un momento dado.
+409968	prevalencia al nacimiento	Número de casos observados al nacimiento en relación con el número de niños nacidos vivos en un momento dado.
+409969	prevalencia de vida	Número de casos que presentan o han presentado la entidad clínica durante su vida ampliados a la población general.
+409980	>1 / 1000	Intervalo de prevalencia o incidencia anual mayor a 1 caso por 1.000 habitantes.
+409978	6-9 / 10 000	Intervalo de prevalencia o incidencia anual de entre 6 y 9 casos por 10.000 habitantes.
+409975	1-5 / 10 000	Intervalo de prevalencia o incidencia anual de entre 1 y 5 casos por 10.000 habitantes
+409977	1-9 / 100 000	Intervalo de prevalencia o incidencia anual de entre 1 y 9 casos por 100.000 habitantes.
+409976	1-9 / 1 000 000	Intervalo de prevalencia o incidencia anual de entre 1 y 9 casos por 1.000.000 habitantes.
+409979	<1 / 1 000 000	Intervalo de prevalencia o incidencia anual de menos de 1 caso por 1.000.000 habitantes.
+C025	tiene_rango_prevalencia_puntual	Relación entre la entidad clínica y el rango de prevalencia puntual.
+C020	tiene_rango_incidencia_anual	Relación entre la entidad clínica y el rango de incidencia anual.
+C026	tiene_rango_prevalencia_al_nacimiento	Relación entre la entidad clínica y el rango de prevalencia al nacimiento.
+C027	tiene_rango_prevalencia_de_vida	Relación entre la entidad clínica y el rango de prevalencia de vida.
+C024	tiene_valor_casos/familias	Relación entre la entidad clínica y el número de casos/familias.
+C028	tiene_valor_medio_prevalencia_puntual	Relación entre la entidad clínica y el valor medio de su prevalencia puntual.
+C032	tiene_valor_medio_incidencia_anual	Relación entre la entidad clínica y el valor medio de su incidencia anual.
+C029	tiene_valor_medio_prevalencia_al_nacimiento	Relación entre la entidad clínica y el valor medio de su prevalencia al nacimiento.
+C030	tiene_valor_medio_prevalencia_de_vida	Relación entre la entidad clínica y el valor medio de su prevalencia de vida.
+C005	herencia	Patrón según el cual una entidad clínica de origen genético se transmite a la descendencia.
+409929	autosómica dominante	Patrón de herencia en el que un solo alelo mutado localizado en uno de los 22 autosomas (cromosomas no sexuales) es suficiente para expresar el fenotipo.
+409930	autosómica recesiva	Patrón de herencia en el que se necesitan dos alelos mutados del mismo gen ubicados en uno de los 22 autosomas (cromosomas no sexuales) para expresar el fenotipo.
+409932	recesiva ligada al X	Patrón de herencia en el que se necesitan dos alelos mutados en el cromosoma X para expresar el fenotipo. El fenotipo se expresa en niños varones hemicigotos (que tienen sólo una copia del gen) y niñas homocigóticas.
+409934	dominante ligada al X	Patrón de herencia en el que un único alelo mutado en el cromosoma X es suficiente para expresar el fenotipo. El fenotipo se expresa más consistentemente y con mayor gravedad en niños varones hemicigotos (que tienen sólo una copia del gen) que en las niñas heterocigóticas.
+409931	multigénico/multifactorial	La combinación de uno o más genes y/o factores ambientales contribuye a la expresión del fenotipo.
+409938	ligada al Y	Patrón de herencia en el que un único alelo mutado en el cromosoma Y es suficiente para expresar el fenotipo. La transmisión es exclusivamente paterna.
+409933	mitocondrial	Patrón de herencia en el que una mutación en uno de los genes mitocondriales es suficiente para expresar el fenotipo. La transmisión es exclusivamente materna.
+409936	oligogénico	La combinación de alelos mutados de dos o más genes es necesaria para expresar el fenotipo.
+409937	semi-dominante	Patrón de herencia en el que un único alelo mutado localizado en uno de los 22 autosomas (cromosomas no sexuales) es suficiente para expresar el fenotipo, siendo más grave el fenotipo del individuo homocigoto cuando ambos alelos están mutados.
+409941	no heredado genéticamente	Entidad clínica sin herencia genética.
+C016	tiene_herencia	Relación entre una entidad clínica y los modos de herencia.
+C023	edad de inicio	Edad de inicio de las manifestaciones clínicas relacionadas con una entidad clínica.
+409943	prenatal	Antes del nacimiento.
+409944	neonatal	Desde el nacimiento hasta la cuarta semana de vida.
+409945	lactancia	Desde el final de la cuarta semana hasta el 23º mes de vida.
+409946	infancia	De 2 a 11 años.
+409947	adolescente	De 12 a 18 años.
+409948	adulto	De 19 a 65 años.
+409949	anciano	Después de los 65 años.
+409950	todas las edades	Desde el nacimiento hasta la edad adulta sin pico de aparición.
+C017	tiene_edad_de_inicio	Relación entre la entidad clínica y la edad de inicio.
+C001	entidad clínica	Un conjunto de anomalías fenotípicas.
+377794	grupo de trastornos 	Entidad clínica definida por un conjunto de anomalías fenotípicas compartidas por varias enfermedades, malformaciones o síndromes clínicos, anomalías morfológicas o biológicas y situaciones clínicas particulares en una enfermedad o un síndrome y que se utilizan para agruparlas.
+377795	subtipo etiológico	Subdivisión de una enfermedad, síndrome malformativo, anomalía morfológica, anomalía biológica o situación clínica particular en una enfermedad o síndrome definido además por su etiología.
+377788	enfermedad	Entidad clínica definida por un conjunto de anomalías fenotípicas resultantes de un mecanismo fisiopatológico común con una evolución homogénea y posibilidades terapéuticas homogéneas. Excluye las anomalías del desarrollo.
+377790	anomalía biológica	Entidad clínica definida por un conjunto de anomalías fisiológicas sin claras manifestaciones clínicas asociadas.
+377789	síndrome de malformación	Entidad clínica definida por un conjunto de anomalías morfológicas resultantes de una anomalía del desarrollo que afecta a más de un campo morfogenético. Incluye secuencias y asociaciones.
+377791	anomalía morfológica	Entidad clínica definida por una alteración de la morfología normal que resulta de una anomalía del desarrollo que afecta a un único campo morfogenético.
+377793	situación clínica particular en una enfermedad o síndrome	Entidad clínica definida por un conjunto de anomalías fenotípicas que ocurren en circunstancias particulares.
+377792	síndrome clínico	Entidad clínica definida por un conjunto de anomalías fenotípicas con una evolución homogénea y posibilidades terapéuticas homogéneas, independientemente del mecanismo fisiopatológico.
+377796	subtipo clínico	Subdivisión de una enfermedad, síndrome malformativo, anomalía morfológica, anomalía biológica, síndrome clínico o situación clínica particular en una enfermedad o síndrome definido además por su presentación clínica particular.
+377797	subtipo histopatológico	Subdivisión de una enfermedad, síndrome malformativo, anomalía morfológica, anomalía biológica, síndrome clínico o situación clínica particular en una enfermedad definida por las anomalías histológicas en los tejidos afectados.
+C009	geografía	Se refiere a un país, un continente o a todo el mundo.
+C022	presente_en	Relación entre una entidad clínica y el área geográfica para la cual están disponibles los datos epidemiológicos (Epidemiología).
+C010	material genético	Secuencia de ADN o ARN (gen con producto proteico, ARN no codificante y locus asociado a trastorno).
+410298	gen con producto proteico	Secuencia de ADN traducida a proteína.
+410299	ARN no codificante	Transcrito de ARN no traducido a proteína.
+410297	locus asociado a un trastorno	Región cromosómica asociada a un trastorno hereditario pero sin precisión sobre el posible gen asociado.
+327767	gen candidato probado en	Un gen en el que se sospecha una mutación, pero que todavía no se ha demostrado, responsable de un trastorno, pero para la cual hay una(s) prueba(s) genética(s) disponible(s).
+410296	mutación(es) germinal(es) causante(s) de enfermedad (ganancia de función) en	Una mutación de un gen en una célula germinal que resulta en una nueva función de la proteína correspondiente y que es suficiente para causar el trastorno y que puede transmitirse a la descendencia.
+410295	mutación(es) germinal(es) causante(s) de enfermedad (pérdida de función) en	Una mutación de un gen en una célula germinal que altera la función de la proteína correspondiente y que es suficiente para causar el trastorno y puede transmitirse a la descendencia.
+317343	mutación(es) germinal(es) causante(s) de enfermedad en	Una mutación de un gen en una célula germinal que es suficiente para causar el trastorno y puede transmitirse a la descendencia.
+317344	mutación(es) somática(s) causante(s) de enfermedad en	Una mutación de un gen en una célula somática que es suficiente para causar el trastorno pero que no puede transmitirse a la descendencia.
+317345	factor de susceptibilidad mayor en	Una mutación genética en una célula germinal que predispone al desarrollo de un trastorno, y que es necesaria pero no suficiente para desarrollar el trastorno.
+317346	mutación germinal modificadora en	Una mutación genética en una célula germinal que modifica la presentación clínica del trastorno y que puede transmitirse a la descendencia.
+465410	biomarcador probado en	Un gen en el que se usa una variación para monitorizar la actividad del trastorno y/o la evolución del paciente.
+317348	parte de un gen de fusión en	Una secuencia de ADN codificante o reguladora de un gen que se ha fusionado con otra secuencia codificante y/o reguladora de ADN de un gen diferente.
+317349	papel en el fenotipo de	Un gen incluido en una reordenación cromosómica, y que ha demostrado tener una gran influencia en el fenotipo de la reordenación cromosómica.
+C040	tiene_localización_cromosómica	Relación entre un gen con un producto proteico, un ARN no codificante o un locus asociado a un trastorno y su localización citogenética en el cromosoma.
+ObsoleteClass	obsoleto	Número ORPHA retirado de la nomenclatura de Orphanet de enfermedades raras. Se incluyen las entidades en desuso, correspondientes a entidades clínicas que se pensaba que eran únicas en el pasado pero que ahora se consideran, gracias a la evolución del conocimiento, parte de otra entidad clínica.
+ECO_0000205	curator_inference	NA
+ECO_0000218	manual_assertion	NA
+409939	herencia desconocida	Entidad clínica hereditaria cuyo modo de herencia es desconocido.
+409940	sin datos disponibles sobre herencia	Sin información disponible en la literatura científica sobre la herencia de la entidad clínica.
+409951	sin datos disponibles sobre edad de inicio	Sin información disponible en la literatura científica sobre la edad de inicio de las primeras manifestaciones clínicas.
+C021	parte_de	Relación entre dos entidades clínicas, una incluida en la otra. Ej.: subtipo clínico parte de una enfermedad.
+409981	Rango_epidemiológico_desconocido	Sin información disponible en la literatura científica sobre la prevalencia o la incidencia anual.
+with_label	with label	 con el rótulo:
+deprecated	depracated	Esta categoría es obsoleta. La categoría preferente es
+use	use	utilice  
