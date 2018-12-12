@@ -1,0 +1,85 @@
+C001	entité clinique	Ensemble d'anomalies phénotypiques.
+377794	groupe de pathologies	Entité clinique définie par un ensemble limité d'anomalies phénotypiques partagées par plusieurs maladies, syndromes malformatifs ou cliniques, anomalies morphologiques ou biologiques et situation clinique particulière dans une maladie et utilisée pour les regrouper.
+377788	maladie	Entité clinique définie par un ensemble d'anomalies phénotypiques résultant d'un mécanisme physiopathologique commun, une évolution clinique et des possibilités thérapeutiques homogènes. Exclut les anomalies du développement.
+377796	sous-type clinique	Sous-division d'une maladie, syndrome malformatif, anomalie morphologique, anomalie biologique, syndrome clinique ou situation clinique particulière dans une maladie définit par sa présentation clinique particulière.
+377789	syndrome malformatif	Entité clinique définie par un ensemble d'anomalies morphologiques résultant d'une anomalie du développement impliquant plus d'un champ morphogénétique, quelle qu'en soit la cause. Comprend les séquences et les associations.
+377795	sous-type étiologique	Sous-division d'une maladie, syndrome malformatif, anomalie morphologique, anomalie biologique ou situation clinique particulière dans une maladie ou un syndrome défini par son étiologie.
+377791	anomalie morphologique	Entité clinique définie par une altération de la morphologie normale résultant d'une anomalie du développement impliquant un seul champ morphogénétique.
+377792	syndrome clinique	Entité clinique définie par un ensemble d'anomalies phénotypiques avec une évolution clinique et des possibilités thérapeutiques homogènes, sans considération du mécanisme physiopathologique.
+377793	situation clinique particulière dans une maladie ou un syndrome	Entité clinique définie par un ensemble d'anomalies phénotypiques se présentant dans des circonstances particulières.
+377797	sous-type histopathologique	Sous-division d'une maladie, syndrome malformatif, anomalie morphologique, anomalie biologique, syndrome clinique ou situation clinique particulière dans une maladie définit par les anomalies histologiques observées dans les tissus touchés.
+377790	anomalie biologique	Entité clinique définie par un ensemble d'anomalies physiologiques sans manifestations cliniques clairement associées.
+C010	matériel génétique	Séquence d'ADN ou d'ARN (gène avec produit protéique, ARN non codant et locus associé à une pathologie).
+410298	gène avec produit protéinique	Séquence d'ADN traduite en protéine.
+410297	locus associé à une pathologie	Région chromosomique associée à une pathologie héréditaire mais sans précision sur le gène possiblement associé.
+410299	ARN non codant	Transcrit d'ARN non traduit en protéine.
+C005	hérédité	Mode de transmission selon lequel une entité clinique génétique est transmis à la descendance.
+ObsoleteClass	classe obsolète	Numéro ORPHA supprimé de la nomenclature Orphanet des maladies rares. Cela inclut les entités dépréciées, des entités cliniques individualisées par le passé mais qui font aujourd'hui, grâce à l'évolution des connaissances, partie d'une autre entité clinique.
+409929	autosomique dominante	Mode de transmission pour lequel un seul allele muté situé sur l'un des 22 autosomes (chromosomes non sexuels) est suffisant pour exprimer le phénotype.
+409930	autosomique récessive	Mode de transmission pour lequel deux allèles mutés d'un gène situé sur l'un des 22 autosomes (chromosomes non sexuels) sont nécessaires pour exprimer le phénotype.
+409931	multigénique/multifactorielle	La combinaison d'un ou plusieurs gènes et/ou des facteurs environnementaux contribue à l'expression du phénotype.
+409932	récessive liée à l'X	Mode de transmission pour lequel deux allèles mutés d'un gène situé sur le chromosome X sont nécessaires pour exprimer le phénotype. Le phénotype est exprimé chez les garçons hémizygotes (n'ayant qu'une seule copie du gène) et les filles homozygotes.
+409933	mitochondriale	Mode de transmission pour lequel une mutation dans l'un des gènes mitochondriaux est suffisante pour exprimer le phénotype. La transmission est exclusivement maternelle.
+409934	dominante liée à l'X	Mode de transmission pour lequel un seul allèle muté situé sur le chromosome X est suffisant pour exprimer le phénotype. Le phénotype est exprimé de manière plus constante et sévère chez les garçons hémizygotes (n'ayant qu'une seule copie du gène) que chez les filles hétérozygotes.
+409936	oligogénique	Mode de transmission pour lequel la combinaison d'allèles mutés de deux ou plusieurs gènes est nécessaire pour exprimer le phénotype.
+409937	semi-dominante	Mode de transmission pour lequel un seul allèle muté situé sur l'un des 22 autosomes (chromosomes non sexuels) suffit à exprimer le phénotype, le phénotype de l'individu homozygote étant plus sévère, lorsque les deux allèles sont mutés.
+409938	liée à l'Y	Mode de transmission pour lequel un seul allèle muté situé sur le chromosome Y est suffisant pour exprimer le phénotype. La transmission est exclusivement paternelle.
+409939	hérédité inconnue	Entité clinique héréditaire dont le mode d'hérédité est inconnu.
+409940	donnée d'hérédité indisponible	Aucune information n'est disponible dans la littérature scientifique sur l'hérédité de l'entité clinique.
+409941	pas de transmission génétique	Entité clinique sans héritage génétique.
+C023	âge d'apparition	Âge d'apparition des manifestations cliniques liées à une maladie.
+C009	géographie	Désigne un pays, un continent ou le monde entier.
+C003	épidémiologie	Nombre de cas au sein d'une population pendant une période donnée. Le nombre de cas peut-être exprimé par une incidence annuelle (Incidence annuelle), une prévalence (Prévalence) et/ou le nombre de cas/familles (Cas/familles) publiés dans la littérature.
+C004	prévalence	Nombre de cas rapporté à la population générale à un instant donné ou pendant une période donnée. La prévalence peut être observée à la naissance (Prévalence à la naissance), de façon instantanée (Prévalence instantanée) ou vie entière (Prévalence vie-entière).
+409966	prévalence instantanée	Nombre de cas rapporté à la population générale à un instant donné.
+409968	prévalence à la naissance	Nombre de cas observés à la naissance rapporté au nombre d'enfants nés vivants à un instant donné.
+409969	prévalence vie-entière	Nombre de cas présentant ou ayant présenté la maladie au cours de leur vie rapporté à la population générale.
+409967	incidence annuelle	Nombre de cas nouvellement diagnostiqués au sein de la population pendant 1 année.
+409970	cas/familles	Nombre de cas ou de famille(s) publié(s) dans la littérature.
+409973	cas	Nombre de cas publié(s) dans la littérature.
+409974	famille	Nombre de familles publiée(s) dans la littérature.
+317343	Mutation(s) germinale(s) de la maladie dans	Une mutation d'un gène dans une cellule germinale qui est suffisante pour causer la maladie et peut être transmise à la descendance.
+327767	Gène candidat testé dans	Un gène dans lequel une mutation est suspectée, mais pas encore prouvée, être responsable d'une maladie, mais pour lequel il existe un/des test(s) génétique(s) proposé(s) dans cette indication.
+410296	Mutation(s) germinale(s) de la maladie (gain de fonction) dans	Une mutation d'un gène dans une cellule germinale qui entraine une nouvelle fonction de la protéine correspondante, est suffisante pour causer la maladie et peut être transmise à la descendance.
+410295	Mutation(s) germinale(s) de la maladie (perte de fonction) dans	Une mutation d'un gène dans une cellule germinale qui altère la fonction de la protéine correspondante, est suffisante pour causer la maladie et peut être transmise à la descendance.
+317344	Mutation(s) somatique(s) de la maladie dans	Une mutation d'un gène dans une cellule somatique qui est suffisante pour causer la maladie mais ne peut être transmise à la descendance.
+317345	Facteur de susceptibilité majeur dans	Une mutation d'un gène dans une cellule germinale qui est nécessaire mais non suffisante au développement d'une maladie.
+317346	Mutation germinale modificatrice dans	Une mutation d'un gène dans une cellule germinale qui modifie la présentation clinique de la maladie et qui peut être transmise à la descendance.
+465410	Biomarqueur testé dans	Une variation dans un gène utilisé pour surveiller l'activité de la maladie et/ou l'évolution du patient.
+317348	Partie d'un gène de fusion dans	Une séquence d'ADN codant ou régulatrice qui a fusionné avec une autre séquence d'ADN codant et/ou régulatrice.
+317349	Rôle dans le phénotype de	Un gène inclus dans un réarrangement chromosomique et s'est avéré avoir une influence majeure dans la maladie du réarrangement chromosomique.
+C040	a_une_localisation_chromosomique	Relation entre un gène avec un produit protéique, un ARN non codant ou un locus associé à une maladie et son emplacement cytogénétique sur le chromosome.
+C022	présent_dans	Relation entre une entité clinique et la zone géographique pour laquelle une donnée épidémiologique (Epidémiologie) est disponible.
+C021	fait_parti_de	Relation entre deux entités cliniques, l'une étant inclus dans l'autre. Ex: sous-type clinique de la maladie.
+C016	a_une_hérédité	Relation entre une entité clinique et les modes d'hérédité.
+C017	a_un_âge_d_apparition	Relation entre l'entité clinique et l'âge d'apparition.
+409951	pas de donnée disponible pour l'âge d'apparition	Aucune information n'est disponible dans la littérature scientifique sur l'âge d'apparition des premières manifestations cliniques.
+409943	anténatal	Avant la naissance.
+409944	néonatal	De la naissance à la quatrième semaine de vie.
+409945	petite enfance	De la quatrième semaine révolue au 23ème mois de vie.
+409946	enfance	De 2 à 11 ans.
+409947	adolescence	De 12 à 18 ans.
+409948	adulte	De 19 à 65 ans.
+409949	âge avancé	Après 65 ans.
+409950	tout âge	De la naissance à l'âge adulte sans pic d'apparition.
+C024	a_un_nombre_de_cas/familles	Relation entre l'entité clinique et le nombre de cas/familles.
+C025	a_une_prévalence_instantanée	Relation entre l'entité clinique et l'intervalle de prévalence instantanée.
+C026	a_une_prévalence_à_la_naissance	Relation entre l'entité clinique et l'intervalle de prévalence à la naissance.
+C027	a_une_prévalence_vie_entière	Relation entre l'entité clinique et l'intervalle de prévalence vie-entière.
+C020	a_une_incidence_annuelle	Relation entre l'entité clinique et l'intervalle d'incidence annuelle.
+C028	a_une_valeur_moyenne_de_prévalence_instantanée	Relation entre l'entité clinique et la valeur moyenne de sa prévalence instantanée.
+C029	a_une_valeur_moyenne_de_prévalence_à_la_naissance	Relation entre l'entité clinique et la valeur moyenne de sa prévalence à la naissance.
+C030	a_une_valeur_moyenne_de_prévalence_vie_entière	Relation entre l'entité clinique et la valeur moyenne de sa prévalence vie-entière.
+C032	a_une_valeur_moyenne_d_incidence_annuelle	Relation entre l'entité clinique et la valeur moyenne de son incidence annuelle.
+409975	1-5 / 10 000	Intervalle de prévalence ou incidence annuelle comprise entre 1 et 5 cas pour 10 000  au sein de la population.
+409976	1-9 / 1 000 000	Intervalle de prévalence ou incidence annuelle comprise entre 6 et 9 cas pour 1 000 000  au sein de la population.
+409977	1-9 / 100 000	Intervalle de prévalence ou incidence annuelle est comprise entre 1 et 9 cas pour 100 000  au sein de la population.
+409978	6-9 / 10 000	Intervalle de prévalence ou incidence annuelle comprise entre 6 et 9 cas pour 10 000  au sein de la population.
+409979	<1 / 1 000 000	Intervalle de prévalence ou incidence annuelle inférieure à 1 cas pour 1 000 000  au sein de la population.
+409980	>1 / 1000	Intervalle de prévalence ou incidence annuelle supérieure à 1 cas pour 1 000 au sein de la population.
+409981	Tranche_épidémiologique_Inconnue	Absence d'information dans la littérature scientifique permettant de renseigner la prévalence ou l'incidence annuelle.
+ECO_0000205	curator_inference	NA
+ECO_0000218	manual_assertion	NA
+deprecated	depracated	Cette classe est dépréciée. La classe préférée est 
+use	use	utiliser 
+with_label	with label	 avec le libellé: 
