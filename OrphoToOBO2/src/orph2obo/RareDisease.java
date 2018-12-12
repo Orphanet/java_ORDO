@@ -459,7 +459,7 @@ public void setInheritNum(String inheritNum) {
     // 
     public void readDefinitionFile() throws FileNotFoundException{
     	String lang = getLang();
-        Scanner scan = new Scanner(new File("C:\\Users\\sdemarest\\workspaceLuna\\OrphoToOBO2FR\\definitions\\DEF_ORDO_"+lang+".txt"));
+        Scanner scan = new Scanner(new File("C:\\Users\\sdemarest.BROUSSAIS\\git\\java_ORDO_origine\\definitions\\DEF_ORDO_"+lang+".txt"));
 
         while(scan.hasNext()){
             String curLine = scan.nextLine();

@@ -52,12 +52,12 @@ public class OWLLiteralImplFloat extends OWLObjectImplWithoutEntityAndAnonCachin
         hashcode = getHashCode();
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         entities.add(datatype);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {}
 
     private final int hashcode;
@@ -74,73 +74,72 @@ public class OWLLiteralImplFloat extends OWLObjectImplWithoutEntityAndAnonCachin
         return code;
     }
 
-    @Override
+
     public String getLiteral() {
         return Float.toString(literal);
     }
 
-    @Override
+
     public boolean isRDFPlainLiteral() {
         return false;
     }
 
-    @Override
+
     public boolean hasLang() {
         return false;
     }
 
-    @Override
+
     public boolean isInteger() {
         return false;
     }
 
-    @Override
+
     public int parseInteger() {
         throw new NumberFormatException("this literal is not an integer but a float");
     }
 
-    @Override
+
     public boolean isBoolean() {
         return false;
     }
 
-    @Override
+
     public boolean parseBoolean() {
         throw new NumberFormatException("this literal is not a boolean but a float");
     }
 
-    @Override
+
     public boolean isDouble() {
         return false;
     }
 
-    @Override
+
     public double parseDouble() {
         throw new NumberFormatException("this literal is not a double but a float");
     }
 
-    @Override
+
     public boolean isFloat() {
         return true;
     }
 
-    @Override
+
     public float parseFloat() {
         return literal;
     }
 
     @Nonnull
-    @Override
     public String getLang() {
         return "";
     }
 
-    @Override
+
     public boolean hasLang(String lang) {
         return false;
     }
 
-    @Override
+
     public OWLDatatype getDatatype() {
         return datatype;
     }
@@ -163,22 +162,22 @@ public class OWLLiteralImplFloat extends OWLObjectImplWithoutEntityAndAnonCachin
         return false;
     }
 
-    @Override
+
     public void accept(OWLDataVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLDataVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLAnnotationValueVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLAnnotationValueVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
@@ -197,27 +196,27 @@ public class OWLLiteralImplFloat extends OWLObjectImplWithoutEntityAndAnonCachin
         return Float.compare(literal, other.parseFloat());
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public Optional<IRI> asIRI() {
         return Optional.absent();
     }
 
-    @Override
+
     public Optional<OWLAnonymousIndividual> asAnonymousIndividual() {
         return Optional.absent();
     }
 
-    @Override
+
     public Optional<OWLLiteral> asLiteral() {
         return Optional.<OWLLiteral> of(this);
     }
