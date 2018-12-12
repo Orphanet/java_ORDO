@@ -7,6 +7,10 @@ version de java / eclipse : JRE 1.8 / luna 4.4.2 (http://www.eclipse.org/downloa
 ______________________________________________________________
 Comment générer ORDO:
 
+0) Si première génération depuis modification du programme: 
+- récupérer dernière version sur https://github.com/Orphanet/java_ORDO
+- changer chemins d'écritures (RareDisease.java ligne 462, 1948 et 1952) 
+
 1) génération des xml (poduits : 2, 3, 6 (avec ref externe ajoutées), OBO_EBI; requêtes déposées sous dev/EQUIPE_INFO/requetes_jdbor/req_ORDO<>/ )
 A générer via utilisation du script jdbor (runAnn.txt) sur faisan. (utilisation du projet talend possible)
 
