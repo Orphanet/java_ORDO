@@ -1,0 +1,81 @@
+version de java / eclipse : JRE 1.8 / luna
+
+OWLVariable.java
+
+Défini des variables utilisées par OWL API. Aucune évolution depuis reprise du projet (ni dans le futur à priori).
+
+
+Orph2OBO.java
+
+Contient le Main du programme. C'est ici qu'est géré le workflow de génération de l'ontologie. C'est aussi ici que l'on peut générer un changelog d'ontologie.
+Les lignes à modifier potentiellement sont :
+- ligne 45 : dossier des fichiers d'entrée. (correspond à une période de génération)
+
+- ligne 46 : langue de l'ontologie (entrée comme sortie)
+			ces deux paramètres vont définir le dossier d'origine sous la forme <dossier_projet>/<lang>/<période>/
+			
+- lignes 79 à 95:
+	- décommenter pour activer changelog
+	- ligne 91 : fichiers d'ontologie à préciser ( 'bubastis.doFindAllChanges("<ancienne version>","<nouvelle version");')
+	- ligne 92 : destination du changelog
+	
+-lignes 126 à 263 : inclusion ou exclusion de classifications
+
+
+OrphadataDownloader.java
+
+Historiquement, servait à télécharger les différents produits s'ils manquaient au dossier. Ne sert plus qu'à vérifier la présence des fichiers.
+
+
+OrphadataClassificationXMLParser.java
+
+Parse les fichiers de classification (produit 3), instancie les maladies avec leurs OrphaNum, Label, Id et ExpertLink, ainsi que leurs liens avec d'autres maladies.
+
+
+OrphaEpidemiologyXMLParser
+
+Parse le fichier épidémiologie (produit 2) et ajoute aux instances de maladies les informations de prévalence, d'age d'apparition et d'age de mort.
+
+
+OrphaGenesXMLParser
+
+Parse le fichier génétique (produit 6), instancie les gènes et les lie aux maladies.
+
+
+OrphaXRefXMLParser
+
+Parse le fichier des références externes et ajoute aux instances de maladies les informations de références ainsi que de définitions.
+
+
+RareDisease.java
+
+Défini les variables des maladies ainsi que les méthodes d'interrogations (set, get, tostring, etc).
+Contient toutes les méthodes de création de l'ontologie via OWLAPI.
+Contient la méthode de récupération des définitions et labels des concepts autres que les instances de maladies, gènes et références.
+
+Les lignes à modifier potentiellement sont :
+- ligne 490 : définition de la langue de sortie (et donc la langue à prendre compte pour les définitions et labels). 
+- lignes 510, 528, 1279 : numéro de version de l'ontologie. Evolution possible, gérer ça comme pour la langue à un seul endroit.
+- lignes 1287 à 1297, 1940 à 1950 : lister les orphanumber des têtes de classifications pour les ignorer
+- lignes 552 à 1284 : définitions des concepts généraux.
+- 
+
+
+Prevalence.java
+
+Défini les variables des prévalences ainsi que les méthodes d'interrogations (set, get, tostring).
+
+
+DiseaseXRef.java
+
+Défini les variables des liaisons entre références externes et maladies ou gène ainsi que les méthodes d'interrogations (set, get, tostring).
+
+
+ExternalReference.java
+
+Défini les variables des références externes ainsi que les méthodes d'interrogations (set, get, tostring).
+
+
+Gene.java
+
+Défini les variables des gènes ainsi que les méthodes d'interrogations (set, get, tostring).
