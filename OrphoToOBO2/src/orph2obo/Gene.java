@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 /**
  * This class represents a single gene as represented in the
- * Orphanet file "http://www.orphadata.org/data/xml/en_product6.xml"
+ * Orphanet file "http://www.orphadata.org/data/xml/fr_product6.xml"
  * @author peter
  *
  */

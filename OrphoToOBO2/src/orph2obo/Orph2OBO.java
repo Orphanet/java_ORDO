@@ -32,24 +32,24 @@ public class Orph2OBO {
     private String rare_disease_xref_xml_file=null;
     private String epidemiology_xml_file = null;
     private String genes_XML_file  = null;
+    private static String lang;
     
     
     /**
      * @param args
      * @throws OWLOntologyCreationException 
      * @throws OWLOntologyStorageException 
-     * @throws FileNotFoundException 
      */
-    public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException, FileNotFoundException {
+    public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException {
 	
 	    /**This is the name of the directory where the Orphanet XML files will be written to*/
-	    String directory = "juin_2018";
+	    String directory = "novembre_2018";
+	    Orph2OBO.setLang("es");
+	    String version = "2.8";
+	    String prev_version = "2.6";
+	    directory = Orph2OBO.getLang()+"/"+directory;
 	    	//String directory = "OrphadataMay";
-		
-	    
-	    
-	    
-	    Orph2OBO o2o = new Orph2OBO();
+		Orph2OBO o2o = new Orph2OBO();
 		o2o.createDownloadDirectoryIfDoesntExist(directory);
 		o2o.downloadOrphanetFiles(directory);//uncomment this to generate an Orphanet OWL file 
 		o2o.getDiseaseXRefs();
@@ -58,11 +58,11 @@ public class Orph2OBO {
 		o2o.addGenesData();//uncomment this to generate an Orphanet OWL file  
 		o2o.downloadDiseaseClassifications();//uncomment this to generate an Orphanet OWL file 
 		/* Rare immunological diseases */
-		//String immunological = "http://www.orphadata.org/data/xml/en_product3_195.xml";
+		//String immunological = "http://www.orphadata.org/data/xml/fr_product3_195.xml";
 		//o2o.download_specific_disease_classification(immunological,"immunological.out");
 		
 		/* rare cardiac diseases */
-		//String cardiac = "http://www.orphadata.org/data/xml/en_product3_146.xml";
+		//String cardiac = "http://www.orphadata.org/data/xml/fr_product3_146.xml";
 		//o2o.download_specific_disease_classification(cardiac,"cardiac.txt");
 		o2o.printOutputToFile();//uncomment this to generate an Orphanet OWL file 
 		System.out.println("Obo File written");//uncomment this to generate an Orphanet OWL file 
@@ -76,27 +76,26 @@ public class Orph2OBO {
 			System.out.println("problem saving the owl file");
 			e.printStackTrace();
 		}
-		System.out.println("Owl EN file is now saved");
+		System.out.println("Owl "+Orph2OBO.getLang()+" file is now saved");
 		
-		System.out.println("Generating Change Log EN");
+		
 		/******** UPDATE SD Add ChangeLog ********/
 		
-		FileOutputStream f;
+		/*FileOutputStream f;
 		PrintStream defaultOut =  System.out;
 		try {
-			 f = new FileOutputStream("C:\\OrphoToOBO2\\bubastis_change_log.txt");			 
+			 f = new FileOutputStream("C:\\OrphoToOBO2\\bubastis_change_log_"+Orph2OBO.getLang()+"_"+version+"_"+prev_version+".txt");			 
 			 System.setOut(new PrintStream(f));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		CompareOntologies bubastis = new CompareOntologies();
-		//bubastis.doFindAllChanges("http://www.orpha.net/ontology/orphanet.owl","file:/OrphoToOBO2/orphadata.owl");
-		bubastis.doFindAllChanges("file:/OrphoToOBO2/hoom1.0.owl","file:/OrphoToOBO2/hoom1.1.owl");
-		bubastis.writeDiffAsXMLFile("C:\\OrphoToOBO2\\bubastis_change_log.xml");
+		bubastis.doFindAllChanges("file:/OrphoToOBO2/ORDO_"+Orph2OBO.getLang()+"_"+prev_version+".owl","file:/OrphoToOBO2/ORDO_"+Orph2OBO.getLang()+"_"+version+".owl");
+		bubastis.writeDiffAsXMLFile("C:\\OrphoToOBO2\\bubastis_change_log_"+Orph2OBO.getLang()+"_"+version+"_"+prev_version+".xml");
 		System.setOut(defaultOut);
 		System.out.println("Exit program after saving Change Log");
-		
+		*/
 		/****************************************/
 		
     }
@@ -132,135 +131,136 @@ public class Orph2OBO {
     private void downloadDiseaseClassifications() {
     
 	/* rare cardiac diseases */
-	String geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_146.xml";
+	String geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_146.xml";
 	String XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Developmental anomalies during embryogenesis */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_147.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_147.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Inborn errors of metabolism */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_150.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_150.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare gastroenterological diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_152.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_152.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* 	Rare neurological diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_181.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_181.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare abdominal surgical diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_182.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_182.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare hepatic diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_183.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_183.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* 	Rare respiratory diseases */ 
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_184.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_184.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare urogenital diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_185.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_185.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare surgical thoracic diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_186.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_186.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* 	Rare skin diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_187.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_187.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare renal diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_188.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_188.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* 	Rare eye diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_189.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_189.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare endocrine diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_193.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_193.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare haematological diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_194.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_194.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare immunological diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_195.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_195.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/*  	Rare systemic and rhumatological diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_196.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_196.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/*  	Rare odontological diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_197.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_197.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare circulatory system diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_198.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_198.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* 	Rare bone diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_199.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_199.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare otorhinolaryngological diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_200.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_200.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* h 	rare infertility disorders */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_201.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_201.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* h 	Rare tumors */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_202.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_202.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* rare infectious diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_203.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_203.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* rare intoxications */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_204.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_204.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare gynaecological and obstetric diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_205.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_205.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/*  	Rare surgical maxillo-facial diseases */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_209.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_209.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare psychiatric diseases - supress in Orphanet
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_211.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/fr_product3_211.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);*/
 	/* Rare allergic disease */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_212.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_212.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* 	Teratologic disorders */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_216.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_216.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
+
 	/* 	childhood disorders */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_231.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_231.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* Rare cardiac malformations */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_148.xml";
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_148.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
 	/* rare genetic */
-     geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/en_product3_156.xml";
+     geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_156.xml";
      XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
     addClassificationData(XML_file);
     }
@@ -417,6 +417,14 @@ public class Orph2OBO {
     public static int getLineNumber() {
 	return Thread.currentThread().getStackTrace()[2].getLineNumber();
     }
+
+	public static String getLang() {
+		return lang;
+	}
+
+	public static void setLang(String lang) {
+		Orph2OBO.lang = lang;
+	}
     
     
 	

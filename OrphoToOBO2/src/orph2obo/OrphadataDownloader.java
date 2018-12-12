@@ -64,8 +64,8 @@ public class OrphadataDownloader {
 	 */
 	public String downloadRareDiseaseXRefXML() {
 		//String uri = "http://www.orphadata.org/data/xml/en_product1_withGroupDef.xml";// 	4.22 MB
-		String uri = "http://www.orphadata.org/data/xml/OBO_EBI.xml";// 	4.22 MB
-		String fname = "OBO_EBI.xml";
+		String uri = "http://www.orphadata.org/data/xml/OBO_EBI_"+Orph2OBO.getLang()+".xml";// 	4.22 MB
+		String fname = "OBO_EBI_"+Orph2OBO.getLang()+".xml";
 		String fullpath = directory_path + fname;
 		File file = new File(fullpath);
 		if (file.exists()) {
@@ -84,8 +84,8 @@ public class OrphadataDownloader {
 	 * @return fullpath for the file
 	 */
 	public String downloadEpidemiologyXML() {
-		String uri =  "http://www.orphadata.org/data/xml/en_product2.xml";
-		String fname = "en_product2.xml";
+		String uri =  "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product2.xml";
+		String fname = ""+Orph2OBO.getLang()+"_product2.xml";
 		String fullpath = directory_path + fname;
 		File file = new File(fullpath);
 		if (file.exists()) {
@@ -103,8 +103,8 @@ public class OrphadataDownloader {
 	 * @return fullpath for the file
 	 */
 	public String downloadGenesXML() {
-		String uri =  "http://www.orphadata.org/data/xml/en_product6.xml";
-		String fname = "en_product6.xml";
+		String uri =  "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product6.xml";
+		String fname = ""+Orph2OBO.getLang()+"_product6.xml";
 		String fullpath = directory_path + fname;
 		File file = new File(fullpath);
 		if (file.exists()) {
