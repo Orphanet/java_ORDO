@@ -1,0 +1,85 @@
+C003	epidemiology	Number of cases in a population during a given period. The number of cases may be expressed by annual incidence (Annual incidence), prevalence (Prevalence) and / or number of cases / families (Cases/families) published in the literature.
+409967	annual incidence	Number of newly diagnosed cases in a population in 1 year.
+409969	lifetime prevalence	Number of cases presenting or having presented the clinical entity during their lifetime scaled up to the general population.
+409970	cases/families	Number of cases or family (ies) published in the literature.
+409973	case	Number of cases published in the literature.
+409974	family	Number of family(ies) published in the literature.
+C004	prevalence	Number of cases scaled up to the general population at a given time or during a given period. Prevalence can be observed at birth (prevalence at birth), at a point in time (point prevalence), or in a lifetime (lifetime prevalence).
+409966	point prevalence	Number of cases scaled up to the general population at a given time.
+409968	birth prevalence	Number of cases observed at birth relative to the number of children born alive at a given moment.
+409980	>1 / 1000	Interval of prevalence or annual incidence greater than 1 case per 1,000 in the population.
+409978	6-9 / 10 000	Interval of prevalence or annual incidence of between 6 and 9 cases per 10,000 in the population.
+409975	1-5 / 10 000	Interval of prevalence or annual incidence of between 1 and 5 cases per 10,000 in the population.
+409977	1-9 / 100 000	Interval of prevalence or annual incidence of between 1 and 9 cases per 100,000 in the population.
+409976	1-9 / 1 000 000	Interval of prevalence or annual incidence of between 1 and 9 cases per 1,000,000 in the population.
+409979	<1 / 1 000 000	Interval of prevalence or annual incidence of less than 1 case per 1,000,000 in the population.
+409981	Unknown_epidemiological_range	No information is available in the scientific literature to inform prevalence or annual incidence.
+C025	has_point_prevalence_range	Relationship between clinical entity and point prevalence range.
+C020	has_annual_incidence_range	Relationship between clinical entity and annual incidence range.
+C026	has_birth_prevalence_range	Relationship between clinical entity and birth prevalence range.
+C027	has_lifetime_prevalence_range	Relationship between clinical entity and lifetime prevalence range.
+C024	has_cases/families_average_value	Relationship between clinical entity and number of cases/families.
+C028	has_point_prevalence_average_value	Relationship between the clinical entity and the mean value of its point prevalence.
+C032	has_annual_incidence_average_value	Relationship between the clinical entity and the mean value of its annual incidence.
+C029	has_birth_prevalence_average_value	Relationship between the clinical entity and the mean value of its birth prevalence.
+C030	has_lifetime_prevalence_average_value	Relationship between the clinical entity and the mean value of its lifetime prevalence.
+C005	inheritance	Pattern in which a clinical entity of genetic origin is being passed down to the offspring.
+409929	autosomal dominant	Pattern of inheritance in which a single mutated allele located on one of the 22 autosomes (non-sex chromosomes) is sufficient to express the phenotype.
+409930	autosomal recessive	Pattern of inheritance in which two mutated alleles of the same gene located on one of the 22 autosomes (non-sexual chromosomes) are needed to express the phenotype.
+409932	X-linked recessive	Pattern of inheritance in which two mutated alleles on the X chromosome are needed to express the phenotype. The phenotype is expressed in hemizygous boys (having only one copy of the gene) and homozygous girls.
+409934	X-linked dominant	Pattern of inheritance in which a single mutated allele on the X chromosome is sufficient to express the phenotype. The phenotype is more consistently and severely expressed in hemizygous boys (having only one copy of the gene) than in heterozygous girls.
+409931	multigenic/multifactorial	The combination of one or more genes and/or environmental factors contributes to the expression of the phenotype.
+409938	Y-linked	Pattern of inheritance in which a single mutated allele on the Y chromosome is sufficient to express the phenotype. The transmission is exclusively paternal.
+409933	mitochondrial	Pattern of inheritance in which a mutation in one of the mitochondrial genes is sufficient to express the phenotype. The transmission is exclusively maternal.
+409936	oligogenic	The combination of mutated alleles of two or more genes is necessary to express the phenotype.
+409937	semi-dominant	Pattern of inheritance in which a single mutated allele located on one of the 22 autosomes (non-sex chromosomes) suffices to express the phenotype, the phenotype of the homozygous individual being more severe, when both alleles are mutated.
+409940	no inheritance data available	No information is available in the scientific literature on heredity of the clinical entity.
+409941	not genetically inherited	clinical entity without genetic inheritance.
+409939	unknown inheritance	Hereditary clinical entity whose mode of inheritance is unknown.
+C016	has_inheritance	Relationship between a clinical entity and modes of inheritance.
+C023	age of onset	Age of onset of clinical manifestations related to a clinical entity.
+409943	antenatal	Before birth.
+409944	neonatal	From birth to the fourth week of life.
+409945	infancy	From the end of the fourth week to the 23rd month of life.
+409946	childhood	From 2 to 11 years.
+409947	adolescent	From 12 to 18 years.
+409948	adult	From 19 to 65 years.
+409949	ederly	After 65 years.
+409950	all ages	From birth to adulthood without peak of onset.
+409951	no age of onset data available	No information is available in the scientific literature on the age of onset of the first clinical manifestations.
+C017	has_age_of_onset	Relationship between clinical entity and age of onset.
+C001	clinical entity	A set of phenotypic abnormalities. 
+377794	group of disorders	Clinical entity defined by a set of phenotypic abnormalities shared by several diseases, malformation or clinical syndromes, morphological or biological anomalies, and particular clinical situations in a disease or a syndrome and used to group them together.
+377795	etiological subtype	Subdivision of a disease, malformation syndrome, morphological anomaly, biological anomaly or particular clinical situation in a disease or a syndrome further defined by its aetiology. 
+377788	disease	Clinical entity defined by a set of phenotypic abnormalities resulting from a common physiopathological mechanism with a homogeneous evolution and homogeneous therapeutic possibilities. Excludes developmental anomalies. 
+377790	biological anomaly	Clinical entity defined by a set of physiological abnormalities without clear associated clinical manifestations. 
+377789	malformation syndrome	Clinical entity defined by a set of morphological abnormalities resulting from a developmental anomaly involving more than one morphogenetic field. Includes sequences and associations.
+377791	morphological anomaly	Clinical entity defined by an alteration of the normal morphology resulting from a development anomaly involving a single morphogenetic field. 
+377793	particular clinical situation in a disease or syndrome	Clinical entity defined by a set of phenotypic abnormalities occurring in particular circumstances.
+377792	clinical syndrome	Clinical entity defined by a set of phenotypic abnormalities with a homogeneous evolution and homogeneous therapeutic possibilities, regardless of the physiopathological mechanism. 
+377796	clinical subtype	Subdivision of a disease, malformation syndrome, morphological anomaly, biological anomaly, clinical syndrome or particular clinical situation in a disease or a syndrome further defined by its particular clinical presentation. 
+377797	histopathological subtype	Subdivision of a disease, malformation syndrome, morphological anomaly, biological anomaly, clinical syndrome or particular clinical situation in a disease defined by the histological abnormalities in affected tissues. 
+C009	geography	Refers to a country, a continent or the whole world.
+C022	present_in	Relationship between a clinical entity and the geographical area for which epidemiological data (Epidemiology) is available.
+C010	genetic material	DNA or RNA sequence (gene with protein product, non-coding RNA and disorder-associated locus).
+410298	gene with protein product	DNA sequence translated into protein.
+410299	non coding RNA	RNA transcript not translated into protein.
+410297	disorder-associated locus	Chromosomal region associated with a hereditary disorder but without any precision on the possible associated gene.
+327767	candidate gene tested in	A gene in which a mutation is suspected, but not yet proven, to be responsible for a disorder, but for which a genetic test (s) is (are) available
+410296	disease-causing germline mutation(s) (gain of function) in	A mutation of a gene in a germ cell that results in a new function of the corresponding protein is sufficient to cause the disorder and can be transmitted to the offspring.
+410295	disease-causing germline mutation(s) (loss of function) in	A mutation of a gene in a germ cell that alters the function of the corresponding protein is sufficient to cause the disorder and can be transmitted to the offspring.
+317343	disease-causing germline mutation(s) in	A mutation of a gene in a germ cell that is sufficient to cause the disorder and can be transmitted to the offspring.
+317344	disease-causing somatic mutation(s) in	A mutation of a gene in a somatic cell that is sufficient to cause the disorder but can not be transmitted to the offspring.
+317345	major susceptibility factor in	A gene mutation in a germ cell that predisposes to the development of a disorder, and that is necessary but not sufficient to develop the disorder.
+317346	modifying germline mutation in	A gene mutation in a germ cell that modifies the clinical presentation of the disorder and that can be passed on to offspring.
+465410	biomarker tested in	A gene in which a variation is used to monitor disorder activity and/or patient outcome.
+317348	part of a fusion gene in	A coding or regulatory DNA sequence from a gene that has fused with another coding and/or regulatory DNA sequence from a different gene.
+317349	role in the phenotype of	A gene included in a chromosomal rearrangement, and proved to have a major influence in the phenotype of the chromosomal rearrangement.
+C040	has_chromosomal location	Relationship between a gene with protein product, non-coding RNA or disorder-associated locus and its cytogenetic location on the chromosome.
+ObsoleteClass	obsolete class	ORPHA number no more in use. Deprecated entities are part of them. They are clinical entities thought to be unique in the past but now considered, thanks to the evolution of the knowledge, part of another clinical entity.
+C021	part_of	Relation between two clinical entities, one being included in the other. Ex : clinical subtype part_of disease.
+ECO_0000205	curator_inference	NA
+ECO_0000218	manual_assertion	NA
+with_label	with label	 with label: 
+deprecated	depracated	This class is deprecated. The preferred class is 
+use	use	use 
