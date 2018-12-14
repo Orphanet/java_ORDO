@@ -3,10 +3,10 @@ C003	epidemiologie	Aantal gevallen in een populatie tijdens een bepaalde periode
 409970	gevallen/families	Aantal gevallen of familie(s) gepubliceerd in de literatuur.
 409973	geval	Aantal gevallen gepubliceerd in de literatuur.
 409974	familie	Aantal familie(s) gepubliceerd in de literatuur.
-C004	prevalentie	Aantal gevallen geëxtrapoleerd naar de algemene populatie op een bepaald moment of gedurende een bepaalde periode. Prevalentie kan geobserveerd worden bij de geboorte (geboorteprevalentie), op een bepaald tijdstip (puntprevalentie), of gedurende de totale levensduur (levensprevalentie).
-409966	puntprevalentie	Aantal gevallen geëxtrapoleerd naar de algemene populatie op een bepaald moment.
+C004	prevalentie	Aantal gevallen geÃ«xtrapoleerd naar de algemene populatie op een bepaald moment of gedurende een bepaalde periode. Prevalentie kan geobserveerd worden bij de geboorte (geboorteprevalentie), op een bepaald tijdstip (puntprevalentie), of gedurende de totale levensduur (levensprevalentie).
+409966	puntprevalentie	Aantal gevallen geÃ«xtrapoleerd naar de algemene populatie op een bepaald moment.
 409968	geboorteprevalentie	Aantal gevallen geobserveerd bij de geboorte in verhouding tot het aantal levendgeborenen op een bepaald moment.
-409969	levensprevalentie	Aantal gevallen die de klinische entiteit vertonen of hebben vertoond gedurende hun totale levensduur, geëxtrapoleerd naar de algemene populatie.
+409969	levensprevalentie	Aantal gevallen die de klinische entiteit vertonen of hebben vertoond gedurende hun totale levensduur, geÃ«xtrapoleerd naar de algemene populatie.
 409980	>1 / 1000	Interval van prevalentie of jaarlijkse incidentie groter dan 1 geval per 1.000 in de populatie.
 409978	6-9 / 10 000	Interval van prevalentie of jaarlijkse incidentie van 6 tot 9 gevallen per 10.000 in de populatie.
 409975	1-5 / 10 000	Interval van prevalentie of jaarlijkse incidentie van 1 tot 5 gevallen per 10.000 in de populatie.
@@ -24,17 +24,17 @@ C032	heeft_jaarlijkse_incidentie_gemiddelde_waarde	Relatie tussen de klinische e
 C029	heeft_geboorteprevalentie_gemiddelde_waarde	Relatie tussen de klinische entiteit en de gemiddelde waarde van de geboorteprevalentie ervan.
 C030	heeft_levensprevalentie_gemiddelde_waarde	Relatie tussen de klinische entiteit en de gemiddelde waarde van de levensprevalentie ervan.
 C005	overerving	Patroon volgens hetwelk een klinische entiteit van genetische oorsprong wordt doorgegeven aan het nageslacht.
-409929	autosomaal dominant	Overervingspatroon waarbij één gemuteerd allel gelokaliseerd op één van de 22 autosomen (niet-geslachtschromosomen) volstaat voor expressie van het fenotype.
-409930	autosomaal recessief	Overervingspatroon waarbij twee gemuteerde allelen van hetzelfde gen gelokaliseerd op één van de 22 autosomen (niet-geslachtschromosomen) nodig zijn voor expressie van het fenotype.
-409932	X-gebonden recessief	Overervingspatroon waarbij twee gemuteerde allelen op het X-chromosoom nodig zijn voor expressie van het fenotype. Het fenotype komt tot expressie in hemizygote jongens (die slechts één kopie van het gen hebben) en homozygote meisjes. 
-409934	X-gebonden dominant	Overervingspatroon waarbij één gemuteerd allel op het X-chromosoom volstaat voor expressie van het fenotype. Het fenotype komt consistenter en ernstiger tot expressie bij hemizygote jongens (die slechts één kopie van het gen hebben) dan bij homozygote meisjes.
+409929	autosomaal dominant	Overervingspatroon waarbij Ã©Ã©n gemuteerd allel gelokaliseerd op Ã©Ã©n van de 22 autosomen (niet-geslachtschromosomen) volstaat voor expressie van het fenotype.
+409930	autosomaal recessief	Overervingspatroon waarbij twee gemuteerde allelen van hetzelfde gen gelokaliseerd op Ã©Ã©n van de 22 autosomen (niet-geslachtschromosomen) nodig zijn voor expressie van het fenotype.
+409932	X-gebonden recessief	Overervingspatroon waarbij twee gemuteerde allelen op het X-chromosoom nodig zijn voor expressie van het fenotype. Het fenotype komt tot expressie in hemizygote jongens (die slechts Ã©Ã©n kopie van het gen hebben) en homozygote meisjes. 
+409934	X-gebonden dominant	Overervingspatroon waarbij Ã©Ã©n gemuteerd allel op het X-chromosoom volstaat voor expressie van het fenotype. Het fenotype komt consistenter en ernstiger tot expressie bij hemizygote jongens (die slechts Ã©Ã©n kopie van het gen hebben) dan bij homozygote meisjes.
 409931	multigeen/multifactorieel	De combinatie van een of meer genen en/of omgevingsfactoren draagt bij tot de expressie van het fenotype.
-409938	Y-gebonden	Overervingspatroon waarbij één gemuteerd allel op het Y-chromosoom volstaat voor expressie van het fenotype. De overerving gebeurt uitsluitend paternaal.
-409933	mitochondriaal	Overervingspatroon waarbij een mutatie in één van de mitochondriale genen volstaat voor expressie van het fenotype. De overerving gebeurt uitsluitend maternaal.
+409938	Y-gebonden	Overervingspatroon waarbij Ã©Ã©n gemuteerd allel op het Y-chromosoom volstaat voor expressie van het fenotype. De overerving gebeurt uitsluitend paternaal.
+409933	mitochondriaal	Overervingspatroon waarbij een mutatie in Ã©Ã©n van de mitochondriale genen volstaat voor expressie van het fenotype. De overerving gebeurt uitsluitend maternaal.
 409936	oligogeen	De combinatie van gemuteerde allelen van twee of meer genen is nodig voor expressie van het fenotype.
-409937	semi-dominant	Overervingspatroon waarbij één gemuteerd allel gelokaliseerd op één van de 22 autosomen (niet-geslachtschromosomen) volstaat voor expressie van het fenotype, en waarbij het fenotype van het homozygote individu ernstiger is, wanneer beide allelen gemuteerd zijn.
+409937	semi-dominant	Overervingspatroon waarbij Ã©Ã©n gemuteerd allel gelokaliseerd op Ã©Ã©n van de 22 autosomen (niet-geslachtschromosomen) volstaat voor expressie van het fenotype, en waarbij het fenotype van het homozygote individu ernstiger is, wanneer beide allelen gemuteerd zijn.
 409940	geen gegevens over erfelijkheid beschikbaar	Er is geen informatie beschikbaar in de wetenschappelijke literatuur over de erfelijkheid van de klinische entiteit.
-409941	niet genetisch overgeërfd	Klinische entiteit zonder genetische overerving.
+409941	niet genetisch overgeÃ«rfd	Klinische entiteit zonder genetische overerving.
 409939	ongekende overerving	Erfelijke klinische entiteit waarvan de manier van overerving niet gekend is.
 C016	heeft_overerving	Relatie tussen een klinische entiteit en manieren van overerving.
 C023	aanvangsleeftijd	Leeftijd waarop klinische manifestaties gerelateerd aan een klinische entiteit aanvangen.
@@ -49,35 +49,35 @@ C023	aanvangsleeftijd	Leeftijd waarop klinische manifestaties gerelateerd aan ee
 409951	geen gegevens over aanvangsleeftijd beschikbaar	Er is geen informatie beschikbaar in de wetenschappelijke literatuur over de aanvangsleeftijd van de eerste klinische manifestaties.
 C017	heeft_aanvangsleeftijd	Relatie tussen klinische entiteit en aanvangsleeftijd.
 C001	klinische entiteit	Een set van fenotypische afwijkingen. 
-377794	groep van aandoeningen	Klinische entiteit gedefinieerd door een set van fenotypische afwijkingen die gedeeld worden door meerdere ziekten, malformatie- of klinische syndromen, morfologische of biologische anomalieën, en specifieke klinische situaties in een ziekte of een syndroom, en die gebruikt worden om deze te groeperen.
+377794	groep van aandoeningen	Klinische entiteit gedefinieerd door een set van fenotypische afwijkingen die gedeeld worden door meerdere ziekten, malformatie- of klinische syndromen, morfologische of biologische anomalieÃ«n, en specifieke klinische situaties in een ziekte of een syndroom, en die gebruikt worden om deze te groeperen.
 377795	etiologisch subtype	Onderafdeling van een ziekte, malformatiesyndroom, morfologische anomalie, biologische anomalie, klinisch syndroom of specifieke klinische situatie in een ziekte of een syndroom, verder gedefinieerd door de etiologie ervan.
-377788	ziekte	Klinische entiteit gedefinieerd door een set van fenotypische afwijkingen als gevolg van een gemeenschappelijk fysiopathologisch mechanisme en met een homogene evolutie en homogene therapeutische mogelijkheden. Ontwikkelingsanomalieën zijn uitgesloten.
+377788	ziekte	Klinische entiteit gedefinieerd door een set van fenotypische afwijkingen als gevolg van een gemeenschappelijk fysiopathologisch mechanisme en met een homogene evolutie en homogene therapeutische mogelijkheden. OntwikkelingsanomalieÃ«n zijn uitgesloten.
 377790	biologische anomalie	Klinische entiteit gedefinieerd door een set van fysiologische afwijkingen zonder duidelijke geassocieerde klinische symptomen.
-377789	malformatiesyndroom	Klinische entiteit gedefinieerd door een set van morfologische afwijkingen als gevolg van een ontwikkelingsanomalie waarbij meer dan één morfogenetisch veld is betrokken. Sequenties en associaties zijn inbegrepen.
-377791	morfologische anomalie	Klinische entiteit gedefinieerd door een wijziging van de normale morfologie als gevolg van en ontwikkelingsanomalie waarbij één enkel morfologisch veld is betrokken.
+377789	malformatiesyndroom	Klinische entiteit gedefinieerd door een set van morfologische afwijkingen als gevolg van een ontwikkelingsanomalie waarbij meer dan Ã©Ã©n morfogenetisch veld is betrokken. Sequenties en associaties zijn inbegrepen.
+377791	morfologische anomalie	Klinische entiteit gedefinieerd door een wijziging van de normale morfologie als gevolg van en ontwikkelingsanomalie waarbij Ã©Ã©n enkel morfologisch veld is betrokken.
 377793	specifieke klinische situatie in een ziekte of syndroom	Klinische entiteit gedefinieerd door een set van fenotypische afwijkingen die voorkomen in specifieke omstandigheden. 
 377792	klinisch syndroom	Klinische entiteit gedefinieerd door een set van fenotypische afwijkingen met een homogene evolutie en homogene therapeutische mogelijkheden, onafhankelijk van het fysiopathologisch mechanisme.
 377796	klinisch subtype	Onderafdeling van een ziekte, malformatiesyndroom, morfologische anomalie, biologische anomalie, klinisch syndroom of specifieke klinische situatie in een ziekte of een syndroom, verder gedefinieerd door het specifiek klinisch beeld ervan.
 377797	histopathologisch subtype	Onderafdeling van een ziekte, malformatiesyndroom, morfologische anomalie, biologische anomalie, klinisch syndroom of specifieke klinische situatie in een ziekte, gedefinieerd door de histologische afwijkingen in getroffen weefsels.
 C009	geografie	Verwijst naar een land, een continent of de hele wereld.
 C022	aanwezig_in	Relatie tussen een klinische entiteit en het geografische gebied waarvoor epidemiologische gegevens (Epidemiologie) beschikbaar zijn.
-C010	genetisch materiaal	DNA- of RNA-sequentie (gen met proteïneproduct, niet-coderend RNA en stoornis-geassocieerde locus).
-410298	gen met proteïneproduct	DNA-sequentie vertaald naar proteïne.
-410299	niet-coderend RNA	RNA-transcript niet vertaald naar proteïne.
+C010	genetisch materiaal	DNA- of RNA-sequentie (gen met proteÃ¯neproduct, niet-coderend RNA en stoornis-geassocieerde locus).
+410298	gen met proteÃ¯neproduct	DNA-sequentie vertaald naar proteÃ¯ne.
+410299	niet-coderend RNA	RNA-transcript niet vertaald naar proteÃ¯ne.
 410297	ziekte-geassocieerde locus	Chromosomale regio geassocieerd met een erfelijke aandoening maar zonder enige precisering over het mogelijk geassocieerde gen.
 327767	kandidaatgen getest in	Een gen met een mutatie die vermoedelijk, hoewel het nog niet werd aangetoond, verantwoordelijk is voor een ziekte, en waarvoor een genetische test(en) beschikbaar is (zijn).
-410296	ziekte-veroorzakende kiembaanmutatie(s) (functiewinst) in	Een mutatie van een gen in een kiemcel die resulteert in een nieuwe functie van het overeenkomstige proteïne, volstaat om de ziekte te veroorzaken en kan doorgegeven worden aan de nakomelingen.
-410295	ziekte-veroorzakende kiembaanmutatie(s) (functieverlies) in	Een mutatie van een gen in een kiemcel die de functie van het overeenkomstige proteïne wijzigt, volstaat om de ziekte te veroorzaken en kan doorgegeven worden aan de nakomelingen.
+410296	ziekte-veroorzakende kiembaanmutatie(s) (functiewinst) in	Een mutatie van een gen in een kiemcel die resulteert in een nieuwe functie van het overeenkomstige proteÃ¯ne, volstaat om de ziekte te veroorzaken en kan doorgegeven worden aan de nakomelingen.
+410295	ziekte-veroorzakende kiembaanmutatie(s) (functieverlies) in	Een mutatie van een gen in een kiemcel die de functie van het overeenkomstige proteÃ¯ne wijzigt, volstaat om de ziekte te veroorzaken en kan doorgegeven worden aan de nakomelingen.
 317343	ziekte-veroorzakende kiembaanmutatie(s) in	Een mutatie van een gen in een kiemcel die volstaat om de ziekte te veroorzaken en die kan doorgegeven worden aan de nakomelingen.
 317344	ziekte-veroorzakende somatische mutatie(s) in	Een mutatie van een gen in een somatische cel die volstaat om de ziekte te veroorzaken maar die niet kan doorgegeven worden aan de nakomelingen.
 317345	voorname vatbaarheidsfactor in	Een genmutatie in een kiemcel die vatbaar maakt voor de ontwikkeling van een aandoening, en die vereist maar niet voldoende is om de aandoening te ontwikkelen. 
 317346	modificerende kiembaanmutatie in	Een genmutatie in een kiemcel die het klinisch beeld van de aandoening wijzigt en die ka doorgegeven worden aan de nakomelingen.
-465410	biomerker getest in	Een gen met een variatie die gebruikt wordt om toe te zien op de activiteit van een aandoening en/of de patiëntenuitkomst.
+465410	biomerker getest in	Een gen met een variatie die gebruikt wordt om toe te zien op de activiteit van een aandoening en/of de patiÃ«ntenuitkomst.
 317348	deel van een fusiegen in	Een coderende of regulerende DNA-sequentie van een gen die is gefuseerd met een andere coderende en/of regulerende DNA-sequentie van een ander gen.
 317349	rol in het fenotype van	Een gen dat vervat zit in een chromosomale herschikking, en waarvan bewezen is dat het een grote invloed heeft op het fenotype van de chromosomale herschikking.
-C040	heeft_chromosomale locatie	Relatie tussen een gen met proteïneproduct, niet-coderend RNA of ziekte-geassocieerde locus en de cytogenetische locatie ervan op het chromosoom.
+C040	heeft_chromosomale locatie	Relatie tussen een gen met proteÃ¯neproduct, niet-coderend RNA of ziekte-geassocieerde locus en de cytogenetische locatie ervan op het chromosoom.
 ObsoleteClass	obsoleet	ORPHA-nummer verwijderd uit de Orphanet nomenclatuur van zeldzame ziekten. Hierbij inbegrepen zijn verouderde entiteiten, waarvan voorheen vermoed werd dat ze unieke klinische entiteiten waren, maar die nu, dankzij de evolutie van de kennis, beschouwd worden als onderdeel van een andere klinische entiteit.
-C021	deel_van	Relatie tussen twee klinische entiteiten, waarbij één deel uitmaakt van de andere. Bv.: klinisch subtype deel_van ziekte.
+C021	deel_van	Relatie tussen twee klinische entiteiten, waarbij Ã©Ã©n deel uitmaakt van de andere. Bv.: klinisch subtype deel_van ziekte.
 ECO_0000205	curator_inference	NA
 ECO_0000218	manual_assertion	NA
 with_label	with label	 met label:

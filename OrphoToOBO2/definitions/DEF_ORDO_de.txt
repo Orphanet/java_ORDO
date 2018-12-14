@@ -1,83 +1,83 @@
-C003	Epidemiologie	Anzahl der F‰lle in einer Population w‰hrend eines bestimmten Zeitraums. Die Angabe kann sich auf die j‰hrliche Inzidenz (Jahresinzidenz), Pr‰valenz (Pr‰valenz) und/oder Anzahl der F‰lle/Familien (F‰lle/Familien), die in der Literatur verˆffentlicht werden, beziehen.
-409967	Jahresinzidenz	Anzahl der neu diagnostizierten F‰lle in einer Bevˆlkerung in 1 Jahr.
-409970	F‰lle/Familien	Anzahl der in der Literatur verˆffentlichten F‰lle oder Familie(n).
-409973	Fall	Anzahl der in der Literatur verˆffentlichten F‰lle.
-409974	Familie	Anzahl der in der Literatur verˆffentlichten Familie(n).
-C004	Pr‰valenz	Anzahl der F‰lle, die auf die allgemeine Bevˆlkerung zu einem bestimmten Zeitpunkt oder w‰hrend eines bestimmten Zeitraums skaliert wurden. Die Pr‰valenz kann bei der Geburt (Pr‰valenz bei der Geburt), zu einem Zeitpunkt (Punktpr‰valenz) oder in einem Leben (Lebenszeitpr‰valenz) beobachtet werden.
-409966	Punktpr‰valenz	Anzahl der F‰lle, die auf die allgemeine Bevˆlkerung zu einem bestimmten Zeitpunkt skaliert wurden.
-409968	Geburtspr‰valenz	Anzahl der bei der Geburt beobachteten F‰lle im Verh‰ltnis zur Anzahl der zu einem bestimmten Zeitpunkt lebend geborenen Kinder.
-409969	Lebenszeitpr‰valenz	Anzahl der F‰lle, die w‰hrend ihrer Lebenszeit eine klinische Entit‰t aufweisen oder aufgewiesen haben, skaliert auf die allgemeine Bevˆlkerung.
-409980	>1 / 1000	Intervall der Pr‰valenz oder j‰hrlichen Inzidenz grˆﬂer als 1 Fall pro 1.000 Einwohner.
-409978	6-9 / 10 000	Intervall der Pr‰valenz oder j‰hrlichen Inzidenz von 6 bis 9 F‰llen pro 10.000 Einwohner.
-409975	1-5 / 10 000	Intervall der Pr‰valenz oder j‰hrlichen Inzidenz von 1 bis 5 F‰llen pro 10.000 Einwohner.
-409977	1-9 / 100 000	Intervall der Pr‰valenz oder j‰hrlichen Inzidenz von 1 bis 9 F‰llen pro 100.000 Einwohner.
-409976	1-9 / 1 000 000	Intervall der Pr‰valenz oder j‰hrlichen Inzidenz von 1 bis 9 F‰llen pro 1,000,000 Einwohner.
-409979	<1 / 1 000 000	Intervall der Pr‰valenz oder j‰hrliche Inzidenz von weniger als 1 Fall pro 1.000.000 Einwohner.
+C003	Epidemiologie	Anzahl der F√§lle in einer Population w√§hrend eines bestimmten Zeitraums. Die Angabe kann sich auf die j√§hrliche Inzidenz (Jahresinzidenz), Pr√§valenz (Pr√§valenz) und/oder Anzahl der F√§lle/Familien (F√§lle/Familien), die in der Literatur ver√∂ffentlicht werden, beziehen.
+409967	Jahresinzidenz	Anzahl der neu diagnostizierten F√§lle in einer Bev√∂lkerung in 1 Jahr.
+409970	F√§lle/Familien	Anzahl der in der Literatur ver√∂ffentlichten F√§lle oder Familie(n).
+409973	Fall	Anzahl der in der Literatur ver√∂ffentlichten F√§lle.
+409974	Familie	Anzahl der in der Literatur ver√∂ffentlichten Familie(n).
+C004	Pr√§valenz	Anzahl der F√§lle, die auf die allgemeine Bev√∂lkerung zu einem bestimmten Zeitpunkt oder w√§hrend eines bestimmten Zeitraums skaliert wurden. Die Pr√§valenz kann bei der Geburt (Pr√§valenz bei der Geburt), zu einem Zeitpunkt (Punktpr√§valenz) oder in einem Leben (Lebenszeitpr√§valenz) beobachtet werden.
+409966	Punktpr√§valenz	Anzahl der F√§lle, die auf die allgemeine Bev√∂lkerung zu einem bestimmten Zeitpunkt skaliert wurden.
+409968	Geburtspr√§valenz	Anzahl der bei der Geburt beobachteten F√§lle im Verh√§ltnis zur Anzahl der zu einem bestimmten Zeitpunkt lebend geborenen Kinder.
+409969	Lebenszeitpr√§valenz	Anzahl der F√§lle, die w√§hrend ihrer Lebenszeit eine klinische Entit√§t aufweisen oder aufgewiesen haben, skaliert auf die allgemeine Bev√∂lkerung.
+409980	>1 / 1000	Intervall der Pr√§valenz oder j√§hrlichen Inzidenz gr√∂√üer als 1 Fall pro 1.000 Einwohner.
+409978	6-9 / 10 000	Intervall der Pr√§valenz oder j√§hrlichen Inzidenz von 6 bis 9 F√§llen pro 10.000 Einwohner.
+409975	1-5 / 10 000	Intervall der Pr√§valenz oder j√§hrlichen Inzidenz von 1 bis 5 F√§llen pro 10.000 Einwohner.
+409977	1-9 / 100 000	Intervall der Pr√§valenz oder j√§hrlichen Inzidenz von 1 bis 9 F√§llen pro 100.000 Einwohner.
+409976	1-9 / 1 000 000	Intervall der Pr√§valenz oder j√§hrlichen Inzidenz von 1 bis 9 F√§llen pro 1,000,000 Einwohner.
+409979	<1 / 1 000 000	Intervall der Pr√§valenz oder j√§hrliche Inzidenz von weniger als 1 Fall pro 1.000.000 Einwohner.
 409981	ongekend_epidemiologisch_bereik	Er is geen informatie beschikbaar in de wetenschappelijke literatuur over prevalentie of jaarlijkse incidentie.
-C025	has_point_prevalence_range	Verh‰ltnis zwischen klinischer Entit‰t und Punktpr‰valenzbereich.
-C020	has_annual_incidence_range	Verh‰ltnis zwischen klinischer Entit‰t und j‰hrlichem Inzidenzintervall.
-C026	has_birth_prevalence_range	Verh‰ltnis zwischen klinischer Entit‰t und Geburtspr‰valenzbereich.
-C027	has_lifetime_prevalence_range	Verh‰ltnis zwischen klinischer Entit‰t und Lebenszeitpr‰valenz.
-C024	has_cases/families_average_value	Verh‰ltnis zwischen klinischer Entit‰t und Anzahl der F‰lle/Familien.
-C028	has_point_prevalence_average_value	Verh‰ltnis zwischen der klinischen Entit‰t und dem Mittelwert ihrer Punktpr‰valenz.
-C032	has_annual_incidence_average_value	Verh‰ltnis zwischen der klinischen Entit‰t und dem Mittelwert ihrer Jahresinzidenz.
-C029	has_birth_prevalence_average_value	Verh‰ltnis zwischen der klinischen Entit‰t und dem Mittelwert ihrer Geburtspr‰valenz.
-C030	has_lifetime_prevalence_average_value	Verh‰ltnis zwischen der klinischen Einheit und dem Mittelwert ihrer Lebenszeitpr‰valenz.
-C005	Vererbung	Muster, in dem eine klinische Entit‰t genetischen Ursprungs an die Nachkommen weitergegeben wird.
-409929	autosomal-dominant	Vererbungsmuster, bei dem ein einziges mutiertes Allel auf einem der 22 Autosomen (nicht-Geschlechtschromosomen) ausreicht, um den Ph‰notyp zu exprimieren.
-409930	autosomal-rezessiv	Vererbungsmuster, bei dem zwei mutierte Allele desselben Gens auf einem der 22 Autosomen (nicht-Geschlechtschromosomen) benˆtigt werden, um den Ph‰notyp zu exprimieren.
-409932	X-chromosomal-rezessiv	Vererbungsmuster, bei dem zwei mutierte Allele auf dem X-Chromosom benˆtigt werden, um den Ph‰notyp zu exprimieren. Der Ph‰notyp wird bei hemizygoten Jungen (mit nur einer Kopie des Gens) und homozygoten M‰dchen exprimiert.
-409934	X-chromosomal-dominant	Vererbungsmuster, bei dem ein einziges mutiertes Allel auf dem X-Chromosom ausreicht, um den Ph‰notyp zu exprimieren. Der Ph‰notyp ist bei hemizygoten Jungen (mit nur einer Kopie des Gens) konsistenter und st‰rker ausgepr‰gt als bei heterozygoten M‰dchen.
-409931	multigenisch/multifaktoriell	Die Kombination eines oder mehrerer Gene und/oder Umweltfaktoren tr‰gt zur Expression des Ph‰notyps bei.
-409938	Y-chromosomal	Vererbungsmuster, bei dem ein einziges mutiertes Allel auf dem Y-Chromosom ausreicht, um den Ph‰notyp zu exprimieren. Die ‹bertragung erfolgt ausschlieﬂlich v‰terlicherseits.
-409933	mitochondrial	Vererbungsmuster, bei dem eine Mutation in einem der mitochondrialen Gene ausreicht, um den Ph‰notyp zu exprimieren. Die ‹bertragung erfolgt ausschlieﬂlich m¸tterlich.
-409936	oligogenisch	Die Kombination von mutierten Allelen von zwei oder mehr Genen ist notwendig, um den Ph‰notyp zu exprimieren.
-409937	semi-dominant	Vererbungsmuster, bei dem ein einzelnes mutiertes Allel auf einem der 22 Autosomen (nicht-Geschlechtschromosomen) ausreicht, um den Ph‰notyp zu exprimieren, wobei der Ph‰notyp des homozygoten Individuums schwerer ist, wenn beide Allele mutiert sind.
+C025	has_point_prevalence_range	Verh√§ltnis zwischen klinischer Entit√§t und Punktpr√§valenzbereich.
+C020	has_annual_incidence_range	Verh√§ltnis zwischen klinischer Entit√§t und j√§hrlichem Inzidenzintervall.
+C026	has_birth_prevalence_range	Verh√§ltnis zwischen klinischer Entit√§t und Geburtspr√§valenzbereich.
+C027	has_lifetime_prevalence_range	Verh√§ltnis zwischen klinischer Entit√§t und Lebenszeitpr√§valenz.
+C024	has_cases/families_average_value	Verh√§ltnis zwischen klinischer Entit√§t und Anzahl der F√§lle/Familien.
+C028	has_point_prevalence_average_value	Verh√§ltnis zwischen der klinischen Entit√§t und dem Mittelwert ihrer Punktpr√§valenz.
+C032	has_annual_incidence_average_value	Verh√§ltnis zwischen der klinischen Entit√§t und dem Mittelwert ihrer Jahresinzidenz.
+C029	has_birth_prevalence_average_value	Verh√§ltnis zwischen der klinischen Entit√§t und dem Mittelwert ihrer Geburtspr√§valenz.
+C030	has_lifetime_prevalence_average_value	Verh√§ltnis zwischen der klinischen Einheit und dem Mittelwert ihrer Lebenszeitpr√§valenz.
+C005	Vererbung	Muster, in dem eine klinische Entit√§t genetischen Ursprungs an die Nachkommen weitergegeben wird.
+409929	autosomal-dominant	Vererbungsmuster, bei dem ein einziges mutiertes Allel auf einem der 22 Autosomen (nicht-Geschlechtschromosomen) ausreicht, um den Ph√§notyp zu exprimieren.
+409930	autosomal-rezessiv	Vererbungsmuster, bei dem zwei mutierte Allele desselben Gens auf einem der 22 Autosomen (nicht-Geschlechtschromosomen) ben√∂tigt werden, um den Ph√§notyp zu exprimieren.
+409932	X-chromosomal-rezessiv	Vererbungsmuster, bei dem zwei mutierte Allele auf dem X-Chromosom ben√∂tigt werden, um den Ph√§notyp zu exprimieren. Der Ph√§notyp wird bei hemizygoten Jungen (mit nur einer Kopie des Gens) und homozygoten M√§dchen exprimiert.
+409934	X-chromosomal-dominant	Vererbungsmuster, bei dem ein einziges mutiertes Allel auf dem X-Chromosom ausreicht, um den Ph√§notyp zu exprimieren. Der Ph√§notyp ist bei hemizygoten Jungen (mit nur einer Kopie des Gens) konsistenter und st√§rker ausgepr√§gt als bei heterozygoten M√§dchen.
+409931	multigenisch/multifaktoriell	Die Kombination eines oder mehrerer Gene und/oder Umweltfaktoren tr√§gt zur Expression des Ph√§notyps bei.
+409938	Y-chromosomal	Vererbungsmuster, bei dem ein einziges mutiertes Allel auf dem Y-Chromosom ausreicht, um den Ph√§notyp zu exprimieren. Die √úbertragung erfolgt ausschlie√ülich v√§terlicherseits.
+409933	mitochondrial	Vererbungsmuster, bei dem eine Mutation in einem der mitochondrialen Gene ausreicht, um den Ph√§notyp zu exprimieren. Die √úbertragung erfolgt ausschlie√ülich m√ºtterlich.
+409936	oligogenisch	Die Kombination von mutierten Allelen von zwei oder mehr Genen ist notwendig, um den Ph√§notyp zu exprimieren.
+409937	semi-dominant	Vererbungsmuster, bei dem ein einzelnes mutiertes Allel auf einem der 22 Autosomen (nicht-Geschlechtschromosomen) ausreicht, um den Ph√§notyp zu exprimieren, wobei der Ph√§notyp des homozygoten Individuums schwerer ist, wenn beide Allele mutiert sind.
 409940	geen gegevens over erfelijkheid beschikbaar	Er is geen informatie beschikbaar in de wetenschappelijke literatuur over de erfelijkheid van de klinische entiteit.
-409941	nicht-genetisch vererbt	Klinische Entit‰t ohne genetische Vererbung.
+409941	nicht-genetisch vererbt	Klinische Entit√§t ohne genetische Vererbung.
 409939	ongekende overerving	Erfelijke klinische entiteit waarvan de manier van overerving niet gekend is.
-C016	has_inheritance	Beziehung zwischen einer klinischen Entit‰t und Vererbungsmodi.
-C023	Manifestationsalter	Alter des Beginns der klinischen Manifestationen im Verh‰ltnis zu einer klinischen Entit‰t.
-409943	pr‰natal	Vor der Geburt
+C016	has_inheritance	Beziehung zwischen einer klinischen Entit√§t und Vererbungsmodi.
+C023	Manifestationsalter	Alter des Beginns der klinischen Manifestationen im Verh√§ltnis zu einer klinischen Entit√§t.
+409943	pr√§natal	Vor der Geburt
 409944	neonatal	Von der Geburt bis zur vierten Lebenswoche.
-409945	S‰uglingsalter	Vom Ende der vierten Woche bis zum 23. Lebensmonat.
+409945	S√§uglingsalter	Vom Ende der vierten Woche bis zum 23. Lebensmonat.
 409946	Kindheit	Von 2 bis 11 Jahren.
 409947	heranwachsend	Von 12 bis 18 Jahren.
 409948	erwachsen	Von 19 bis 65 Jahren.
-409949	‰lter	Nach 65 Jahren.
-409950	Alle Altersklassen	Von der Geburt bis zum Erwachsenenalter ohne Pr‰ferenz des Manifestationszeitpunktes.
+409949	√§lter	Nach 65 Jahren.
+409950	Alle Altersklassen	Von der Geburt bis zum Erwachsenenalter ohne Pr√§ferenz des Manifestationszeitpunktes.
 409951	geen gegevens over aanvangsleeftijd beschikbaar	Er is geen informatie beschikbaar in de wetenschappelijke literatuur over de aanvangsleeftijd van de eerste klinische manifestaties.
-C017	has_age_of_onset	Verh‰ltnis zwischen klinischer Entit‰t und Alter des Auftretens.
-C001	Klinische Entit‰t	Eine Reihe von ph‰notypischen Anomalien. 
-377794	Gruppe der Stˆrung 	Klinische Entit‰t, definiert durch eine Reihe von ph‰notypischen Anomalien, die von mehreren Krankheiten, Fehlbildungen oder klinischen Syndromen, morphologischen oder biologischen Anomalien und besonderen klinischen Situationen bei einer Krankheit oder einem Syndrom geteilt werden und dazu verwendet werden, sie zusammenzufassen.
-377795	‰tiologischer Subtyp	Unterteilung einer Krankheit, einer Fehlbildungssyndroms, einer morphologischen Anomalie, einer biologischen Anomalie oder einer bestimmten klinischen Situation einer Krankheit oder eines Syndroms, das durch seine ƒtiologie n‰her definiert ist. 
-377788	Krankheit	Klinische Entit‰t, definiert durch eine Reihe von ph‰notypischen Anomalien, die aus einem gemeinsamen physiopathologischen Mechanismus mit einer homogenen Entwicklung und homogenen therapeutischen Mˆglichkeiten resultieren. Schlieﬂt Entwicklungsanomalien aus. 
-377790	biologische Anomalie	Klinische Entit‰t, definiert durch eine Reihe von physiologischen Anomalien ohne eindeutige klinische Manifestationen. 
-377789	Fehlbildungssyndrom	Klinische Entit‰t, definiert durch eine Reihe von morphologischen Anomalien, die aus einer Entwicklungsanomalie resultieren, die mehr als ein morphogenetisches Feld umfasst. Enth‰lt Sequenzen und Assoziationen.
-377791	morphologische Anomalie	Klinische Entit‰t, die durch eine Ver‰nderung der normalen Morphologie infolge einer Entwicklungsanomalie mit einem einzigen morphogenetischen Feld definiert ist. 
-377793	besondere klinische Situation bei einer Krankheit oder einem Syndrom	Klinische Einheit, definiert durch eine Reihe von ph‰notypischen Anomalien, die unter bestimmten Umst‰nden auftreten.
-377792	klinisches Syndrom	Klinische Entit‰t definiert durch eine Reihe von ph‰notypischen Anomalien mit einer homogenen Entwicklung und homogenen therapeutischen Mˆglichkeiten, unabh‰ngig vom physiopathologischen Mechanismus. 
-377796	klinischer Subtyp	Unterteilung einer Krankheit, eines Fehlbildungssyndroms, einer morphologischen Anomalie, einer biologischen Anomalie, eines klinischen Syndroms oder einer bestimmten klinischen Situation einer Krankheit oder eines Syndroms, die durch ihre besondere klinische Erscheinungsform n‰her definiert ist. 
+C017	has_age_of_onset	Verh√§ltnis zwischen klinischer Entit√§t und Alter des Auftretens.
+C001	Klinische Entit√§t	Eine Reihe von ph√§notypischen Anomalien. 
+377794	Gruppe der St√∂rung 	Klinische Entit√§t, definiert durch eine Reihe von ph√§notypischen Anomalien, die von mehreren Krankheiten, Fehlbildungen oder klinischen Syndromen, morphologischen oder biologischen Anomalien und besonderen klinischen Situationen bei einer Krankheit oder einem Syndrom geteilt werden und dazu verwendet werden, sie zusammenzufassen.
+377795	√§tiologischer Subtyp	Unterteilung einer Krankheit, einer Fehlbildungssyndroms, einer morphologischen Anomalie, einer biologischen Anomalie oder einer bestimmten klinischen Situation einer Krankheit oder eines Syndroms, das durch seine √Ñtiologie n√§her definiert ist. 
+377788	Krankheit	Klinische Entit√§t, definiert durch eine Reihe von ph√§notypischen Anomalien, die aus einem gemeinsamen physiopathologischen Mechanismus mit einer homogenen Entwicklung und homogenen therapeutischen M√∂glichkeiten resultieren. Schlie√üt Entwicklungsanomalien aus. 
+377790	biologische Anomalie	Klinische Entit√§t, definiert durch eine Reihe von physiologischen Anomalien ohne eindeutige klinische Manifestationen. 
+377789	Fehlbildungssyndrom	Klinische Entit√§t, definiert durch eine Reihe von morphologischen Anomalien, die aus einer Entwicklungsanomalie resultieren, die mehr als ein morphogenetisches Feld umfasst. Enth√§lt Sequenzen und Assoziationen.
+377791	morphologische Anomalie	Klinische Entit√§t, die durch eine Ver√§nderung der normalen Morphologie infolge einer Entwicklungsanomalie mit einem einzigen morphogenetischen Feld definiert ist. 
+377793	besondere klinische Situation bei einer Krankheit oder einem Syndrom	Klinische Einheit, definiert durch eine Reihe von ph√§notypischen Anomalien, die unter bestimmten Umst√§nden auftreten.
+377792	klinisches Syndrom	Klinische Entit√§t definiert durch eine Reihe von ph√§notypischen Anomalien mit einer homogenen Entwicklung und homogenen therapeutischen M√∂glichkeiten, unabh√§ngig vom physiopathologischen Mechanismus. 
+377796	klinischer Subtyp	Unterteilung einer Krankheit, eines Fehlbildungssyndroms, einer morphologischen Anomalie, einer biologischen Anomalie, eines klinischen Syndroms oder einer bestimmten klinischen Situation einer Krankheit oder eines Syndroms, die durch ihre besondere klinische Erscheinungsform n√§her definiert ist. 
 377797	histopathologischer Subtyp	Unterteilung einer Krankheit, eines Fehlbildungssyndroms, einer morphologischen Anomalie, einer biologischen Anomalie, eines klinischen Syndroms oder einer bestimmten klinischen Situation bei einer Krankheit, die durch die histologischen Anomalien in den betroffenen Geweben definiert ist. 
 C009	geographie	Bezieht sich auf ein Land, einen Kontinent oder die ganze Welt.
-C022	anwesend_in	Beziehung zwischen einer klinischen Einheit und dem geografischen Gebiet, f¸r das epidemiologische Daten (Epidemiologie) vorliegen.
+C022	anwesend_in	Beziehung zwischen einer klinischen Einheit und dem geografischen Gebiet, f√ºr das epidemiologische Daten (Epidemiologie) vorliegen.
 C010	Erbgut	DNA- oder RNA-Sequenz (Gen mit Proteinprodukt, nicht-kodierender RNA und krankheitsassoziiertem Locus).
-410298	Gen mit Proteinprodukt	DNA-Sequenz in Protein ¸bersetzt.
-410299	nicht-kodierende RNA	RNA-Transkript nicht in Protein ¸bersetzt.
-410297	Stˆrungs-assoziierter Genort	Chromosomale Region, die mit einer Erbkrankheit assoziiert ist, jedoch ohne jegliche Pr‰zision ¸ber das mˆgliche assoziierte Gen.
-327767	Kandidatengen getestet in	Ein Gen, das noch nicht nachweislich f¸r eine Erkrankung verantwortlich ist, f¸r das aber ein Gentest verf¸gbar ist.
-410296	krankheitsverursachende Keimbahnmutation(en) (Funktionsgewinn) in	Eine Mutation eines Gens in einer Keimzelle, die zu einer neuen Funktion des entsprechenden Proteins f¸hrt, reicht aus, um die Stˆrung zu verursachen und kann auf die Nachkommen ¸bertragen werden.
-410295	krankheitsverursachende Keimbahnmutation(en) (Funktionsverlust) in	Eine Mutation eines Gens in einer Keimzelle, die die Funktion des entsprechenden Proteins ver‰ndert, reicht aus, um die Stˆrung zu verursachen und kann auf die Nachkommen ¸bertragen werden.
-317343	krankheitsverursachende Keimbahnmutation(en) in	Eine Mutation eines Gens in einer Keimzelle, die ausreicht, um die Stˆrung zu verursachen und auf die Nachkommen ¸bertragen werden kann.
-317344	krankheitsverursachende somatische Mutation(en) in	Eine Mutation eines Gens in einer somatischen Zelle, die ausreicht, um die Stˆrung zu verursachen, aber nicht auf die Nachkommen ¸bertragen werden kann.
-317345	wichtiger Suszeptibilit‰tsfaktor in	Eine Genmutation in einer Keimzelle, die f¸r die Entwicklung einer Erkrankung pr‰disponiert und die notwendig, aber nicht ausreichend ist, um die Erkrankung zu entwickeln.
-317346	modifizierende Keimbahnmutation in	Eine Genmutation in einer Keimzelle, die das klinische Erscheinungsbild der Erkrankung ver‰ndert und an die Nachkommen weitergegeben werden kann.
-465410	Biomarker getestet in	Ein Gen, bei dem eine Variation verwendet wird, um die Aktivit‰t der Erkrankung und/oder das Ergebnis des Patienten zu ¸berwachen.
+410298	Gen mit Proteinprodukt	DNA-Sequenz in Protein √ºbersetzt.
+410299	nicht-kodierende RNA	RNA-Transkript nicht in Protein √ºbersetzt.
+410297	St√∂rungs-assoziierter Genort	Chromosomale Region, die mit einer Erbkrankheit assoziiert ist, jedoch ohne jegliche Pr√§zision √ºber das m√∂gliche assoziierte Gen.
+327767	Kandidatengen getestet in	Ein Gen, das noch nicht nachweislich f√ºr eine Erkrankung verantwortlich ist, f√ºr das aber ein Gentest verf√ºgbar ist.
+410296	krankheitsverursachende Keimbahnmutation(en) (Funktionsgewinn) in	Eine Mutation eines Gens in einer Keimzelle, die zu einer neuen Funktion des entsprechenden Proteins f√ºhrt, reicht aus, um die St√∂rung zu verursachen und kann auf die Nachkommen √ºbertragen werden.
+410295	krankheitsverursachende Keimbahnmutation(en) (Funktionsverlust) in	Eine Mutation eines Gens in einer Keimzelle, die die Funktion des entsprechenden Proteins ver√§ndert, reicht aus, um die St√∂rung zu verursachen und kann auf die Nachkommen √ºbertragen werden.
+317343	krankheitsverursachende Keimbahnmutation(en) in	Eine Mutation eines Gens in einer Keimzelle, die ausreicht, um die St√∂rung zu verursachen und auf die Nachkommen √ºbertragen werden kann.
+317344	krankheitsverursachende somatische Mutation(en) in	Eine Mutation eines Gens in einer somatischen Zelle, die ausreicht, um die St√∂rung zu verursachen, aber nicht auf die Nachkommen √ºbertragen werden kann.
+317345	wichtiger Suszeptibilit√§tsfaktor in	Eine Genmutation in einer Keimzelle, die f√ºr die Entwicklung einer Erkrankung pr√§disponiert und die notwendig, aber nicht ausreichend ist, um die Erkrankung zu entwickeln.
+317346	modifizierende Keimbahnmutation in	Eine Genmutation in einer Keimzelle, die das klinische Erscheinungsbild der Erkrankung ver√§ndert und an die Nachkommen weitergegeben werden kann.
+465410	Biomarker getestet in	Ein Gen, bei dem eine Variation verwendet wird, um die Aktivit√§t der Erkrankung und/oder das Ergebnis des Patienten zu √ºberwachen.
 317348	Teil eines Fusionsgens in	Kodierende oder regulatorische DNA-Sequenz aus einem Gen, das mit einer anderen kodierenden und/oder regulatorischen DNA-Sequenz aus einem anderen Gen fusioniert ist.
-317349	Rolle im Ph‰notyp der	Ein Gen, das in einem chromosomalen Rearrangement enthalten ist und nachweislich einen groﬂen Einfluss auf den Ph‰notyp des chromosomalen Rearrangements hat.
+317349	Rolle im Ph√§notyp der	Ein Gen, das in einem chromosomalen Rearrangement enthalten ist und nachweislich einen gro√üen Einfluss auf den Ph√§notyp des chromosomalen Rearrangements hat.
 C040	hat_chromosomale Lage	Zusammenhang zwischen einem Gen mit einem Proteinprodukt, nicht-kodierender RNA oder einem krankheitsassoziierten Locus und seiner zytogenetischen Position auf dem Chromosom.
-C021	deel_van	Relatie tussen twee klinische entiteiten, waarbij ÈÈn deel uitmaakt van de andere. Bv.: klinisch subtype deel_van ziekte.
-ObsoleteClass	obsolete	ORPHA-Nummer aus der Orphanet-Nomenklatur der seltenen Krankheiten zur¸ckgezogen. Dies schlieﬂt veraltete Entit‰ten ein, die in der Vergangenheit als einzigartig galten, jetzt aber, dank der Entwicklung des Wissens, als Teil einer anderen klinischen Entit‰t betrachtet werden.
+C021	deel_van	Relatie tussen twee klinische entiteiten, waarbij √©√©n deel uitmaakt van de andere. Bv.: klinisch subtype deel_van ziekte.
+ObsoleteClass	obsolete	ORPHA-Nummer aus der Orphanet-Nomenklatur der seltenen Krankheiten zur√ºckgezogen. Dies schlie√üt veraltete Entit√§ten ein, die in der Vergangenheit als einzigartig galten, jetzt aber, dank der Entwicklung des Wissens, als Teil einer anderen klinischen Entit√§t betrachtet werden.
 ECO_0000205	curator_inference	NA
 ECO_0000218	manual_assertion	NA
 with_label	with label	 met label:
