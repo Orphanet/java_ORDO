@@ -5,27 +5,23 @@ Date   : 20/11/2018
 version de java / eclipse : JRE 1.8 / luna 4.4.2 (http://www.eclipse.org/downloads/packages/release/luna/sr2)
 
 ______________________________________________________________
-Comment générer ORDO:
+Comment gÃ©nÃ©rer ORDO:
 
-0) Si première génération depuis modification du programme: 
-- récupérer dernière version sur https://github.com/Orphanet/java_ORDO
-- changer chemins d'écritures (RareDisease.java ligne 462, 1948 et 1952) 
+1) gÃ©nÃ©ration des xml (poduits : 2, 3, 6 (avec ref externe ajoutÃ©es), OBO_EBI; requÃªtes dÃ©posÃ©es sous dev/EQUIPE_INFO/requetes_jdbor/req_ORDO<>/ )
+A gÃ©nÃ©rer via utilisation du script jdbor (runAnn.txt) sur faisan. (utilisation du projet talend possible)
 
-1) génération des xml (poduits : 2, 3, 6 (avec ref externe ajoutées), OBO_EBI; requêtes déposées sous dev/EQUIPE_INFO/requetes_jdbor/req_ORDO<>/ )
-A générer via utilisation du script jdbor (runAnn.txt) sur faisan. (utilisation du projet talend possible)
+1 bis) ComplÃ©tion du produit 6. lancer le script: ./trads_produit_6_ORDO.pl <ISO> 
+<ISO> correspondant au code ISO de la langue concernÃ©e ex : fr, en, es, ...
+Le script prend en entrÃ©e les fichiers <ISO>_product6_old.xml et en_product6.xml automatiquement et crÃ©Ã© le fichier <ISO>_product6.xml
+Fichiers de rÃ©sultats Ã  dÃ©poser sous <lang>/<date>/
 
-1 bis) Complétion du produit 6. lancer le script: ./trads_produit_6_ORDO.pl <ISO> 
-<ISO> correspondant au code ISO de la langue concernée ex : fr, en, es, ...
-Le script prend en entrée les fichiers <ISO>_product6_old.xml et en_product6.xml automatiquement et créé le fichier <ISO>_product6.xml
-Fichiers de résultats à déposer sous <lang>/<date>/
+2) changer numÃ©ro de version Ã  chaque gÃ©nÃ©ration directement dans RareDisease.java (ligne 492) (et Orph2OBO.java (ligne 47 et 48 pour les versions actuelles et prÃ©cÃ©dentes) si changelog prÃ©vu)
 
-2) changer numéro de version à chaque génération directement dans RareDisease.java (ligne 492) (et Orph2OBO.java (ligne 47 et 48 pour les versions actuelles et précédentes) si changelog prévu)
+3) paramÃ¨tre de langue Ã  spÃ©cifier dans Orph2OBO.java (ligne 46) et RareDisease.java (ligne 491)
 
-3) paramètre de langue à spécifier dans Orph2OBO.java (ligne 46) et RareDisease.java (ligne 491)
+4) Fichiers de dÃ©finition liÃ©s Ã  la langue Ã  vÃ©rifier (complÃ©tude et structure) (definitions/DEF_ORDO_<lang>.txt )
 
-4) Fichiers de définition liés à la langue à vérifier (complétude et structure) (definitions/DEF_ORDO_<lang>.txt )
-
-5) télécharger ancienne version du owl (bioportal.bioontology.org/ontologies/ORDO) si changelog nécessaire puis adapter chemins dans Orph2OBO.java (lignes 79 à 95)
+5) tÃ©lÃ©charger ancienne version du owl (bioportal.bioontology.org/ontologies/ORDO) si changelog nÃ©cessaire puis adapter chemins dans Orph2OBO.java (lignes 79 Ã  95)
 
 
 6) execution : Orph2OBO.java => run as => java application.
@@ -35,29 +31,29 @@ Description du programme:
 
 OWLVariable.java
 
-Défini des variables utilisées par OWL API. Aucune évolution depuis reprise du projet (ni dans le futur à priori).
+DÃ©fini des variables utilisÃ©es par OWL API. Aucune Ã©volution depuis reprise du projet (ni dans le futur Ã  priori).
 
 
 Orph2OBO.java
 
-Contient le Main du programme. C'est ici qu'est géré le workflow de génération de l'ontologie. C'est aussi ici que l'on peut générer un changelog d'ontologie.
-Les lignes à modifier potentiellement sont :
-- ligne 45 : dossier des fichiers d'entrée. (correspond à une période de génération)
+Contient le Main du programme. C'est ici qu'est gÃ©rÃ© le workflow de gÃ©nÃ©ration de l'ontologie. C'est aussi ici que l'on peut gÃ©nÃ©rer un changelog d'ontologie.
+Les lignes Ã  modifier potentiellement sont :
+- ligne 45 : dossier des fichiers d'entrÃ©e. (correspond Ã  une pÃ©riode de gÃ©nÃ©ration)
 
-- ligne 46 : langue de l'ontologie (entrée comme sortie)
-			ces deux paramètres vont définir le dossier d'origine sous la forme <dossier_projet>/<lang>/<période>/
+- ligne 46 : langue de l'ontologie (entrÃ©e comme sortie)
+			ces deux paramÃ¨tres vont dÃ©finir le dossier d'origine sous la forme <dossier_projet>/<lang>/<pÃ©riode>/
 			
-- lignes 79 à 95:
-	- décommenter pour activer changelog
-	- ligne 91 : fichiers d'ontologie à préciser ( 'bubastis.doFindAllChanges("<ancienne version>","<nouvelle version");')
+- lignes 79 Ã  95:
+	- dÃ©commenter pour activer changelog
+	- ligne 91 : fichiers d'ontologie Ã  prÃ©ciser ( 'bubastis.doFindAllChanges("<ancienne version>","<nouvelle version");')
 	- ligne 92 : destination du changelog
 	
--lignes 126 à 263 : inclusion ou exclusion de classifications
+-lignes 126 Ã  263 : inclusion ou exclusion de classifications
 
 
 OrphadataDownloader.java
 
-Historiquement, servait à télécharger les différents produits s'ils manquaient au dossier. Ne sert plus qu'à vérifier la présence des fichiers.
+Historiquement, servait Ã  tÃ©lÃ©charger les diffÃ©rents produits s'ils manquaient au dossier. Ne sert plus qu'Ã  vÃ©rifier la prÃ©sence des fichiers.
 
 
 OrphadataClassificationXMLParser.java
@@ -67,48 +63,48 @@ Parse les fichiers de classification (produit 3), instancie les maladies avec le
 
 OrphaEpidemiologyXMLParser
 
-Parse le fichier épidémiologie (produit 2) et ajoute aux instances de maladies les informations de prévalence, d'age d'apparition et d'age de mort.
+Parse le fichier Ã©pidÃ©miologie (produit 2) et ajoute aux instances de maladies les informations de prÃ©valence, d'age d'apparition et d'age de mort.
 
 
 OrphaGenesXMLParser
 
-Parse le fichier génétique (produit 6), instancie les gènes et les lie aux maladies.
+Parse le fichier gÃ©nÃ©tique (produit 6), instancie les gÃ¨nes et les lie aux maladies.
 
 
 OrphaXRefXMLParser
 
-Parse le fichier des références externes et ajoute aux instances de maladies les informations de références ainsi que de définitions.
+Parse le fichier des rÃ©fÃ©rences externes et ajoute aux instances de maladies les informations de rÃ©fÃ©rences ainsi que de dÃ©finitions.
 
 
 RareDisease.java
 
-Défini les variables des maladies ainsi que les méthodes d'interrogations (set, get, tostring, etc).
-Contient toutes les méthodes de création de l'ontologie via OWLAPI.
-Contient la méthode de récupération des définitions et labels des concepts autres que les instances de maladies, gènes et références.
+DÃ©fini les variables des maladies ainsi que les mÃ©thodes d'interrogations (set, get, tostring, etc).
+Contient toutes les mÃ©thodes de crÃ©ation de l'ontologie via OWLAPI.
+Contient la mÃ©thode de rÃ©cupÃ©ration des dÃ©finitions et labels des concepts autres que les instances de maladies, gÃ¨nes et rÃ©fÃ©rences.
 
-Les lignes à modifier potentiellement sont :
-- ligne 491 : définition de la langue de sortie (et donc la langue à prendre compte pour les définitions et labels). 
-- ligne 492 : définition du numéro de version de l'ontologie.
-- lignes 1289 à 1299, 1942 à 1952 : lister les orphanumber des têtes de classifications pour les ignorer
-- lignes 554 à 1286 : définitions des concepts généraux.
+Les lignes Ã  modifier potentiellement sont :
+- ligne 491 : dÃ©finition de la langue de sortie (et donc la langue Ã  prendre compte pour les dÃ©finitions et labels). 
+- ligne 492 : dÃ©finition du numÃ©ro de version de l'ontologie.
+- lignes 1289 Ã  1299, 1942 Ã  1952 : lister les orphanumber des tÃªtes de classifications pour les ignorer
+- lignes 554 Ã  1286 : dÃ©finitions des concepts gÃ©nÃ©raux.
 - 
 
 
 Prevalence.java
 
-Défini les variables des prévalences ainsi que les méthodes d'interrogations (set, get, tostring).
+DÃ©fini les variables des prÃ©valences ainsi que les mÃ©thodes d'interrogations (set, get, tostring).
 
 
 DiseaseXRef.java
 
-Défini les variables des liaisons entre références externes et maladies ou gène ainsi que les méthodes d'interrogations (set, get, tostring).
+DÃ©fini les variables des liaisons entre rÃ©fÃ©rences externes et maladies ou gÃ¨ne ainsi que les mÃ©thodes d'interrogations (set, get, tostring).
 
 
 ExternalReference.java
 
-Défini les variables des références externes ainsi que les méthodes d'interrogations (set, get, tostring).
+DÃ©fini les variables des rÃ©fÃ©rences externes ainsi que les mÃ©thodes d'interrogations (set, get, tostring).
 
 
 Gene.java
 
-Défini les variables des gènes ainsi que les méthodes d'interrogations (set, get, tostring).
+DÃ©fini les variables des gÃ¨nes ainsi que les mÃ©thodes d'interrogations (set, get, tostring).
