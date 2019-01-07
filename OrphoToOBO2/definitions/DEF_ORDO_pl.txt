@@ -13,7 +13,7 @@ C004	prewalencja	Liczba przypadków w skali ogólnej populacji występujących w
 409977	1-9/100.00	Przedział prewalencji lub roczna częstotliwość zachorowań od 1 do 9 przypadków na 100.000 osób w populacji.
 409976	1-9/1.000.000	Przedział prewalencji lub roczna częstotliwość zachorowań od 1 do 9 przypadków na 1.000.000 osób w populacji.
 409979	<1/1.000.000	Przedział prewalencji lub roczna częstotliwość zachorowań niższa niż 1 przypadek na 1.000.000 osób w populacji.	
-409981	#N/A	#N/A	
+409981	Nieznany zakres epidemiologii	W literaturze naukowej brak jest dostępnych informacji na temat prewalencji lub liczby przypadków występujących w ciągu roku.	
 C025	cechuje zakres prewalencji punktowej	Zależność pomiędzy jednostką chorobową a zakresem prewalencji punktowej.	
 C020	cechuje roczny zakres częstotliwości zachorowań	Zależność pomiędzy jednostką chorobową a zakresem rocznej częstotliwości zachorowań.	
 C026	cechuje zakres prewalencji urodzeniowej	Zależność pomiędzy jednostką chorobową a zakresem prewalencji urodzeniowej.	
@@ -33,9 +33,9 @@ C005	Sposób dziedziczenia	Sposób w jaki dana choroba o podłożu genetycznym j
 409933	Mitochondrialny	Sposób dziedziczenia, w którym do ujawnienia fenotypu wystarcza obecność mutacji w jednym z genów mitochondrialnych.  Mutację może przekazywać jedynie matka. 	
 409936	Oligogeniczny	Aby doszło do ujawnienia się fenotypu, konieczna jest kombinacja występowania zmutowanych alleli dwóch lub więcej genów.	
 409937	Semi-dominujący	Sposób dziedziczenia, w którym, aby doszło do ekspresji fenotypu, wystarczy obecność pojedynczego zmutowanego allelu na jednym z 22 autosomów (chromosomów nie sprzężonych z płcią), fenotyp osoby homozygotycznej jest cięższy w przypadku, gdy mutacji ulegną obydwa allele.	
-409940	#N/A	#N/A	
+409940	Brak danych dotyczących sposobu dziedziczenia	W literaturze naukowej brak jest dostępnych informacji na temat dziedziczenia tej jednostki chorobowej.	
 409941	Nie dziedziczony genetycznie	Choroba nie dziedziczona genetycznie.	
-409939	#N/A	#N/A	
+409939	Nieznany sposób dziedziczenia	Dziedziczna jednostka chorobowa o nieznanym sposobie dziedziczenia.	
 C016	jest dziedziczona	związek pomiędzy jednostką chorobową a rodzajami dziedziczenia.	
 C023	Wiek wystąpienia choroby	Wiek, w którym jednostka chorobowa ujawnia się klinicznie.
 409943	w okresie płodowym	Przed narodzeniem.
@@ -46,10 +46,10 @@ C023	Wiek wystąpienia choroby	Wiek, w którym jednostka chorobowa ujawnia się 
 409948	w wieku dorosłym	Od 19 do 65 roku życia.
 409949	w wieku starszym	Po ukończeniu 65 roku życia.
 409950	w każdym wieku	Od narodzin do dorosłości bez wyraźnego zwiększenia występowania w konkretnym okresie.	
-409951	#N/A	#N/A	
+409951	Brak danych na temat wieku wystąpienia choroby	W literaturze naukowej brak jest dostępnych informacji na temat wieku, w którym jednostka chorobowa ujawnia się klinicznie.	
 C017	jej wystąpienie ma związek z wiekiem	Istnieje związek pomiędzy jednostką chorobową a wiekiem pacjenta w momencie wystąpienia jej objawów.	
 C001	Jednostka chorobowa	Zestaw nieprawidłowości dotyczących fenotypu.	
-377794	#N/A	#N/A	
+377794	Grupa chorób	 Jednostka chorobowa określona poprzez zestaw zaburzeń fenotypowych wspólnych dla kilku chorób, malformacji lub zespołów klinicznych, anomalii strukturalnych lub biologicznych oraz szczególnych zaburzeń klinicznych towarzyszących chorobie lub zespołowi, które zwykło się klasyfikować wspólnie.	
 377795	Podtyp w zależności od etiologii	Podział/klasyfikacja choroby, zespołu malformacji, anomalii morfologicznej/strukturalnej, biologicznej lub szczególnego zaburzenia klinicznego towarzyszącego danej chorobie lub zespołowi określana dokładniej w zależności od ich etiologii.	
 377788	Choroba	Jednostka chorobowa określona przez zestaw zaburzeń fenotypowych wywołanych przez wspólne mechanizmy patofizjologiczne charakteryzująca się jednolitym rozwojem i ujednoliconymi zaleceniami terapeutycznymi. Nie zalicza się tu anomalii rozwojowych.	
 377790	Anomalia biologiczna	Jednostka chorobowa określana przez zestaw zaburzeń patofizjologicznych, którym nie towarzyszą jednoznaczne objawy chorobowe.	
@@ -76,10 +76,10 @@ C010	Materiał genetyczny	Sekwencja DNA lub RNA ( gen z produktem białkowym,  z
 317348	Część przyłączonego genu 	Sekwencja kodująca lub regulatorowa sekwencji DNA  genu, który połączył się z inną sekwencją kodującą i (lub) regulatorową DNA pochodzącą z innego genu.	
 317349	Rola w fenotypie	Gen włączony w rearanżację chromosomową, co do którego udowodniono, że odgrywa wiodący wpływ na fenotyp wywołany przez rearanżację chromosomową. 	
 C040	posiada lokalizację chromosomalną	Zależność pomiędzy genem a produktem białkowym, nie kodującym RNA lub locus związanym z chorobą oraz jego lokalizacją cytogenetyczną na chromosomie.
-ObsoleteClass	#N/A	#N/A	
-C021	#N/A	#N/A	
+ObsoleteClass	grupa nieaktualnych jednostek chorobowych	Numer ORPHA jest już nieaktualny. Część tej klasyfikacji stanowią jednostki chorobowe, które straciły swoje znaczenie. Są to te jednostki chorobowe, które w przeszłości uważane były za unikatowe, natomiast obecnie, dzięki rozwojowi wiedzy, uważa się, że są one jednak częścią innej jednostki chorobowej. 	
+C021	Element/część	Związek pomiędzy dwiema jednostkami chorobowymi, z których jedna wchodzi w skład drugiej. Dawniej: podtyp kliniczny Elementu/części choroby.
 ECO_0000205	#N/A	#N/A	
 ECO_0000218	#N/A	#N/A	
-with_label	#N/A	#N/A	
-deprecated	#N/A	#N/A	
-use	#N/A	#N/A	
+with_label	 z oznakowaniem	z oznakowaniem:	
+deprecated	nieaktualne	Ta klasyfikacja jest nieaktualna. Preferowana klasyfikacja to	
+use	zastosowanie	zastosowanie	
