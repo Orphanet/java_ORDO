@@ -43,10 +43,10 @@ public class Orph2OBO {
     public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException {
 	
 	    /**This is the name of the directory where the Orphanet XML files will be written to*/
-	    String directory = "novembre_2018";
-	    Orph2OBO.setLang("es");
+	    String directory = "07_01_2019";
+	    Orph2OBO.setLang("fr");
 	    String version = "2.8";
-	    String prev_version = "2.6";
+	    String prev_version = "2.7";
 	    directory = Orph2OBO.getLang()+"/"+directory;
 	    	//String directory = "OrphadataMay";
 		Orph2OBO o2o = new Orph2OBO();
