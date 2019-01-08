@@ -459,7 +459,7 @@ public void setInheritNum(String inheritNum) {
     // 
     public void readDefinitionFile() throws FileNotFoundException{
     	String lang = getLang();
-        Scanner scan = new Scanner(new File("C:\\Users\\sdemarest.BROUSSAIS\\git\\java_ORDO_origine\\definitions\\DEF_ORDO_"+lang+".txt"));
+        Scanner scan = new Scanner(new File("C:\\Users\\sdemarest.BROUSSAIS\\git\\java_ORDO_origine\\OrphoToOBO2\\definitions\\DEF_ORDO_"+lang+".txt"));
 
         while(scan.hasNext()){
             String curLine = scan.nextLine();
@@ -492,7 +492,7 @@ public void setInheritNum(String inheritNum) {
     		}
     	
     	// 
-    	setLang("es");
+    	setLang("fr");
     	setVersion("2.8");
     	try {
 			readDefinitionFile();
@@ -534,15 +534,15 @@ public void setInheritNum(String inheritNum) {
 				factory.getOWLLiteral(getVersion()));
 		manager.applyChange(new AddOntologyAnnotation(ontology, version));
 		
-        /* **** UPDATE SD   ajout créateur **** */
+        /* **** UPDATE SD   ajout crï¿½ateur **** */
 		PrefixManager dct = new DefaultPrefixManager("http://purl.org/dc/terms/");
     	PrefixManager dc  = new DefaultPrefixManager("http://purl.org/dc/elements/1.1/");
     	
     	ArrayList<String> list = new ArrayList<String>() {{
     	    add("James Malone");
     	    add("Drashtti Vasant");
-    	    add("Valérie Lanneau");
-      	    add("Céline Rousselot");
+    	    add("ValÃ©rie Lanneau");
+      	    add("CÃ©line Rousselot");
     	    add("Samuel Demarest");
     	    add("Annie Olry");
     	    add("Marc Hanauer");
@@ -568,7 +568,7 @@ public void setInheritNum(String inheritNum) {
 		
 		manager.applyChange(new AddOntologyAnnotation(ontology, dateStart));
     	
-    	 /* **** UPDATE SD  FIN ajout créateur **** */
+    	 /* **** UPDATE SD  FIN ajout crï¿½ateur **** */
 		
     	OWLClass phenome = factory.getOWLClass("C001",pm);
     	OWLAnnotation phenomelabel = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral(getConceptLabel("C001"),getLang()));
@@ -607,7 +607,7 @@ public void setInheritNum(String inheritNum) {
        	OWLClass inheritance = factory.getOWLClass("C005", pm);
        	OWLAnnotation inheritancelabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral(getConceptLabel("C005"),getLang()));
        	// OBSOLETE_CLASS
-       	OWLClass obsoleteClass = factory.getOWLClass("ObsoleteClass", new DefaultPrefixManager("http://www.orpha.net/ORDO/"));  // /_\ à revoir, le lien d'origine n'existe plus
+       	OWLClass obsoleteClass = factory.getOWLClass("ObsoleteClass", new DefaultPrefixManager("http://www.orpha.net/ORDO/"));  // /_\ ï¿½ revoir, le lien d'origine n'existe plus
        	OWLAnnotation obsoleteLabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral(getConceptLabel("ObsoleteClass"),getLang()));
        	
     	//OWLClass autoRecess = factory.getOWLClass("108933", pm);
@@ -1183,13 +1183,13 @@ public void setInheritNum(String inheritNum) {
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), unknownDefine));
     		
 		//========Gene====//
-		// Type de gène-gene with protein product      410298
+		// Type de gï¿½ne-gene with protein product      410298
 		OWLAnnotation geneTyp1Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
 				factory.getOWLLiteral(getConceptDefinition("410298"),getLang()));
 		OWLAxiom geneTyp1Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypProtProd.getIRI(), geneTyp1Definition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTyp1Define));
 		
-		// Type de gène-disorder-associated locus         410297
+		// Type de gï¿½ne-disorder-associated locus         410297
 		OWLAnnotation geneTyp2Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
 				factory.getOWLLiteral(getConceptDefinition("410297"),getLang()));
 		//OWLAxiom geneTypDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypProtProd.getIRI(), geneTyp2Definition);
@@ -1197,7 +1197,7 @@ public void setInheritNum(String inheritNum) {
 		OWLAxiom geneTyp2Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypDisAssLoc.getIRI(), geneTyp2Definition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), geneTyp2Define));
 		
-		// Type de gène-non-coding RNA              410299
+		// Type de gï¿½ne-non-coding RNA              410299
 		OWLAnnotation geneTyp3Definition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
 				factory.getOWLLiteral(getConceptDefinition("410299"),getLang()));
 		OWLAxiom geneTyp3Define = owlvar.getFactory().getOWLAnnotationAssertionAxiom(geneTypNonCodingRNA.getIRI(), geneTyp3Definition);
@@ -1331,7 +1331,7 @@ public void setInheritNum(String inheritNum) {
 		//System.out.println("No a head and orphaned");
 		if(this.isObsolete() || this.isMovedTo()  ){
 
-			/** Création des obsolete */
+			/** Crï¿½ation des obsolete */
 			OWLClass rareDisorder = owlvar.getFactory().getOWLClass(this.orphanum, owlvar.getPrefixmanager());
 			OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
 					owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));
@@ -1481,7 +1481,7 @@ public void setInheritNum(String inheritNum) {
 				onsetLabel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(getConceptLabel(this.onsetNum.get(i)),getLang()));//no data avaible label
 				
 				/*if(this.onsetNum.get(i).equals("409951")){
-					onsetLabel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("pas de donnée disponible pour l'âge d'apparition","fr"));//no data avaible label
+					onsetLabel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral("pas de donnï¿½e disponible pour l'ï¿½ge d'apparition","fr"));//no data avaible label
 				}else{
 					onsetLabel = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.ageOfOnset.get(i).toLowerCase(),"fr"));//label for the value of age of onset
 				}*/
@@ -1495,14 +1495,14 @@ public void setInheritNum(String inheritNum) {
 				// SD 09/08/18 multi lang 
 				/*String def="";
 				if(this.onsetNum.get(i).equals("409943")){def="Avant la naissance.";}                                           //antenatal
-				else if(this.onsetNum.get(i).equals("409944")){def="De la naissance à la quatrième semaine de vie.";}           //neonatal
-				else if(this.onsetNum.get(i).equals("409945")){def="De la quatrième semaine révolue au 23ème mois de vie.";}    //infancy
-				else if(this.onsetNum.get(i).equals("409946")){def="De 2 à 11 ans.";}                                           //childhood
-				else if(this.onsetNum.get(i).equals("409947")){def="De 12 à 18 ans.";}                                          //adolescent
-				else if(this.onsetNum.get(i).equals("409948")){def="De 19 à 65 ans.";}                                          //adult
-				else if(this.onsetNum.get(i).equals("409949")){def="Après 65 ans.";}                                            //eldery
-				else if(this.onsetNum.get(i).equals("409950")){def="De la naissance à l'âge adulte sans pic d'apparition.";}    //all age
-				else if(this.onsetNum.get(i).equals("409951")){def="Aucune information n'est disponible dans la littérature scientifique sur l'âge d'apparition des premières manifestations cliniques.";} //no data avaible
+				else if(this.onsetNum.get(i).equals("409944")){def="De la naissance ï¿½ la quatriï¿½me semaine de vie.";}           //neonatal
+				else if(this.onsetNum.get(i).equals("409945")){def="De la quatriï¿½me semaine rï¿½volue au 23ï¿½me mois de vie.";}    //infancy
+				else if(this.onsetNum.get(i).equals("409946")){def="De 2 ï¿½ 11 ans.";}                                           //childhood
+				else if(this.onsetNum.get(i).equals("409947")){def="De 12 ï¿½ 18 ans.";}                                          //adolescent
+				else if(this.onsetNum.get(i).equals("409948")){def="De 19 ï¿½ 65 ans.";}                                          //adult
+				else if(this.onsetNum.get(i).equals("409949")){def="Aprï¿½s 65 ans.";}                                            //eldery
+				else if(this.onsetNum.get(i).equals("409950")){def="De la naissance ï¿½ l'ï¿½ge adulte sans pic d'apparition.";}    //all age
+				else if(this.onsetNum.get(i).equals("409951")){def="Aucune information n'est disponible dans la littï¿½rature scientifique sur l'ï¿½ge d'apparition des premiï¿½res manifestations cliniques.";} //no data avaible
 				
 				OWLAnnotation onsetDefinition =  owlvar.getFactory().getOWLAnnotation( owlvar.getFactory().getOWLAnnotationProperty("definition", pm2),
 						owlvar.getFactory().getOWLLiteral(def,"fr"));
@@ -1523,15 +1523,15 @@ public void setInheritNum(String inheritNum) {
 
 			
 			for(int i=0;i<this.prevalences.size();i++){
-				Set<OWLClassExpression> intersec = new HashSet<OWLClassExpression> (); // set d'info sur la prévalence en cours
-				String type=this.prevalences.get(i).getType();                         // type de prévalence
+				Set<OWLClassExpression> intersec = new HashSet<OWLClassExpression> (); // set d'info sur la prï¿½valence en cours
+				String type=this.prevalences.get(i).getType();                         // type de prï¿½valence
 				
 				if (this.prevalences.get(i).getPrevalClass()!=null && !this.prevalences.get(i).getPrevalClass().equals("") 
 						&& !this.prevalences.get(i).getPrevalClass().equals("409982")){
-					/* UPDATE sélection du typage de classe */
+					/* UPDATE sï¿½lection du typage de classe */
 					if (type.equals("409966") ){ type = "C025";      // prevalence point
 					}else if (type.equals("409968") ){type = "C026"; // prevalence at birth
-													  //this.prevalences.get(i).setTypeLab(this.prevalences.get(i).getTypeLab().toLowerCase().replaceAll("prevalence at birth","Prévalence à la naissance"));
+													  //this.prevalences.get(i).setTypeLab(this.prevalences.get(i).getTypeLab().toLowerCase().replaceAll("prevalence at birth","Prï¿½valence ï¿½ la naissance"));
 					}else if (type.equals("409969") ){type = "C027"; // lifetime prevalence		
 					}else if (type.equals("409967") ){type = "C020"; // annual incidence
 					}else if (type.equals("409973") ){type = "C024"; // cases
@@ -1552,14 +1552,14 @@ public void setInheritNum(String inheritNum) {
 						
 						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasPrevLab)));
 						
-						// UPDATE SD ajout def sur les propriété has_...
+						// UPDATE SD ajout def sur les propriï¿½tï¿½ has_...
 						/*String defHasPrev="";
-						if (type.equals("C025") ){      defHasPrev = "Relation entre l'entité clinique et l'intervalle de prévalence instantanée.";      // prevalence point
-						}else if (type.equals("C026") ){defHasPrev = "Relation entre l'entité clinique et l'intervalle de prévalence à la naissance.";   // prevalence at birth
-						}else if (type.equals("C027") ){defHasPrev = "Relation entre l'entité clinique et l'intervalle de prévalence vie-entière.";      // lifetime prevalence		
-						}else if (type.equals("C020") ){defHasPrev = "Relation entre l'entité clinique et l'intervalle d'incidence annuelle.";           // annual incidence
+						if (type.equals("C025") ){      defHasPrev = "Relation entre l'entitï¿½ clinique et l'intervalle de prï¿½valence instantanï¿½e.";      // prevalence point
+						}else if (type.equals("C026") ){defHasPrev = "Relation entre l'entitï¿½ clinique et l'intervalle de prï¿½valence ï¿½ la naissance.";   // prevalence at birth
+						}else if (type.equals("C027") ){defHasPrev = "Relation entre l'entitï¿½ clinique et l'intervalle de prï¿½valence vie-entiï¿½re.";      // lifetime prevalence		
+						}else if (type.equals("C020") ){defHasPrev = "Relation entre l'entitï¿½ clinique et l'intervalle d'incidence annuelle.";           // annual incidence
 						// SD 18/04/18 
-						}else if (type.equals("C024") ){defHasPrev = "Relation entre l'entité clinique et le nombre de cas/familles.";    // cases/families
+						}else if (type.equals("C024") ){defHasPrev = "Relation entre l'entitï¿½ clinique et le nombre de cas/familles.";    // cases/families
 						}
 						*/
 						OWLAnnotation hasPrevDefinition = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("definition", pm2),
@@ -1575,18 +1575,18 @@ public void setInheritNum(String inheritNum) {
 					// UPDATE SD add the type of prevalence
 					OWLClass prevType = owlvar.getFactory().getOWLClass(this.prevalences.get(i).getType(),owlvar.getPrefixmanager());
 					String defType="";
-					// définition et super classe
+					// dï¿½finition et super classe
 					/*if (type.equals("C020")){
-						defType="Nombre de cas nouvellement diagnostiqués au sein de la population pendant 1 année.";
+						defType="Nombre de cas nouvellement diagnostiquï¿½s au sein de la population pendant 1 annï¿½e.";
 						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(prevType, owlvar.getFactory().getOWLClass("C003", owlvar.getPrefixmanager()))));
 					}/*else{
 						owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLSubClassOfAxiom(prevType, owlvar.getFactory().getOWLClass("C004", owlvar.getPrefixmanager()))));
-						if (type.equals("C025")       ){ defType = "Le nombre d'individus atteints de la maladie dans une population donnée à un moment donné.";      // prevalence point
-						}else if (type.equals("C026") ){ defType = "Le nombre de nourrissons nés avec la maladie par rapport au nombre total de naissances vivantes dans une période de temps donnée."; // prevalence at birth
-						}else if (type.equals("C027") ){ defType = "Le nombre d'individus dans une population qui, à un certain moment de leur vie, ont présenté la maladie, par rapport au nombre total d'individus."; // lifetime prevalence						
+						if (type.equals("C025")       ){ defType = "Le nombre d'individus atteints de la maladie dans une population donnï¿½e ï¿½ un moment donnï¿½.";      // prevalence point
+						}else if (type.equals("C026") ){ defType = "Le nombre de nourrissons nï¿½s avec la maladie par rapport au nombre total de naissances vivantes dans une pï¿½riode de temps donnï¿½e."; // prevalence at birth
+						}else if (type.equals("C027") ){ defType = "Le nombre d'individus dans une population qui, ï¿½ un certain moment de leur vie, ont prï¿½sentï¿½ la maladie, par rapport au nombre total d'individus."; // lifetime prevalence						
 						}
 					}*/
-					// UPDATE SD application définition
+					// UPDATE SD application dï¿½finition
 										// SD 22/06/18 test modif fonctionnement
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLDeclarationAxiom(prevType)));//asserting prevalence Type
 					if(defType!=""){
@@ -1614,32 +1614,32 @@ public void setInheritNum(String inheritNum) {
 					/*String def="";
 					String label="";
 					if(this.prevalences.get(i).getPrevalClass().equals("409975")){
-						def="Intervalle de prévalence ou incidence annuelle comprise entre 1 et 5 cas pour 10 000  au sein de la population.";
+						def="Intervalle de prï¿½valence ou incidence annuelle comprise entre 1 et 5 cas pour 10 000  au sein de la population.";
 						label="1-5 / 10 000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409976")){
-						def="Intervalle de prévalence ou incidence annuelle comprise entre 6 et 9 cas pour 1 000 000  au sein de la population.";
+						def="Intervalle de prï¿½valence ou incidence annuelle comprise entre 6 et 9 cas pour 1 000 000  au sein de la population.";
 						label="1-9 / 1 000 000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409977")){
-						def="Intervalle de prévalence ou incidence annuelle est comprise entre 1 et 9 cas pour 100 000  au sein de la population.";
+						def="Intervalle de prï¿½valence ou incidence annuelle est comprise entre 1 et 9 cas pour 100 000  au sein de la population.";
 						label="1-9 / 100 000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409978")){
-						def="Intervalle de prévalence ou incidence annuelle comprise entre 6 et 9 cas pour 10 000  au sein de la population.";
+						def="Intervalle de prï¿½valence ou incidence annuelle comprise entre 6 et 9 cas pour 10 000  au sein de la population.";
 						label="6-9 / 10 000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409979")){
-						def="Intervalle de prévalence ou incidence annuelle inférieure à 1 cas pour 1 000 000  au sein de la population.";
+						def="Intervalle de prï¿½valence ou incidence annuelle infï¿½rieure ï¿½ 1 cas pour 1 000 000  au sein de la population.";
 						label="<1 / 1 000 000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409980")){
-						def="Intervalle de prévalence ou incidence annuelle supérieure à 1 cas pour 1 000 au sein de la population.";
+						def="Intervalle de prï¿½valence ou incidence annuelle supï¿½rieure ï¿½ 1 cas pour 1 000 au sein de la population.";
 						label=">1 / 1000";
 					}
 					else if(this.prevalences.get(i).getPrevalClass().equals("409981")){
-						def="Absence d'information dans la littérature scientifique permettant de renseigner la prévalence ou l'incidence annuelle.";
-						label="Tranche_épidémiologique_Inconnue";
+						def="Absence d'information dans la littï¿½rature scientifique permettant de renseigner la prï¿½valence ou l'incidence annuelle.";
+						label="Tranche_ï¿½pidï¿½miologique_Inconnue";
 					}*/
 					
 					//label for prevalence class
@@ -1656,9 +1656,9 @@ public void setInheritNum(String inheritNum) {
 				}
 				
 				type = this.prevalences.get(i).getType();
-				/* UPDATE  pour gérer les valeurs moyennes (0.0 exclu)*/
+				/* UPDATE  pour gï¿½rer les valeurs moyennes (0.0 exclu)*/
 				if ( type != null && this.prevalences.get(i).getValMoy()!=null && !this.prevalences.get(i).getValMoy().equals("0.0") && !this.prevalences.get(i).getValMoy().equals("")){
-					/* UPDATE sélection du typage de Valeur moyenne */
+					/* UPDATE sï¿½lection du typage de Valeur moyenne */
 					if (type.equals("409966") ){ type = "C028";      // prevalence point
 					}else if (type.equals("409968") ){type = "C029"; // prevalence at birth
 													  this.prevalences.get(i).setTypeLab(this.prevalences.get(i).getTypeLab().toLowerCase().replaceAll("prevalence at birth","birth prevalence"));
@@ -1682,15 +1682,15 @@ public void setInheritNum(String inheritNum) {
 					owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(),owlvar.getFactory().getOWLAnnotationAssertionAxiom(has_Prevalence.getIRI(), hasPrevLab)));
 					OWLDataProperty prevalType = owlvar.getFactory().getOWLDataProperty(type, owlvar.getPrefixmanager());
 					
-					// UPDATE SD ajout def sur les propriété has_...
+					// UPDATE SD ajout def sur les propriï¿½tï¿½ has_...
 					String defAvgPrev="";
-					/*if (type.equals("C028") ){      defAvgPrev = "Relation entre l'entité clinique et la valeur moyenne de sa prévalence instantanée.";    // prevalence point
-					}else if (type.equals("C029") ){defAvgPrev = "Relation entre l'entité clinique et la valeur moyenne de sa prévalence à la naissance.";    // prevalence at birth
-					}else if (type.equals("C030") ){defAvgPrev = "Relation entre l'entité clinique et la valeur moyenne de sa prévalence vie-entière."; // lifetime prevalence		
-					}else if (type.equals("C032") ){defAvgPrev = "Relation entre l'entité clinique et la valeur moyenne de son incidence annuelle.";    // annual incidence
-					}else if (type.equals("C024") ){defAvgPrev = "Relation entre l'entité clinique et le nombre de cas/familles";    // cases/families
-					/*}else if (type.equals("409974") ){defAvgPrev = "Nombre de familles publiée(s) dans la littérature.";    // families
-					}else if (type.equals("409973") ){defAvgPrev = "Nombre de cas publié(s) dans la littérature.";    // cases 
+					/*if (type.equals("C028") ){      defAvgPrev = "Relation entre l'entitï¿½ clinique et la valeur moyenne de sa prï¿½valence instantanï¿½e.";    // prevalence point
+					}else if (type.equals("C029") ){defAvgPrev = "Relation entre l'entitï¿½ clinique et la valeur moyenne de sa prï¿½valence ï¿½ la naissance.";    // prevalence at birth
+					}else if (type.equals("C030") ){defAvgPrev = "Relation entre l'entitï¿½ clinique et la valeur moyenne de sa prï¿½valence vie-entiï¿½re."; // lifetime prevalence		
+					}else if (type.equals("C032") ){defAvgPrev = "Relation entre l'entitï¿½ clinique et la valeur moyenne de son incidence annuelle.";    // annual incidence
+					}else if (type.equals("C024") ){defAvgPrev = "Relation entre l'entitï¿½ clinique et le nombre de cas/familles";    // cases/families
+					/*}else if (type.equals("409974") ){defAvgPrev = "Nombre de familles publiï¿½e(s) dans la littï¿½rature.";    // families
+					}else if (type.equals("409973") ){defAvgPrev = "Nombre de cas publiï¿½(s) dans la littï¿½rature.";    // cases 
 					}*/
 					
 					
@@ -1709,7 +1709,7 @@ public void setInheritNum(String inheritNum) {
 					
 				}
 				
-				/* UPDATE SD add Géo */
+				/* UPDATE SD add Gï¿½o */
 				if (this.prevalences.get(i).getGeo()!=null && !this.prevalences.get(i).getGeo().equals("")){
 					
 					OWLObjectProperty has_Geo = owlvar.getFactory().getOWLObjectProperty("C022",owlvar.getPrefixmanager());
@@ -1831,12 +1831,12 @@ public void setInheritNum(String inheritNum) {
 				//OWLClass superClass = owlvar.getFactory().getOWLClass("C010",owlvar.getPrefixmanager());
 				//owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLSubClassOfAxiom(gene, superClass)));
 				
-				//Symbole du gène
+				//Symbole du gï¿½ne
 				OWLAnnotation symbol = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("#symbol", owlvar.getPrefixmanager()),owlvar.getFactory().getOWLLiteral(this.symbol.get(i)));
 				OWLAxiom symb = owlvar.getFactory().getOWLAnnotationAssertionAxiom(gene.getIRI(), symbol);
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), symb));
 				
-				//Type de gène (new)
+				//Type de gï¿½ne (new)
 				OWLClass superClass = owlvar.getFactory().getOWLClass(this.geneTypNum.get(i),owlvar.getPrefixmanager());
 				owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), owlvar.getFactory().getOWLSubClassOfAxiom(gene, superClass)));
 				//OWLAnnotation geneTyp = owlvar.getFactory().getOWLAnnotation(owlvar.getFactory().getOWLAnnotationProperty("#genTyp", owlvar.getPrefixmanager()),owlvar.getFactory().getOWLLiteral(this.geneTyp.get(i)));
