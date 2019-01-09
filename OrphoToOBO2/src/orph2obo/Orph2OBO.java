@@ -20,6 +20,7 @@ import java.util.Iterator;
 
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+
 import uk.ac.ebi.efo.bubastis.CompareOntologies;
 
 
@@ -43,10 +44,10 @@ public class Orph2OBO {
     public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException {
 	
 	    /**This is the name of the directory where the Orphanet XML files will be written to*/
-	    String directory = "07_01_2019";
-	    Orph2OBO.setLang("fr");
-	    String version = "2.8";
-	    String prev_version = "2.7";
+	    String directory = Conf.xmlDir;
+	    Orph2OBO.setLang(Conf.lang);
+	    String version = Conf.version;
+	    String prev_version = Conf.prevVersion;
 	    directory = Orph2OBO.getLang()+"/"+directory;
 	    	//String directory = "OrphadataMay";
 		Orph2OBO o2o = new Orph2OBO();

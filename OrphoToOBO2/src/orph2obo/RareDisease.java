@@ -44,6 +44,7 @@ import org.semanticweb.owlapi.model.OWLLiteral;
 
 import orph2obo.ExternalReference;
 import orph2obo.Prevalence;
+import orph2obo.Conf;
 /**
  * Class representing the information in a RareDisease XML stanza. See the code for the class
  * OrphaXRefXMLParser/OrphaGenesXMLParser/OrphaEpidemiologyParser/OrphadataClassificationXMLParser
@@ -459,7 +460,7 @@ public void setInheritNum(String inheritNum) {
     // 
     public void readDefinitionFile() throws FileNotFoundException{
     	String lang = getLang();
-        Scanner scan = new Scanner(new File("C:\\Users\\sdemarest.BROUSSAIS\\git\\java_ORDO_origine\\OrphoToOBO2\\definitions\\DEF_ORDO_"+lang+".txt"));
+        Scanner scan = new Scanner(new File(Conf.defPath+"DEF_ORDO_"+lang+".txt"));
 
         while(scan.hasNext()){
             String curLine = scan.nextLine();
@@ -492,8 +493,8 @@ public void setInheritNum(String inheritNum) {
     		}
     	
     	// 
-    	setLang("fr");
-    	setVersion("2.8");
+    	setLang(Conf.lang);
+    	setVersion(Conf.version);
     	try {
 			readDefinitionFile();
 		} catch (FileNotFoundException e) {
@@ -1945,11 +1946,11 @@ public void setInheritNum(String inheritNum) {
 	
 	public void saveOWLFile() throws OWLOntologyStorageException, OWLOntologyCreationException{
 		writeToOWLFile();
-		IRI documentIRI = IRI.create("file:/OrphoToOBO2/ORDO_"+getLang()+"_"+getVersion()+".owl");
+		IRI documentIRI = IRI.create(Conf.outPath+"ORDO_"+getLang()+"_"+getVersion()+".owl");
 		SimpleIRIMapper mapper = new SimpleIRIMapper(owlvar.getOntologyIRI(), documentIRI);
 		owlvar.getManager().addIRIMapper(mapper);
 		owlvar.getManager().saveOntology(owlvar.getOntology(), documentIRI);
-		IRI documentIRImod = IRI.create("file:/OrphoToOBO2/orphaEfoMod_"+getLang()+"_"+getVersion()+".owl");
+		IRI documentIRImod = IRI.create(Conf.outPath+"orphaEfoMod_"+getLang()+"_"+getVersion()+".owl");
 		SimpleIRIMapper mappermod = new SimpleIRIMapper(owlvar.getOntologyIRImod(), documentIRImod);
 		owlvar.getManager().addIRIMapper(mappermod);
 		System.out.println("saving the module");
