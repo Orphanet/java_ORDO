@@ -67,7 +67,7 @@ C010	Materiał genetyczny	Sekwencja DNA lub RNA ( gen z produktem białkowym,  z
 410297	Locus związany z zaburzeniem	Region chromosomu związany z chorobą dziedziczną, jednak bez dokładnego określenia potencjalnie związanego z nim genu.	
 327767	Gen kandydat badany w	Gen, w którym podejrzewa się, jednak dotychczas tego nie udowodniono, występowanie mutacji, odpowiedzialnej za zaburzenie, przy podejrzeniu którego można wykonać test(y) genetyczny/genetyczne.	
 410296	Choroba powodująca mutację/e w linii germinalnej (uzyskanie nowej funkcji)	Mutacja genu w komórce rozrodczej, która przekłada się na nową funkcję odpowiadającego jej białka i wystarcza do spowodowania zaburzenia oraz może być przekazywana potomstwu.	
-410295	Choroba powodująca mutację/e w linii germinalnej	Mutacja genu w komórce rozrodczej, która zmienia funkcję odpowiadającego jej białka i jest wystarczającą  przyczyną wystąpienia choroby oraz może być przekazywana potomstwu.	
+410295	Choroba powodująca mutację/e w linii germinalnej (utratę funkcji) w	Mutacja genu w komórce rozrodczej, która zmienia funkcję odpowiadającego jej białka i jest wystarczającą  przyczyną wystąpienia choroby oraz może być przekazywana potomstwu.	
 317343	Choroba powodująca mutację/e w linii germinalnej	Mutacja genu w komórce rozrodczej, która jest wystarczającą przyczyną wystąpienia choroby i może być przekazywana potomstwu.	
 317344	Choroba powodująca mutację/e w komórkach somatycznych	Mutacja genu w komórce somatycznej, która jest wystarczającą przyczyną wystąpienia choroby, jednak nie może być przekazywana potomstwu.	
 317345	Najważniejszy podejrzewany czynnik	Mutacja genu w komórce rozrodczej, która predysponuje i jest niezbędna do rozwoju choroby, jednak nie wystarczająca do jejwystąpienia.	
