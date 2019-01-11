@@ -45,6 +45,7 @@ import org.semanticweb.owlapi.model.OWLLiteral;
 import orph2obo.ExternalReference;
 import orph2obo.Prevalence;
 import orph2obo.Conf;
+import uk.ac.manchester.cs.owl.owlapi.OWLObjectPropertyImpl;
 /**
  * Class representing the information in a RareDisease XML stanza. See the code for the class
  * OrphaXRefXMLParser/OrphaGenesXMLParser/OrphaEpidemiologyParser/OrphadataClassificationXMLParser
@@ -493,8 +494,8 @@ public void setInheritNum(String inheritNum) {
     		}
     	
     	// 
-    	setLang(Conf.lang);
-    	setVersion(Conf.version);
+    	setLang(ORDOVariables.lang);
+    	setVersion(ORDOVariables.version);
     	try {
 			readDefinitionFile();
 		} catch (FileNotFoundException e) {
@@ -538,17 +539,10 @@ public void setInheritNum(String inheritNum) {
         /* **** UPDATE SD   ajout cr�ateur **** */
 		PrefixManager dct = new DefaultPrefixManager("http://purl.org/dc/terms/");
     	PrefixManager dc  = new DefaultPrefixManager("http://purl.org/dc/elements/1.1/");
+    	PrefixManager cc  = new DefaultPrefixManager(ORDOVariables.licensePrefixIRI);
     	
-    	ArrayList<String> list = new ArrayList<String>() {{
-    	    add("James Malone");
-    	    add("Drashtti Vasant");
-    	    add("Valérie Lanneau");
-      	    add("Céline Rousselot");
-    	    add("Samuel Demarest");
-    	    add("Annie Olry");
-    	    add("Marc Hanauer");
-    	    add("Ana Rath");
-      	}};
+    	ArrayList<String> list = ORDOVariables.creatorList;
+    	
     	for (final String name: list){
 			OWLAnnotation creator = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("creator", dc),
 					factory.getOWLLiteral(name));
@@ -563,13 +557,36 @@ public void setInheritNum(String inheritNum) {
     			factory.getOWLLiteral(dateFormat.format(date), OWL2Datatype.XSD_DATE_TIME));
     	
 		manager.applyChange(new AddOntologyAnnotation(ontology, dateGeneration));
-		
+
 		OWLAnnotation dateStart      = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("created", dct),
-				factory.getOWLLiteral("2013-06-20T12:00:00", OWL2Datatype.XSD_DATE_TIME));
+				factory.getOWLLiteral(ORDOVariables.dateOfCreation, OWL2Datatype.XSD_DATE_TIME));
 		
 		manager.applyChange(new AddOntologyAnnotation(ontology, dateStart));
+		/* **** UPDATE SD  FIN ajout cr�ateur **** */
+		
+		/* ***** UPDATE SD Ajout licence  **** */
+		IRI licenseIRI = IRI.create(ORDOVariables.licensePrefixIRI + ORDOVariables.licenseClassIRI );
+		OWLAnnotation licence      = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("license", dct),licenseIRI);
+		
+		manager.applyChange(new AddOntologyAnnotation(ontology, licence));
+		
+		
+		OWLClass licenceClass = factory.getOWLClass(ORDOVariables.licenseClassIRI,cc);manager.applyChange(new AddOntologyAnnotation(ontology, licence));
+		OWLDeclarationAxiom licenceDec = factory.getOWLDeclarationAxiom(licenceClass);
+    	manager.applyChange(new AddAxiom(ontology, licenceDec));
+		
+		for(int annotIndex = 0;annotIndex < ORDOVariables.legalTerms.length ;annotIndex++){
+			OWLAnnotation legalTerm = factory.getOWLAnnotation(
+					factory.getOWLAnnotationProperty(ORDOVariables.legalTerms[annotIndex][0],cc), IRI.create(ORDOVariables.legalTerms[annotIndex][1]));
+			
+			manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(licenceClass.getIRI(), legalTerm)));
+		}
+		
+		
+		
+		
     	
-    	 /* **** UPDATE SD  FIN ajout cr�ateur **** */
+		/* ***** FIN UPDATE SD Ajout licence  **** */
 		
     	OWLClass phenome = factory.getOWLClass("C001",pm);
     	OWLAnnotation phenomelabel = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral(getConceptLabel("C001"),getLang()));
@@ -799,7 +816,6 @@ public void setInheritNum(String inheritNum) {
     	//Annotation A FAIRE
     	//==============
     	    	
-    	
     	
     	manager.applyChange(new AddAxiom(ontology, phenDec));
        	manager.applyChange(new AddAxiom(ontology, declarationAxiom));
