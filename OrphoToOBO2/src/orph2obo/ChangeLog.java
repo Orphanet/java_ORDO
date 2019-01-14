@@ -1,3 +1,13 @@
+/***
+ * 
+ * @author samuel demarest
+ * 
+ * Export : export => java => runnable jar => select ChangeLog in "Launch configuration" and select "extract required librairies" 
+ * WARNING : sous windows, les chemins des deux ontologies à comparer doivent être sous formes unix (/path/file.owl et pas C:\path\file.owl) sans le nom du disque,
+ * 			contrairement au fichier de sortie. Ce dernier doit être saisi sans l'extension car deux fichiers (.txt et .xml) sont générés
+ * 
+ */
+
 package orph2obo;
 
 import java.io.FileNotFoundException;
