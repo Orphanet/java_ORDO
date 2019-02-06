@@ -3,7 +3,7 @@ package orph2obo;
 import java.util.ArrayList;
 
 public class ORDOVariables {
-	static public String lang             = "en"; 
+	static public String lang             = "pl"; 
 	static public String version          = "2.8"; 
 	static public String prevVersion      = "2.7"; 
 	static public String xmlDir           = "07_01_2019"; 

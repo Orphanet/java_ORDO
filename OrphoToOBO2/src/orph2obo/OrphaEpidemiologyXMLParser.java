@@ -136,7 +136,7 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 				else if (qName.equalsIgnoreCase("Orphanumber") && within_PrevalenceGeo){
 					prevalence.setGeo(tempVal);
 				}else if (qName.equalsIgnoreCase("Orphanumber") && within_Qualification && prevalence.getType().equals("409970")){
-					//UPDATE SD si type = "Cas/familles", garder le typage "Cas" ou "Familles" à la place 
+					//UPDATE SD si type = "Cas/familles", garder le typage "Cas" ou "Familles" ï¿½ la place 
 					prevalence.setType(tempVal);
 				}
 				else if (qName.equalsIgnoreCase("AverageAgeOfOnset")){
@@ -188,7 +188,7 @@ public class OrphaEpidemiologyXMLParser extends DefaultHandler {
 		    while (it.hasNext()) {
 			String s = it.next();
 			RareDisease dxr = this.diseases.get(s);
-			System.out.println(s + ":" + dxr.getName());
+			//System.out.println(s + ":" + dxr.getName());
 		    }
 		    System.err.println("Parsing Epidemiology File: Could not fetch OrphaID: " + orphID);
 		    System.exit(1);

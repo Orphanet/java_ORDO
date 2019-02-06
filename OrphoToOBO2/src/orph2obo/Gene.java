@@ -14,7 +14,7 @@ public class Gene {
 	private String name;
 	private String symbol;
 	private ArrayList<ExternalReference> xrefs;
-	//CR07122015 ajout des nouvelles informations locus et type de gène
+	//CR07122015 ajout des nouvelles informations locus et type de gï¿½ne
 	private String locus;
 	private String geneType;
 	private String geneTypeOrphaNum;
@@ -38,7 +38,7 @@ public class Gene {
 	public void setGeneType(String tempVal) { this.geneType = tempVal; }
 	
 	public void setGeneTypeOrphaNum(String tempVal) {
-		System.out.println("passer dans l'objet gene"+ tempVal); 
+		//System.out.println("passer dans l'objet gene"+ tempVal); 
 		this.geneTypeOrphaNum = tempVal; 
 		}
 	//Locus

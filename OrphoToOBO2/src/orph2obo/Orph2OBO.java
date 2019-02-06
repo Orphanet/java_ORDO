@@ -80,52 +80,9 @@ public class Orph2OBO {
 		System.out.println("Owl "+Orph2OBO.getLang()+" file is now saved");
 		
 		
-		/******** UPDATE SD Add ChangeLog ********/
-		
-		/*FileOutputStream f;
-		PrintStream defaultOut =  System.out;
-		try {
-			 f = new FileOutputStream("C:\\OrphoToOBO2\\bubastis_change_log_"+Orph2OBO.getLang()+"_"+version+"_"+prev_version+".txt");			 
-			 System.setOut(new PrintStream(f));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		CompareOntologies bubastis = new CompareOntologies();
-		bubastis.doFindAllChanges("file:/OrphoToOBO2/ORDO_"+Orph2OBO.getLang()+"_"+prev_version+".owl","file:/OrphoToOBO2/ORDO_"+Orph2OBO.getLang()+"_"+version+".owl");
-		bubastis.writeDiffAsXMLFile("C:\\OrphoToOBO2\\bubastis_change_log_"+Orph2OBO.getLang()+"_"+version+"_"+prev_version+".xml");
-		System.setOut(defaultOut);
-		System.out.println("Exit program after saving Change Log");
-		*/
-		/****************************************/
 		
     }
-    /*LogMap2_Matcher logmap2 = new LogMap2_Matcher(
-            "http://oaei.ontologymatching.org/2012/conference/data/ekaw.owl",
-            "http://oaei.ontologymatching.org/2012/conference/data/cmt.owl");
 
-    Set<MappingObjectStr> logmap2_mappings = logmap2.getLogmap2_Mappings();*/
-
-	/*  
-    private void download_specific_disease_classification(String URI,String outname)
-    {
-	String XML_file = this.downloader.downloadClassificationXML(URI);
-	//addClassificationData(XML_file);
-	SimpleClassificationParser scp = new SimpleClassificationParser();
-	
-	try{
-	    FileWriter fstream = new FileWriter(outname);
-	    BufferedWriter out = new BufferedWriter(fstream);
-	    scp.parseDocument(XML_file,disease_xrefs,out);
-	    out.close();
-	}catch (IOException e){
-	    System.err.println("Error while printing OBO file: " + e.getMessage());
-	}
-	
-
-	
-    }
-    */
 	
 	
 	

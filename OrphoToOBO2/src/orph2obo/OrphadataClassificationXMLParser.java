@@ -147,10 +147,10 @@ public class OrphadataClassificationXMLParser extends DefaultHandler {
 	private void debugstack() {
 	Iterator<String> it = orphanum_stack.iterator();
 	int i=1;
-	System.out.println("STACK");
+	//System.out.println("STACK");
 	while (it.hasNext()) {
 	    String s = it.next();
-	    System.out.println(i + ":" + s);
+	    //System.out.println(i + ":" + s);
 	    ++i;
 	}
     }
