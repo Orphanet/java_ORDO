@@ -158,6 +158,7 @@ public class RareDisease {
     public void setOrphanum(String num) { this.orphanum = num; }
     public void setID (String id) { this.orphID = id; }
     public void setDef(String def) { this.def = def; }
+    public String getDef() { return this.def; }
 
     public void setExpertLink(String link) { this.expert_link = link; 
     //System.out.println(expert_link_list); 
