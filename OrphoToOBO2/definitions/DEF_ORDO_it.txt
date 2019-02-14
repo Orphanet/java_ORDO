@@ -1,0 +1,85 @@
+C003	epidemiologia	Numero di casi nella popolazione in un dato periodo. Il numero di casi può essere espresso in incidenza annuale (Incidenza annuale), prevalenza (Prevalenza) e / o numero di casi / famiglie (Casi/famiglie) pubblicati in letteratura scientifica.
+409967	incidenza annuale	Numero dei nuovi casi diagnosticati in popolazione in 1 anno.
+409969	prevalenza nel corso della vita	Numero di casi che presentano o hanno presentato l'entità clinica durante la loro vita estrapolati dalla popolazione generale.
+409970	casi/famiglie	Numero di casi o famiglie pubblicate in letteratura scientifica.
+409973	caso	Numero di casi pubblicati in letteratura scientifica.
+409974	famiglia	Numero di famiglie pubblicate in letteratura scientifica.
+C004	prevalenza	Numero di casi estrapolati dalla popolazione generale in un dato momento o durante un dato periodo. La prevalenza può essere osservata alla nascita (prevalenza alla nascita), in un dato momento nel tempo (prevalenza puntiforme) o nella vita (prevalenza nel corso della vita).
+409966	prevalenza puntiforme	Numero di casi estrapolati dalla popolazione generale in un dato momento nel tempo.
+409968	prevalenza alla nascita	Numero di casi osservati alla nascita rispetto al numero di bambini nati vivi in un dato momento nel tempo.
+409980	>1 / 1000	Intervallo di prevalenza o incidenza annuale maggiore di 1 caso per 1 000 nella popolazione.
+409978	6-9 / 10 000	Intervallo di prevalenza o incidenza annuale compreso tra 6 e 9 casi per 10 000 nella popolazione.
+409975	1-5 / 10 000	Intervallo di prevalenza o incidenza annuale compreso tra 1 e 5 casi per 10 000 nella popolazione.
+409977	1-9 / 100 000	Intervallo di prevalenza o incidenza annuale compreso tra 1 e 9 casi per 100 000 nella popolazione.
+409976	1-9 / 1 000 000	Intervallo di prevalenza o incidenza annuale compreso tra 1 e 9 casi per 1 000 000 nella popolazione.
+409979	<1 / 1 000 000	Intervallo di prevalenza o incidenza annuale inferiore a 1 caso per 1 000 000 nella popolazione.
+409981	dati epidemilogici non disponibili	Nessuna informazione disponibile in letteratura scientifica sulla prevalenza o l'incidenza per anno.
+C025	ha_un_range_di_prevalenza_puntuale	Relatione tra l'entità clinica e il range di prevalenza puntuale.
+C020	ha_un_range_di_incidenza_annuale	Relatione tra l'entità clinica e il range di incidenza annuale.
+C026	ha_un_range_di_prevalenza_alla_nascita	Relatione tra l'entità clinica e il range di prevalenza alla nascita.
+C027	ha_un_range_di_prevalenza_nel_corso_della_vita	Relatione tra l'entità clinica e il range di prevalenza nel corso della vita.
+C024	ha_un_valore_di_casi/famiglie	Relatione tra l'entità clinica e il numero di casi/famiglie.
+C028	ha_un_valore_medio_di_prevalenza_puntuale	Relatione tra l'entità clinica e il valore medio della sua prevalenza puntuale.
+C032	ha_un_valore_medio_di_incidenza_annuale	Relatione tra l'entità clinica e il valore medio della sua incidenza annuale.
+C029	ha_un_valore_medio_di_prevalenza_alla_nascita	Relatione tra l'entità clinica e il valore medio della sua prevalenza alla nascita.
+C030	ha_un_valore_medio_di_prevalenza_nel_corso_della_vita	Relatione tra l'entità clinica e il valore medio della sua prevalenza nel corso della vita.
+C005	modello di trasmissione	Modello con il quale una entità clinica di origine genetica viene trasmessa alla prole.
+409929	autosomica dominante	Modello di trasmissione nel quale una singolo allele mutato localizzato su uno dei 22 autosomi (cromosomi non sessuali) è sufficiente per esprimere il fenotipo.
+409930	autosomica recessiva	Modello di trasmissione nel quale due alleli mutati dello stesso gene localizzati su uno dei 22 autosomi (cromosomi non sessuali) sono necessari per esprimere il fenotipo.
+409932	X-linked recessiva	Modello di trasmissione nel quale due alleli mutati sul cromosoma X sono necessari per esprimere il fenotipo. Il fenotipo si esprime nei maschi emizigoti (che hanno una singola copia del gene) e nelle femmine omozigoti.
+409934	X-linked dominante	Modello di trasmissione nel quale una singolo allele mutato sul cromosoma X è sufficiente per esprimere il fenotipo. Il fenotipo è espresso in maniera più completa e grave nei maschi emizigoti  (che hanno una singola copia del gene) che nelle femmine eterozigoti.
+409931	multigenica/multifattoriale	La combinazione di uno o più geni e/o fattori ambientali contribuisce all'espressione del fenotipo.
+409938	Y-linked	Modello di trasmissione nel quale una singolo allele mutato sul cromosoma Y è sufficiente per esprimere il fenotipo. La trasmissione è esclusivamente paterna.
+409933	mitocondriale	Modello di trasmissione nel quale una mutazione di geni mitocondriali è sufficiente per esprimere il fenotipo.  La trasmissione è esclusivamente materna.
+409936	oligogenica	La combinazione di alleli mutati di due o più geni è necessaria per esprimere il fenotipo.
+409937	semi-dominante	Modello di trasmissione nel quale una singolo allele mutato localizzato su uno dei 22 autosomi (cromosomi non sessuali) è sufficiente per esprimere il fenotipo, il fenotipo degli individui omozigoti (entrambi gli alleli mutati) è più grave.
+409940	dati sul modello di trasmissione non disponibili	Nessuna informazione disponibile in letteratura scientifica sul modello di trasmissione della condizione.
+409941	non trasmessa geneticamente	entità clinica non trasmessa geneticamente.
+409939	modello di trasmissione non noto	Condizione clinica trasmissibile con modello di trasmissione non noto.
+C016	ha un modello di trasmissione	Relazione tra una entità clinica e il modello di trasmissione.
+C023	età di insorgenza	età di insorgenza di una manifestazione clinica correlata a una entità clinica.
+409943	prenatale	prima della nascita.
+409944	neonatale	Dalla nascita alla quarta settimana di vita.
+409945	prima infanzia	Dalla fine della quarta settimana al 23° mese di vita.
+409946	infanzia	Dai 2 agli 11 anni.
+409947	adolescenza	Dai 12 ai 18 anni.
+409948	età adulta	Dai 19 ai 65 anni.
+409949	vecchiaia	Dopo i 65 anni.
+409950	tutte le età	Dalla nascita all'età adulta senza picchi di insorgenza.
+409951	dati sull'età di esordio non disponibili	Nessuna informazione disponibile in letteratura scientifica sulla età di esordio delle prime manifestazioni cliniche.
+C017	ha_una_età_di_insorgenza	Relazione tra la manifestazione clinica e l'età di insorgenza.
+C001	entità clinica	Un gruppo di anomalie fenotipiche.  
+377794	gruppo di condizioni	Entità clinica definita da un set di anomalie fenotipiche condivise da diverse malattie, malformazioni o sindromi, anomalia morfologica o biologica e situazione clinica particolare in una malattia o in una sindrome usata per raggrupparli insieme.
+377795	sottotipo eziologico	Suddivisione di una malattia, sindrome malformativa, anomalia morfologica, anomalia biologica o  situazione clinica particolare in una malattia o in una sindrome ulteriormente definita dalla sua eziologia. 
+377788	malattia	Entità clinica definita da un insieme di anomalie fenotipiche risultanti da un meccanismo fisiopatologico comune con evoluzione omogenea e possibilità terapeutiche omogenee. Esclude le anomalie dello sviluppo. 
+377790	anomalia biologica	Entità clinica definita da un insieme di anomalie fisiologiche senza chiare manifestazioni cliniche associate. 
+377789	sindrome malformativa	Entità clinica definita da un insieme di anomalie morfologiche risultanti da un'anomalia dello sviluppo che coinvolge più di un settore morfogenetico. Include sequenze e associazioni.
+377791	anomalia morfologica	Entità clinica definita da un'alterazione della normale morfologia derivante da un'anomalia di sviluppo che coinvolge un singolo settore morfogenetico. 
+377793	condizione clinica particolare in una malattia o in una sindrome	Entità clinica definita da un insieme di anomalie fenotipiche che si verificano in particolari circostanze.
+377792	sindrome	Entità clinica definita da un insieme di anomalie fenotipiche con evoluzione omogenea e possibilità terapeutiche omogenee, indipendentemente dal meccanismo fisiopatologico. 
+377796	sottotipo clinico	Suddivisione di una malattia, sindrome malformativa, anomalia morfologica, anomalia biologica, sindrome clinica o particolare situazione clinica in una malattia o una sindrome ulteriormente definita dalla sua particolare presentazione clinica. 
+377797	sottotipo istopatologico	Suddivisione di una malattia, sindrome malformativa, anomalia morfologica, anomalia biologica, sindrome clinica o particolare situazione clinica in una malattia definita dalle anomalie istologiche nei tessuti interessati. 
+C009	geografia	Si riferisce a un paese, a un continente o al mondo intero.
+C022	presente_in	Relazione tra una entità clinica e l'area geografica per la quale i dati epidemiologici (Epidemiologia) sono disponibili.
+C010	materiale genetico	Sequenza di DNA o RNA (gene con prodotto proteico, RNA non codificante e locus associato a malattia).
+410298	gene con prodotto proteico	Sequenza di DNA tradotta in proteina.
+410299	RNA non codificante	RNA trascritto ma non tradotto in proteina.
+410297	locus associato a malattia	Regione cromosomica associata a una condizione genetica ma senza alcuna precisione sul possibile gene associato.
+327767	gene candidato testato in	Un gene in cui si sospetta, ma non è ancora provato, che una mutazione sia responsabile di malattia, ma per la quale è disponibile un test genetico
+410296	mutazione(i) germinale(i) (guadagno di funzione) che causano malattia in	Una mutazione di un gene in una cellula germinale che si traduce in un guadagno di funzione della proteina corrispondente è sufficiente a causare la malattia e può essere trasmessa alla prole.
+410295	mutazione(i) germinale(i) (perdita di funzione) che causano malattia in	Una mutazione di un gene in una cellula germinale che altera la funzione della proteina corrispondente è sufficiente a causare il disturbo e può essere trasmessa alla prole.
+317343	mutazione(i) germinale(i) che causano malattia in	Una mutazione di un gene in una cellula germinale che è sufficiente a causare il disturbo e può essere trasmessa alla prole.
+317344	mutazione(i) somatica(che) che causano malattia in	Una mutazione di un gene in una cellula somatica che è sufficiente a causare il disturbo ma non può essere trasmessa alla prole.
+317345	fattore maggiore di suscettibilità in	Una mutazione genetica in una cellula germinale che predispone allo sviluppo di un disturbo e che è necessaria ma non sufficiente per sviluppare il disturbo.
+317346	mutazione germinale che modifica il fenotipo in	A gene mutation in a germ cell that modifies the clinical presentation of the disorder and that can be passed on to offspring.
+465410	biomarker testato in	Un gene in cui viene utilizzata una variazione per monitorare l'evoluzione della malattia e / o l'esito per il paziente.
+317348	parte di un gene di fusione in	Una sequenza di DNA codificante o regolatoria di un gene che si è fusa con un'altra sequenza codificante e / o regolatoria del DNA di un gene diverso.
+317349	ruolo maggiore nel fenotipo di	Un gene incluso in un riarrangiamento cromosomico, che ha dimostrato di avere un ruolo maggiore sul fenotipo correlato al riarrangiamento cromosomico. 
+C040	ha una localizzazione cromosomica	Relazione tra un gene con un prodotto proteico, un RNA non codificante o un locus associato al disturbo e la sua posizione citogenetica sul cromosoma.
+ObsoleteClass	obsoleto	ORPHA number cancellato dalla nomenclatura di Orphanet delle malattie rare. Include entità deprecate, che erano ritenute entità cliniche uniche nel passato ma ora considerate, grazie all'evoluzione delle conoscenze, parte di un'altra entità clinica.
+C021	parte_di/della	Relazione tra due condizioni, una delle quali include l'altra. Es: sottotipo clinico parte della malattia.
+ECO_0000205	curator_inference	NA
+ECO_0000218	manual_assertion	NA
+with_label	with label	 with label: 
+deprecated	depracated	This class is deprecated. The preferred class is 
+use	use	use 
