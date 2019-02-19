@@ -44,7 +44,7 @@ if($#ARGV>=0){
 	die();
 }
 
-
+print "rootDirectory : '$rootDirectory'; lang : '$lang'; date : '$date'\n";
 
 if($file ne ""){
 	print escapeChars($file);
@@ -64,7 +64,7 @@ if($file ne ""){
 					opendir (DATEDIR, "$rootDirectory/$dh1/$dh2") or die $!;
 					while (my $dh3 = readdir(DATEDIR)) {
 						
-						if($dh3!~/$fileFilter/){next;}
+						if($dh3!~/$fileFilter/ and $fileFilter ne ""){next;}
 						
 						if($dh3!~/\.+$/ and -f "$rootDirectory/$dh1/$dh2/$dh3"){
 							
