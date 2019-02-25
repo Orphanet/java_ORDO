@@ -1333,7 +1333,9 @@ public void setInheritNum(String inheritNum) {
     			this.orphanum.contentEquals("98036") ||this.orphanum.contentEquals("93626")||  this.orphanum.contentEquals("280342")||
     			this.orphanum.contentEquals("97955")|| this.orphanum.contentEquals("89826") || this.orphanum.contentEquals("97965")||
     			this.orphanum.contentEquals("97962") || this.orphanum.contentEquals("98023")||this.orphanum.contentEquals("101433") ||
-    			this.orphanum.contentEquals("68367")|| this.orphanum.contentEquals("52662") || this.orphanum.contentEquals("93890") || this.orphanum.contentEquals("98053")){
+    			this.orphanum.contentEquals("68367")|| this.orphanum.contentEquals("52662") || this.orphanum.contentEquals("93890") || 
+    			this.orphanum.contentEquals("98053") || this.orphanum.contentEquals("138221") || this.orphanum.contentEquals("68335") || 
+    			this.orphanum.contentEquals("506207") ){
     		return true;}
 		return false;
     }
@@ -1988,7 +1990,8 @@ public void setInheritNum(String inheritNum) {
 			this.orphanum.contentEquals("98036") ||this.orphanum.contentEquals("93626")||  this.orphanum.contentEquals("280342")||
 			this.orphanum.contentEquals("97955")|| this.orphanum.contentEquals("89826") || this.orphanum.contentEquals("97965")||
 			this.orphanum.contentEquals("97962") || this.orphanum.contentEquals("98023")||this.orphanum.contentEquals("101433") ||
-			this.orphanum.contentEquals("68367")|| this.orphanum.contentEquals("52662")){
+			this.orphanum.contentEquals("68367")|| this.orphanum.contentEquals("52662") || this.orphanum.contentEquals("138221") || 
+			this.orphanum.contentEquals("68335") || this.orphanum.contentEquals("506207")){
 			this.add_is_a_link("000");
 
 	}

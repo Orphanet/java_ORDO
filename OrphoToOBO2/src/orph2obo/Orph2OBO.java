@@ -96,6 +96,17 @@ public class Orph2OBO {
 	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_147.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
+	/* Rare cardiac malformations */
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_148.xml";
+	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
+	addClassificationData(XML_file);
+	
+	// ajout classif
+	/* sucking/swallowing disorders */
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_149.xml";
+	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
+	addClassificationData(XML_file);
+	
 	/* Inborn errors of metabolism */
 	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_150.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
@@ -104,6 +115,10 @@ public class Orph2OBO {
 	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_152.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
+	/* rare genetic */
+    geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_156.xml";
+    XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
+   addClassificationData(XML_file);   
 	/* 	Rare neurological diseases */
 	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_181.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
@@ -208,21 +223,21 @@ public class Orph2OBO {
 	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_216.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
-
-	/* 	childhood disorders */
+	/* 	systemic or rheumatologic diseases of childhood */
 	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_231.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
-	/* Rare cardiac malformations */
-	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_148.xml";
+	
+	// Ajout classifs
+	/* 	rare disorders potentially indicated for transplant */
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_233.xml";
 	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
 	addClassificationData(XML_file);
-	/* rare genetic */
-     geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_156.xml";
-     XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
-    addClassificationData(XML_file);
+	/* 	chromosomal anomalies sorted by chromosomes */
+	geneticDiseasesClassificationURI = "http://www.orphadata.org/data/xml/"+Orph2OBO.getLang()+"_product3_229.xml";
+	XML_file = this.downloader.downloadClassificationXML(geneticDiseasesClassificationURI);
+	addClassificationData(XML_file);
     }
-    
     /** Add the subclass relations from a classificaiton file. */
     private void addClassificationData(String XMLfile) {
 	OrphadataClassificationXMLParser ocxp = new OrphadataClassificationXMLParser();
