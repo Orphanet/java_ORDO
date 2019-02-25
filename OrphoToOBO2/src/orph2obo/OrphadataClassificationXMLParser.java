@@ -97,7 +97,13 @@ public class OrphadataClassificationXMLParser extends DefaultHandler {
 	    //debugstack();
 	    this.orphanum_stack.pop();	
 	} else if (qName.equalsIgnoreCase("Name")) {
+		
+		// add conversion escaped char to char
+		tempVal=tempVal.replaceAll("\\|\\|lt\\|\\|", "<");
+		tempVal=tempVal.replaceAll("\\|\\|gt\\|\\|", ">");
+		
 	    this.currentName = tempVal;
+	    
 	    RareDisease dxr =  diseaseXRefs.get(currentOrphanum);
 	    if (dxr == null) { /* make sure everthing is in hashmap */
 		dxr = new RareDisease();

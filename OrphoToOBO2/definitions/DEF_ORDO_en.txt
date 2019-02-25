@@ -18,7 +18,7 @@ C025	has_point_prevalence_range	Relationship between clinical entity and point p
 C020	has_annual_incidence_range	Relationship between clinical entity and annual incidence range.
 C026	has_birth_prevalence_range	Relationship between clinical entity and birth prevalence range.
 C027	has_lifetime_prevalence_range	Relationship between clinical entity and lifetime prevalence range.
-C024	has_cases/families_average_value	Relationship between clinical entity and number of cases/families.
+C024	has_cases/families_value	Relationship between clinical entity and number of cases/families.
 C028	has_point_prevalence_average_value	Relationship between the clinical entity and the mean value of its point prevalence.
 C032	has_annual_incidence_average_value	Relationship between the clinical entity and the mean value of its annual incidence.
 C029	has_birth_prevalence_average_value	Relationship between the clinical entity and the mean value of its birth prevalence.
