@@ -78,8 +78,8 @@ C010	Materiał genetyczny	Sekwencja DNA lub RNA ( gen z produktem białkowym,  z
 C040	posiada lokalizację chromosomalną	Zależność pomiędzy genem a produktem białkowym, nie kodującym RNA lub locus związanym z chorobą oraz jego lokalizacją cytogenetyczną na chromosomie.
 ObsoleteClass	grupa nieaktualnych jednostek chorobowych	Numer ORPHA jest już nieaktualny. Część tej klasyfikacji stanowią jednostki chorobowe, które straciły swoje znaczenie. Są to te jednostki chorobowe, które w przeszłości uważane były za unikatowe, natomiast obecnie, dzięki rozwojowi wiedzy, uważa się, że są one jednak częścią innej jednostki chorobowej. 	
 C021	Element/część	Związek pomiędzy dwiema jednostkami chorobowymi, z których jedna wchodzi w skład drugiej. Dawniej: podtyp kliniczny Elementu/części choroby.
-ECO_0000205	#N/A	#N/A	
-ECO_0000218	#N/A	#N/A	
+ECO_0000205	curator_inference	NA
+ECO_0000218	manual_assertion	NA
 with_label	 z oznakowaniem	z oznakowaniem:	
 deprecated	nieaktualne	Ta klasyfikacja jest nieaktualna. Preferowana klasyfikacja to	
 use	zastosowanie	zastosowanie	
