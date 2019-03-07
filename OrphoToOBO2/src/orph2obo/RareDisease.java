@@ -1352,7 +1352,7 @@ public void setInheritNum(String inheritNum) {
 			/** Cr�ation des obsolete */
 			OWLClass rareDisorder = owlvar.getFactory().getOWLClass(this.orphanum, owlvar.getPrefixmanager());
 			OWLAnnotation labelRare = owlvar.getFactory().getOWLAnnotation(
-					owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name));
+					owlvar.getFactory().getRDFSLabel(),owlvar.getFactory().getOWLLiteral(this.name,getLang()));
 			OWLDeclarationAxiom declarationClass = owlvar.getFactory().getOWLDeclarationAxiom(rareDisorder);
 			OWLAxiom labelling = owlvar.getFactory().getOWLAnnotationAssertionAxiom(rareDisorder.getIRI(), labelRare);
 			owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), declarationClass));
