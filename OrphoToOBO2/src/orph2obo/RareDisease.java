@@ -575,6 +575,10 @@ public void setInheritNum(String inheritNum) {
 		OWLClass licenceClass = factory.getOWLClass(ORDOVariables.licenseClassIRI,cc);manager.applyChange(new AddOntologyAnnotation(ontology, licence));
 		OWLDeclarationAxiom licenceDec = factory.getOWLDeclarationAxiom(licenceClass);
     	manager.applyChange(new AddAxiom(ontology, licenceDec));
+    	
+    	
+    	OWLAnnotation licenceLabel = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral(ORDOVariables.licenceLabel));
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLAnnotationAssertionAxiom(licenceClass.getIRI(), licenceLabel)));
 		
 		for(int annotIndex = 0;annotIndex < ORDOVariables.legalTerms.length ;annotIndex++){
 			OWLAnnotation legalTerm = factory.getOWLAnnotation(
