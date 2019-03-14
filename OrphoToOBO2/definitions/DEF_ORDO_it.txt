@@ -56,7 +56,7 @@ C001	entità clinica	Un gruppo di anomalie fenotipiche.
 377789	sindrome malformativa	Entità clinica definita da un insieme di anomalie morfologiche risultanti da un'anomalia dello sviluppo che coinvolge più di un settore morfogenetico. Include sequenze e associazioni.
 377791	anomalia morfologica	Entità clinica definita da un'alterazione della normale morfologia derivante da un'anomalia di sviluppo che coinvolge un singolo settore morfogenetico. 
 377793	condizione clinica particolare in una malattia o in una sindrome	Entità clinica definita da un insieme di anomalie fenotipiche che si verificano in particolari circostanze.
-377792	sindrome	Entità clinica definita da un insieme di anomalie fenotipiche con evoluzione omogenea e possibilità terapeutiche omogenee, indipendentemente dal meccanismo fisiopatologico. 
+377792	sindrome clinica	Entità clinica definita da un insieme di anomalie fenotipiche con evoluzione omogenea e possibilità terapeutiche omogenee, indipendentemente dal meccanismo fisiopatologico. 
 377796	sottotipo clinico	Suddivisione di una malattia, sindrome malformativa, anomalia morfologica, anomalia biologica, sindrome clinica o particolare situazione clinica in una malattia o una sindrome ulteriormente definita dalla sua particolare presentazione clinica. 
 377797	sottotipo istopatologico	Suddivisione di una malattia, sindrome malformativa, anomalia morfologica, anomalia biologica, sindrome clinica o particolare situazione clinica in una malattia definita dalle anomalie istologiche nei tessuti interessati. 
 C009	geografia	Si riferisce a un paese, a un continente o al mondo intero.
@@ -76,10 +76,10 @@ C010	materiale genetico	Sequenza di DNA o RNA (gene con prodotto proteico, RNA n
 317348	parte di un gene di fusione in	Una sequenza di DNA codificante o regolatoria di un gene che si è fusa con un'altra sequenza codificante e / o regolatoria del DNA di un gene diverso.
 317349	ruolo maggiore nel fenotipo di	Un gene incluso in un riarrangiamento cromosomico, che ha dimostrato di avere un ruolo maggiore sul fenotipo correlato al riarrangiamento cromosomico. 
 C040	ha una localizzazione cromosomica	Relazione tra un gene con un prodotto proteico, un RNA non codificante o un locus associato al disturbo e la sua posizione citogenetica sul cromosoma.
-ObsoleteClass	obsoleto	ORPHA number cancellato dalla nomenclatura di Orphanet delle malattie rare. Include entità deprecate, che erano ritenute entità cliniche uniche nel passato ma ora considerate, grazie all'evoluzione delle conoscenze, parte di un'altra entità clinica.
+ObsoleteClass	classe obsoleta	ORPHA number cancellato dalla nomenclatura di Orphanet delle malattie rare. Include entità deprecate, che erano ritenute entità cliniche uniche nel passato ma ora considerate, grazie all'evoluzione delle conoscenze, parte di un'altra entità clinica.
 C021	parte_di/della	Relazione tra due condizioni, una delle quali include l'altra. Es: sottotipo clinico parte della malattia.
 ECO_0000205	curator_inference	NA
 ECO_0000218	manual_assertion	NA
-with_label	with label	 with label: 
-deprecated	depracated	This class is deprecated. The preferred class is 
-use	use	use 
+with_label	con etichetta	 con etichetta:
+deprecated	deprecata	Questa classe è stata deprecata. La classe preferenziale è 
+use	uso	uso
