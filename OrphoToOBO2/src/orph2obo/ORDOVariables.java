@@ -10,6 +10,7 @@ public class ORDOVariables {
   	static public String dateOfCreation   = "2013-06-20T12:00:00";
   	static public String licensePrefixIRI = "https://creativecommons.org/licenses/";
   	static public String licenseClassIRI  = "by/4.0/";
+  	static public String licenceLabel     = "CC BY 4.0";
   	//static public String licenseIRI     = "https://creativecommons.org/licenses/by/4.0/";
   	
   	
