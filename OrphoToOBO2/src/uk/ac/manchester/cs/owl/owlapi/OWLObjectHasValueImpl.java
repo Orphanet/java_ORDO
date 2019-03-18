@@ -64,24 +64,24 @@ public class OWLObjectHasValueImpl extends
         this.property = checkNotNull(property, "property cannot be null");
     }
 
-    @Override
+
     public void addSignatureEntitiesToSet(Set<OWLEntity> entities) {
         addSignatureEntitiesToSetForValue(entities, property);
         addSignatureEntitiesToSetForValue(entities, value);
     }
 
-    @Override
+
     public void addAnonymousIndividualsToSet(Set<OWLAnonymousIndividual> anons) {
         addAnonymousIndividualsToSetForValue(anons, property);
         addAnonymousIndividualsToSetForValue(anons, value);
     }
 
-    @Override
+
     public OWLObjectPropertyExpression getProperty() {
         return property;
     }
 
-    @Override
+
     public ClassExpressionType getClassExpressionType() {
         return ClassExpressionType.OBJECT_HAS_VALUE;
     }
@@ -110,18 +110,17 @@ public class OWLObjectHasValueImpl extends
         return value.compareTo(other.getFiller());
     }
 
-    @Override
+
     public boolean isObjectRestriction() {
         return true;
     }
 
-    @Override
+
     public boolean isDataRestriction() {
         return false;
     }
 
     @Nonnull
-    @Override
     @Deprecated
     public OWLClassExpression asSomeValuesFrom() {
         return new OWLObjectSomeValuesFromImpl(
@@ -129,22 +128,22 @@ public class OWLObjectHasValueImpl extends
                 new OWLObjectOneOfImpl(CollectionFactory.createSet(getFiller())));
     }
 
-    @Override
+
     public void accept(OWLClassExpressionVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLClassExpressionVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }

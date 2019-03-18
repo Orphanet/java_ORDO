@@ -44,12 +44,11 @@ public class OWLXMLParser extends AbstractOWLParser {
         return "OWLXMLParser";
     }
 
-    @Override
+
     public OWLDocumentFormatFactory getSupportedFormat() {
         return new OWLXMLDocumentFormatFactory();
     }
 
-    @Override
     public OWLDocumentFormat parse(OWLOntologyDocumentSource documentSource,
             OWLOntology ontology, OWLOntologyLoaderConfiguration configuration)
             throws IOException {

@@ -51,7 +51,6 @@ public class OWLIrreflexiveObjectPropertyAxiomImpl extends
     }
 
     @Nonnull
-    @Override
     public OWLIrreflexiveObjectPropertyAxiom getAxiomWithoutAnnotations() {
         if (!isAnnotated()) {
             return this;
@@ -60,14 +59,14 @@ public class OWLIrreflexiveObjectPropertyAxiomImpl extends
                 NO_ANNOTATIONS);
     }
 
-    @Override
+
     public OWLIrreflexiveObjectPropertyAxiom getAnnotatedAxiom(
             Set<OWLAnnotation> annotations) {
         return new OWLIrreflexiveObjectPropertyAxiomImpl(getProperty(),
                 mergeAnnos(annotations));
     }
 
-    @Override
+
     public OWLSubClassOfAxiom asOWLSubClassOfAxiom() {
         return new OWLSubClassOfAxiomImpl(OWL_THING,
                 new OWLObjectComplementOfImpl(new OWLObjectHasSelfImpl(
@@ -85,27 +84,27 @@ public class OWLIrreflexiveObjectPropertyAxiomImpl extends
         return obj instanceof OWLIrreflexiveObjectPropertyAxiom;
     }
 
-    @Override
+
     public void accept(OWLAxiomVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public void accept(OWLObjectVisitor visitor) {
         visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLAxiomVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public <O> O accept(OWLObjectVisitorEx<O> visitor) {
         return visitor.visit(this);
     }
 
-    @Override
+
     public AxiomType<?> getAxiomType() {
         return AxiomType.IRREFLEXIVE_OBJECT_PROPERTY;
     }

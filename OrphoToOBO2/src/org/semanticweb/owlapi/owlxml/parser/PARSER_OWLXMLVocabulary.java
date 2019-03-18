@@ -150,7 +150,7 @@ enum PARSER_OWLXMLVocabulary implements HasIRI {
         shortName = name.getShortForm();
     }
 
-    @Override
+
     public IRI getIRI() {
         return iri;
     }

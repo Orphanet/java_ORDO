@@ -147,7 +147,7 @@ public enum OWLXMLVocabulary implements HasShortForm, HasIRI, HasPrefixedName {
         prefixedName = Namespaces.OWL.getPrefixName() + ':' + name;
     }
 
-    @Override
+
     public IRI getIRI() {
         return iri;
     }
@@ -165,12 +165,12 @@ public enum OWLXMLVocabulary implements HasShortForm, HasIRI, HasPrefixedName {
         }
     }
 
-    @Override
+
     public String getShortForm() {
         return shortName;
     }
 
-    @Override
+
     public String getPrefixedName() {
         return prefixedName;
     }
