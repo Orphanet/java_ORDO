@@ -33,6 +33,12 @@ public class ChangeLog {
 		 * 
 		 */
 		
+		/*
+		prevFile = "/Users/sdemarest.BROUSSAIS/git/java_ORDO_origine/OrphoToOBO2/HOOM/HOOM_en_1.1.owl";
+		newFile = "/Users/sdemarest.BROUSSAIS/git/java_ORDO_origine/OrphoToOBO2/HOOM/HOOM_en_1.2.owl";
+		changeLogFile = "C:\\Users\\sdemarest.BROUSSAIS\\git\\java_ORDO_origine\\OrphoToOBO2\\HOOM\\testChangelog";
+		*/
+		
 		System.setOut(defaultOut);
 		
 		if(args.length>2){
