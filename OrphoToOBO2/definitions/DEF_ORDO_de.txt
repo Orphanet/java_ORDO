@@ -14,10 +14,10 @@ C004	Prävalenz	Anzahl der Fälle, die auf die allgemeine Bevölkerung zu einem 
 409976	1-9 / 1 000 000	Intervall der Prävalenz oder jährlichen Inzidenz von 1 bis 9 Fällen pro 1,000,000 Einwohner.
 409979	<1 / 1 000 000	Intervall der Prävalenz oder jährliche Inzidenz von weniger als 1 Fall pro 1.000.000 Einwohner.
 409981	ongekend_epidemiologisch_bereik	Er is geen informatie beschikbaar in de wetenschappelijke literatuur over prevalentie of jaarlijkse incidentie.
-C025	has_point_prevalence_range	Verhältnis zwischen klinischer Entität und Punktprävalenzbereich.
-C020	has_annual_incidence_range	Verhältnis zwischen klinischer Entität und jährlichem Inzidenzintervall.
-C026	has_birth_prevalence_range	Verhältnis zwischen klinischer Entität und Geburtsprävalenzbereich.
-C027	has_lifetime_prevalence_range	Verhältnis zwischen klinischer Entität und Lebenszeitprävalenz.
+C025	hat_einen_Punktprävalenzbereich	Verhältnis zwischen klinischer Entität und Punktprävalenzbereich.
+C020	hat_eine_jährliche_Inzidenzspanne	Verhältnis zwischen klinischer Entität und jährlichem Inzidenzintervall.
+C026	hat_eine_Geburtsprävalenzspanne	Verhältnis zwischen klinischer Entität und Geburtsprävalenzbereich.
+C027	hat_eine_lebenslange_Prävalenzspanne	Verhältnis zwischen klinischer Entität und Lebenszeitprävalenz.
 C024	has_cases/families_average_value	Verhältnis zwischen klinischer Entität und Anzahl der Fälle/Familien.
 C028	has_point_prevalence_average_value	Verhältnis zwischen der klinischen Entität und dem Mittelwert ihrer Punktprävalenz.
 C032	has_annual_incidence_average_value	Verhältnis zwischen der klinischen Entität und dem Mittelwert ihrer Jahresinzidenz.
@@ -36,7 +36,7 @@ C005	Vererbung	Muster, in dem eine klinische Entität genetischen Ursprungs an d
 409940	geen gegevens over erfelijkheid beschikbaar	Er is geen informatie beschikbaar in de wetenschappelijke literatuur over de erfelijkheid van de klinische entiteit.
 409941	nicht-genetisch vererbt	Klinische Entität ohne genetische Vererbung.
 409939	ongekende overerving	Erfelijke klinische entiteit waarvan de manier van overerving niet gekend is.
-C016	has_inheritance	Beziehung zwischen einer klinischen Entität und Vererbungsmodi.
+C016	hat_eine_Vererbung	Beziehung zwischen einer klinischen Entität und Vererbungsmodi.
 C023	Manifestationsalter	Alter des Beginns der klinischen Manifestationen im Verhältnis zu einer klinischen Entität.
 409943	pränatal	Vor der Geburt
 409944	neonatal	Von der Geburt bis zur vierten Lebenswoche.
@@ -47,7 +47,7 @@ C023	Manifestationsalter	Alter des Beginns der klinischen Manifestationen im Ver
 409949	älter	Nach 65 Jahren.
 409950	Alle Altersklassen	Von der Geburt bis zum Erwachsenenalter ohne Präferenz des Manifestationszeitpunktes.
 409951	geen gegevens over aanvangsleeftijd beschikbaar	Er is geen informatie beschikbaar in de wetenschappelijke literatuur over de aanvangsleeftijd van de eerste klinische manifestaties.
-C017	has_age_of_onset	Verhältnis zwischen klinischer Entität und Alter des Auftretens.
+C017	hat_ein_beginnendes_Alter	Verhältnis zwischen klinischer Entität und Alter des Auftretens.
 C001	Klinische Entität	Eine Reihe von phänotypischen Anomalien. 
 377794	Gruppe der Störung 	Klinische Entität, definiert durch eine Reihe von phänotypischen Anomalien, die von mehreren Krankheiten, Fehlbildungen oder klinischen Syndromen, morphologischen oder biologischen Anomalien und besonderen klinischen Situationen bei einer Krankheit oder einem Syndrom geteilt werden und dazu verwendet werden, sie zusammenzufassen.
 377795	ätiologischer Subtyp	Unterteilung einer Krankheit, einer Fehlbildungssyndroms, einer morphologischen Anomalie, einer biologischen Anomalie oder einer bestimmten klinischen Situation einer Krankheit oder eines Syndroms, das durch seine Ätiologie näher definiert ist. 
@@ -81,5 +81,5 @@ ObsoleteClass	obsolete	ORPHA-Nummer aus der Orphanet-Nomenklatur der seltenen Kr
 ECO_0000205	curator_inference	NA
 ECO_0000218	manual_assertion	NA
 with_label	with label	 met label:
-deprecated	depracated	Deze klasse is achterhaald. De voorkeursklasse is
+deprecated	deprecated	Deze klasse is achterhaald. De voorkeursklasse is
 use	use	gebruik 

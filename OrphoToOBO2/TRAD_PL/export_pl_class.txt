@@ -1,0 +1,97 @@
+idClassification	HchId	ORPHA	LblEN	LblLNG	Lng	LastUpd	LastUpdTrad	User
+1	4	117285	Panel classif	Klasyfikacja panelowa	pl	2016-03-21 10:45:00	2018-04-12 16:57:00	dkarczma	
+3	40	117357	Classification of rare cardiac diseases (Functional)	Klasyfikacja rzadkich chorób serca (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+5	41	117359	Classification of rare gastroenterologic diseases (Functional)	Klasyfikacja rzadkich chorób gastroenterologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+7	42	117361	Classification of rare surgical digestive diseases (Functional)	Klasyfikacja rzadkich chorób układu pokarmowego poddawanych operacjom chirurgicznym (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+9	43	117363	Classification of rare hepatic diseases (Functional)	Klasyfikacja rzadkich chorób wątroby (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+11	44	117365	Classification of rare respiratory diseases (Functional)	Klasyfikacja rzadkich chorób układu oddechowego (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+13	45	117367	Classification of rare surgical thoracic diseases (Functional)	Klasyfikacja rzadkich chorób klatki piersiowej poddawanych operacjom chirurgicznym (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+15	46	117369	Classification of rare surgical cardiac diseases (Functional)	Klasyfikacja rzadkich chorób serca poddawanych operacjom chirurgicznym (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+17	47	117371	Classification of rare skin diseases (Functional)	Klasyfikacja rzadkich chorób skóry (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+19	48	117373	Classification of rare eye diseases (Functional)	Klasyfikacja rzadkich chorób oczu (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+21	49	117375	Classification of rare renal diseases (Functional)	Klasyfikacja rzadkich chorób nerek (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+23	50	117377	Classification of rare uro-genital diseases (Functional)	Klasyfikacja rzadkich chorób układu moczowo-płciowego (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+25	51	117379	Classification of rare endocrine diseases (Functional)	Klasyfikacja rzadkich chorób endokrynologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+27	52	117381	Classification of rare haematologic diseases (Functional)	Klasyfikacja rzadkich chorób hematologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+29	53	117383	Classification of rare immune diseases (Functional)	Klasyfikacja rzadkich chorób immunologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+31	54	117385	Classification of rare neurologic diseases (Functional)	Klasyfikacja rzadkich chorób neurologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+33	55	117387	Classification of rare metabolic diseases (Functional)	Klasyfikacja rzadkich chorób metabolicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+35	56	117389	Classification of rare systemic and rheumatologic diseases (Functional)	Klasyfikacja rzadkich chorób układowych i reumatologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+37	57	117391	Classification of rare odontologic diseases (Functional)	Klasyfikacja rzadkich chorób stomatologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+39	58	117393	Classification of rare circulatory system diseases (Functional)	Klasyfikacja rzadkich chorób układu krążenia (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+41	59	117395	Classification of rare diseases in anesthesiology (Functional)	Klasyfikacja rzadkich chorób w anestezjologii (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+43	61	117399	Classification of rare bone diseases (Functional)	Klasyfikacja rzadkich chorób kości (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+45	62	117401	Classification of rare otorhinolaryngological diseases (Functional)	Klasyfikacja rzadkich chorób otorynolaryngologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+47	63	117403	Classification of rare developmental defect during embryogenesis (Functional)	Klasyfikacja rzadkich wad rozwojowych podczas embriogenezy (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+49	64	117405	Classification of rare infertility disorders (Functional)	Klasyfikacja rzadkich zaburzeń płodności (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+51	65	117407	Classification of rare gynecological diseases (Functional)	Klasyfikacja rzadkich chorób ginekologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+53	66	117409	Classification of teratologic disorders (Functional)	Klasyfikacja rzadkich chorób teratologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+55	67	117411	Classification of rare allergic diseases (Functional)	Klasyfikacja rzadkich chorób alergicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+57	68	117413	Classification of rare genetic diseases (Functional)	Klasyfikacja rzadkich chorób genetycznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+59	69	117415	Classification of rare neoplastic diseases (Functional)	Klasyfikacja rzadkich chorób nowotworowych (Funkcjonalna)	pl	2016-04-14 11:59:00	2018-04-12 16:57:00	dkarczma	
+61	71	117419	Classification of rare surgical neurologic diseases (Functional)	Klasyfikacja rzadkich chorób neurologicznych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+63	72	117421	Classification of rare diseases in plastic and reconstructive surgery (Functional)	Klasyfikacja rzadkich chorób  podlegających operacjom plastycznym i rekonstrukcyjnym (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+65	73	117423	Classification of rare surgical orthopaedic diseases (Functional)	Klasyfikacja rzadkich chorób ortopedycznych podlegających operacjom chirurgicznym  (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+67	74	117425	Classification of rare infectious diseases (Functional)	Klasyfikacja rzadkich chorób zakaźnych (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+69	75	117427	Classification of rare disorders due to toxic effects (Functional)	Klasyfikacja rzadkich zatruć (Funkcjonalna)	pl	2019-02-20 09:55:00	2018-04-12 16:57:00	dkarczma	
+71	112	117592	Classification of elsewhere unclassified rare diseases (Functional)	Klasyfikacja rzadkich chorób niesklasyfikowanych w innym miejscu  (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+73	131	140688	Classification of iron overload diseases	Klasyfikacja chorób z przeładowania żelazem	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+75	132	140691	Molecular classification of channelopathies	Klasyfikacja molekularna kanałopatii	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+77	133	140694	Neurological channelopathies	Kanałopatie neurologiczne	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+79	134	155715	Classification dedicated to RCH resources uncovered otherwise	Klasyfikacja poświęcona projektom badawczym niesklasyfikowanym w inny sposób	pl	2015-10-07 09:41:00	2018-04-12 16:57:00	dkarczma	
+81	140	156045	Molecular genetic classification of ichthyoses	Klasyfikacja molekularna rybiej łuski	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+83	141	156048	Classification of laminopathies	Klasyfikacja laminopatii	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+85	145	156258	Classification of tauopathies	Klasyfikacja tautopatii	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+87	146	156265	Orphanet classification of rare cardiac diseases	Klasyfikacja Orphanetu rzadkich chorób serca	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+89	147	156268	Orphanet classification of rare developmental anomalies during embryogenesis	Klasyfikacja Orphanetu rzadkich wad rozwojowych podczas embriogenezy	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+91	148	156271	Orphanet classification of rare cardiac malformations	Klasyfikacja Orpanetu rzadkich wad serca	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+93	149	156446	Orphanet classification of rare sucking/swallowing disorders	Klasyfikacja zaburzeń ssania/połykania	pl	2019-03-26 16:31:00	2018-04-12 16:57:00	dkarczma	
+95	150	156449	Orphanet classification of rare inborn errors of metabolism	Klasyfikacja Orphanetu rzadkich wad metabolicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+97	151	156529	Classification of ciliopathies	Klasyfikacja ciliopatii	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+99	152	156557	Orphanet classification of rare gastroenterological diseases	Klasyfikacja Orphanetu rzadkich chorób gastroenterologicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+101	156	158293	Orphanet classification of rare genetic diseases	Klasyfikacja Orphanetu rzadkich chorób genetycznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+103	157	158731	Molecular classification of autosomal dominant cerebellar ataxias	Klasyfikacja molekularna autosomalnych dominujących ataksji móżdżkowych	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+105	160	158743	Physiopathological classification of congenital muscular dystrophies	Klasyfikacja patofizjologiczna wrodzonych dystrofii mięśniowych	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+107	181	162508	Orphanet classification of rare neurological diseases	Klasyfikacja Orphanetu rzadkich chorób neurologicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+109	182	162647	Orphanet classification of rare abdominal surgical diseases	Klasyfikacja Orphanetu chorób jamy brzusznej poddawanych operacjom chirurgicznym	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+111	183	162651	Orphanet classification of rare hepatic diseases	Klasyfikacja Orphanetu rzadkich chorób wątroby	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+113	184	162655	Orphanet classification of rare respiratory diseases	Klasyfikacja Orphanetu rzadkich chorób układu oddechowego	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+115	185	162706	Orphanet classification of rare urogenital diseases	Klasyfikacja Orphanetu rzadkich chorób układu moczowo-płciowego	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+117	186	162709	Orphanet classification of rare surgical thoracic diseases	Klasyfikacja Orphanetu rzadkich chorób klatki piersiowej poddawanych operacjom chirurgicznym	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+119	187	162712	Orphanet classification of rare skin diseases	Klasyfikacja Orphanetu rzadkich chorób skóry	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+121	188	162715	Orphanet classification of rare renal diseases	Klasyfikacja Orphanetu rzadkich chorób nerek	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+123	189	162718	Orphanet classification of rare ophthalmic disorders	Klasyfikacja Orphanetu rzadkich chorób oczu	pl	2018-09-10 09:36:00	2018-04-12 16:57:00	dkarczma	
+125	190	162772	Clinical classification of X-linked mental retardation	Klasyfikacja kliniczna niepełnosprawności intelektualnej sprzężonej z chromosomem X	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+127	192	162778	Classification of pediatric metabolic diseases		pl	2013-05-28 16:06:00		hanauer	
+129	193	162946	Orphanet classification of rare endocrine diseases	Klasyfikacja Orphanetu rzadkich chorób endokrynologicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+131	194	162949	Orphanet classification of rare hematological diseases	Klasyfikacja Orphanetu rzadkich chorób hematologicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+133	195	162952	Orphanet classification of rare immunological diseases	Klasyfikacja Orphanetu rzadkich chorób immunologicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+135	196	162955	Orphanet classification of rare systemic and rheumatological diseases	Klasyfikacja Orphanetu rzadkich chorób układowych i reumatologicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+137	197	162958	Orphanet classification of rare odontological diseases	Klasyfikacja Orphanetu rzadkich chorób stomatologicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+139	198	162961	Orphanet classification of rare circulatory system diseases	Klasyfikacja Orphanetu rzadkich chorób układu krążenia	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+141	199	162964	Orphanet classification of rare bone diseases	Klasyfikacja Orphanetu rzadkich chorób kości	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+143	200	162967	Orphanet classification of rare otorhinolaryngological diseases	Klasyfikacja Orphanetu rzadkich chorób otorynolaryngologicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+145	201	162970	Orphanet classification of rare infertility disorders	Klasyfikacja Orphanetu rzadkich zaburzeń płodności	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+147	202	162973	Orphanet classification of rare neoplastic diseases	Klasyfikacja Orphanetu rzadkich chorób nowotworowych	pl	2016-04-14 11:59:00	2018-04-12 16:57:00	dkarczma	
+149	203	162976	Orphanet classification of rare infectious diseases	Klasyfikacja Orphanetu rzadkich chorób zakaźnych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+151	204	162979	Orphanet classification of rare disorders due to toxic effects	Klasyfikacja Orphanetu rzadkich zatruć	pl	2018-09-28 11:46:00	2018-04-12 16:57:00	dkarczma	
+153	205	162982	Orphanet classification of rare gynecological and obstetric diseases	Klasyfikacja Orphanetu rzadkich chorób giekologicznych i położniczych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+155	209	164019	Orphanet classification of rare surgical maxillo-facial diseases	Klasyfikacja Orphanetu rzadkich chorób szczęki i twarzy podlegających operacjom	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+157	210	164022	Classification of rare maxillo-facial surgical diseases (Functional)	Klasyfikacja chorób szczęki i twarzy podlegających operacjom (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+159	212	164832	Orphanet classification of rare allergic disease	Klasyfikacja Orphanetu rzadkich chorób alergicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+161	215	167771	Classification on sucking/swallowing disorders (Functional)	Klasyfikacja zaburzeń ssania/połykania (Funkcjonalna)	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+163	216	168923	Orphanet classification of rare teratologic disorders	Klasyfikacja Orphanetu rzadkich zaburzeń teratologicznych	pl	2014-07-24 09:59:00	2018-04-12 16:57:00	dkarczma	
+165	219	172988	Morphological classification of congenital myopathies	Klasyfikacja morfologiczna miopatii wrodzonych	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+167	220	183858	Classification of Orphanet non-rare disease (Functional)	Klasyfikacja Orphanetu chorób nie będących chorobami rzadkimi	pl	2017-01-18 16:32:00	2018-04-12 16:57:00	dkarczma	
+169	222	211123	Classification of Charcot-Marie-Tooth (CMT) diseases	Klasyfikacja chorób Charcota, Mariego i Tootha (CMT)	pl	2017-12-06 09:36:00	2018-04-12 16:57:00	dkarczma	
+171	223	214053	CEMARA thesaurus of rare gynecological diseases	Tezaurus CEMARA rzadkich chorób ginekologicznych	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+173	224	215685	CEMARA thesaurus of rare renal diseases	Tezaurus CEMARA rzadkich chorób nerek	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+175	225	215761	CEMARA thesaurus of neuromuscular diseases	Tezaurus CEMARA rzadkich chorób nerwowo-mięśniowych	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+177	226	216208	CEMARA thesaurus of rare growth diseases and sex development disorders	Tezaurus CEMARA rzadkich chorób zaburzeń wzrostu i rozwoju płci	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+179	227	231954	Classification of disorders associated with a genetic susceptibility or tested for a biomarker (functional)	Klasyfikacja chorób związanych z podatnościa genetyczną (funkcjonalna)	pl	2017-11-24 17:58:00	2018-04-12 16:57:00	dkarczma	
+181	228	250814	Classification of serpinopathies	Klasyfikacja serpinopatii	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+183	229	264503	Orphanet classification of chromosomal anomalies sorted by chromosomes	Klasyfikacja anomalii chromosomowych uporządkowanych według chromosomów	pl	2019-02-22 13:58:00	2018-04-12 16:57:00	dkarczma	
+185	230	280279	Classification of rare diseases	Klasyfikacja rzadkich chorób	pl	2017-07-25 11:32:00	2018-04-12 16:57:00	dkarczma	
+187	231	280338	Orphanet classification of rare systemic or rheumatologic diseases of childhood	Klasyfikacja Orphanetu rzadkich dziecięcych chorób reumatologicznych	pl	2017-06-23 15:14:00	2018-04-12 16:57:00	dkarczma	
+189	232	320713	Orphanet classification of rare disorders	Klasyfikacja Orphanetu rzadkich zaburzeń	pl	2013-05-28 16:06:00	2018-04-12 16:57:00	dkarczma	
+199	233	506203	Orphanet classification of rare disorders potentially indicated for transplant		pl	2019-02-01 16:30:00		emaxime	

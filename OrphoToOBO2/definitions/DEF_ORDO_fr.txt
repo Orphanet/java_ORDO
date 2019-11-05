@@ -80,6 +80,6 @@ C032	a_une_valeur_moyenne_d_incidence_annuelle	Relation entre l'entité clinique
 409981	Tranche_épidémiologique_Inconnue	Absence d'information dans la littérature scientifique permettant de renseigner la prévalence ou l'incidence annuelle.
 ECO_0000205	curator_inference	NA
 ECO_0000218	manual_assertion	NA
-deprecated	depracated	Cette classe est dépréciée. La classe préférée est 
+deprecated	deprecated	Cette classe est dépréciée. La classe préférée est 
 use	use	utiliser 
 with_label	with label	 avec le libellé: 

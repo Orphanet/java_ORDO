@@ -23,9 +23,31 @@ public class ChangeLog {
     public static void main(String[] args) throws Ontology1LoadException, Ontology2LoadException {
     	FileOutputStream f;
 		PrintStream defaultOut =  System.out;
-		String prevFile      = "/OrphoToOBO2/ORDO_"+ORDOVariables.lang+"_"+ORDOVariables.prevVersion+".owl";
-		String newFile       = "/OrphoToOBO2/ORDO_"+ORDOVariables.lang+"_"+ORDOVariables.version+".owl";
-		String changeLogFile = "C:\\OrphoToOBO2\\bubastis_change_log_ORDO_"+ORDOVariables.lang+"_"+ORDOVariables.version+"_"+ORDOVariables.prevVersion;
+		//Samuel
+		//String prevFile      = "/OrphoToOBO2/ORDO_"+ORDOVariables.lang+"_"+ORDOVariables.prevVersion+".owl";
+		//String newFile       = "/OrphoToOBO2/ORDO_"+ORDOVariables.lang+"_"+ORDOVariables.version+".owl";
+		//String changeLogFile = "C:\\OrphoToOBO2\\bubastis_change_log_ORDO_"+ORDOVariables.lang+"_"+ORDOVariables.version+"_"+ORDOVariables.prevVersion;
+		
+		
+		//David
+		
+		String prevFile      = "/home/genordo/Work/ORDO/ORDO_"+ORDOVariables.lang+"_"+ORDOVariables.prevVersion+".owl";
+		String newFile       = "/home/genordo/Work/ORDO/ORDO_"+ORDOVariables.lang+"_"+ORDOVariables.version+".owl";
+		String changeLogFile = "/home/genordo/Work/bubastis_change_log_ORDO_"+ORDOVariables.lang+"_"+ORDOVariables.version+"_"+ORDOVariables.prevVersion;
+		
+		
+		
+		/*
+		//HOOM
+		String prevFile      = "/home/genordo/Desktop/hoom_orphanet_"+ORDOVariables.lang+"_"+ORDOVariables.prevVersion+".owl";
+		String newFile       = "/home/genordo/Desktop/hoom_orphanet_"+ORDOVariables.lang+"_"+ORDOVariables.version+".owl";
+		String changeLogFile = "/home/genordo/Desktop/hoom_orphanet_change_log_"+ORDOVariables.lang+"_"+ORDOVariables.version+"_"+ORDOVariables.prevVersion;
+		*/
+		
+		
+		
+		
+		
 		/* prev version : "file:/OrphoToOBO2/ORDO_"+Conf.lang+"_"+Conf.prevVersion+".owl"
 		 * new version :  "file:/OrphoToOBO2/"+product+"_"+Conf.lang+"_"+Conf.version+".owl"
 		 * txt output "C:\\OrphoToOBO2\\bubastis_change_log_"+product+"_"+Conf.lang+"_"+Conf.version+"_"+Conf.prevVersion+".txt"
@@ -63,6 +85,7 @@ public class ChangeLog {
 		bubastis.doFindAllChanges("file:"+prevFile,"file:"+newFile);
 		bubastis.writeDiffAsXMLFile(changeLogFile+".xml");
 		System.setOut(defaultOut);
+		System.out.println("Process finished.");
 		System.out.println("Exit program after saving Change Log");
     }
 }

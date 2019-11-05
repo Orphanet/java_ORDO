@@ -44,7 +44,7 @@ C023	age of onset	Age of onset of clinical manifestations related to a clinical 
 409946	childhood	From 2 to 11 years.
 409947	adolescent	From 12 to 18 years.
 409948	adult	From 19 to 65 years.
-409949	ederly	After 65 years.
+409949	eldery	After 65 years.
 409950	all ages	From birth to adulthood without peak of onset.
 409951	no age of onset data available	No information is available in the scientific literature on the age of onset of the first clinical manifestations.
 C017	has_age_of_onset	Relationship between clinical entity and age of onset.
@@ -59,6 +59,7 @@ C001	clinical entity	A set of phenotypic abnormalities.
 377792	clinical syndrome	Clinical entity defined by a set of phenotypic abnormalities with a homogeneous evolution and homogeneous therapeutic possibilities, regardless of the physiopathological mechanism. 
 377796	clinical subtype	Subdivision of a disease, malformation syndrome, morphological anomaly, biological anomaly, clinical syndrome or particular clinical situation in a disease or a syndrome further defined by its particular clinical presentation. 
 377797	histopathological subtype	Subdivision of a disease, malformation syndrome, morphological anomaly, biological anomaly, clinical syndrome or particular clinical situation in a disease defined by the histological abnormalities in affected tissues. 
+557495	category	Group with limited common features of which the use is limited to organising the Orphanet classifications.
 C009	geography	Refers to a country, a continent or the whole world.
 C022	present_in	Relationship between a clinical entity and the geographical area for which epidemiological data (Epidemiology) is available.
 C010	genetic material	DNA or RNA sequence (gene with protein product, non-coding RNA and disorder-associated locus).
@@ -81,5 +82,5 @@ C021	part_of	Relation between two clinical entities, one being included in the o
 ECO_0000205	curator_inference	NA
 ECO_0000218	manual_assertion	NA
 with_label	with label	 with label: 
-deprecated	depracated	This class is deprecated. The preferred class is 
+deprecated	deprecated	This class is deprecated. The preferred class is 
 use	use	use 

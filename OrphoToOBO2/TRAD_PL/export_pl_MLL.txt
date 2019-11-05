@@ -1,0 +1,776 @@
+idMLL	id	Type	Sub	Ori	LblEN	LblLNG	LastUpd	LastUpdTrad	User	Lng
+1	9	Cvg	Nnn	TbAct	Regional	Regionalny	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+3	15	Cvg	Nnn	TbAct	European	Europejski	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+5	21	Cvg	Nnn	TbAct	Global	Globalny	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+7	30	Eta	Prd	TbAct	Marketing authorization without orphan designation	Dopuszczony do obrotu bez desygnacji sierocej	2009-10-01 10:53:00	2018-04-12	dkarczma	pl	
+9	36	Eta	Prd	TbAct	Marketing authorisation withdrawn	Dopuszczenie do obrotu wycofane	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+11	42	Eta	Prd	TbAct	Compassionate use	Humanitarne stosowanie leku	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+13	48	Phs	Nnn	TbAct	I	I	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+15	54	Phs	Nnn	TbAct	I - II	I - II	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+17	60	Phs	Nnn	TbAct	II	II	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+19	66	Phs	Nnn	TbAct	II - III	II - III	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+21	72	Phs	Nnn	TbAct	III	III	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+23	84	Phs	Nnn	TbAct	IV	IV	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+25	90	Phs	Nnn	TbAct	bioequivalence	biorównoważność	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+27	96	Rct	Nnn	TbAct	yes	tak	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+29	102	Rct	Nnn	TbAct	no	nie	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+31	108	Rct	Nnn	TbAct	unknown	nieznany	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+33	211	Abs	Abs	TbPatTxt	Abstract	Abstrakt/Streszczenie	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+35	218	Txt	Gen	TbPatTxt	Practical genetics	Genetyka w praktyce	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+37	226	Txt	Pub	TbPatTxt	Article for general public	Artykuł dla ogółu społeczeństwa	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+39	232	Gnr	Nnn	TbPrs	Male	Mężczyzna	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+41	238	Gnr	Nnn	TbPrs	Female	Kobieta	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+43	244	Gnr	Nnn	TbPrs	unknown	nieznany	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+45	250	Ttl	Nnn	TbPrs	Dr	Dr	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+47	256	Ttl	Nnn	TbPrs	Pr	Prof.	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+49	262	Ttl	Nnn	TbPrs	unknown	nieznany	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+51	268	Sta	Nnn	TbQlt	on-going	trwa	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+53	274	Sta	Nnn	TbQlt	effective	efektywny	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+55	280	Typ	Acc	TbQlt	Accreditation	Akredytacja	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+57	288	Typ	Lic	TbQlt	Licensing		2009-09-19 22:27:00		BUedit	pl	
+59	294	Lic	Nnn	TbQlt	Licensing for prenatal testing in haematology		2012-02-24 09:53:00		hanauer	pl	
+61	300	Lic	Nnn	TbQlt	Licensing for prenatal testing in immunology		2012-02-24 09:53:00		hanauer	pl	
+63	306	Lic	Nnn	TbQlt	Licensing for prenatal testing in cytogenetics		2012-02-24 09:53:00		hanauer	pl	
+65	312	Lic	Nnn	TbQlt	Licensing for prenatal testing in biochemistry		2012-02-24 09:53:00		hanauer	pl	
+67	318	Lic	Nnn	TbQlt	Licensing for preimplantation testing in cytogenetics		2012-02-24 09:53:00		hanauer	pl	
+69	324	Lic	Nnn	TbQlt	Licensing for prenatal testing in molecular genetics		2012-02-24 09:53:00		hanauer	pl	
+71	330	Lic	Nnn	TbQlt	Licensing for molecular genetics testing		2012-02-24 09:53:00		hanauer	pl	
+73	336	Lic	Nnn	TbQlt	Licensing for preimplantation testing in molecular genetics		2012-02-24 09:53:00		hanauer	pl	
+75	342	Lic	Nnn	TbQlt	Licensing for constitutional cytogenetics testing		2012-02-24 09:53:00		hanauer	pl	
+77	348	Lic	Nnn	TbQlt	Licensing for prenatal testing of infectious diseases		2012-02-24 09:53:00		hanauer	pl	
+79	354	Lic	Nnn	TbQlt	Licensing for trisomy 21 markers screening		2012-02-24 09:53:00		hanauer	pl	
+81	360	Lic	Nnn	TbQlt	Licensing for sampling for preimplantation testing		2012-02-24 09:53:00		hanauer	pl	
+83	366	Com	Nnn	TbSit	Additional information on the disease	Dodatkowe informacje na temat choroby	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+85	372	Com	Nnn	TbSit	Information on the disease and on related diseases	Informacje o chorobie i chorobach pokrewnych	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+87	378	Com	Nnn	TbSit	Iconography	Ikonografia	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+89	384	Com	Nnn	TbSit	Radiologic images	Badania radiologiczne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+91	390	Com	Nnn	TbSit	Clinical database/mutation database	Kliniczna baza danych/baza danych mutacji	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+93	396	Com	Nnn	TbSit	Epidemiological data	Dane epidemiologiczne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+95	402	Com	Nnn	TbSit	Best practice guidelines	Wytyczne dobrej praktyki	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+97	408	Com	Nnn	TbSit	Training course/ material	Kurs/ materiały szkoleniowe	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+99	414	Com	Nnn	TbSit	Clinical case studies	Analiza przypadków klinicznych	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+101	420	Com	Nnn	TbSit	Medical and social support	Wsparcie medyczne i społeczne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+103	426	Com	Nnn	TbSit	Contact with other patients/families	Kontakt z innymi pacjentami/rodzinami	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+105	432	Com	Nnn	TbSit	Portal to access relevant websites	Dostęp do odpowiednich stron	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+107	438	Com	Nnn	TbSit	Other	Inne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+109	444	Adm	Nnn	TbSit	Professional network	Sieć naukowa	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+111	450	Adm	Nnn	TbSit	Learned society	Towarzystwo naukowe	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+113	456	Adm	Nnn	TbSit	Organisation for the promotion of research	Organizacja wspierająca badania naukowe	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+115	462	Adm	Nnn	TbSit	European patient organisation	Europejska organizacja pacjentów	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+117	468	Adm	Nnn	TbSit	American patient organisation	Amerykańska organizacja pacjentów	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+119	474	Adm	Nnn	TbSit	International patient organisation	Międzynarodowa organizacja pacjentów	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+121	480	Adm	Nnn	TbSit	National patient organisation	Krajowa organizacja pacjentów	2014-01-07 17:41:00	2018-04-12	dkarczma	pl	
+123	486	Adm	Nnn	TbSit	Company marketing orphan drugs	Firma produkująca leki sieroce	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+125	492	Adm	Nnn	TbSit	Scientific publication	Publikacja naukowa	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+127	498	Adm	Nnn	TbSit	University	Uniwersytet	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+129	504	Adm	Nnn	TbSit	Hospital	Szpital	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+131	510	Adm	Nnn	TbSit	Research organisation	Organizacja naukowa	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+133	516	Adm	Nnn	TbSit	Public health agency	Agencja zdrowia publicznego	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+135	522	Adm	Nnn	TbSit	Other	Inne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+137	528	Pub	Nnn	TbSit	General public	Ogół społeczństwa	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+139	534	Pub	Nnn	TbSit	Health professionals	Lekarze specjaliści	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+141	540	Pub	Nnn	TbSit	Teachers, students	Nauczyciele, studenci	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+143	546	Pub	Nnn	TbSit	Lay people and their families	Ludzie świeccy i ich rodziny	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+145	552	Acc	Nnn	TbSit	For fee	Za opłatą	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+147	558	Acc	Nnn	TbSit	For fee/ partially	Za opłatą/ częściowo	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+149	564	Acc	Nnn	TbSit	Free access	Bezpłatny dostęp	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+151	628	Typ	Dec	TlMllPat	Age of death		2009-09-19 22:27:00		BUedit	pl	
+153	634	Typ	Prv	TlMllPat	Prevalence		2009-09-19 22:27:00		BUedit	pl	
+155	640	Fce	Nnn	TlPatSgn	Very frequent	Bardzo często	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+157	646	Fce	Nnn	TlPatSgn	Frequent	Często	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+159	652	Fce	Nnn	TlPatSgn	Occasional	Sporadycznie	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+161	664	Sta	Cns	TbAct	Child clinic	Klinika dla dzieci	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+163	670	Sta	Cns	TbAct	Adult clinic	Klinika dla dorosłych	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+165	887	Typ	Nnn	TbCnt	is a country	to kraj	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+167	893	Typ	Nnn	TbCnt	is in Europe (27 EU countries)	jest w Europie (27 krajów UE)	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+169	899	Typ	Nnn	TbCnt	is in Europe (geography)	jest w Europie (geografia)	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+171	905	Typ	Nnn	TbCnt	is Orphanet partner	Jest partnerem Orphanetu	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+173	911	Nnn	Nnn	TbLng	nn	nn	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+175	917	Nnn	Nnn	TbLng	en	en	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+177	923	Nnn	Nnn	TbLng	fr	fr	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+179	929	Nnn	Nnn	TbLng	it	it	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+181	935	Nnn	Nnn	TbLng	es	es	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+183	941	Nnn	Nnn	TbLng	pt	pt	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+185	947	Nnn	Nnn	TbLng	de	de	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+187	953	Nnn	Nnn	TbLng	ce	ce	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+189	959	Nnn	Nnn	TbLng	cs	cs	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+191	965	Nnn	Nnn	TbLng	da	da	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+193	971	Nnn	Nnn	TbLng	et	et	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+195	977	Nnn	Nnn	TbLng	el	el	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+197	983	Nnn	Nnn	TbLng	lv	lv	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+199	989	Nnn	Nnn	TbLng	lt	lt	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+209	995	Nnn	Nnn	TbLng	hu	hu	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+211	1001	Nnn	Nnn	TbLng	mt	mt	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+213	1007	Nnn	Nnn	TbLng	nl	nl	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+215	1013	Nnn	Nnn	TbLng	pl	pl	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+217	1019	Nnn	Nnn	TbLng	sk	sk	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+219	1025	Nnn	Nnn	TbLng	sl	sl	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+221	1031	Nnn	Nnn	TbLng	fi	fi	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+223	1037	Nnn	Nnn	TbLng	sv	sv	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+225	1043	Nnn	Nnn	TbLng	ar	ar	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+227	1050	Typ	Srv	TbLoc	Genetic counselling	Poradnictwo genetyczne	2014-06-20 17:18:00	2018-04-12	dkarczma	pl	
+229	1056	Typ	Srv	TbLoc	Prenatal diagnosis	Diagnostyka prenatalna	2014-06-20 17:18:00	2018-04-12	dkarczma	pl	
+231	1062	Typ	Srv	TbLoc	Preimplantation diagnosis	Diagnostyka przeimplantacyjna	2014-07-07 12:35:00	2018-04-12	dkarczma	pl	
+233	1068	Typ	Typ	TbLoc	clinique (type de labo; settings)	kliniczne (typ laboratorium)	2014-04-08 08:49:00	2018-04-12	dkarczma	pl	
+235	1074	Typ	Typ	TbLoc	recherche (type de labo ; settings)	badawcze (typ laboratorium)	2014-04-08 08:49:00	2018-04-12	dkarczma	pl	
+237	1089	Sta	Sta	TbPrs	Deceased	Zmarły	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+239	1095	Sta	Sta	TbPrs	Not working anymore	Nie pracujący nigdzie	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+241	1116	Txt	Rev	TbPatTxt	Review article	Artykuł recenzowany 	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+243	1122	Txt	Urg	TbPatTxt	Emergency guidelines	Wytyczne postępowania w stanach nagłych	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+245	1128	Txt	Cln	TbPatTxt	Clinical practice guidelines	Przewodnik praktyki klinicznej	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+247	1135	Cvg	Def	TbAct	National	Krajowy	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+249	1141	Eta	Dsg	TbAct	Orphan designation	Desygnacja sieroca	2009-09-30 18:34:00	2018-04-12	dkarczma	pl	
+251	1147	Eta	Dsg	TbAct	Orphan designation withdrawn	Desygnacja sieroca wycofana	2009-09-30 18:34:00	2018-04-12	dkarczma	pl	
+253	1153	Eta	Drg	TbAct	Marketing authorization with orphan designation	Dopuszczony do obrotu z desygnacją sierocą	2009-09-30 18:34:00	2018-04-12	dkarczma	pl	
+255	1159	Zad	Gal	TbAct	Europe	Europa	2009-12-15 17:32:00	2018-04-12	dkarczma	pl	
+257	1165	Zad	Gal	TbAct	USA	USA	2009-12-15 17:32:00	2018-04-12	dkarczma	pl	
+259	1171	Zad	Gal	TbAct	Japan	Japonia	2009-12-15 17:32:00	2018-04-12	dkarczma	pl	
+261	1177	Zad	Gal	TbAct	Australia	Australia	2009-12-15 17:32:00	2018-04-12	dkarczma	pl	
+263	1183	Zad	Spc	TbAct	Singapor	Singapur	2009-12-15 17:32:00	2018-04-12	dkarczma	pl	
+265	1189	Zad	Spc	TbAct	France	Francja	2009-12-15 17:32:00	2018-04-12	dkarczma	pl	
+267	1195	Zad	Spc	TbAct	Switzerland	Szwajcaria	2009-12-15 17:32:00	2018-04-12	dkarczma	pl	
+269	12330	Epi	Prv	TlMllPat	>1 / 1000	>1 / 1000	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+271	12336	Epi	Prv	TlMllPat	6-9 / 10 000	6-9 / 10 000	2009-09-19 22:28:00	2018-04-12	dkarczma	pl	
+273	12342	Epi	Prv	TlMllPat	1-5 / 10 000	1-5 / 10 000	2009-09-19 22:28:00	2018-04-12	dkarczma	pl	
+275	12348	Epi	Prv	TlMllPat	1-9 / 100 000	1-9 / 100 000	2009-09-19 22:28:00	2018-04-12	dkarczma	pl	
+277	12354	Epi	Prv	TlMllPat	1-9 / 1 000 000	1-9 / 1 000 000	2009-09-19 22:28:00	2018-04-12	dkarczma	pl	
+279	12360	Epi	Prv	TlMllPat	<1 / 1 000 000	<1 / 1 000 000	2009-09-30 19:03:00	2018-04-12	dkarczma	pl	
+281	12366	Epi	Prv	TlMllPat	Unknown	nieznany	2009-09-19 22:28:00	2018-04-12	dkarczma	pl	
+283	12372	Epi	Prv	TlMllPat	No data available		2009-09-19 22:28:00		BUedit	pl	
+285	12378	Epi	Prv	TlMllPat	Other information		2009-09-19 22:28:00		BUedit	pl	
+287	12474	Epi	Dec	TlMllPat	Before age 5		2009-09-19 22:28:00		BUedit	pl	
+289	12480	Epi	Dec	TlMllPat	Child / adolescent		2009-09-19 22:28:00		BUedit	pl	
+291	12486	Epi	Dec	TlMllPat	Young adult		2009-09-19 22:28:00		BUedit	pl	
+293	12492	Epi	Dec	TlMllPat	Adult		2009-09-19 22:28:00		BUedit	pl	
+295	12498	Epi	Dec	TlMllPat	Elderly		2009-09-19 22:28:00		BUedit	pl	
+297	12504	Epi	Dec	TlMllPat	Normal		2009-09-19 22:28:00		BUedit	pl	
+299	12510	Epi	Dec	TlMllPat	No data available		2009-09-19 22:28:00		BUedit	pl	
+301	12516	Epi	Dec	TlMllPat	Any age		2009-09-19 22:28:00		BUedit	pl	
+303	12538	Typ	Eqa	TbQlt	External Quality Assesment	Zewnętrzna Ocena Jakości	2009-09-19 22:28:00	2018-04-12	dkarczma	pl	
+305	12544	Typ	Cer	TbQlt	Certification		2009-09-19 22:27:00		BUedit	pl	
+307	12564	Cod	A	TlMAP	Alimentary tract and metabolism	Przewód pokarmowy i metabolizm	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+309	12570	Cod	B	TlMAP	Blood and blood forming organs	Krew i organy krwiotwórcze	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+311	12576	Cod	C	TlMAP	Cardiovascular system	Układ sercowo-naczyniowy	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+313	12582	Cod	D	TlMAP	Dematologicals	Dermatologia	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+315	12588	Cod	G	TlMAP	Genito urinary system and sex hormones	Układ moczowo-płciowy i hormony płciowe	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+317	12594	Cod	H	TlMAP	Systemic hormonal preparations, excl, sex hormones	Układ horomonalny bez hormonów płciowych	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+319	12600	Cod	J	TlMAP	General antiinfectives for systemic use	Leki przeciwzapalne do stosowania ogólnego	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+321	12606	Cod	L	TlMAP	Antineoplastic and immunomodulating agents	Czynniki przeciwnowotworowe i immunomodulujące	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+323	12612	Cod	M	TlMAP	Musculo-skeletal system	Układ mięśniowo-szkieletowy	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+325	12618	Cod	N	TlMAP	Nervous system	Układ nerowowy	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+327	12624	Cod	P	TlMAP	Antiparasitic products, insecticides and repellents	Produkty przeciwpasożytnicze, insektycydy i repelenty	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+329	12630	Cod	R	TlMAP	Respiratory system	Ukłąd oddechowy	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+331	12637	Cod	V	TlMAP	Various	Zmienne/Różne	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+333	12986	Sta	Qlt	TbAct	Eqa	Eqa	2009-09-19 22:27:00	2018-04-12	dkarczma	pl	
+335	12992	Typ	Qlt	TbLoc	Acc	Acc	2009-09-19 22:28:00	2018-04-12	dkarczma	pl	
+337	12998	Typ	Qlt	TbLoc	Eqa	Eqa	2009-09-19 22:28:00	2018-04-12	dkarczma	pl	
+339	13004	Typ	Qlt	TbLoc	Cer	Cer	2009-09-19 22:28:00	2018-04-12	dkarczma	pl	
+341	13173	Cod	S	TlMAP	Sensory organs	Narządy zmysłów	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+343	13251	Sta	Nnn	TbQlt	hidden	ukryty	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+345	13605	Zad	Spc	TbAct	Turkey	Turcja	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+347	13743	Sta	Gal	TbAct	Terminated	Zakończony	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+349	14946	Typ	Rch	TbAct	Research project	Projekt badawczy	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+351	14952	Typ	Rch	TbAct	Gene search	Wyszukiwanie genu	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+353	14958	Typ	Rch	TbAct	Mutations search	Wyszukiwanie mutacji	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+355	14964	Typ	Rch	TbAct	Gene expression profile	Profil ekspresji genu	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+357	14970	Typ	Rch	TbAct	Genotype-phenotype correlation	Korelacja genotyp-Fenotyp	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+359	14976	Typ	Rch	TbAct	In vitro functional study	Badanie in vitro	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+361	14982	Typ	Rch	TbAct	Animal model creation / study	Badanie na modelu zwierzęcym	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+363	14988	Typ	Rch	TbAct	Human physiopathology study	Badanie fizjopatologiczne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+365	14994	Typ	Rch	TbAct	Pre-clinical gene therapy	Przedkliniczna terapia genowa	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+367	15000	Typ	Rch	TbAct	Pre-clinical cell therapy	Przedkliniczna terapia komórkowa	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+369	15006	Typ	Rch	TbAct	Pre-clinical drug development / Drug delivery  	Przedkliniczny rozwój leku	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+371	15012	Typ	Rch	TbAct	Pre-clinical vaccine development	Przedkliniczny rozwój szczepionek	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+373	15018	Typ	Rch	TbAct	Diagnostic tool/protocol development	Rozwój narzędzia diagnostycznego/protokołu	2014-04-08 08:49:00	2018-04-12	dkarczma	pl	
+375	15024	Typ	Rch	TbAct	Biomarker development	Rozwój biomarkera	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+377	15030	Typ	Rch	TbAct	Medical device / instrumentation development	Rozwój urządzenia/narzędzia medycznego	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+379	15036	Typ	Rch	TbAct	Epidemiological study	Badanie epidemiologiczne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+381	15042	Typ	Rch	TbAct	Observational clinical study	Obserwacyjne badanie kliniczne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+383	15048	Typ	Rch	TbAct	Health sociology study	Badanie z zakresu socjologii zdrowia	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+385	15054	Typ	Rch	TbAct	Health economics study	Badanie z zakresu ekonomii zdrowia	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+387	15060	Typ	Rch	TbAct	Public health study (excluding health economics)	Badanie z zakresu zdrowia publicznego	2014-12-19 11:24:00	2018-04-12	dkarczma	pl	
+389	15066	Typ	Rcl	TbAct	Clinical trial	Badanie kliniczne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+391	15072	Typ	Rcl	TbAct	Drug clinical trial	Badanie kliniczne leku	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+393	15078	Typ	Rcl	TbAct	Protocol clinical trial	Badanie kliniczne według protokołu	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+395	15084	Typ	Rcl	TbAct	Gene therapy clinical trial	Badanie kliniczne terapii genowej	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+397	15090	Typ	Rcl	TbAct	Cell therapy clinical trial	Badanie kliniczne terapii komórkowej	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+399	15096	Typ	Rcl	TbAct	Vaccine clinical trial	Badanie kliniczne szczepionki	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+401	15102	Typ	Rcl	TbAct	Medical device trial	Badanie kliniczne urządzenia medycznego	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+403	15108	Typ	Lic	TbAct	Licensing offer		2012-02-24 09:53:00		hanauer	pl	
+405	15114	Typ	Lic	TbAct	Chemical molecules		2012-02-24 09:53:00		hanauer	pl	
+407	15120	Typ	Lic	TbAct	Biological molecules		2012-02-24 09:53:00		hanauer	pl	
+409	15126	Typ	Lic	TbAct	Antibodies		2012-02-24 09:53:00		hanauer	pl	
+411	15132	Typ	Lic	TbAct	Biomarkers		2012-02-24 09:53:00		hanauer	pl	
+413	15138	Typ	Lic	TbAct	Proteins/peptides		2014-04-08 08:49:00		hanauer	pl	
+415	15144	Typ	Lic	TbAct	Oligonucleotides		2012-02-24 09:53:00		hanauer	pl	
+417	15150	Typ	Lic	TbAct	Genes		2012-02-24 09:53:00		hanauer	pl	
+419	15156	Typ	Lic	TbAct	Cells		2012-02-24 09:53:00		hanauer	pl	
+421	15162	Typ	Lic	TbAct	Animal models		2012-02-24 09:53:00		hanauer	pl	
+423	15168	Typ	Lic	TbAct	Devices & instrumentation		2012-02-24 09:53:00		hanauer	pl	
+425	15174	Typ	Lic	TbAct	Methods & process		2012-02-24 09:53:00		hanauer	pl	
+427	15180	Typ	Lic	TbAct	Chemical therapy		2012-02-24 09:53:00		hanauer	pl	
+429	15186	Typ	Lic	TbAct	Cell therapy		2012-02-24 09:53:00		hanauer	pl	
+431	15192	Typ	Lic	TbAct	Gene therapy		2012-02-24 09:53:00		hanauer	pl	
+433	15198	Typ	Lic	TbAct	Vaccine		2012-02-24 09:53:00		hanauer	pl	
+435	15204	Typ	Lic	TbAct	Drug delivery		2012-02-24 09:53:00		hanauer	pl	
+437	15210	Typ	Lic	TbAct	Diagnosis/prognosis		2014-04-08 08:49:00		hanauer	pl	
+439	15216	Typ	Lic	TbAct	Research tool/material		2014-04-08 08:49:00		hanauer	pl	
+441	15222	Typ	Lic	TbAct	Medical device		2012-02-24 09:53:00		hanauer	pl	
+443	15228	Typ	Reg	TbAct	Registry or biobank	Rejestr lub biobank	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+445	15234	Typ	Reg	TbAct	Biobanks	Biobanki	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+447	15240	Typ	Reg	TbAct	Patient registries/Databases	Rejestry pacjentów/Bazy danych	2014-04-08 08:49:00	2018-04-12	dkarczma	pl	
+449	15246	Typ	Reg	TbAct	Variant databases	Rejestry mutacji/Bazy danych	2018-04-06 14:54:00	2018-04-12	dkarczma	pl	
+451	15252	Typ	Reg	TbAct	Cell lines	Linie komórkowe	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+453	15258	Typ	Reg	TbAct	Animal models	Modele zwierzęce	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+455	15264	Typ	Reg	TbAct	Constructs	Konstrukt	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+457	15270	Typ	Reg	TbAct	Antibodies	Przeciwciała	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+459	15276	Typ	Reg	TbAct	Oligonucleotides	Oligonukleotydy	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+461	15282	Typ	Reg	TbAct	Peptides	Peptydy	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+463	15288	Typ	Tch	TbAct	Technology and know-how	Technologia i know-how	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+465	15294	Typ	Tch	TbAct	In vivo imaging	Obrazowanie in vivo	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+467	15300	Typ	Tch	TbAct	Cell and molecular imaging	Obrazowanie komórkowe i molekularne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+469	15306	Typ	Tch	TbAct	Electron microscopy	Mikroskopia elektronowa	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+471	15312	Typ	Tch	TbAct	Genomic analysis	Analiza genomu	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+473	15318	Typ	Tch	TbAct	Transcriptomic analysis	Analiza transkryptomiczna	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+475	15324	Typ	Tch	TbAct	Proteomic analysis	Analiza proteomiczna	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+477	15330	Typ	Tch	TbAct	Metabolomic / Lipidomic	Metabolomiczny/Lipidomiczny	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+479	15336	Typ	Tch	TbAct	Bioinformatics	Bioinformatyka	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+481	15342	Typ	Tch	TbAct	Structural biology	Biologia strukturalna	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+483	15348	Typ	Tch	TbAct	Animal facilities. Animal models. Functional exploration and phenotyping	Modele zwierzęce. Badanie funkcjonalne i fenotypowanie	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+485	15354	Typ	Tch	TbAct	Chemical library / High-throughput drug screening	Biblioteka chemiczna/ Wysokowydajne badanie przesiewowe leku	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+487	15360	Typ	Tch	TbAct	Production / purification of molecules	Produkcja / oczyszczanie cząsteczek	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+489	15366	Typ	Tch	TbAct	Small sample methodologists and statistical specialists	Metodolodzy od małej próby i specjaliści od statystyki	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+491	15372	Typ	Tch	TbAct	High-throughput data analysis specialists	Specjaliści od analizy  danych z wysokoprzepustowych technik	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+493	15378	Typ	Tch	TbAct	CMO for gene and cell therapies	CMO dla terapii genowych i komórkowych	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+495	15384	Typ	Tch	TbAct	Academic clinical facilities	Obiekty akademickie kliniczne	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+497	15390	Typ	Tch	TbAct	Functional exploration experts	Eksperci od badań funkcjonalnych	2012-02-24 09:53:00	2018-04-12	dkarczma	pl	
+499	15396	Cvg	Nnn	TbAct	Not defined	Niezdefiniowany	2009-09-30 18:51:00	2018-04-12	dkarczma	pl	
+501	15486	Typ	Dgs	TbAct	Diagnostic	Diagnostyczny	2009-10-15 18:04:00	2018-04-12	dkarczma	pl	
+503	15492	Typ	Dgs	TbAct	Molecular genetics (constitutional)		2012-02-24 09:53:00		hanauer	pl	
+505	15498	Typ	Dgs	TbAct	Molecular genetics (somatic)		2012-02-24 09:53:00		hanauer	pl	
+507	15504	Typ	Dgs	TbAct	Molecular cytogenetics (constitutional)		2012-02-24 09:53:00		hanauer	pl	
+509	15510	Typ	Dgs	TbAct	Molecular cytogenetics (somatic)		2012-02-24 09:53:00		hanauer	pl	
+511	15516	Typ	Dgs	TbAct	Biochemical genetics		2012-02-24 09:53:00		hanauer	pl	
+513	15522	Typ	Dgs	TbAct	Anatomo-pathology		2012-02-24 09:53:00		hanauer	pl	
+515	15528	Typ	Dgs	TbAct	Parasitology		2012-02-24 09:53:00		hanauer	pl	
+517	15534	Typ	Dgs	TbAct	Immunology		2012-02-24 09:53:00		hanauer	pl	
+519	15540	Typ	Dgs	TbAct	Hematology		2012-02-24 09:53:00		hanauer	pl	
+521	15546	Typ	Dgs	TbAct	Bacteriology		2012-02-24 09:53:00		hanauer	pl	
+523	15552	Typ	Dgs	TbAct	Virology		2012-02-24 09:53:00		hanauer	pl	
+525	15558	Typ	Dgs	TbAct	Conventional cytogenetics		2012-02-24 09:53:00		hanauer	pl	
+527	15564	Typ	Dgs	TbAct	Pharmacogenetics		2012-02-24 09:53:00		hanauer	pl	
+529	15570	Typ	Dgs	TbAct	Molecular imaging		2012-02-24 09:53:00		hanauer	pl	
+531	15690	Typ	Dgs	TbAct	Not defined		2012-02-24 09:53:00		hanauer	pl	
+533	16613	Typ	Dgs	TbAct	Array-CGH		2012-02-24 09:53:00		hanauer	pl	
+535	16619	Txt	Abs	TbPatTxt	Summary information	Streszczenie informacji	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+537	16625	Txt	Car	TbPatTxt	Emergency card	Karta ratunkowa	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+539	16631	Txt	Ans	TbPatTxt	Anesthesia guidelines	Wytyczne dotyczące znieczulenia	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+541	16637	Txt	Ggt	TbPatTxt	Guidance for genetic testing	Wytyczne dla badań genetycznych	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+543	16907	Abs	Def	TbPatTxt	Disease definition	Definicja choroby	2011-07-19 17:18:00	2018-04-12	dkarczma	pl	
+545	16913	Abs	Epi	TbPatTxt	Epidemiology	Epidemiologia	2011-07-19 17:18:00	2018-04-12	dkarczma	pl	
+547	16919	Abs	Cln	TbPatTxt	Clinical description	Obraz kliniczny	2011-07-19 17:18:00	2018-04-12	dkarczma	pl	
+549	16925	Abs	Eti	TbPatTxt	Etiology	Etiologia	2011-07-19 17:18:00	2018-04-12	dkarczma	pl	
+551	16931	Abs	Dgs	TbPatTxt	Diagnostic methods	Metody diagnostyczne	2011-07-19 17:18:00	2018-04-12	dkarczma	pl	
+553	16937	Abs	Dif	TbPatTxt	Differential diagnosis	Rozpoznanie różnicowe	2011-07-19 17:18:00	2018-04-12	dkarczma	pl	
+555	16943	Abs	Ant	TbPatTxt	Antenatal diagnosis	Diagnostyka prenatalna	2011-07-19 17:18:00	2018-04-12	dkarczma	pl	
+557	16949	Abs	Gnt	TbPatTxt	Genetic counseling	Poradnictwo genetyczne	2011-07-19 17:18:00	2018-04-12	dkarczma	pl	
+559	16955	Abs	Trt	TbPatTxt	Management and treatment	Postępowanie i lecznie	2011-07-19 17:18:00	2018-04-12	dkarczma	pl	
+561	16961	Abs	Prg	TbPatTxt	Prognosis	Rokowanie	2011-07-19 17:18:00	2018-04-12	dkarczma	pl	
+563	16967	Abs	Old	TbPatTxt	Old section part 1		2011-07-19 17:18:00		hanauer	pl	
+565	16976	Abs	Bis	TbPatTxt	Old section part 2		2011-07-19 18:30:00		dbo	pl	
+567	17234	Txt	Mul	TbPatTxt	Multimedia	Multimedia	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+569	17685	Txt	Cgr	TbPatTxt	Clinical genetics review	Przegląd genetyki klinicznej	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+571	17949	Ass	Gen	TlPHP	Disease-causing germline mutation(s) in	Choroba spowodowana mutacjami germinalnymi	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+573	17955	Ass	Gen	TlPHP	Disease-causing somatic mutation(s) in	Choroba spowodowana mutacjami somatycznymi	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+575	17961	Ass	Gen	TlPHP	Major susceptibility factor in	Główny czynnik podatności w	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+577	17967	Ass	Gen	TlPHP	Modifying germline mutation in	Modyfikujące mutacje germinalne w 	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+579	17973	Ass	Gen	TlPHP	Modifying somatic mutation in	Modyfikujące mutacje somatyczne w 	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+581	17979	Ass	Gen	TlPHP	Part of a fusion gene in	Część połączonego genu w 	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+583	17985	Ass	Gen	TlPHP	Role in the phenotype of	Rola w fenotypie	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+585	17991	Sta	Nnn	TlPHP	Assessed	Oceniony 	2014-09-15 14:36:00	2018-04-12	dkarczma	pl	
+587	17997	Sta	Nnn	TlPHP	Not yet assessed	Jeszcze nie oceniony	2014-09-15 14:36:00	2018-04-12	dkarczma	pl	
+589	18231	Typ	Tch	TbAct	IRDiRC	IRDiRC	2013-02-27 16:12:00	2018-04-12	dkarczma	pl	
+591	18237	Typ	Rcl	TbAct	IRDiRC	IRDiRC	2013-02-27 16:12:00	2018-04-12	dkarczma	pl	
+593	18243	Typ	Rch	TbAct	IRDiRC	IRDiRC	2013-02-27 16:12:00	2018-04-12	dkarczma	pl	
+595	18249	Typ	Reg	TbAct	IRDiRC	IRDiRC	2013-02-27 16:12:00	2018-04-12	dkarczma	pl	
+597	18273	Ass	Gen	TlPHP	Candidate gene tested in	Gen kandydat badany w 	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+599	21016	Txt	Han	TbPatTxt	Disability factsheet	Zestawienie informacji o niepełnosprawności	2014-06-27 14:40:00	2018-04-12	dkarczma	pl	
+601	21394	Typ	Dis	TbPat	Disease	Choroba	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+603	21401	Typ	Dis	TbPat	Malformation syndrome	Zespół wad wrodzonych	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+605	21408	Typ	Dis	TbPat	Biological anomaly	Wada biologiczna	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+607	21415	Typ	Dis	TbPat	Morphological anomaly	Wada morfologiczna	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+609	21422	Typ	Dis	TbPat	Clinical syndrome	Zespół kliniczny	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+611	21429	Typ	Dis	TbPat	Particular clinical situation in a disease or syndrome	Szczególna sytuacja w chorobie lub zespole	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+613	21436	Typ	Nnn	TbPat	Group of phenomes	Grupa fenomenów	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+615	21443	Typ	Nnn	TbPat	Etiological subtype	Podtyp etiologiczny	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+617	21450	Typ	Nnn	TbPat	Clinical subtype	Podtyp kliniczny	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+619	21457	Typ	Nnn	TbPat	Histopathological subtype	Podtyp histopatologiczny	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+621	21464	Typ	Nnn	TbPat	No type	Brak typu	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+623	21471	Ass	Pat	TlPHP	Moved to	Przeniesione do	2014-09-15 14:36:00	2018-04-12	dkarczma	pl	
+625	21478	Ass	Pat	TlPHP	Described under	Opisane w 	2014-09-15 14:36:00	2018-04-12	dkarczma	pl	
+627	21485	Ass	Pat	TlPHP	Preferential parent	Uprzywilejowany rodzic	2014-09-15 14:36:00	2018-04-12	dkarczma	pl	
+629	21527	Rel	Nnn	TbPatRef	E (exact mapping (the terms and the concepts are equivalent))	E (dokładne mapowanie (terminy i pojęcia są równoważne)	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+631	21534	Rel	Nnn	TbPatRef	NTBT (narrower term maps to a broader term)	NTBT (pojęcie o węższym znaczeniu pasuje do pojęcia o szerszym znaczeniu)	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+633	21541	Rel	Nnn	TbPatRef	BTNT (broader term maps to a narrower term)	BTNT (pojęcie o szerszym znaczeniu pasuje do pojęcia o węższym znaczeniu)	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+635	21548	Rel	Nnn	TbPatRef	W (incorrect mapping (two different concepts)	W (nieprawidłowe mapowanie (dwa różne pojęcia)	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+637	21555	Rel	Nnn	TbPatRef	NTBT/E (narrower term maps to a broader term because of an exact mapping with a synonym in the target terminology)	NTBT/E (pojęcie o węższym znaczenie pasuje do pojęcia o szerszym znaczeniu ze względu na dokładne mapowanie do synonimu w wybranej terminologii)	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+639	21562	Rel	Nnn	TbPatRef	BTNT/E (broader term maps to a narrower term because of an exact mapping with a synonym in the target terminology)	BTNT/E (pojęcie o szerszym znaczenie pasuje do pojęcia o węższym znaczeniu ze względu na dokładne mapowanie do synonimu w wybranej terminologii)	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+641	21569	Rel	Nnn	TbPatRef	W/E (incorrect mapping (two different concepts) but syntactically exact mapping to a synonym or a preferred term in the target terminology)	W/E (nieprawidłowe mapowanie (dwa różne pojęcia), ale składniowo dokładne mapowanie do synonimu lub preferowanego pojęcia we wskazanej terminologii)	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+643	21576	Rel	Nnn	TbPatRef	ND (not yet decided/unable to decide)	ND (brak decyzji/brak możliwości podjęcia decyzji)	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+645	21583	Snd	Nnn	TbPatRef	Specific code (The term has its own code in the ICD10)	Określony kod (Ten termin ma swój własny kod w ICD10)	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+647	21590	Snd	Nnn	TbPatRef	Inclusion term (The term is included under a ICD10 category and has not its own code)	Termin włączający (Ten termin jest ujęty w kategorii ICD10 i nie ma swojego własnego kodu)	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+649	21597	Snd	Nnn	TbPatRef	Index term	Termin indeksowy	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+651	21604	Snd	Nnn	TbPatRef	Attributed	Przypisane	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+653	21611	Sta	Nnn	TbPatRef	Validated	Zwalidowany	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+655	21618	Sta	Nnn	TbPatRef	Not yet validated	Jeszcze niezwalidowane	2014-09-15 14:37:00	2018-04-12	dkarczma	pl	
+657	22990	Txt	Cri	TbPatTxt	Diagnostic criteria	Kryteria diagnostyczne	2014-06-27 14:38:00	2018-04-12	dkarczma	pl	
+659	23368	Def	Phe	TbPatTxt	This term does not characterize a disease but a group of diseases. To learn about the diseases included under this term, you can consult the classifications.	Ten termin nie opisuje jednej choroby, ale grupę chorób. Aby dowiedzieć się więcej o chorobach określanych tym terminem możesz sprawdzić klasyfikacje.	2014-10-06 11:47:00	2018-04-12	dkarczma	pl	
+661	23375	Def	Cnd	TbPatTxt	This is a rare condition for which there is a European and/or American orphan designation.	To jest choroba rzadka, dla której w Europie i(lub) Ameryce jest lek z desygnacją sierocą	2014-10-06 11:47:00	2018-04-12	dkarczma	pl	
+663	23382	Def	Phr	TbPatTxt	This term designates an indication for a pharmacogenetic test.	Ten termin wyznacza wskazanie dla badania farmakogenetycznego.	2014-10-06 11:47:00	2018-04-12	dkarczma	pl	
+665	23389	Def	Und	TbPatTxt	This disease is described under	Choroba jes opisana w 	2014-09-18 15:15:00	2018-04-12	dkarczma	pl	
+667	23396	Def	Mov	TbPatTxt	This disease has been moved to	Ta choroba została przeniesiona do	2014-09-19 16:34:00	2018-04-12	dkarczma	pl	
+669	23403	Def	Def	TbPatTxt	An Orphanet summary for this disease is currently under development. However, other data related to the disease are accessible from the Additional Information menu located at the bottom of this page.	Streszczenie informacji o tej chorobie w Orphanecie jest w trakcie tworznia. Jednakże inne dane dotyczące tej choroby są dostępne w menu "Dodatkowe Informacje" po prawej stronie tej witryny.	2017-04-06 13:52:00	2018-04-12	dkarczma	pl	
+671	23578	Epi	Dec	TbPatEpi	embryofetal		2014-09-15 14:38:00		dbo	pl	
+673	23585	Epi	Dec	TbPatEpi	stillbirth		2014-09-15 14:38:00		dbo	pl	
+675	23592	Epi	Dec	TbPatEpi	infantile		2014-09-15 14:38:00		dbo	pl	
+677	23599	Epi	Dec	TbPatEpi	early childhood		2014-09-15 14:38:00		dbo	pl	
+679	23606	Epi	Dec	TbPatEpi	late childhood		2014-09-15 14:38:00		dbo	pl	
+681	23613	Epi	Dec	TbPatEpi	adolescent		2014-09-15 14:38:00		dbo	pl	
+683	23620	Epi	Dec	TbPatEpi	young Adult		2014-09-15 14:38:00		dbo	pl	
+685	23627	Epi	Dec	TbPatEpi	adult		2014-09-15 14:38:00		dbo	pl	
+687	23634	Epi	Dec	TbPatEpi	elderly		2014-09-15 14:38:00		dbo	pl	
+689	23641	Epi	Dec	TbPatEpi	normal life expectancy		2014-09-15 14:38:00		dbo	pl	
+691	23648	Epi	Dec	TbPatEpi	any age		2014-09-15 14:38:00		dbo	pl	
+693	23655	Epi	Dec	TbPatEpi	No data available		2014-09-15 14:38:00		dbo	pl	
+695	23662	Epi	Dec	TbPatEpi	Not yet documented		2014-09-15 14:38:00		dbo	pl	
+697	23669	Typ	Pnt	TbPatPrv	Point prevalence	Częstość występowania punktowa	2014-09-15 14:55:00	2018-04-12	dkarczma	pl	
+699	23676	Typ	Ann	TbPatPrv	Annual incidence	Roczna częstość występowania	2014-09-15 14:55:00	2018-04-12	dkarczma	pl	
+701	23683	Typ	Bth	TbPatPrv	Prevalence at birth	Częstość występowania przy narodzinach	2014-09-15 14:55:00	2018-04-12	dkarczma	pl	
+703	23690	Typ	Lif	TbPatPrv	Lifetime Prevalence	Częstość występowania w ciągu całego życia	2014-09-15 14:55:00	2018-04-12	dkarczma	pl	
+705	23697	Typ	Cfa	TbPatPrv	Cases/families	Przypadki/rodziny	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+707	23704	Sub	Cla	TbPatPrv	Class only	Tylko klasa	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+709	23711	Sub	Val	TbPatPrv	Value and class	Wartość i klasa	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+711	23718	Sub	Cas	TbPatPrv	Case	Przypadek	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+713	23725	Sub	Fam	TbPatPrv	Family	Rodzina	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+715	23732	Cls	Nnn	TbPatPrv	1-5 / 10 000	1-5 / 10 000	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+717	23739	Cls	Nnn	TbPatPrv	1-9 / 1 000 000	1-9 / 1 000 000	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+719	23746	Cls	Nnn	TbPatPrv	1-9 / 100 000	1-9 / 100 000	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+721	23753	Cls	Nnn	TbPatPrv	6-9 / 10 000	6-9 / 10 000	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+723	23760	Cls	Nnn	TbPatPrv	<1 / 1 000 000	<1 / 1 000 000	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+725	23767	Cls	Nnn	TbPatPrv	>1 / 1000	>1 / 1000	2014-09-15 10:33:00	2018-04-12	dkarczma	pl	
+727	23774	Cls	Nnn	TbPatPrv	Unknown	nieznany	2014-09-15 14:55:00	2018-04-12	dkarczma	pl	
+729	23781	Cls	Nnn	TbPatPrv	Not yet documented	Jeszcze nie udokumentowany	2014-09-15 14:55:00	2018-04-12	dkarczma	pl	
+731	23788	Geo	Reg	TbPatPrv	Africa	AFRYKA	2014-09-15 15:25:00	2018-04-12	dkarczma	pl	
+733	23795	Geo	Reg	TbPatPrv	Europe	Europa	2014-09-15 15:25:00	2018-04-12	dkarczma	pl	
+735	23802	Geo	Reg	TbPatPrv	Oceania		2014-09-15 15:25:00		dbo	pl	
+737	23809	Geo	Reg	TbPatPrv	North America		2014-09-15 15:25:00		dbo	pl	
+739	23816	Geo	Reg	TbPatPrv	Latin America		2014-09-15 15:25:00		dbo	pl	
+741	23823	Geo	Reg	TbPatPrv	Eastern Mediterranean Asia		2014-09-15 15:25:00		dbo	pl	
+743	23830	Geo	Reg	TbPatPrv	South East Asia		2014-09-15 15:25:00		dbo	pl	
+745	23837	Geo	Reg	TbPatPrv	Western Asia		2014-09-15 15:25:00		dbo	pl	
+747	23844	Geo	Reg	TbPatPrv	Worldwide		2014-09-15 15:25:00		dbo	pl	
+749	23851	Geo	Reg	TbPatPrv	Not defined	Niezdefiniowany	2014-09-15 15:25:00	2018-04-12	dkarczma	pl	
+751	23858	Geo	Nnn	TbPatPrv	Afghanistan	AFGANISTAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+753	23865	Geo	Nnn	TbPatPrv	Aland islands	WYSPY ALANDZKIE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+755	23872	Geo	Nnn	TbPatPrv	Albania		2014-09-15 15:09:00		dbo	pl	
+757	23879	Geo	Nnn	TbPatPrv	Algeria	ALGIERIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+759	23886	Geo	Nnn	TbPatPrv	American samoa	SAMOA AMERYKAŃSKIE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+761	23893	Geo	Nnn	TbPatPrv	Andorra	ANDORA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+763	23900	Geo	Nnn	TbPatPrv	Angola	ANGOLA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+765	23907	Geo	Nnn	TbPatPrv	Anguilla	ANGUILLA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+767	23914	Geo	Nnn	TbPatPrv	Antarctica	ANTARKTYDA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+769	23921	Geo	Nnn	TbPatPrv	Antigua and barbuda	ANTIGUA I BARBUDA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+771	23928	Geo	Nnn	TbPatPrv	Argentina	ARGENTYNA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+773	23935	Geo	Nnn	TbPatPrv	Armenia	ARMENIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+775	23942	Geo	Nnn	TbPatPrv	Aruba	ARUBA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+777	23949	Geo	Nnn	TbPatPrv	Australia	Australia	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+779	23956	Geo	Nnn	TbPatPrv	Austria	AUSTRIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+781	23963	Geo	Nnn	TbPatPrv	Azerbaijan	AZERBEJDZAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+783	23970	Geo	Nnn	TbPatPrv	Bahamas	WYSPY BAHAMA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+785	23977	Geo	Nnn	TbPatPrv	Bahrain	BAHRAJN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+787	23984	Geo	Nnn	TbPatPrv	Bangladesh	BANGLADESZ	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+789	23991	Geo	Nnn	TbPatPrv	Barbados	BARBADOS	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+791	23998	Geo	Nnn	TbPatPrv	Belarus	BIAŁORUŚ	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+793	24005	Geo	Nnn	TbPatPrv	Belgium	BELGIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+795	24012	Geo	Nnn	TbPatPrv	Belize	BELIZE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+797	24019	Geo	Nnn	TbPatPrv	Benin	BENIN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+799	24026	Geo	Nnn	TbPatPrv	Bermuda	BERMUDY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+801	24033	Geo	Nnn	TbPatPrv	Bhutan	BHUTAN	2014-09-15 15:26:00	2018-04-12	dkarczma	pl	
+803	24040	Geo	Nnn	TbPatPrv	Bolivia	BOLIWIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+805	24047	Geo	Nnn	TbPatPrv	Bosnia and Herzegovina	BOŚNIA I HERCEGOWINA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+807	24054	Geo	Nnn	TbPatPrv	Botswana	BOTSWANA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+809	24061	Geo	Nnn	TbPatPrv	Bouvet island	WYSPA BOUVETA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+811	24068	Geo	Nnn	TbPatPrv	Brazil	BRAZYLIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+813	24075	Geo	Nnn	TbPatPrv	British indian ocean territory	BRYTYJSKIE TERYTORIUM OCEANU INDYJSKIEGO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+815	24082	Geo	Nnn	TbPatPrv	Brunei Darussalam	BRUNEI DARUSSALAM	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+817	24089	Geo	Nnn	TbPatPrv	Bulgaria	BUŁGARIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+819	24096	Geo	Nnn	TbPatPrv	Burkina Faso	BURKINA FASO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+821	24103	Geo	Nnn	TbPatPrv	Burundi	BURUNDI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+823	24110	Geo	Nnn	TbPatPrv	Cambodia	KAMBODŻA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+825	24117	Geo	Nnn	TbPatPrv	Cameroon	KAMERUN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+827	24124	Geo	Nnn	TbPatPrv	Canada	KANADA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+829	24131	Geo	Nnn	TbPatPrv	Cape verde	REPUBLIKA ZIELONEGO PRZYLĄDKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+831	24138	Geo	Nnn	TbPatPrv	Cayman islands	KAJMANY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+833	24145	Geo	Nnn	TbPatPrv	Central African Republic	REPUBLIKA ŚRODKOWEJ AFRYKI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+835	24152	Geo	Nnn	TbPatPrv	Chad	CZAD	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+837	24159	Geo	Nnn	TbPatPrv	Chile	CHILE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+839	24166	Geo	Nnn	TbPatPrv	China	CHINY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+841	24173	Geo	Nnn	TbPatPrv	Christmas island	WYSPA BOŻEGO NARODZENIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+843	24180	Geo	Nnn	TbPatPrv	Cocos (keeling) islands	WYSPY KOKOSOWE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+845	24187	Geo	Nnn	TbPatPrv	Colombia	KOLUMBIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+847	24194	Geo	Nnn	TbPatPrv	Comoros	KOMORY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+849	24201	Geo	Nnn	TbPatPrv	Congo	KONGO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+851	24208	Geo	Nnn	TbPatPrv	Congo, the Democratic Republic of the	DEMOKRATYCZNA REPUBLIKA KONGO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+853	24215	Geo	Nnn	TbPatPrv	Cook islands	WYSPY COOKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+855	24222	Geo	Nnn	TbPatPrv	Costa rica	KOSTARYKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+857	24229	Geo	Nnn	TbPatPrv	Cote d'ivoire	WYBRZEŻE KOŚCI SŁONIOWEJ	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+859	24236	Geo	Nnn	TbPatPrv	Croatia	CHORWACJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+861	24243	Geo	Nnn	TbPatPrv	Cuba	KUBA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+863	24250	Geo	Nnn	TbPatPrv	Cyprus	CYPR	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+865	24257	Geo	Nnn	TbPatPrv	Czech Republic	CZECHY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+867	24264	Geo	Nnn	TbPatPrv	Denmark	DANIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+869	24271	Geo	Nnn	TbPatPrv	Djibouti	DŻIBUTI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+871	24278	Geo	Nnn	TbPatPrv	Dominica	DOMINIKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+873	24285	Geo	Nnn	TbPatPrv	Dominican Republic	DOMINIKANA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+875	24292	Geo	Nnn	TbPatPrv	Ecuador	EKWADOR	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+877	24299	Geo	Nnn	TbPatPrv	Egypt	EGIPT	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+879	24306	Geo	Nnn	TbPatPrv	El Salvador	SALWADOR	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+881	24313	Geo	Nnn	TbPatPrv	Equatorial Guinea	GWINEA RÓWNIKOWA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+883	24320	Geo	Nnn	TbPatPrv	Eritrea	ERYTREA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+885	24327	Geo	Nnn	TbPatPrv	Estonia	ESTONIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+887	24334	Geo	Nnn	TbPatPrv	Ethiopia	ETIOPIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+889	24341	Geo	Nnn	TbPatPrv	Falkland islands (malvinas)	FALKLANDY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+891	24348	Geo	Nnn	TbPatPrv	Faroe Islands	WYSPY OWCZE	2014-09-16 10:13:00	2018-04-12	dkarczma	pl	
+893	24355	Geo	Nnn	TbPatPrv	Fiji	FIDZI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+895	24362	Geo	Nnn	TbPatPrv	Finland	FINLANDIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+897	24369	Geo	Nnn	TbPatPrv	France	FRANCJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+899	24376	Geo	Nnn	TbPatPrv	French guiana	GUJANA FRANCUSKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+901	24383	Geo	Nnn	TbPatPrv	French Polynesia	POLINEZJA FRANCUSKA	2014-09-16 10:13:00	2018-04-12	dkarczma	pl	
+903	24390	Geo	Nnn	TbPatPrv	French southern territories	FRANCUSKIE TERYTORIA POŁUDNIOWE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+905	24397	Geo	Nnn	TbPatPrv	Gabon	GABON	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+907	24404	Geo	Nnn	TbPatPrv	Gambia	GAMBIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+909	24411	Geo	Nnn	TbPatPrv	Georgia	GRUZJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+911	24418	Geo	Nnn	TbPatPrv	Germany	NIEMCY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+913	24425	Geo	Nnn	TbPatPrv	Ghana	GHANA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+915	24432	Geo	Nnn	TbPatPrv	Gibraltar	GIBRALTAR	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+917	24439	Geo	Nnn	TbPatPrv	Greece	GRECJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+919	24446	Geo	Nnn	TbPatPrv	Greenland	GRENLANDIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+921	24453	Geo	Nnn	TbPatPrv	Grenada	GRENADA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+923	24460	Geo	Nnn	TbPatPrv	Guadeloupe	GWADELUPA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+925	24467	Geo	Nnn	TbPatPrv	Guam	GUAM	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+927	24474	Geo	Nnn	TbPatPrv	Guatemala	GWATEMALA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+929	24481	Geo	Nnn	TbPatPrv	Guernsey	GUERNSEY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+931	24488	Geo	Nnn	TbPatPrv	Guinea	GWINEA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+933	24495	Geo	Nnn	TbPatPrv	Guinea-bissau	GUINEA-BISSAU	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+935	24502	Geo	Nnn	TbPatPrv	Guyana	GUJANA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+937	24509	Geo	Nnn	TbPatPrv	Haiti	HAITI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+939	24516	Geo	Nnn	TbPatPrv	Heard island and mcdonald islands	WYSPY HEARD I MCDONALD 	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+941	24523	Geo	Nnn	TbPatPrv	Holy see (vatican city state)	WATYKAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+943	24530	Geo	Nnn	TbPatPrv	Honduras	HONDURAS	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+945	24537	Geo	Nnn	TbPatPrv	Hong Kong	HONG KONG	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+947	24544	Geo	Nnn	TbPatPrv	Hungary	WĘGRY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+949	24551	Geo	Nnn	TbPatPrv	Iceland	ISLANDIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+951	24558	Geo	Nnn	TbPatPrv	India	INDIE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+953	24565	Geo	Nnn	TbPatPrv	Indonesia	INDONEZJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+955	24572	Geo	Nnn	TbPatPrv	Iran, Islamic Republic of	ISLAMSKA REBUBLIKA IRANU	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+957	24579	Geo	Nnn	TbPatPrv	Iraq	IRAK	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+959	24586	Geo	Nnn	TbPatPrv	Ireland	IRLANDIA	2014-09-15 15:26:00	2018-04-12	dkarczma	pl	
+961	24593	Geo	Nnn	TbPatPrv	Isle of man	WYSPA MAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+963	24600	Geo	Nnn	TbPatPrv	Israel	IZRAEL	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+965	24607	Geo	Nnn	TbPatPrv	Italy	WŁOCHY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+967	24614	Geo	Nnn	TbPatPrv	Jamaica	JAMAJKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+969	24621	Geo	Nnn	TbPatPrv	Japan	JAPONIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+971	24628	Geo	Nnn	TbPatPrv	Jersey	JERSEY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+973	24635	Geo	Nnn	TbPatPrv	Jordan	JORDANIA	2014-09-15 15:26:00	2018-04-12	dkarczma	pl	
+975	24642	Geo	Nnn	TbPatPrv	Kazakhstan	KAZACHSTAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+977	24649	Geo	Nnn	TbPatPrv	Kenya	KENIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+979	24656	Geo	Nnn	TbPatPrv	Kiribati	KIRIBATI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+981	24663	Geo	Nnn	TbPatPrv	Korea, Democratic People's Republic of	KOREA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+983	24670	Geo	Nnn	TbPatPrv	Korea, Republic of	KOREA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+985	24677	Geo	Nnn	TbPatPrv	Kuwait	KUWEJT	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+987	24684	Geo	Nnn	TbPatPrv	Kyrgyzstan	KIRGISTAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+989	24691	Geo	Nnn	TbPatPrv	Lao people's democratic republic	LAOS	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+991	24698	Geo	Nnn	TbPatPrv	Latvia	ŁOTWA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+993	24705	Geo	Nnn	TbPatPrv	Lebanon	LIBAN	2014-09-15 15:26:00	2018-04-12	dkarczma	pl	
+995	24712	Geo	Nnn	TbPatPrv	Lesotho	LESOTHO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+997	24719	Geo	Nnn	TbPatPrv	Liberia	LIBERIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+999	24726	Geo	Nnn	TbPatPrv	Libyan Arab Jamahiriya	LIBYAN ARAB JAMAHIRIYA	2014-09-16 10:13:00	2018-04-12	dkarczma	pl	
+1001	24733	Geo	Nnn	TbPatPrv	Liechtenstein	LICHTENSTEIN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1003	24740	Geo	Nnn	TbPatPrv	Lithuania	LITWA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1005	24747	Geo	Nnn	TbPatPrv	Luxembourg	LUKSEMBURG	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1007	24754	Geo	Nnn	TbPatPrv	Macao	MAKAU	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1009	24761	Geo	Nnn	TbPatPrv	Macedonia, the former Yugoslav Republic of	MACEDONIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1011	24768	Geo	Nnn	TbPatPrv	Madagascar	MADAGASKAR	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1013	24775	Geo	Nnn	TbPatPrv	Malawi	MALAWI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1015	24782	Geo	Nnn	TbPatPrv	Malaysia	MALEZJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1017	24789	Geo	Nnn	TbPatPrv	Maldives	MALEDIWY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1019	24796	Geo	Nnn	TbPatPrv	Mali	MALI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1021	24803	Geo	Nnn	TbPatPrv	Malta	MALTA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1023	24810	Geo	Nnn	TbPatPrv	Marshall islands	WYSPY MARSHALLA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1025	24817	Geo	Nnn	TbPatPrv	Martinique	MARTYNIKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1027	24824	Geo	Nnn	TbPatPrv	Mauritania	MAURETANIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1029	24831	Geo	Nnn	TbPatPrv	Mauritius	MAURITIUS	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1031	24838	Geo	Nnn	TbPatPrv	Mayotte	MAYOTTE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1033	24845	Geo	Nnn	TbPatPrv	Mexico	MEKSYK	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1035	24852	Geo	Nnn	TbPatPrv	Micronesia, federated states of	FEDERALNE STANY MIKRONEZJI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1037	24859	Geo	Nnn	TbPatPrv	Moldova, Republic of	MOŁDAWIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1039	24866	Geo	Nnn	TbPatPrv	Monaco	MONKAO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1041	24873	Geo	Nnn	TbPatPrv	Mongolia	MONGOLIA	2014-09-16 10:13:00	2018-04-12	dkarczma	pl	
+1043	24880	Geo	Nnn	TbPatPrv	Montenegro	MONTENEGRO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1045	24887	Geo	Nnn	TbPatPrv	Montserrat	MONTSERRAT	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1047	24894	Geo	Nnn	TbPatPrv	Morocco	MAROKO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1049	24901	Geo	Nnn	TbPatPrv	Mozambique	MOZAMBIK	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1051	24908	Geo	Nnn	TbPatPrv	Myanmar	MJANMA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1053	24915	Geo	Nnn	TbPatPrv	Namibia	NAMIBIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1055	24922	Geo	Nnn	TbPatPrv	Nauru	NAURU	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1057	24929	Geo	Nnn	TbPatPrv	Nepal	NEPAL	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1059	24936	Geo	Nnn	TbPatPrv	Netherlands	HOLANDIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1061	24943	Geo	Nnn	TbPatPrv	Netherlands antilles	ANTYLE HOLENDERSKIE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1063	24950	Geo	Nnn	TbPatPrv	New Caledonia	NOWA KALEDONIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1065	24957	Geo	Nnn	TbPatPrv	New Zealand	NOWA ZELANDIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1067	24964	Geo	Nnn	TbPatPrv	Nicaragua	NIKARAGUA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1069	24971	Geo	Nnn	TbPatPrv	Niger	NIGER	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1071	24978	Geo	Nnn	TbPatPrv	Nigeria	NIGERIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1073	24985	Geo	Nnn	TbPatPrv	Niue	NIUE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1075	24992	Geo	Nnn	TbPatPrv	Norfolk island	WYSPY NORFOLK	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1077	24999	Geo	Nnn	TbPatPrv	Northern mariana islands	MARIANY PÓŁNOCNE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1079	25006	Geo	Nnn	TbPatPrv	Norway	NORWEGIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1081	25013	Geo	Nnn	TbPatPrv	Oman	OMAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1083	25020	Geo	Nnn	TbPatPrv	Pakistan	PAKISTAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1085	25027	Geo	Nnn	TbPatPrv	Palau	PALAU	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1087	25034	Geo	Nnn	TbPatPrv	Palestinian Territory, occupied	PALESTYNA	2014-09-16 10:13:00	2018-04-12	dkarczma	pl	
+1089	25041	Geo	Nnn	TbPatPrv	Panama	PANAMA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1091	25048	Geo	Nnn	TbPatPrv	Papua new guinea	PAPUA NOWA GWINEA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1093	25055	Geo	Nnn	TbPatPrv	Paraguay	PARAGWAJ	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1095	25062	Geo	Nnn	TbPatPrv	Peru	PERU	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1097	25069	Geo	Nnn	TbPatPrv	Philippines	FILIPINY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1099	25076	Geo	Nnn	TbPatPrv	Pitcairn	PITCAIRN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1101	25083	Geo	Nnn	TbPatPrv	Poland	POLSKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1103	25090	Geo	Nnn	TbPatPrv	Portugal	PORTUGALIA 	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1105	25097	Geo	Nnn	TbPatPrv	Puerto rico	PUERTO RICO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1107	25104	Geo	Nnn	TbPatPrv	Qatar	KATAR	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1109	25111	Geo	Nnn	TbPatPrv	Reunion	REUNION	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1111	25118	Geo	Nnn	TbPatPrv	Romania	RUMUNIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1113	25125	Geo	Nnn	TbPatPrv	Russian Federation	ROSJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1115	25132	Geo	Nnn	TbPatPrv	Rwanda	RWANDA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1117	25139	Geo	Nnn	TbPatPrv	Saint barthélemy		2014-09-15 15:09:00		dbo	pl	
+1119	25146	Geo	Nnn	TbPatPrv	Saint helena	WYSPA ŚWIETEJ HELENY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1121	25153	Geo	Nnn	TbPatPrv	Saint kitts and nevis	SAINT KITTS I NEVIS	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1123	25160	Geo	Nnn	TbPatPrv	Saint lucia	SAINT LUCIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1125	25167	Geo	Nnn	TbPatPrv	Saint martin	SAINT MARTIN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1127	25174	Geo	Nnn	TbPatPrv	Saint pierre and miquelon	SAINT PIERRE I MIQUELON	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1129	25181	Geo	Nnn	TbPatPrv	Saint vincent and the grenadines	SAINT VINCENT I GRENADYNY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1131	25188	Geo	Nnn	TbPatPrv	Samoa	SAMOA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1133	25195	Geo	Nnn	TbPatPrv	San Marino	SAN MARINO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1135	25202	Geo	Nnn	TbPatPrv	Sao tome and principe	SAO TOME I PRINCIPE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1137	25209	Geo	Nnn	TbPatPrv	Saudi Arabia	ARABIA SAUDYJSKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1139	25216	Geo	Nnn	TbPatPrv	Senegal	SENEGAL	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1141	25223	Geo	Nnn	TbPatPrv	Serbia	SERBIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1143	25230	Geo	Nnn	TbPatPrv	Seychelles	SESZELE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1145	25237	Geo	Nnn	TbPatPrv	Sierra leone	SIERRA LEONE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1147	25244	Geo	Nnn	TbPatPrv	Singapore	SINGAPUR	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1149	25251	Geo	Nnn	TbPatPrv	Slovakia	SŁOWACJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1151	25258	Geo	Nnn	TbPatPrv	Slovenia	SŁOWNIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1153	25265	Geo	Nnn	TbPatPrv	Solomon islands	WYSPY SALOMONA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1155	25272	Geo	Nnn	TbPatPrv	Somalia	SOMALIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1157	25279	Geo	Nnn	TbPatPrv	South Africa	AFRYKA POŁUDNIOWA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1159	25286	Geo	Nnn	TbPatPrv	South georgia and the south sandwich islands	GEORGIA POŁUDNIOWA I SANDWICH POŁUDNIOWY	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1161	25293	Geo	Nnn	TbPatPrv	Spain	HISZPANIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1163	25300	Geo	Nnn	TbPatPrv	Sri Lanka	SRI LANKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1165	25307	Geo	Nnn	TbPatPrv	Sudan	SUDAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1167	25314	Geo	Nnn	TbPatPrv	Suriname	SURINAME	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1169	25321	Geo	Nnn	TbPatPrv	Svalbard and jan mayen	SVALBARD I JAN MAYEN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1171	25328	Geo	Nnn	TbPatPrv	Swaziland	SUAZI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1173	25335	Geo	Nnn	TbPatPrv	Sweden	SZWECJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1175	25342	Geo	Nnn	TbPatPrv	Switzerland	SZWAJCARIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1177	25349	Geo	Nnn	TbPatPrv	Syrian Arab Republic	SYRIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1179	25356	Geo	Nnn	TbPatPrv	Taiwan, Province of China	TAJWAN	2014-09-16 10:13:00	2018-04-12	dkarczma	pl	
+1181	25363	Geo	Nnn	TbPatPrv	Tajikistan	TADŻYKISTAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1183	25370	Geo	Nnn	TbPatPrv	Tanzania, United Republic of	TANZANIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1185	25377	Geo	Nnn	TbPatPrv	Thailand	TAJLANDIA	2014-09-15 15:26:00	2018-04-12	dkarczma	pl	
+1187	25384	Geo	Nnn	TbPatPrv	Timor-leste	TIMOR-LESTE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1189	25391	Geo	Nnn	TbPatPrv	Togo	TOGO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1191	25398	Geo	Nnn	TbPatPrv	Tokelau	TOKELAU	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1193	25405	Geo	Nnn	TbPatPrv	Tonga	TONKA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1195	25412	Geo	Nnn	TbPatPrv	Trinidad and Tobago	TRINIDAD AND TOBAGO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1197	25419	Geo	Nnn	TbPatPrv	Tunisia	TUNEZJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1199	25426	Geo	Nnn	TbPatPrv	Turkey	TURCJA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1201	25433	Geo	Nnn	TbPatPrv	Turkmenistan	TURKMENISTAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1203	25440	Geo	Nnn	TbPatPrv	Turks and caicos islands	TURKS I CAICOS	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1205	25447	Geo	Nnn	TbPatPrv	Tuvalu	TUVALU	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1207	25454	Geo	Nnn	TbPatPrv	Uganda	UGANDA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1209	25461	Geo	Nnn	TbPatPrv	Ukraine	UKRAINA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1211	25468	Geo	Nnn	TbPatPrv	United Arab Emirates	ZJEDNOCZONE EMIRATY ARABSKIE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1213	25475	Geo	Nnn	TbPatPrv	United Kingdom	ZJEDNOCZONE KRÓLESTWO	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1215	25482	Geo	Nnn	TbPatPrv	United States	STANY ZJEDNOCZONE AMERYKI	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1217	25489	Geo	Nnn	TbPatPrv	United states minor outlying islands	DALEKIE WYSPY MNIEJSZE STANÓW ZJEDNOCZONYCH	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1219	25496	Geo	Nnn	TbPatPrv	Uruguay	URUGWAJ	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1221	25503	Geo	Nnn	TbPatPrv	Uzbekistan	UZBEKISTAN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1223	25510	Geo	Nnn	TbPatPrv	Vanuatu	VANUATU	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1225	25517	Geo	Nnn	TbPatPrv	Venezuela	WENEZUELA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1227	25524	Geo	Nnn	TbPatPrv	Viet Nam	WIETNAM	2014-09-16 10:13:00	2018-04-12	dkarczma	pl	
+1229	25531	Geo	Nnn	TbPatPrv	Virgin islands, british	BRYTYJSKIE WYSPYDZIEWICZE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1231	25538	Geo	Nnn	TbPatPrv	Virgin islands, u.s.	WYSPY DZIEWICZE STANÓW ZJEDNOCZONYCH	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1233	25545	Geo	Nnn	TbPatPrv	Wallis and futuna	WALLIS I FUTUNA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1235	25552	Geo	Nnn	TbPatPrv	Western sahara	SAHARA ZACHODNIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1237	25559	Geo	Nnn	TbPatPrv	Yemen	JEMEN	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1239	25566	Geo	Nnn	TbPatPrv	Zambia	ZAMBIA	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1241	25573	Geo	Nnn	TbPatPrv	Zimbabwe	ZIMBABWE	2014-09-15 15:09:00	2018-04-12	dkarczma	pl	
+1243	25580	Pop	Nnn	TbPatPrv	Alaskan Eskimos		2014-09-15 10:39:00		dbo	pl	
+1245	25587	Pop	Nnn	TbPatPrv	Alaskans		2014-09-15 10:39:00		dbo	pl	
+1247	25594	Pop	Nnn	TbPatPrv	Amish		2014-09-15 10:39:00		dbo	pl	
+1249	25601	Pop	Nnn	TbPatPrv	Amish in Lancaster County, Pennsylvania		2014-09-15 10:39:00		dbo	pl	
+1251	25608	Pop	Nnn	TbPatPrv	Ashkenazi Jews		2014-09-15 10:39:00		dbo	pl	
+1253	25615	Pop	Nnn	TbPatPrv	Asians in UK		2014-09-15 10:39:00		dbo	pl	
+1255	25622	Pop	Nnn	TbPatPrv	Basque Country in Spain		2014-09-15 10:39:00		dbo	pl	
+1257	25629	Pop	Nnn	TbPatPrv	Bedouin		2014-09-15 10:39:00		dbo	pl	
+1259	25636	Pop	Nnn	TbPatPrv	Black Maori		2014-09-15 10:39:00		dbo	pl	
+1261	25643	Pop	Nnn	TbPatPrv	Bukhara Jews in Israel		2014-09-15 10:39:00		dbo	pl	
+1263	25650	Pop	Nnn	TbPatPrv	Caribbean		2014-09-15 10:39:00		dbo	pl	
+1265	25657	Pop	Nnn	TbPatPrv	Caucasians		2014-09-15 10:39:00		dbo	pl	
+1267	25664	Pop	Nnn	TbPatPrv	Caucasians in Norway		2014-09-15 10:39:00		dbo	pl	
+1269	25671	Pop	Nnn	TbPatPrv	Caucasians in USA		2014-09-15 10:39:00		dbo	pl	
+1271	25678	Pop	Nnn	TbPatPrv	Choctaw Native Americans		2014-09-15 10:39:00		dbo	pl	
+1273	25685	Pop	Nnn	TbPatPrv	Consanguineous population in Pakistan		2014-09-15 10:39:00		dbo	pl	
+1275	25692	Pop	Nnn	TbPatPrv	Eastern European Jews		2014-09-15 10:39:00		dbo	pl	
+1277	25699	Pop	Nnn	TbPatPrv	Endemic tropical regions inhabitants		2014-09-15 10:39:00		dbo	pl	
+1279	25706	Pop	Nnn	TbPatPrv	Flores Island inhabitants		2014-09-15 10:39:00		dbo	pl	
+1281	25713	Pop	Nnn	TbPatPrv	Gaza inhabitants		2014-09-15 10:39:00		dbo	pl	
+1283	25720	Pop	Nnn	TbPatPrv	Guam Island inhabitants		2014-09-15 10:39:00		dbo	pl	
+1285	25727	Pop	Nnn	TbPatPrv	Han chinese in Taiwan		2014-09-15 10:39:00		dbo	pl	
+1287	25734	Pop	Nnn	TbPatPrv	Hawaiians		2014-09-15 10:39:00		dbo	pl	
+1289	25741	Pop	Nnn	TbPatPrv	Indian populations		2014-09-15 10:39:00		dbo	pl	
+1291	25748	Pop	Nnn	TbPatPrv	Inner Mongolians		2014-09-15 10:39:00		dbo	pl	
+1293	25755	Pop	Nnn	TbPatPrv	Iranian Kurds		2014-09-15 10:39:00		dbo	pl	
+1295	25762	Pop	Nnn	TbPatPrv	Iraqi Jews		2014-09-15 10:39:00		dbo	pl	
+1297	25769	Pop	Nnn	TbPatPrv	Island of Newfoundland inhabitants		2014-09-15 10:39:00		dbo	pl	
+1299	25776	Pop	Nnn	TbPatPrv	Libyan Jews		2014-09-15 10:39:00		dbo	pl	
+1301	25783	Pop	Nnn	TbPatPrv	Mallorca inhabitants		2014-09-15 10:39:00		dbo	pl	
+1303	25790	Pop	Nnn	TbPatPrv	Manitoba inhabitants		2014-09-15 10:39:00		dbo	pl	
+1305	25797	Pop	Nnn	TbPatPrv	Mediterranean region inhabitants		2014-09-15 10:39:00		dbo	pl	
+1307	25804	Pop	Nnn	TbPatPrv	Middle-Eastern region inhabitants		2014-09-15 10:39:00		dbo	pl	
+1309	25811	Pop	Nnn	TbPatPrv	Navajos		2014-09-15 10:39:00		dbo	pl	
+1311	25818	Pop	Nnn	TbPatPrv	Naxos island inhabitants		2014-09-15 10:39:00		dbo	pl	
+1313	25825	Pop	Nnn	TbPatPrv	New South Wales inhabitants		2014-09-15 10:39:00		dbo	pl	
+1315	25832	Pop	Nnn	TbPatPrv	Oriental Jews		2014-09-15 10:39:00		dbo	pl	
+1317	25839	Pop	Nnn	TbPatPrv	Pacific Islanders		2014-09-15 10:39:00		dbo	pl	
+1319	25846	Pop	Nnn	TbPatPrv	Panay islanders, Philippines		2014-09-15 10:39:00		dbo	pl	
+1321	25853	Pop	Nnn	TbPatPrv	Persan Jews		2014-09-15 10:39:00		dbo	pl	
+1323	25860	Pop	Nnn	TbPatPrv	Puerto Ricans		2014-09-15 10:39:00		dbo	pl	
+1325	25867	Pop	Nnn	TbPatPrv	Quebec inhabitants		2014-09-15 10:39:00		dbo	pl	
+1327	25874	Pop	Nnn	TbPatPrv	Saguenay Lac Saint Jean inhabitants		2014-09-15 10:39:00		dbo	pl	
+1329	25881	Pop	Nnn	TbPatPrv	Sardinia inhabitants		2014-09-15 10:39:00		dbo	pl	
+1331	25888	Pop	Nnn	TbPatPrv	Scandinavians		2014-09-15 10:39:00		dbo	pl	
+1333	25895	Pop	Nnn	TbPatPrv	Scotland inhabitants		2014-09-15 10:39:00		dbo	pl	
+1335	25902	Pop	Nnn	TbPatPrv	Sicily inhabitants		2014-09-15 10:39:00		dbo	pl	
+1337	25909	Pop	Nnn	TbPatPrv	South African Afrikaaners inhabitants		2014-09-15 10:39:00		dbo	pl	
+1339	25916	Pop	Nnn	TbPatPrv	South Wales inhabitants		2014-09-15 10:39:00		dbo	pl	
+1341	25923	Pop	Nnn	TbPatPrv	Spanish Gypsies		2014-09-15 10:39:00		dbo	pl	
+1343	25930	Pop	Nnn	TbPatPrv	Sub-Saharan Blacks		2014-09-15 10:39:00		dbo	pl	
+1345	25937	Pop	Nnn	TbPatPrv	Tagus River Valley inhabitants		2014-09-15 10:39:00		dbo	pl	
+1347	25944	Pop	Nnn	TbPatPrv	Turkish in Germany		2014-09-15 10:39:00		dbo	pl	
+1349	25951	Pop	Nnn	TbPatPrv	Wales inhabitants  		2014-09-15 10:39:00		dbo	pl	
+1351	25958	Sta	Nnn	TbPatPrv	Validated	Zwalidowany	2014-09-15 14:55:00	2018-04-12	dkarczma	pl	
+1353	25965	Sta	Nnn	TbPatPrv	Not yet validated	Jeszcze niezwalidowane	2014-09-15 14:55:00	2018-04-12	dkarczma	pl	
+1355	25972	Ass	Gen	TlPHP	Disease-causing germline mutation(s) (loss of function) in	Choroba spowodowana mutacjami germinalnymi (utrata funkcji) w 	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+1357	25979	Ass	Gen	TlPHP	Disease-causing germline mutation(s) (gain of function) in	Choroba spowodowana mutacjami germinalnymi (nabycie funkcji) w 	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+1359	25986	Gen	Loc	TbPat	Disorder-associated locus	locus	2017-06-28 13:04:00	2018-04-12	dkarczma	pl	
+1361	25993	Gen	Pro	TbPat	gene with protein product	Gen z produktem białkowym	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+1363	26046	Gen	Ncr	TbPat	Non-coding RNA	Niekodujący RNA	2014-09-15 14:35:00	2018-04-12	dkarczma	pl	
+1365	26928	Typ	Rch	TbAct	Natural history study	Badanie z zakresu historii naturalnej	2014-12-19 14:32:00	2018-04-12	dkarczma	pl	
+1367	26935	Typ	Rch	TbAct	Drug repurposing	Repozycjonowanie leków	2014-12-19 14:32:00	2018-04-12	dkarczma	pl	
+1369	26942	Typ	Rch	TbAct	Small molecule screening	Badanie przesiewowe małych cząsteczek	2014-12-19 14:32:00	2018-04-12	dkarczma	pl	
+1371	26949	Typ	Rch	TbAct	Biotechnology innovation	Innowacja biotechnologiczna	2014-12-19 14:32:00	2018-04-12	dkarczma	pl	
+1373	26956	Typ	Rch	TbAct	Induced pluripotent stem cells (iPS) creation / study	Badanie indukowanych pluripotencjanych komórek macierzystych	2014-12-19 14:32:00	2018-04-12	dkarczma	pl	
+1375	26963	Typ	Rch	TbAct	Ontology / bioinformatics study	Badanie ontologiczne/bioinformatyczne	2014-12-19 14:32:00	2018-04-12	dkarczma	pl	
+1377	26970	Typ	Rch	TbAct	Outcomes measures development	Badanie wskaźników skuteczności	2014-12-19 14:32:00	2018-04-12	dkarczma	pl	
+1379	27180	Tps	P	TlHanPat	Permanent limitation	Ograniczenie całkowite	2015-04-08 11:05:00	2018-04-12	dkarczma	pl	
+1381	27187	Tps	D	TlHanPat	Acquisition delay	Opóźnione nabywanie	2015-04-08 11:06:00	2018-04-12	dkarczma	pl	
+1383	27194	Tps	T	TlHanPat	Transient limitation	Ograniczenie przejściowe	2015-04-08 11:07:00	2018-04-12	dkarczma	pl	
+1385	27201	Fce	VF	TlHanPat	Very frequent	Bardzo często	2015-04-08 11:08:00	2018-04-12	dkarczma	pl	
+1387	27208	Fce	F	TlHanPat	Frequent	Często	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1389	27215	Fce	O	TlHanPat	Occasional	Sporadycznie	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1391	27222	Sev	L	TlHanPat	Low	Niskie	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1393	27229	Sev	LM	TlHanPat	Low to moderate	Niskie do umiarkowanego	2015-04-08 11:10:00	2018-04-12	dkarczma	pl	
+1395	27236	Sev	M	TlHanPat	Moderate	Umiarkowane	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1397	27243	Sev	MS	TlHanPat	Moderate to severe	Umiarkowane do ciężkiego	2015-04-08 11:11:00	2018-04-12	dkarczma	pl	
+1399	27250	Sev	S	TlHanPat	Severe	Ciężkie	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1401	27257	Sev	SC	TlHanPat	Severe to complete	Ciężkie do całkowitego	2015-04-08 11:12:00	2018-04-12	dkarczma	pl	
+1403	27264	Sev	C	TlHanPat	Complete	Całkowite	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1405	27271	Sev	U	TlHanPat	Unspecified	Niespecyficzne	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1407	27278	Chx	AL	TbPatHan	Activity limitation/participation restriction	Ograniczenie aktywności/ograniczony udział	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1409	27285	Chx	NA	TbPatHan	Not applicable	Nie dotyczy	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1411	27292	Chx	NFD	TbPatHan	No functional disability	Brak niepełnosprawności funkcjonalnej	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1413	27299	Rsn	Nnn	TbPatHan	Early death-causing disease	Choroba powodująca wczesną śmierć	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1415	27306	Rsn	Nnn	TbPatHan	Hypervariable functioning	Bardzo zmienne funkcjonowanie	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1417	27313	Rsn	Nnn	TbPatHan	Not applicable for another reason	Nie dotyczy z innego powodu	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1419	27320	Sta	y	TbPatHan	Validated	Zwalidowany	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1421	27327	Sta	n	TbPatHan	Not validated	Niezwalidowany	2015-04-07 10:37:00	2018-04-12	dkarczma	pl	
+1423	27334	Sta	Reg	TbAct	RDConnect	RDConnect	2015-04-15 14:40:00	2018-04-12	dkarczma	pl	
+1425	27341	Ass	Pat	TlPHP	Referred to	Odnoszący się do	2015-04-15 15:11:00	2018-04-12	dkarczma	pl	
+1427	27348	Sta	Gal	TbPrs	IrdircMember	Członek Irdirc	2015-07-30 16:14:00	2018-04-12	dkarczma	pl	
+1429	27397	Cod	Z	TlMAP	Not applicable	Nie dotyczy	2015-12-22 11:13:00	2018-04-12	dkarczma	pl	
+1431	27446	Typ	Dgs	TbAct	Mycology	Mykologia	2015-10-23 17:46:00	2018-04-12	dkarczma	pl	
+1433	28405	Fce	Nnn	TlHpoPat	Obligate (100%)	Obowiązkowy (100%)	2016-03-21 10:45:00	2018-04-12	dkarczma	pl	
+1435	28412	Fce	Nnn	TlHpoPat	Very frequent (99-80%)	Bardzo częsty (99-80%)	2016-03-21 10:45:00	2018-04-12	dkarczma	pl	
+1437	28419	Fce	Nnn	TlHpoPat	Frequent (79-30%)	Często (79-30%)	2016-03-21 10:45:00	2018-04-12	dkarczma	pl	
+1439	28426	Fce	Nnn	TlHpoPat	Occasional (29-5%)	Sporadycznie (29-5%)	2016-03-21 10:45:00	2018-04-12	dkarczma	pl	
+1441	28433	Fce	Nnn	TlHpoPat	Very rare (<4-1%)	Bardzo rzadko (<4-1%)	2016-03-21 10:45:00	2018-04-12	dkarczma	pl	
+1443	28440	Fce	Nnn	TlHpoPat	Excluded (0%)	Wykluczone (0%)	2016-06-06 12:38:00	2018-04-12	dkarczma	pl	
+1445	28447	Crt	Nnn	TlHpoPat	Pathognomonic sign	Objaw patognomoniczny	2016-03-21 10:45:00	2018-04-12	dkarczma	pl	
+1447	28454	Crt	Nnn	TlHpoPat	Diagnostic criterion	Kryterium diagnostyczne	2016-03-21 10:45:00	2018-04-12	dkarczma	pl	
+1449	28461	Crt	Nnn	TlHpoPat	Exclusion criterion	Kryterium wykluczające	2016-03-21 10:45:00	2018-04-12	dkarczma	pl	
+1451	28468	Tch	Spc	TbTch	Molecular genetics	Genetyka molekularna	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1453	28475	Tch	Obj	TbTch	Targeted mutation analysis	Celowana analiza mutacji 	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1455	28482	Tch	Obj	TbTch	Mutation scanning/screening and sequence analysis of selected exons	Badanie przesiewowe w kierunku mutacji i analiza sekwencji wybranych eksonów	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1457	28489	Tch	Obj	TbTch	Sequence analysis: entire coding region	Analiza sekwencji: całego regionu kodującego	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1459	28496	Tch	Obj	TbTch	Uniparental disomy study	Badanie disomii jedorodzicielskiej	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1461	28503	Tch	Obj	TbTch	Methylation analysis	Badanie metylacji	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1463	28510	Tch	Obj	TbTch	Deletion / Duplication analysis	Analiza duplikacji/ delecji	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1465	28517	Tch	Spc	TbTch	Cytogenetics	Cytogenetyka	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1467	28524	Tch	Obj	TbTch	Detection of chromosome alterations large in size	Wykrywanie 	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1469	28531	Tch	Obj	TbTch	Detection of microdeletions/microduplications	Wykrywanie mikrodelecji/mikroduplikacji	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1471	28538	Tch	Obj	TbTch	Chromosomal instability	Niestabilność chromosomowa	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1473	28545	Tch	Spc	TbTch	Biochemical genetics	Genetyka biochemiczna	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1475	28552	Tch	Obj	TbTch	Analyte / Enzyme assay	Analiza enzymatyczna	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1477	28559	Tch	Tch	TbTch	Microsatellite analysis	Analiza mikrosatelitów	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1479	28566	Tch	Obj	TbTch	Protein expression	Ekspresja białek	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1481	28573	Tch	Spc	TbTch	Parasitology	Parazytologia	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1483	28580	Tch	Spc	TbTch	Bacteriology	Bakteriologia	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1485	28587	Tch	Spc	TbTch	Virology	Wirusoloia	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1487	28594	Tch	Spc	TbTch	Mycology	Mykologia	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1489	28601	Tch	Spc	TbTch	Immunology	Immunologia	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1491	28608	Tch	Spc	TbTch	Hematology	Hematalogia	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1493	28615	Tch	Tch	TbTch	NGS sequencing (except WES)	Sekwencjonowanie NGS (bez WES)	2016-03-22 14:43:00	2018-04-12	dkarczma	pl	
+1495	28622	Tch	Spc	TbTch	Pathology	Patologia	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1497	28629	Tch	Spc	TbTch	Imaging	Obrazowanie	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1499	28636	Tch	Tch	TbTch	M-FISH/SKY	M-FISH/SKY	2016-03-22 14:43:00	2018-04-12	dkarczma	pl	
+1501	28643	Tch	Spc	TbTch	Other	Inne	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1503	28650	Tch	Tch	TbTch	Sanger sequencing	Sekwencjonowanie metodą Sangera	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1505	28657	Tch	Tch	TbTch	PCR based techniques	Badanie metodą PCR	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1507	28664	Tch	Tch	TbTch	MLPA based techniques	Badanie metodą MLPA	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1509	28671	Tch	Tch	TbTch	Array based techniques	Badanie metodą macierzy	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1511	28678	Tch	Tch	TbTch	Chromosome breakage analysis	Analiza łamliwości chromosomów	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1513	28685	Tch	Tch	TbTch	BS-Pyrosequencing	BS-Pirosekwencjonowanie	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1515	28692	Tch	Tch	TbTch	FISH	FISH	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1517	28699	Tch	Tch	TbTch	Karyotyping	Kariotypowanie	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1519	28706	Tch	Tch	TbTch	Immunohistochemistry	Immunohistochemia	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1521	28713	Tch	Tch	TbTch	Western Blot	Western Blot	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1523	28720	Tch	Tch	TbTch	Whole Exome Sequencing (WES)	Sekwencjonowanie całoeksomowe (WES)	2016-03-22 14:43:00	2018-04-12	dkarczma	pl	
+1525	28727	Pur	Pur	TbTch	Antenatal diagnosis	Diagnostyka prenatalna	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1527	28734	Pur	Pur	TbTch	Pre-implantation diagnosis	Diagnostyka przedimplantacyjna	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1529	28741	Pur	Pur	TbTch	Post-natal diagnosis	Diagnostyka postnatalna	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1531	28748	Pur	Pur	TbTch	Pre-symptomatic diagnosis	Diagnostyka przedobjawowa	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1533	28755	Pur	Pur	TbTch	Pharmacogenetics	Farmakogenetyka	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1535	28762	Pur	Pur	TbTch	Somatic genetics	Genetyka	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1537	28769	Pur	Pur	TbTch	Risk assessment	Szacowanie ryzyka	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1539	28776	Pur	Pur	TbTch	Newborn screening	Badanie przesiewowe noworodków	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1541	28783	Pur	Pur	TbTch	Not defined	Niezdefiniowany	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1543	28790	Tch	Obj	TbTch	Not defined	Niezdefiniowany	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1545	28797	Tch	Tch	TbTch	Not defined	Niezdefiniowany	2016-03-22 14:38:00	2018-04-12	dkarczma	pl	
+1547	29686	Ass	Gen	TlPHP	Biomarker tested in	Biomarker badany w 	2016-12-16 14:19:00	2018-04-12	dkarczma	pl	
+1549	29693	Typ	Rch	TbAct	CRISPR-Cas9 study	Badanie CRISPR-Cas9	2016-10-05 16:58:00	2018-04-12	dkarczma	pl	
+1551	31066	Sta	Nnn	TbAct	Member of a European Reference Network (ERN)	Członek Europejskiej Sieci Referencyjnej (ERN)	2017-06-06 13:36:00	2018-04-12	dkarczma	pl	
+1553	32410	Pnl	Nnn	TbPat	In-silico		2018-04-04 11:45:00		dbo	pl	
+1555	33334	Typ	Rch	TbAct	Biorepositories development/creation		2018-07-10 10:06:00		dbo	pl	
+1557	33341	Typ	Rch	TbAct	Databases & Registries development/creation		2018-07-10 10:06:00		dbo	pl	

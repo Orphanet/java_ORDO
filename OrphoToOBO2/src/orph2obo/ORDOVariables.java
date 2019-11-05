@@ -3,10 +3,10 @@ package orph2obo;
 import java.util.ArrayList;
 
 public class ORDOVariables {
-	static public String lang             = "it"; 
-	static public String version          = "2.8"; 
-	static public String prevVersion      = "2.6"; 
-	static public String xmlDir           = "11_03_2019"; 
+	static public String lang             = "en"; 
+	static public String version          = "2.9"; 
+	static public String prevVersion      = "2.8"; 
+	static public String xmlDir           = "04_11_2019"; 
   	static public String dateOfCreation   = "2013-06-20T12:00:00";
   	static public String licensePrefixIRI = "https://creativecommons.org/licenses/";
   	static public String licenseClassIRI  = "by/4.0/";

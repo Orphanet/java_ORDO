@@ -251,6 +251,7 @@ public class RareDisease {
     }
     
     public String getdiseaseType(){
+    //	System.out.println("diseaseType: " + diseaseType);
     	return this.diseaseType;
     }
     
@@ -616,6 +617,14 @@ public void setInheritNum(String inheritNum) {
     	OWLClass bioAna = factory.getOWLClass("377790", pm);
     	OWLAnnotation label0 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral(getConceptLabel("377790"),getLang()));
     	
+    	
+    	
+    	
+    	//======category===04/11/2019
+    	OWLClass category = factory.getOWLClass("557495", pm);
+    	OWLAnnotation label2019 = factory.getOWLAnnotation(factory.getRDFSLabel(),factory.getOWLLiteral(getConceptLabel("557495"),getLang()));
+    	
+    	
     	//=======Gene=====
     	OWLClass gene = factory.getOWLClass("C010", pm);
        	OWLAnnotation genelabel = factory.getOWLAnnotation(factory.getRDFSLabel(), factory.getOWLLiteral(getConceptLabel("C010"),getLang()));
@@ -744,6 +753,19 @@ public void setInheritNum(String inheritNum) {
     	OWLDeclarationAxiom declarationAxiom7 = factory.getOWLDeclarationAxiom(partClinSitu);
     	OWLDeclarationAxiom declarationAxiom9 = factory.getOWLDeclarationAxiom(histoPathoSub);
     	OWLDeclarationAxiom declarationAxiom0 = factory.getOWLDeclarationAxiom(bioAna);
+    	
+    	
+    	
+    	
+    	
+    	//======category===04/11/2019====
+    	OWLDeclarationAxiom declarationAxiom2019 = factory.getOWLDeclarationAxiom(category);
+    	
+    	
+    	
+    	
+    	
+    	
     	//==gene=====
     	OWLDeclarationAxiom declarationGene = factory.getOWLDeclarationAxiom(gene);
     	OWLDeclarationAxiom genType1= factory.getOWLDeclarationAxiom(geneTypProtProd);//gene with protein product
@@ -816,6 +838,17 @@ public void setInheritNum(String inheritNum) {
     	OWLAxiom lab7 = factory.getOWLAnnotationAssertionAxiom(partClinSitu.getIRI(), label7);
     	OWLAxiom lab9 = factory.getOWLAnnotationAssertionAxiom(histoPathoSub.getIRI(), label9);
     	OWLAxiom lab0 = factory.getOWLAnnotationAssertionAxiom(bioAna.getIRI(), label0);
+    	
+    	
+    	
+    	
+    	
+    	//======category===04/11/2019
+    	OWLAxiom lab2019 = factory.getOWLAnnotationAssertionAxiom(category.getIRI(), label2019);
+    	
+    	
+    	
+    	
     	//=====Gene=====
     	OWLAxiom labGene = factory.getOWLAnnotationAssertionAxiom(gene.getIRI(), genelabel);
     	//Annotation A FAIRE
@@ -833,6 +866,13 @@ public void setInheritNum(String inheritNum) {
        	manager.applyChange(new AddAxiom(ontology, declarationAxiom7));
        	manager.applyChange(new AddAxiom(ontology, declarationAxiom9));
        	manager.applyChange(new AddAxiom(ontology, declarationAxiom0));
+       	
+       	
+       	
+       	
+       	//======category===04/11/2019====
+       	manager.applyChange(new AddAxiom(ontology, declarationAxiom2019));
+       	
        	
        	//=====Gene=====
        	manager.applyChange(new AddAxiom(ontology, declarationGene));
@@ -881,6 +921,12 @@ public void setInheritNum(String inheritNum) {
        	manager.applyChange(new AddAxiom(ontology, lab7));
        	manager.applyChange(new AddAxiom(ontology, lab9));
        	manager.applyChange(new AddAxiom(ontology, lab0));
+       	
+       	
+       	//======category===04/11/2019====
+       	manager.applyChange(new AddAxiom(ontology, lab2019));
+       	
+       	
        	manager.applyChange(new AddAxiom(ontology, labGene));
        	manager.applyChange(new AddAxiom(ontology, ageofOn));
     	manager.applyChange(new AddAxiom(ontology, prev));
@@ -957,6 +1003,22 @@ public void setInheritNum(String inheritNum) {
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(histoPathoSub, phenome)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(bioAna, phenome)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(prevClass, epidemioClass)));
+    	
+    	
+    	
+    	
+    	
+    	
+    	//======category===04/11/2019
+    	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(category, phenome)));    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     	// ajout point preval etc
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(pointPrevClass, prevClass)));
     	manager.applyChange(new AddAxiom(ontology, factory.getOWLSubClassOfAxiom(birthPrevClass, prevClass)));
@@ -1129,6 +1191,26 @@ public void setInheritNum(String inheritNum) {
 				factory.getOWLLiteral(getConceptDefinition("377791"),getLang()));
 		OWLAxiom morphAnaDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(morphAna.getIRI(), morphAnaDefinition);
 		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), morphAnaDefine));
+		
+		
+		
+		
+		
+		
+		//======category===04/11/2019/David
+		// category 557495
+		OWLAnnotation categoryDefinition = factory.getOWLAnnotation(factory.getOWLAnnotationProperty("definition", pm2),
+				factory.getOWLLiteral(getConceptDefinition("557495"),getLang()));
+		OWLAxiom categoryDefine = owlvar.getFactory().getOWLAnnotationAssertionAxiom(category.getIRI(),categoryDefinition);
+		owlvar.getManager().applyChange(new AddAxiom(owlvar.getOntology(), categoryDefine));
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		/* *** UPDATE SD : Inheritance  *** */
 		

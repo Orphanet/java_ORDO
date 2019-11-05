@@ -81,5 +81,5 @@ C021	deel_van	Relatie tussen twee klinische entiteiten, waarbij één deel uitma
 ECO_0000205	curator_inference	NA
 ECO_0000218	manual_assertion	NA
 with_label	with label	 met label:
-deprecated	depracated	Deze klasse is achterhaald. De voorkeursklasse is
+deprecated	deprecated	Deze klasse is achterhaald. De voorkeursklasse is
 use	use	gebruik 

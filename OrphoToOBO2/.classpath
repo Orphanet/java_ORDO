@@ -17,7 +17,7 @@
 	<classpathentry kind="lib" path="librairies_ajoutees/javax-inject.jar"/>
 	<classpathentry kind="lib" path="librairies_ajoutees/jsr305-1.3.9.jar"/>
 	<classpathentry kind="lib" path="librairies_ajoutees/com.google.inject_2.0.0.v201105231817.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sdemarest.BROUSSAIS/git/java_ORDO_origine/OrphoToOBO2/librairies_ajoutees/logmap2_standalone_v2.4_oct_2013/lib/HermiT1.3.8.jar"/>
 	<classpathentry kind="lib" path="librairies_ajoutees/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="librairies_ajoutees/logmap2_standalone_v2.4_oct_2013/logmap2_standalone.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

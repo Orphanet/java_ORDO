@@ -81,5 +81,5 @@ ECO_0000218	manual_assertion	NA
 C021	parte_de	Relación entre dos entidades clínicas, una incluida en la otra. Ej.: subtipo clínico parte de una enfermedad.
 409981	Rango_epidemiológico_desconocido	Sin información disponible en la literatura científica sobre la prevalencia o la incidencia anual.
 with_label	with label	 con el rótulo:
-deprecated	depracated	Esta categoría es obsoleta. La categoría preferente es
+deprecated	deprecated	Esta categoría es obsoleta. La categoría preferente es
 use	use	utilice  
